@@ -1,0 +1,157 @@
+/* DATABASE-script creation */
+
+USE [master]
+GO
+
+/****** Object:  Database [MessageBoard]    Script Date: 12/18/2016 11:40:29 AM ******/
+CREATE DATABASE [MessageBoard]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'MessageBoard', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS1\MSSQL\DATA\MessageBoard.mdf' , SIZE = 5120KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'MessageBoard_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS1\MSSQL\DATA\MessageBoard_log.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+GO
+
+ALTER DATABASE [MessageBoard] SET COMPATIBILITY_LEVEL = 120
+GO
+
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [MessageBoard].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+
+ALTER DATABASE [MessageBoard] SET ANSI_NULL_DEFAULT OFF 
+GO
+
+ALTER DATABASE [MessageBoard] SET ANSI_NULLS OFF 
+GO
+
+ALTER DATABASE [MessageBoard] SET ANSI_PADDING OFF 
+GO
+
+ALTER DATABASE [MessageBoard] SET ANSI_WARNINGS OFF 
+GO
+
+ALTER DATABASE [MessageBoard] SET ARITHABORT OFF 
+GO
+
+ALTER DATABASE [MessageBoard] SET AUTO_CLOSE OFF 
+GO
+
+ALTER DATABASE [MessageBoard] SET AUTO_SHRINK OFF 
+GO
+
+ALTER DATABASE [MessageBoard] SET AUTO_UPDATE_STATISTICS ON 
+GO
+
+ALTER DATABASE [MessageBoard] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+
+ALTER DATABASE [MessageBoard] SET CURSOR_DEFAULT  GLOBAL 
+GO
+
+ALTER DATABASE [MessageBoard] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+
+ALTER DATABASE [MessageBoard] SET NUMERIC_ROUNDABORT OFF 
+GO
+
+ALTER DATABASE [MessageBoard] SET QUOTED_IDENTIFIER OFF 
+GO
+
+ALTER DATABASE [MessageBoard] SET RECURSIVE_TRIGGERS OFF 
+GO
+
+ALTER DATABASE [MessageBoard] SET  DISABLE_BROKER 
+GO
+
+ALTER DATABASE [MessageBoard] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+
+ALTER DATABASE [MessageBoard] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+
+ALTER DATABASE [MessageBoard] SET TRUSTWORTHY OFF 
+GO
+
+ALTER DATABASE [MessageBoard] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+
+ALTER DATABASE [MessageBoard] SET PARAMETERIZATION SIMPLE 
+GO
+
+ALTER DATABASE [MessageBoard] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+
+ALTER DATABASE [MessageBoard] SET HONOR_BROKER_PRIORITY OFF 
+GO
+
+ALTER DATABASE [MessageBoard] SET RECOVERY SIMPLE 
+GO
+
+ALTER DATABASE [MessageBoard] SET  MULTI_USER 
+GO
+
+ALTER DATABASE [MessageBoard] SET PAGE_VERIFY CHECKSUM  
+GO
+
+ALTER DATABASE [MessageBoard] SET DB_CHAINING OFF 
+GO
+
+ALTER DATABASE [MessageBoard] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+
+ALTER DATABASE [MessageBoard] SET TARGET_RECOVERY_TIME = 0 SECONDS 
+GO
+
+ALTER DATABASE [MessageBoard] SET DELAYED_DURABILITY = DISABLED 
+GO
+
+ALTER DATABASE [MessageBoard] SET  READ_WRITE 
+GO
+
+/************************************UserTable*************************************/
+
+CREATE TABLE tblUser
+(
+UserID int IDENTITY(1,1) PRIMARY KEY,
+FirstName NVARCHAR(100) NOT NULL,
+LastName NVARCHAR(100) NOT NULL,
+Username nvarchar(255) NOT NULL,
+Password nvarchar(255) NOT NULL,
+PasswordHash nvarchar(255) NOT NULL,
+Country NVARCHAR(50) NOT NULL,
+City NVARCHAR(50) NOT NULL,
+Domain NVARCHAR(50) NOT NULL,
+ProfileImage IMAGE,
+IsAdministrator BIT NOT NULL,
+IsActive BIT NOT NULL,
+AccountCreation date NOT NULL,
+);
+
+/************************************PostTable************************************/
+
+CREATE TABLE tblPost
+(
+PostID int IDENTITY(1,1) PRIMARY KEY,
+FK_tblUser_tblPosts INT FOREIGN KEY REFERENCES tblUser(UserID),
+PostName NVARCHAR(300) NOT NULL,
+PostImage IMAGE,
+IsPublished BIT NOT NULL,
+PostDate DATE NOT NULL,
+);
+
+/*************************************CommentTable**********************************/
+
+CREATE TABLE tblComment
+(
+CommentID int IDENTITY(1,1) PRIMARY KEY,
+FK_tblUser_tblComment INT FOREIGN KEY REFERENCES tblUser(UserID),
+FK_tblPost INT FOREIGN KEY REFERENCES tblPost(PostID) NULL,
+MainComment INT FOREIGN KEY REFERENCES tblComment(CommentID) NULL,
+CommentContent NVARCHAR(1000) NOT NULL,
+IsBlocked BIT NOT NULL,
+PostDate DATE NOT NULL, 
+);
+
