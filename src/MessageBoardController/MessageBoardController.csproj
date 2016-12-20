@@ -82,6 +82,16 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MessageBoardDTO\MessageBoardDTO.csproj">
+      <Project>{e9c84dff-d61c-4d1d-928e-e1a92c75f58c}</Project>
+      <Name>MessageBoardDTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MessageBoard\MessageBoardModel.csproj">
+      <Project>{d5fefff0-aebe-4caf-a264-1b9e7c446f88}</Project>
+      <Name>MessageBoardModel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
