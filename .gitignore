@@ -2,3 +2,5 @@ src/.vs/config
 /
 src/packages/
 src/MessageBoard/obj/
+src/MessageBoardController/obj/
+src/MessageBoardDTO/obj/
