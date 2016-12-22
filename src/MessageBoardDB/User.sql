@@ -12,5 +12,5 @@ Domain NVARCHAR(50) NOT NULL,
 ProfileImage IMAGE,
 IsAdministrator BIT NOT NULL,
 IsActive BIT NOT NULL,
-AccountCreation date NOT NULL 
+[AccountCreationDate] DATETIME NOT NULL 
 );

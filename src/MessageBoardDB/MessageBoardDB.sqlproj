@@ -63,4 +63,7 @@
     <Build Include="Post.sql" />
     <Build Include="Comment.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="MessageBoardDB.refactorlog" />
+  </ItemGroup>
 </Project>
