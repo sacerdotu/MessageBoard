@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoardModel", "MessageBoard\MessageBoardModel.csproj", "{D5FEFFF0-AEBE-4CAF-A264-1B9E7C446F88}"
-EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MessageBoardDB", "MessageBoardDB\MessageBoardDB.sqlproj", "{28E7620D-8333-43E3-9EF4-6E5DACB04E76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoardController", "MessageBoardController\MessageBoardController.csproj", "{57A67442-EFC8-4839-B225-830C729C8C60}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoardService", "MessageBoardController\MessageBoardService.csproj", "{57A67442-EFC8-4839-B225-830C729C8C60}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoardDTO", "MessageBoardDTO\MessageBoardDTO.csproj", "{E9C84DFF-D61C-4D1D-928E-E1A92C75F58C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoardModel", "MessageBoardDBEF\MessageBoardModel.csproj", "{D5FEFFF0-AEBE-4CAF-A264-1B9E7C446F88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoard", "MessageBoard\MessageBoard.csproj", "{46783133-E105-4D4F-A80E-B7F85E6FAF75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D5FEFFF0-AEBE-4CAF-A264-1B9E7C446F88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D5FEFFF0-AEBE-4CAF-A264-1B9E7C446F88}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D5FEFFF0-AEBE-4CAF-A264-1B9E7C446F88}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D5FEFFF0-AEBE-4CAF-A264-1B9E7C446F88}.Release|Any CPU.Build.0 = Release|Any CPU
 		{28E7620D-8333-43E3-9EF4-6E5DACB04E76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{28E7620D-8333-43E3-9EF4-6E5DACB04E76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28E7620D-8333-43E3-9EF4-6E5DACB04E76}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -35,6 +33,14 @@ Global
 		{E9C84DFF-D61C-4D1D-928E-E1A92C75F58C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9C84DFF-D61C-4D1D-928E-E1A92C75F58C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9C84DFF-D61C-4D1D-928E-E1A92C75F58C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5FEFFF0-AEBE-4CAF-A264-1B9E7C446F88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5FEFFF0-AEBE-4CAF-A264-1B9E7C446F88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5FEFFF0-AEBE-4CAF-A264-1B9E7C446F88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5FEFFF0-AEBE-4CAF-A264-1B9E7C446F88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46783133-E105-4D4F-A80E-B7F85E6FAF75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46783133-E105-4D4F-A80E-B7F85E6FAF75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46783133-E105-4D4F-A80E-B7F85E6FAF75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46783133-E105-4D4F-A80E-B7F85E6FAF75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
