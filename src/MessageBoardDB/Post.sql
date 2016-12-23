@@ -1,9 +1,0 @@
-﻿CREATE TABLE tblPost
-(
-PostID int IDENTITY(1,1) PRIMARY KEY,
-FK_tblUser_tblPosts INT FOREIGN KEY REFERENCES tblUser(UserID),
-PostName NVARCHAR(300) NOT NULL,
-PostImage IMAGE,
-IsPublished BIT NOT NULL,
-PostDate DATE NOT NULL,
-);
