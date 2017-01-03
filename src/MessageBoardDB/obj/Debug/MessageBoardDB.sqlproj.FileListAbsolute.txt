@@ -1,9 +1,0 @@
-E:\Work\MessageBoard\src\MessageBoardDB\bin\Debug\MessageBoardDB.dacpac
-E:\Work\MessageBoard\src\MessageBoardDB\bin\Debug\MessageBoardDB.dll
-E:\Work\MessageBoard\src\MessageBoardDB\bin\Debug\MessageBoardDB.pdb
-E:\Work\MessageBoard\src\MessageBoardDB\obj\Debug\Model.xml
-E:\Work\MessageBoard\src\MessageBoardDB\obj\Debug\refactor.xml
-E:\Work\MessageBoard\src\MessageBoardDB\obj\Debug\postdeploy.sql
-E:\Work\MessageBoard\src\MessageBoardDB\obj\Debug\predeploy.sql
-E:\Work\MessageBoard\src\MessageBoardDB\obj\Debug\MessageBoardDB.dll
-E:\Work\MessageBoard\src\MessageBoardDB\obj\Debug\MessageBoardDB.pdb
