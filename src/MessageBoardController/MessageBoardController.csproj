@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MessageBoardCommon">
+      <HintPath>..\..\..\MessageBoardCommon\src\MessageBoardCommon\MessageBoardCommon\bin\Debug\MessageBoardCommon.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
