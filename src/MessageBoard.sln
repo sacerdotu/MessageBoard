@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoard", "MessageBoar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoardController", "MessageBoardController\MessageBoardController.csproj", "{6FABF54B-7DC5-4E18-99A0-E0CDDD7A09F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoardCommon", "..\..\MessageBoardCommon\src\MessageBoardCommon\MessageBoardCommon\MessageBoardCommon.csproj", "{0A09B058-1BA7-49C7-9738-5B7ADDD886D3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoardCommon", "MessageBoardCommon\MessageBoardCommon\MessageBoardCommon.csproj", "{0A09B058-1BA7-49C7-9738-5B7ADDD886D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
