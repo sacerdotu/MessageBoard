@@ -30,7 +30,7 @@
         {
             DevExpress.XtraEditors.PictureEdit imgProfilePicture;
             this.txtFirstName = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.txtLastName = new DevExpress.XtraEditors.TextEdit();
             this.txtCountry = new DevExpress.XtraEditors.TextEdit();
             this.txtCity = new DevExpress.XtraEditors.TextEdit();
             this.lblFirstName = new DevExpress.XtraEditors.LabelControl();
@@ -47,16 +47,27 @@
             this.txtPassword = new DevExpress.XtraEditors.TextEdit();
             this.txtConfirmPassword = new DevExpress.XtraEditors.TextEdit();
             imgProfilePicture = new DevExpress.XtraEditors.PictureEdit();
+            ((System.ComponentModel.ISupportInitialize)(imgProfilePicture.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFirstName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLastName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCountry.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbFunction.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(imgProfilePicture.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConfirmPassword.Properties)).BeginInit();
             this.SuspendLayout();
+            // 
+            // imgProfilePicture
+            // 
+            imgProfilePicture.Cursor = System.Windows.Forms.Cursors.Default;
+            imgProfilePicture.Location = new System.Drawing.Point(98, 239);
+            imgProfilePicture.Name = "imgProfilePicture";
+            imgProfilePicture.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            imgProfilePicture.Properties.ZoomAccelerationFactor = 1D;
+            imgProfilePicture.Size = new System.Drawing.Size(100, 91);
+            imgProfilePicture.TabIndex = 12;
+            imgProfilePicture.EditValueChanged += new System.EventHandler(this.peProfilePicture_EditValueChanged);
             // 
             // txtFirstName
             // 
@@ -65,12 +76,12 @@
             this.txtFirstName.Size = new System.Drawing.Size(100, 20);
             this.txtFirstName.TabIndex = 0;
             // 
-            // textEdit2
+            // txtLastName
             // 
-            this.textEdit2.Location = new System.Drawing.Point(98, 76);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(100, 20);
-            this.textEdit2.TabIndex = 1;
+            this.txtLastName.Location = new System.Drawing.Point(98, 76);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(100, 20);
+            this.txtLastName.TabIndex = 1;
             // 
             // txtCountry
             // 
@@ -139,17 +150,6 @@
             "Other"});
             this.cmbFunction.Size = new System.Drawing.Size(100, 20);
             this.cmbFunction.TabIndex = 11;
-            // 
-            // imgProfilePicture
-            // 
-            imgProfilePicture.Cursor = System.Windows.Forms.Cursors.Default;
-            imgProfilePicture.Location = new System.Drawing.Point(98, 239);
-            imgProfilePicture.Name = "imgProfilePicture";
-            imgProfilePicture.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            imgProfilePicture.Properties.ZoomAccelerationFactor = 1D;
-            imgProfilePicture.Size = new System.Drawing.Size(100, 91);
-            imgProfilePicture.TabIndex = 12;
-            imgProfilePicture.EditValueChanged += new System.EventHandler(this.peProfilePicture_EditValueChanged);
             // 
             // lblProfilePicture
             // 
@@ -224,17 +224,17 @@
             this.Controls.Add(this.lblFirstName);
             this.Controls.Add(this.txtCity);
             this.Controls.Add(this.txtCountry);
-            this.Controls.Add(this.textEdit2);
+            this.Controls.Add(this.txtLastName);
             this.Controls.Add(this.txtFirstName);
             this.Name = "ucUserInformations";
             this.Size = new System.Drawing.Size(489, 370);
             this.Load += new System.EventHandler(this.ucUserInformations_Load);
+            ((System.ComponentModel.ISupportInitialize)(imgProfilePicture.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFirstName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLastName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCountry.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCity.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbFunction.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(imgProfilePicture.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConfirmPassword.Properties)).EndInit();
@@ -246,7 +246,7 @@
         #endregion
 
         private DevExpress.XtraEditors.TextEdit txtFirstName;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.TextEdit txtLastName;
         private DevExpress.XtraEditors.TextEdit txtCountry;
         private DevExpress.XtraEditors.TextEdit txtCity;
         private DevExpress.XtraEditors.LabelControl lblFirstName;

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MessageBoardDTO;
+using DevExpress.XtraEditors;
 
 namespace MessageBoard
 {
@@ -16,6 +18,7 @@ namespace MessageBoard
         {
             InitializeComponent();
         }
+
 
         private void ucUserInformations_Load(object sender, EventArgs e)
         {
@@ -30,6 +33,41 @@ namespace MessageBoard
         private void peProfilePicture_EditValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        public TextEdit TxtFirstName
+        {
+            get { return txtFirstName; }
+        }
+
+        public TextEdit TxtLastName
+        {
+            get { return txtLastName; }
+        }
+
+        public TextEdit TxtCountry
+        {
+            get { return txtCountry; }
+        }
+
+        public TextEdit TxtCity
+        {
+            get { return txtCity; }
+        }
+
+        public TextEdit TxtUsername
+        {
+            get { return txtUsername; }
+        }
+
+        public TextEdit TxtPassword
+        {
+            get { return txtPassword; }
+        }
+
+        public TextEdit TxtConfirmPassword
+        {
+            get { return txtConfirmPassword; }
         }
     }
 }

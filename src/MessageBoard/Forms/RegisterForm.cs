@@ -10,11 +10,22 @@ using System.Windows.Forms;
 
 namespace MessageBoard.Forms
 {
-    public partial class RegisterForm : Form
+    public partial class RegisterForm : Form, IRegisterForm
     {
+        public ucUserInformations UcUserInformations
+        {
+            get { return ucUserInformations; } 
+        }
         public RegisterForm()
         {
             InitializeComponent();
         }
+
+        private void RegisterUser(object sender, EventArgs e)
+        {
+            
+        }
+
+
     }
 }

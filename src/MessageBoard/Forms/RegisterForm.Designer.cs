@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnRegister = new DevExpress.XtraEditors.SimpleButton();
-            this.ucUserInformations1 = new MessageBoard.ucUserInformations();
+            this.ucUserInformations = new MessageBoard.ucUserInformations();
             this.SuspendLayout();
             // 
             // btnRegister
@@ -39,13 +39,14 @@
             this.btnRegister.Size = new System.Drawing.Size(75, 23);
             this.btnRegister.TabIndex = 1;
             this.btnRegister.Text = "Register";
+            this.btnRegister.Click += new System.EventHandler(this.RegisterUser);
             // 
-            // ucUserInformations1
+            // ucUserInformations
             // 
-            this.ucUserInformations1.Location = new System.Drawing.Point(-1, 0);
-            this.ucUserInformations1.Name = "ucUserInformations1";
-            this.ucUserInformations1.Size = new System.Drawing.Size(489, 370);
-            this.ucUserInformations1.TabIndex = 0;
+            this.ucUserInformations.Location = new System.Drawing.Point(-1, 0);
+            this.ucUserInformations.Name = "ucUserInformations";
+            this.ucUserInformations.Size = new System.Drawing.Size(489, 370);
+            this.ucUserInformations.TabIndex = 0;
             // 
             // RegisterForm
             // 
@@ -53,7 +54,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(557, 382);
             this.Controls.Add(this.btnRegister);
-            this.Controls.Add(this.ucUserInformations1);
+            this.Controls.Add(this.ucUserInformations);
             this.Name = "RegisterForm";
             this.Text = "Register";
             this.ResumeLayout(false);
@@ -62,7 +63,7 @@
 
         #endregion
 
-        private ucUserInformations ucUserInformations1;
+        private ucUserInformations ucUserInformations;
         private DevExpress.XtraEditors.SimpleButton btnRegister;
     }
 }
