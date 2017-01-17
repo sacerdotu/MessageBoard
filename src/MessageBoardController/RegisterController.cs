@@ -1,5 +1,4 @@
-﻿using MessageBoard;
-using MessageBoardController.ServiceReference;
+﻿using MessageBoardController.ServiceReference;
 using MessageBoardDTO;
 using System;
 using System.Collections.Generic;
@@ -12,22 +11,24 @@ namespace MessageBoardController
     public class RegisterController
     {
         private IRegisterForm _form;
-        IService1 _service;
+        private IService1 _service;
         public RegisterController(IRegisterForm form)
         {
             _form = form;
+            _service = new Service1Client();
         }
-        
+
+
         public void RegisterUser()
         {
             try
             {
                 UserDTO user = new UserDTO();
-                user.FirstName = _form.UcUserInformations.TxtFirstName.ToString();
-                user.LastName = _form.UcUserInformations.TxtLastName.ToString();
-                user.Username = _form.UcUserInformations.TxtUsername.ToString();
-                user.PasswordHash = _form.UcUserInformations.TxtPassword.ToString();
-
+                user.FirstName = _form.TxtFirstName.EditValue.ToString();
+                user.LastName = _form.TxtLastName.EditValue.ToString();
+                user.Username = _form.TxtUsername.EditValue.ToString();
+                user.PasswordHash = _form.TxtPassword.EditValue.ToString();
+                _service.InsertNewUser(user);
 
             }
             catch (Exception)
@@ -36,6 +37,5 @@ namespace MessageBoardController
                 throw;
             }
         }
-
     }
 }
