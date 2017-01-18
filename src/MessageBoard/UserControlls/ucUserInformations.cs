@@ -19,7 +19,6 @@ namespace MessageBoard
             InitializeComponent();
         }
 
-
         private void ucUserInformations_Load(object sender, EventArgs e)
         {
 
@@ -34,7 +33,7 @@ namespace MessageBoard
         {
 
         }
-
+        #region Properties
         public TextEdit TxtFirstName
         {
             get { return txtFirstName; }
@@ -69,5 +68,11 @@ namespace MessageBoard
         {
             get { return txtConfirmPassword; }
         }
+
+        public ComboBoxEdit CmbFunction
+        {
+            get { return cmbFunction; }
+        }
+        #endregion
     }
 }
