@@ -20,6 +20,12 @@ namespace MessageBoardController.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertNewUser", ReplyAction="http://tempuri.org/IService1/InsertNewUserResponse")]
         System.Threading.Tasks.Task InsertNewUserAsync(MessageBoardDTO.UserDTO user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CheckUserAndPassword", ReplyAction="http://tempuri.org/IService1/CheckUserAndPasswordResponse")]
+        MessageBoardDTO.UserDTO CheckUserAndPassword(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CheckUserAndPassword", ReplyAction="http://tempuri.org/IService1/CheckUserAndPasswordResponse")]
+        System.Threading.Tasks.Task<MessageBoardDTO.UserDTO> CheckUserAndPasswordAsync(string username);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +61,14 @@ namespace MessageBoardController.ServiceReference {
         
         public System.Threading.Tasks.Task InsertNewUserAsync(MessageBoardDTO.UserDTO user) {
             return base.Channel.InsertNewUserAsync(user);
+        }
+        
+        public MessageBoardDTO.UserDTO CheckUserAndPassword(string username) {
+            return base.Channel.CheckUserAndPassword(username);
+        }
+        
+        public System.Threading.Tasks.Task<MessageBoardDTO.UserDTO> CheckUserAndPasswordAsync(string username) {
+            return base.Channel.CheckUserAndPasswordAsync(username);
         }
     }
 }

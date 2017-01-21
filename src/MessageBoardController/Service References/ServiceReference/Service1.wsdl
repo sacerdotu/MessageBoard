@@ -13,16 +13,35 @@
   <wsdl:message name="IService1_InsertNewUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:InsertNewUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_CheckUserAndPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUserAndPassword" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CheckUserAndPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUserAndPasswordResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="InsertNewUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertNewUser" message="tns:IService1_InsertNewUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertNewUserResponse" message="tns:IService1_InsertNewUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserAndPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CheckUserAndPassword" message="tns:IService1_CheckUserAndPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CheckUserAndPasswordResponse" message="tns:IService1_CheckUserAndPassword_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="InsertNewUser">
       <soap:operation soapAction="http://tempuri.org/IService1/InsertNewUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserAndPassword">
+      <soap:operation soapAction="http://tempuri.org/IService1/CheckUserAndPassword" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

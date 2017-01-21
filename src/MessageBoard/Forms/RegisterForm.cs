@@ -81,6 +81,7 @@ namespace MessageBoard.Forms
             }
         }
 
+        #region RegisterUserButton
         private void RegisterUser(object sender, EventArgs e)
         {
             try
@@ -99,5 +100,8 @@ namespace MessageBoard.Forms
             }
             
         }
+        #endregion
+
+
     }
 }

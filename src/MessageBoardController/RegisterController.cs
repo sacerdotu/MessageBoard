@@ -11,13 +11,22 @@ namespace MessageBoardController
 {
     public class RegisterController
     {
+        #region Members
         private IRegisterForm _form;
         private IService1 _service;
+        #endregion
+
+        #region Constructors
         public RegisterController(IRegisterForm form)
         {
             _form = form;
             _service = new Service1Client();
         }
+
+        public RegisterController()
+        { }
+        #endregion
+
         #region GetSalt
         public string GetSalt()
         {
