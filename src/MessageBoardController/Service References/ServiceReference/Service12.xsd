@@ -11,6 +11,7 @@
       <xs:element minOccurs="0" name="IsAdministrator" type="xs:boolean" />
       <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PasswordHash" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PasswordSalt" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ProfileImage" nillable="true" type="xs:base64Binary" />
       <xs:element minOccurs="0" name="UserID" type="xs:int" />
       <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />

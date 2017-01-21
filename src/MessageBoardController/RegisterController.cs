@@ -18,33 +18,77 @@ namespace MessageBoardController
             _form = form;
             _service = new Service1Client();
         }
-
-        public string GetHash(string password)
+        #region GetSalt
+        public string GetSalt()
         {
-            byte[] salt;
-            new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
-            var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 10000);
-            byte[] hash = pbkdf2.GetBytes(20);
-            byte[] hashBytes = new byte[36];
-            Array.Copy(salt, 0, hashBytes, 0, 16);
-            Array.Copy(hash, 0, hashBytes, 16, 20);
+            int minSaltLength = 4;
+            int maxSaltLength = 16;
 
-            return Convert.ToBase64String(hashBytes);
+            byte[] SaltBytes = null;
+            Random r = new Random();
+            int SaltLength = r.Next(minSaltLength, maxSaltLength);
+            SaltBytes = new byte[SaltLength];
+            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+            rng.GetNonZeroBytes(SaltBytes);
+            string result = Convert.ToBase64String(SaltBytes);
+            rng.Dispose();
+
+            return result;
         }
+        #endregion
 
+        #region GetHash
+        public string GetHash(string password, string salt)
+        {
+            byte[] saltBytes = Encoding.ASCII.GetBytes(salt);
+
+
+            byte[] plainData = ASCIIEncoding.UTF8.GetBytes(password);
+            byte[] plainDataAndSalt = new byte[plainData.Length + saltBytes.Length];
+
+            for(int x = 0; x < plainData.Length; x++)
+            {
+                plainDataAndSalt[x] = plainData[x];
+            }
+            for(int n = 0; n < saltBytes.Length; n++)
+            {
+                plainDataAndSalt[plainData.Length + n] = saltBytes[n];
+            }
+            byte[] hashValue = null;
+
+            SHA256Managed sha = new SHA256Managed();
+            hashValue = sha.ComputeHash(plainDataAndSalt);
+            sha.Dispose();
+
+            byte[] result = new byte[hashValue.Length + saltBytes.Length];
+
+            for(int x = 0; x < hashValue.Length; x++)
+            {
+                result[x] = hashValue[x];
+            }
+            for(int n = 0; n < saltBytes.Length; n++)
+            {
+                result[hashValue.Length + n] = saltBytes[n];
+            }
+
+            return Convert.ToBase64String(result);
+        }
+        #endregion
+
+        #region RegisterUser
         public void RegisterUser()
         {
             try
             {
                 UserDTO user = new UserDTO();
-                var sha = new SHA1CryptoServiceProvider();
                 user.FirstName = _form.TxtFirstName.EditValue.ToString();
                 user.LastName = _form.TxtLastName.EditValue.ToString();
                 user.Country = _form.TxtCountry.EditValue.ToString();
                 user.City = _form.TxtCity.EditValue.ToString();
                 user.Function = _form.CmbFunction.EditValue.ToString();
                 user.Username = _form.TxtUsername.EditValue.ToString();
-                user.PasswordHash = GetHash(_form.TxtPassword.EditValue.ToString());
+                user.PasswordSalt = GetSalt();
+                user.PasswordHash = GetHash(_form.TxtPassword.EditValue.ToString(), user.PasswordSalt);
                 _service.InsertNewUser(user);
 
             }
@@ -54,5 +98,7 @@ namespace MessageBoardController
                 throw;
             }
         }
+        #endregion
+
     }
 }
