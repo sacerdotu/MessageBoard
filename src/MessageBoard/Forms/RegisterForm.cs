@@ -83,12 +83,21 @@ namespace MessageBoard.Forms
 
         private void RegisterUser(object sender, EventArgs e)
         {
-            if (TxtPassword.EditValue.ToString() == TxtConfirmPassword.EditValue.ToString())
+            try
             {
-                _controller.RegisterUser();
+                if (TxtPassword.EditValue.ToString() == TxtConfirmPassword.EditValue.ToString())
+                {
+                    _controller.RegisterUser();
+                }
+                else
+                    XtraMessageBox.Show("Insert password again!");
             }
-            else
-                XtraMessageBox.Show("Insert password again!");
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
     }
 }
