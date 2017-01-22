@@ -52,7 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HelperClasses\GetHashCode.cs" />
+    <Compile Include="HelperClasses\HashHelper.cs" />
     <Compile Include="Interfaces\ILoginForm.cs" />
     <Compile Include="Interfaces\IRegisterForm.cs" />
     <Compile Include="LoginController.cs" />

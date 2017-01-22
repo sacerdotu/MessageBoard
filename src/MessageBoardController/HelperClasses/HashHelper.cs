@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MessageBoardController.HelperClasses
 {
-    public class GetHashCode
+    public class HashHelper
     {
         #region GetHash
         public string GetHash(string password, string salt)

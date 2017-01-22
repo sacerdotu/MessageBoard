@@ -55,7 +55,7 @@ namespace MessageBoardController
             try
             {
                 UserDTO user = new UserDTO();
-                GetHashCode getHash = new GetHashCode();
+                HashHelper getHash = new HashHelper();
                 user.FirstName = _form.TxtFirstName.EditValue.ToString();
                 user.LastName = _form.TxtLastName.EditValue.ToString();
                 user.Country = _form.TxtCountry.EditValue.ToString();
