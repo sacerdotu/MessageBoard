@@ -55,7 +55,6 @@ namespace MessageBoardController
             try
             {
                 UserDTO user = new UserDTO();
-                HashHelper getHash = new HashHelper();
                 user.FirstName = _form.TxtFirstName.EditValue.ToString();
                 user.LastName = _form.TxtLastName.EditValue.ToString();
                 user.Country = _form.TxtCountry.EditValue.ToString();
@@ -63,7 +62,7 @@ namespace MessageBoardController
                 user.Function = _form.CmbFunction.EditValue.ToString();
                 user.Username = _form.TxtUsername.EditValue.ToString();
                 user.PasswordSalt = GetSalt();
-                user.PasswordHash = getHash.GetHash(_form.TxtPassword.EditValue.ToString(), user.PasswordSalt);
+                user.PasswordHash = HashHelper.GetHash(_form.TxtPassword.EditValue.ToString(), user.PasswordSalt);
                 _service.InsertNewUser(user);
 
             }

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace MessageBoardController.HelperClasses
 {
-    public class HashHelper
+    public static class HashHelper
     {
         #region GetHash
-        public string GetHash(string password, string salt)
+        public static string GetHash(string password, string salt)
         {
             byte[] saltBytes = Encoding.ASCII.GetBytes(salt);
 

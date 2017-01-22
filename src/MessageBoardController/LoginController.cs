@@ -23,9 +23,8 @@ namespace MessageBoardController
 
         public bool ValidateLogin(string username, string password)
         {
-            HashHelper getHash = new HashHelper();
             var user = _service.CheckUserAndPassword(username);
-            string generatedPassword = getHash.GetHash(password, user.PasswordSalt);
+            string generatedPassword = HashHelper.GetHash(password, user.PasswordSalt);
             if (generatedPassword == user.PasswordHash)
             {
                 return true;
