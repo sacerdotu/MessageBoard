@@ -98,7 +98,6 @@ namespace MessageBoard.Forms
 
                 throw;
             }
-            
         }
         #endregion
 

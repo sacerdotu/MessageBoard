@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 using MessageBoardDTO;
+using MessageBoardController.HelperClasses;
 
 namespace MessageBoardController
 {
@@ -22,9 +23,9 @@ namespace MessageBoardController
 
         public bool ValidateLogin(string username, string password)
         {
-            RegisterController checkHash = new RegisterController();
+            GetHashCode getHash = new GetHashCode();
             var user = _service.CheckUserAndPassword(username);
-            string generatedPassword = checkHash.GetHash(password, user.PasswordSalt);
+            string generatedPassword = getHash.GetHash(password, user.PasswordSalt);
             if (generatedPassword == user.PasswordHash)
             {
                 return true;
