@@ -64,12 +64,14 @@ namespace MessageBoardController
                 user.PasswordSalt = GetSalt();
                 user.PasswordHash = HashHelper.GetHash(_form.TxtPassword.EditValue.ToString(), user.PasswordSalt);
                 _service.InsertNewUser(user);
-
             }
-            catch (Exception)
+            catch (NullReferenceException ex)
             {
-
-                throw;
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
         #endregion

@@ -23,15 +23,33 @@ namespace MessageBoardController
 
         public bool ValidateLogin(string username, string password)
         {
-            var user = _service.CheckUserAndPassword(username);
-            string generatedPassword = HashHelper.GetHash(password, user.PasswordSalt);
-            if (generatedPassword == user.PasswordHash)
+            try
             {
-                return true;
+                var user = _service.CheckUserAndPassword(username);
+                if (user != null)
+                {
+                    string generatedPassword = HashHelper.GetHash(password, user.PasswordSalt);
+                    if (generatedPassword != null && generatedPassword == user.PasswordHash)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
+            catch (NullReferenceException ex)
             {
-                return false;
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 

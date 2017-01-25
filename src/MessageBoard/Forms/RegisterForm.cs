@@ -93,10 +93,14 @@ namespace MessageBoard.Forms
                 else
                     XtraMessageBox.Show("Insert password again!");
             }
-            catch (Exception)
+            catch (NullReferenceException)
+            {
+                throw (new NullReferenceException("Please fill all fields."));
+            }
+            catch (Exception ex)
             {
 
-                throw;
+                XtraMessageBox.Show(ex.Message);
             }
         }
         #endregion
