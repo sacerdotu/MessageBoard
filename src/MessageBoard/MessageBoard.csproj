@@ -61,9 +61,6 @@
       <HintPath>..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MessageBoardCommon">
-      <HintPath>..\..\..\MessageBoardCommon\src\MessageBoardCommon\MessageBoardCommon\bin\Debug\MessageBoardCommon.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -102,9 +99,11 @@
     </Compile>
     <EmbeddedResource Include="Forms\RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -119,7 +118,7 @@
     <EmbeddedResource Include="UserControlls\ucUserInformations.resx">
       <DependentUpon>ucUserInformations.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="log4.config">
+    <None Include="log4net.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
@@ -134,11 +133,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MessageBoardCommon\MessageBoardCommon\MessageBoardCommon.csproj">
+      <Project>{0a09b058-1ba7-49c7-9738-5b7addd886d3}</Project>
+      <Name>MessageBoardCommon</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MessageBoardController\MessageBoardController.csproj">
-      <Project>{6FABF54B-7DC5-4E18-99A0-E0CDDD7A09F2}</Project>
+      <Project>{6fabf54b-7dc5-4e18-99a0-e0cddd7a09f2}</Project>
       <Name>MessageBoardController</Name>
     </ProjectReference>
   </ItemGroup>

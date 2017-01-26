@@ -15,13 +15,14 @@ using MessageBoardController.Interfaces;
 using System.ServiceModel;
 using MessageBoardController.HelperClasses;
 using MessageBoardController.Constants;
+using MessageBoardCommon;
 
 namespace MessageBoard
 {
     public partial class LoginForm : Form, ILoginForm
     {
         LoginController _controller;
-        log4net.ILog log;
+
         #region Properties
         public TextEdit TxtUsername
         {
@@ -45,7 +46,6 @@ namespace MessageBoard
         {
             InitializeComponent();
             _controller = new LoginController(this);
-            log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         }
         #endregion
 
@@ -56,11 +56,9 @@ namespace MessageBoard
 
         private void hplRegister_Click(object sender, EventArgs e)
         {
-            
                 RegisterForm register = new RegisterForm();
                 register.Show();
                 this.Hide();
-            
         }
 
         private void labelControl2_Click(object sender, EventArgs e)
@@ -86,17 +84,17 @@ namespace MessageBoard
             catch (EndpointNotFoundException ex)
             {
                 XtraMessageBox.Show(Constants.ExceptionService);
-                log.Error(ex.Message);           
+                Logger.Error(ex.Message);           
             }
             catch (NullReferenceException ex)
             {
                 XtraMessageBox.Show(Constants.ExceptionNullObjReference);
-                log.Error(ex.Message);
+                Logger.Error(ex.Message);
             }
             catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message);
-                log.Error(ex.Message);
+                Logger.Error(ex.Message);
             }
         }
     }

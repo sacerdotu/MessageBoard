@@ -47,8 +47,6 @@ namespace MessageBoardController
         }
         #endregion
 
-
-
         #region RegisterUser
         public void RegisterUser()
         {

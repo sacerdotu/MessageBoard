@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\Constants.cs" />
+    <Compile Include="Enums\Enums.cs" />
     <Compile Include="HelperClasses\HashHelper.cs" />
     <Compile Include="Interfaces\ILoginForm.cs" />
     <Compile Include="Interfaces\IRegisterForm.cs" />
