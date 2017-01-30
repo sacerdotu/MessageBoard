@@ -26,6 +26,12 @@ namespace MessageBoardController.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CheckUserAndPassword", ReplyAction="http://tempuri.org/IService1/CheckUserAndPasswordResponse")]
         System.Threading.Tasks.Task<MessageBoardDTO.UserDTO> CheckUserAndPasswordAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FillUsersGrid", ReplyAction="http://tempuri.org/IService1/FillUsersGridResponse")]
+        MessageBoardDTO.UserDTO[] FillUsersGrid();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FillUsersGrid", ReplyAction="http://tempuri.org/IService1/FillUsersGridResponse")]
+        System.Threading.Tasks.Task<MessageBoardDTO.UserDTO[]> FillUsersGridAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -69,6 +75,14 @@ namespace MessageBoardController.ServiceReference {
         
         public System.Threading.Tasks.Task<MessageBoardDTO.UserDTO> CheckUserAndPasswordAsync(string username) {
             return base.Channel.CheckUserAndPasswordAsync(username);
+        }
+        
+        public MessageBoardDTO.UserDTO[] FillUsersGrid() {
+            return base.Channel.FillUsersGrid();
+        }
+        
+        public System.Threading.Tasks.Task<MessageBoardDTO.UserDTO[]> FillUsersGridAsync() {
+            return base.Channel.FillUsersGridAsync();
         }
     }
 }

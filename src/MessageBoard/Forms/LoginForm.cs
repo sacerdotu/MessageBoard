@@ -54,18 +54,17 @@ namespace MessageBoard
             this.Close();
         }
 
+
+        #region btnClose
         private void hplRegister_Click(object sender, EventArgs e)
         {
                 RegisterForm register = new RegisterForm();
                 register.Show();
                 this.Hide();
         }
+        #endregion
 
-        private void labelControl2_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        #region btnLogin
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
@@ -74,7 +73,9 @@ namespace MessageBoard
 
                 if (validation == true)
                 {
-                    XtraMessageBox.Show("Success!");
+                    MainForm mainForm = new MainForm();
+                    mainForm.Show();
+                    this.Hide();
                 }
                 else
                 {
@@ -97,5 +98,6 @@ namespace MessageBoard
                 Logger.Error(ex.Message);
             }
         }
+        #endregion
     }
 }

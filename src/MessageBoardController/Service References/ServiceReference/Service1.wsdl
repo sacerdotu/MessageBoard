@@ -19,6 +19,12 @@
   <wsdl:message name="IService1_CheckUserAndPassword_OutputMessage">
     <wsdl:part name="parameters" element="tns:CheckUserAndPasswordResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_FillUsersGrid_InputMessage">
+    <wsdl:part name="parameters" element="tns:FillUsersGrid" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FillUsersGrid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FillUsersGridResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="InsertNewUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertNewUser" message="tns:IService1_InsertNewUser_InputMessage" />
@@ -27,6 +33,10 @@
     <wsdl:operation name="CheckUserAndPassword">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CheckUserAndPassword" message="tns:IService1_CheckUserAndPassword_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/CheckUserAndPasswordResponse" message="tns:IService1_CheckUserAndPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FillUsersGrid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/FillUsersGrid" message="tns:IService1_FillUsersGrid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/FillUsersGridResponse" message="tns:IService1_FillUsersGrid_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -42,6 +52,15 @@
     </wsdl:operation>
     <wsdl:operation name="CheckUserAndPassword">
       <soap:operation soapAction="http://tempuri.org/IService1/CheckUserAndPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FillUsersGrid">
+      <soap:operation soapAction="http://tempuri.org/IService1/FillUsersGrid" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using MessageBoardCommon;
 using MessageBoardController;
 using System;
 using System.Collections.Generic;
@@ -74,10 +75,11 @@ namespace MessageBoard.Forms
                     RegisterUser(sender, e);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Logger.Error(ex.Message);
+                XtraMessageBox.Show(ex.Message);
             }
         }
 
@@ -91,15 +93,18 @@ namespace MessageBoard.Forms
                     _controller.RegisterUser();
                 }
                 else
+                {
                     XtraMessageBox.Show("Insert password again!");
+                }
             }
-            catch (NullReferenceException)
+            catch (NullReferenceException ex)
             {
+                Logger.Error(ex.Message);
                 throw (new NullReferenceException("Please fill all fields."));
             }
             catch (Exception ex)
             {
-
+                Logger.Error(ex.Message);
                 XtraMessageBox.Show(ex.Message);
             }
         }

@@ -21,6 +21,11 @@ namespace MessageBoardController
             _service = new Service1Client();
         }
 
+        private void BtnLogin_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool ValidateLogin(string username, string password)
         {
             try
