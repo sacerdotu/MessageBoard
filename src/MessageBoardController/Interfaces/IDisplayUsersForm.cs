@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,6 @@ namespace MessageBoardController.Interfaces
     public interface IDisplayUsersForm
     {
         GridControl GrdDisplayUsers { get; }
+        GridView ViewDisplayUsers { get; }
     }
 }

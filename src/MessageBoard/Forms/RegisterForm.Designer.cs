@@ -57,6 +57,7 @@
             this.Controls.Add(this.ucUserInformations);
             this.Name = "RegisterForm";
             this.Text = "Register";
+            this.Load += new System.EventHandler(this.RegisterForm_Load);
             this.ResumeLayout(false);
 
         }

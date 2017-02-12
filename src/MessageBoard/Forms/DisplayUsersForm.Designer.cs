@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DisplayUsersForm));
             this.grdDisplayUsers = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.viewDisplayUsers = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colUserID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLastName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -43,17 +43,19 @@
             this.colIsActive = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repIsActive = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.colAccountCreationDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnBack = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.grdDisplayUsers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewDisplayUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repIsAdministrator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repIsActive)).BeginInit();
             this.SuspendLayout();
             // 
             // grdDisplayUsers
             // 
-            this.grdDisplayUsers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDisplayUsers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grdDisplayUsers.Location = new System.Drawing.Point(0, 0);
-            this.grdDisplayUsers.MainView = this.gridView1;
+            this.grdDisplayUsers.MainView = this.viewDisplayUsers;
             this.grdDisplayUsers.Name = "grdDisplayUsers";
             this.grdDisplayUsers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repIsAdministrator,
@@ -61,11 +63,11 @@
             this.grdDisplayUsers.Size = new System.Drawing.Size(662, 270);
             this.grdDisplayUsers.TabIndex = 0;
             this.grdDisplayUsers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.viewDisplayUsers});
             // 
-            // gridView1
+            // viewDisplayUsers
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.viewDisplayUsers.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colUserID,
             this.colFirstName,
             this.colLastName,
@@ -76,11 +78,12 @@
             this.colIsAdministrator,
             this.colIsActive,
             this.colAccountCreationDate});
-            this.gridView1.GridControl = this.grdDisplayUsers;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsBehavior.Editable = false;
-            this.gridView1.OptionsBehavior.ReadOnly = true;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.viewDisplayUsers.GridControl = this.grdDisplayUsers;
+            this.viewDisplayUsers.Name = "viewDisplayUsers";
+            this.viewDisplayUsers.OptionsBehavior.Editable = false;
+            this.viewDisplayUsers.OptionsBehavior.ReadOnly = true;
+            this.viewDisplayUsers.OptionsView.ShowGroupPanel = false;
+            this.viewDisplayUsers.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.grdDisplayUsers_RowClick);
             // 
             // colUserID
             // 
@@ -186,17 +189,27 @@
             this.colAccountCreationDate.Visible = true;
             this.colAccountCreationDate.VisibleIndex = 9;
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(575, 277);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.TabIndex = 1;
+            this.btnBack.Text = "Back";
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // DisplayUsersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(662, 270);
+            this.ClientSize = new System.Drawing.Size(662, 312);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.grdDisplayUsers);
             this.Name = "DisplayUsersForm";
             this.Text = "DisplayUsersForm";
             this.Load += new System.EventHandler(this.UsersForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdDisplayUsers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewDisplayUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repIsAdministrator)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repIsActive)).EndInit();
             this.ResumeLayout(false);
@@ -206,7 +219,7 @@
         #endregion
 
         private DevExpress.XtraGrid.GridControl grdDisplayUsers;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView viewDisplayUsers;
         private DevExpress.XtraGrid.Columns.GridColumn colUserID;
         private DevExpress.XtraGrid.Columns.GridColumn colFirstName;
         private DevExpress.XtraGrid.Columns.GridColumn colLastName;
@@ -219,5 +232,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colIsActive;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repIsActive;
         private DevExpress.XtraGrid.Columns.GridColumn colAccountCreationDate;
+        private DevExpress.XtraEditors.SimpleButton btnBack;
     }
 }

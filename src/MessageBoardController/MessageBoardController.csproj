@@ -64,6 +64,7 @@
     <Compile Include="Interfaces\IDisplayUsersForm.cs" />
     <Compile Include="Interfaces\ILoginForm.cs" />
     <Compile Include="Interfaces\IRegisterForm.cs" />
+    <Compile Include="Interfaces\IUserDetailsForm.cs" />
     <Compile Include="LoginController.cs" />
     <Compile Include="RegisterController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

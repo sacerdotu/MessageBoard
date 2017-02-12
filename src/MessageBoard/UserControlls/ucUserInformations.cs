@@ -73,6 +73,22 @@ namespace MessageBoard
         {
             get { return cmbFunction; }
         }
-        #endregion
-    }
+        public DateEdit DateRegisterDate
+        {
+            get { return dateRegisterDate; }
+        }
+        public CheckEdit ChkAdministrator
+        {
+            get { return chkAdministrator; }
+        }
+        public CheckEdit ChkActive
+        {
+            get { return chkActive; }
+        }
+        public LabelControl LblRegisterDate
+        {
+            get { return lblRegisterDate; }
+        }
+            #endregion
+        }
 }

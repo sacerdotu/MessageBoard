@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using MessageBoardCommon;
 using MessageBoardController;
+using MessageBoardController.Constants;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -58,6 +59,22 @@ namespace MessageBoard.Forms
         {
             get { return ucUserInformations.TxtConfirmPassword; }
         }
+        public CheckEdit IsAdministrator
+        {
+            get { return ucUserInformations.ChkAdministrator; }
+        }
+        public CheckEdit IsActive
+        {
+            get { return ucUserInformations.ChkActive; }
+        }
+        public DateEdit AccountCreationDate
+        {
+            get { return ucUserInformations.DateRegisterDate; }
+        }
+        public LabelControl lblRegisterDate
+        {
+            get { return ucUserInformations.LblRegisterDate; }
+        }
         #endregion
         public RegisterForm()
         {
@@ -65,7 +82,7 @@ namespace MessageBoard.Forms
             _controller = new RegisterController(this);
             TxtConfirmPassword.KeyDown += TxtConfirmPassword_KeyDown;
         }
-
+        
         private void TxtConfirmPassword_KeyDown(object sender, KeyEventArgs e)
         {
             try
@@ -91,16 +108,20 @@ namespace MessageBoard.Forms
                 if (TxtPassword.EditValue.ToString() == TxtConfirmPassword.EditValue.ToString())
                 {
                     _controller.RegisterUser();
+                    LoginForm loginForm = new LoginForm();
+                    loginForm.Show();
+                    this.Close();
                 }
                 else
                 {
-                    XtraMessageBox.Show("Insert password again!");
+                    XtraMessageBox.Show("Insert passwords again!");
+                    
                 }
             }
             catch (NullReferenceException ex)
             {
                 Logger.Error(ex.Message);
-                throw (new NullReferenceException("Please fill all fields."));
+                XtraMessageBox.Show(Constants.ExceptionNullObjReference);
             }
             catch (Exception ex)
             {
@@ -110,6 +131,12 @@ namespace MessageBoard.Forms
         }
         #endregion
 
-
+        private void RegisterForm_Load(object sender, EventArgs e)
+        {
+            IsAdministrator.Visible = false;
+            IsActive.Visible = false;
+            AccountCreationDate.Visible = false;
+            lblRegisterDate.Visible = false;
+        }
     }
 }

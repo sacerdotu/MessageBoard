@@ -76,6 +76,7 @@ namespace MessageBoard
                     MainForm mainForm = new MainForm();
                     mainForm.Show();
                     this.Hide();
+                    
                 }
                 else
                 {

@@ -46,6 +46,10 @@
             this.txtUsername = new DevExpress.XtraEditors.TextEdit();
             this.txtPassword = new DevExpress.XtraEditors.TextEdit();
             this.txtConfirmPassword = new DevExpress.XtraEditors.TextEdit();
+            this.chkAdministrator = new DevExpress.XtraEditors.CheckEdit();
+            this.chkActive = new DevExpress.XtraEditors.CheckEdit();
+            this.dateRegisterDate = new DevExpress.XtraEditors.DateEdit();
+            this.lblRegisterDate = new DevExpress.XtraEditors.LabelControl();
             imgProfilePicture = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(imgProfilePicture.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFirstName.Properties)).BeginInit();
@@ -56,6 +60,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConfirmPassword.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkAdministrator.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkActive.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateRegisterDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateRegisterDate.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // imgProfilePicture
@@ -206,10 +214,50 @@
             this.txtConfirmPassword.Size = new System.Drawing.Size(100, 20);
             this.txtConfirmPassword.TabIndex = 19;
             // 
+            // chkAdministrator
+            // 
+            this.chkAdministrator.Location = new System.Drawing.Point(250, 200);
+            this.chkAdministrator.Name = "chkAdministrator";
+            this.chkAdministrator.Properties.Caption = "Administrator";
+            this.chkAdministrator.Size = new System.Drawing.Size(86, 19);
+            this.chkAdministrator.TabIndex = 20;
+            // 
+            // chkActive
+            // 
+            this.chkActive.Location = new System.Drawing.Point(250, 236);
+            this.chkActive.Name = "chkActive";
+            this.chkActive.Properties.Caption = "Active";
+            this.chkActive.Size = new System.Drawing.Size(75, 19);
+            this.chkActive.TabIndex = 21;
+            // 
+            // dateRegisterDate
+            // 
+            this.dateRegisterDate.EditValue = null;
+            this.dateRegisterDate.Location = new System.Drawing.Point(351, 159);
+            this.dateRegisterDate.Name = "dateRegisterDate";
+            this.dateRegisterDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateRegisterDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateRegisterDate.Size = new System.Drawing.Size(100, 20);
+            this.dateRegisterDate.TabIndex = 22;
+            // 
+            // lblRegisterDate
+            // 
+            this.lblRegisterDate.Location = new System.Drawing.Point(250, 162);
+            this.lblRegisterDate.Name = "lblRegisterDate";
+            this.lblRegisterDate.Size = new System.Drawing.Size(65, 13);
+            this.lblRegisterDate.TabIndex = 23;
+            this.lblRegisterDate.Text = "Register date";
+            // 
             // ucUserInformations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblRegisterDate);
+            this.Controls.Add(this.dateRegisterDate);
+            this.Controls.Add(this.chkActive);
+            this.Controls.Add(this.chkAdministrator);
             this.Controls.Add(this.txtConfirmPassword);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
@@ -240,6 +288,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConfirmPassword.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkAdministrator.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkActive.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateRegisterDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateRegisterDate.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,5 +316,9 @@
         private DevExpress.XtraEditors.TextEdit txtUsername;
         private DevExpress.XtraEditors.TextEdit txtPassword;
         private DevExpress.XtraEditors.TextEdit txtConfirmPassword;
+        private DevExpress.XtraEditors.CheckEdit chkAdministrator;
+        private DevExpress.XtraEditors.CheckEdit chkActive;
+        private DevExpress.XtraEditors.DateEdit dateRegisterDate;
+        private DevExpress.XtraEditors.LabelControl lblRegisterDate;
     }
 }
