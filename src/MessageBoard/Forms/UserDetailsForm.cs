@@ -1,4 +1,6 @@
 ﻿using DevExpress.XtraEditors;
+using MessageBoardCommon;
+using MessageBoardController;
 using MessageBoardController.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -14,6 +16,7 @@ namespace MessageBoard
 {
     public partial class UserDetailsForm : Form, IUserDetailsForm
     {
+        UserDetailsController _controller;
         #region Properties
         public TextEdit TxtFirstName
         {
@@ -50,15 +53,61 @@ namespace MessageBoard
         {
             get { return ucUserInformations1.DateRegisterDate; }
         }
+        public TextEdit TxtUsername
+        {
+            get { return ucUserInformations1.TxtUsername; }
+        }
+
+        public TextEdit TxtPassword
+        {
+            get { return ucUserInformations1.TxtPassword; }
+        }
+
+        public TextEdit TxtConfirmPassword
+        {
+            get { return ucUserInformations1.TxtConfirmPassword; }
+        }
+        public LabelControl LblProfilePicture
+        {
+            get { return ucUserInformations1.LblProfilePicture; }
+        }
+        public PictureEdit ImgProfilePicture
+        {
+            get { return ucUserInformations1.ImgProfilePicture; }
+        }
+        public LabelControl LblUsername
+        {
+            get { return ucUserInformations1.LblUsername; }
+        }
+        public LabelControl LblPassword
+        {
+            get { return ucUserInformations1.LblPassword; }
+        }
+        public LabelControl LblConfirmPassword
+        {
+            get { return ucUserInformations1.LblConfirmPassword; }
+        }
         #endregion
+
         public UserDetailsForm()
         {
             InitializeComponent();
         }
-        public UserDetailsForm(int UserID)
+        public UserDetailsForm(int userID)
             :this()
         {
-           int userID = UserID;
+            _controller = new UserDetailsController(this, userID);
+        }
+
+        private void ucUserInformations1_Load(object sender, EventArgs e)
+        {
+            _controller.LoadForm();
+            LblUsername.Visible = false;
+            LblPassword.Visible = false;
+            LblConfirmPassword.Visible = false;
+            TxtConfirmPassword.Visible = false;
+            TxtPassword.Visible = false;
+            TxtUsername.Visible = false;
         }
     }
 }

@@ -15,52 +15,9 @@
       <xs:element minOccurs="0" name="ProfileImage" nillable="true" type="xs:base64Binary" />
       <xs:element minOccurs="0" name="UserID" type="xs:int" />
       <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="tblComments" nillable="true" type="tns:ArrayOfCommentDTO" />
-      <xs:element minOccurs="0" name="tblPosts" nillable="true" type="tns:ArrayOfPostDTO" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="UserDTO" nillable="true" type="tns:UserDTO" />
-  <xs:complexType name="ArrayOfCommentDTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="CommentDTO" nillable="true" type="tns:CommentDTO" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfCommentDTO" nillable="true" type="tns:ArrayOfCommentDTO" />
-  <xs:complexType name="CommentDTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CommentContent" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CommentID" type="xs:int" />
-      <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="IsBlocked" type="xs:boolean" />
-      <xs:element minOccurs="0" name="MainComment" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="PostID" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="tblComment1" nillable="true" type="tns:ArrayOfCommentDTO" />
-      <xs:element minOccurs="0" name="tblComment2" nillable="true" type="tns:CommentDTO" />
-      <xs:element minOccurs="0" name="tblPost" nillable="true" type="tns:PostDTO" />
-      <xs:element minOccurs="0" name="tblUser" nillable="true" type="tns:UserDTO" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="CommentDTO" nillable="true" type="tns:CommentDTO" />
-  <xs:complexType name="PostDTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="IsPublished" type="xs:boolean" />
-      <xs:element minOccurs="0" name="PostID" type="xs:int" />
-      <xs:element minOccurs="0" name="PostImage" nillable="true" type="xs:base64Binary" />
-      <xs:element minOccurs="0" name="PostText" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="UserID" type="xs:int" />
-      <xs:element minOccurs="0" name="tblComments" nillable="true" type="tns:ArrayOfCommentDTO" />
-      <xs:element minOccurs="0" name="tblUser" nillable="true" type="tns:UserDTO" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="PostDTO" nillable="true" type="tns:PostDTO" />
-  <xs:complexType name="ArrayOfPostDTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="PostDTO" nillable="true" type="tns:PostDTO" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfPostDTO" nillable="true" type="tns:ArrayOfPostDTO" />
   <xs:complexType name="ArrayOfUserDTO">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="UserDTO" nillable="true" type="tns:UserDTO" />

@@ -32,6 +32,12 @@ namespace MessageBoardController.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FillUsersGrid", ReplyAction="http://tempuri.org/IService1/FillUsersGridResponse")]
         System.Threading.Tasks.Task<MessageBoardDTO.UserDTO[]> FillUsersGridAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUserDetails", ReplyAction="http://tempuri.org/IService1/GetUserDetailsResponse")]
+        MessageBoardDTO.UserDTO GetUserDetails(int userID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUserDetails", ReplyAction="http://tempuri.org/IService1/GetUserDetailsResponse")]
+        System.Threading.Tasks.Task<MessageBoardDTO.UserDTO> GetUserDetailsAsync(int userID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -83,6 +89,14 @@ namespace MessageBoardController.ServiceReference {
         
         public System.Threading.Tasks.Task<MessageBoardDTO.UserDTO[]> FillUsersGridAsync() {
             return base.Channel.FillUsersGridAsync();
+        }
+        
+        public MessageBoardDTO.UserDTO GetUserDetails(int userID) {
+            return base.Channel.GetUserDetails(userID);
+        }
+        
+        public System.Threading.Tasks.Task<MessageBoardDTO.UserDTO> GetUserDetailsAsync(int userID) {
+            return base.Channel.GetUserDetailsAsync(userID);
         }
     }
 }

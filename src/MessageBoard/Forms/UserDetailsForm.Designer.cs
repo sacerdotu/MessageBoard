@@ -37,6 +37,7 @@
             this.ucUserInformations1.Name = "ucUserInformations1";
             this.ucUserInformations1.Size = new System.Drawing.Size(489, 370);
             this.ucUserInformations1.TabIndex = 0;
+            this.ucUserInformations1.Load += new System.EventHandler(this.ucUserInformations1_Load);
             // 
             // UserDetailsForm
             // 

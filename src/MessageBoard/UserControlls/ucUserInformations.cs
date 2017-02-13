@@ -89,6 +89,26 @@ namespace MessageBoard
         {
             get { return lblRegisterDate; }
         }
+        public LabelControl LblProfilePicture
+        {
+            get { return lblProfilePicture; }
+        }
+        public PictureEdit ImgProfilePicture
+        {
+            get { return ImgProfilePicture; }
+        }
+        public LabelControl LblUsername
+        {
+            get { return lblUsername; }
+        }
+        public LabelControl LblPassword
+        {
+            get { return lblPassword; }
+        }
+        public LabelControl LblConfirmPassword
+        {
+            get { return lblConfirmPassword; }
+        }
             #endregion
         }
 }
