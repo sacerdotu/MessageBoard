@@ -11,15 +11,22 @@ namespace MessageBoardController
 {
     public class UserDetailsController
     {
+        #region Members
         private IUserDetailsForm _form;
         private IService1 _service;
         private int _userID;
+        #endregion
+
+        #region Constructor
         public UserDetailsController(IUserDetailsForm form, int userID)
         {
             _form = form;
             _service = new Service1Client();
             _userID = userID;
-        }  
+        }
+        #endregion
+
+        #region LoadForm
         public void LoadForm()
         {
             try
@@ -40,18 +47,29 @@ namespace MessageBoardController
 
                 throw;
             }
-
         }
+        #endregion
+
+        #region DisableForm
         public void DisableForm()
         {
-            _form.TxtFirstName.ReadOnly = true;
-            _form.TxtLastName.ReadOnly = true;
-            _form.TxtCountry.ReadOnly = true;
-            _form.TxtCity.ReadOnly = true;
-            _form.IsActive.ReadOnly = true;
-            _form.IsAdministrator.ReadOnly = true;
-            _form.CmbFunction.ReadOnly = true;
-            _form.AccountCreationDate.ReadOnly = true;
+            try
+            {
+                _form.TxtFirstName.ReadOnly = true;
+                _form.TxtLastName.ReadOnly = true;
+                _form.TxtCountry.ReadOnly = true;
+                _form.TxtCity.ReadOnly = true;
+                _form.IsActive.ReadOnly = true;
+                _form.IsAdministrator.ReadOnly = true;
+                _form.CmbFunction.ReadOnly = true;
+                _form.AccountCreationDate.ReadOnly = true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
+        #endregion
     }
 }

@@ -101,13 +101,23 @@ namespace MessageBoard
 
         private void ucUserInformations1_Load(object sender, EventArgs e)
         {
-            _controller.LoadForm();
-            LblUsername.Visible = false;
-            LblPassword.Visible = false;
-            LblConfirmPassword.Visible = false;
-            TxtConfirmPassword.Visible = false;
-            TxtPassword.Visible = false;
-            TxtUsername.Visible = false;
+            try
+            {
+                _controller.LoadForm();
+                LblUsername.Visible = false;
+                LblPassword.Visible = false;
+                LblConfirmPassword.Visible = false;
+                TxtConfirmPassword.Visible = false;
+                TxtPassword.Visible = false;
+                TxtUsername.Visible = false;
+            }
+            catch (Exception ex)
+            {
+
+                XtraMessageBox.Show(ex.Message);
+                Logger.Error(ex.Message);
+            }
+            
         }
     }
 }
