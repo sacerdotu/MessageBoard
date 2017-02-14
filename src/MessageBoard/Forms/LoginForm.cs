@@ -73,7 +73,8 @@ namespace MessageBoard
 
                 if (validation == true)
                 {
-                    MainForm mainForm = new MainForm();
+                    string username = Convert.ToString(TxtUsername.Text);
+                    MainForm mainForm = new MainForm(username);
                     mainForm.Show();
                     this.Hide();
                     

@@ -38,6 +38,12 @@ namespace MessageBoardController.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUserDetails", ReplyAction="http://tempuri.org/IService1/GetUserDetailsResponse")]
         System.Threading.Tasks.Task<MessageBoardDTO.UserDTO> GetUserDetailsAsync(int userID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/IsAdministrator", ReplyAction="http://tempuri.org/IService1/IsAdministratorResponse")]
+        bool IsAdministrator(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/IsAdministrator", ReplyAction="http://tempuri.org/IService1/IsAdministratorResponse")]
+        System.Threading.Tasks.Task<bool> IsAdministratorAsync(string username);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -97,6 +103,14 @@ namespace MessageBoardController.ServiceReference {
         
         public System.Threading.Tasks.Task<MessageBoardDTO.UserDTO> GetUserDetailsAsync(int userID) {
             return base.Channel.GetUserDetailsAsync(userID);
+        }
+        
+        public bool IsAdministrator(string username) {
+            return base.Channel.IsAdministrator(username);
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsAdministratorAsync(string username) {
+            return base.Channel.IsAdministratorAsync(username);
         }
     }
 }

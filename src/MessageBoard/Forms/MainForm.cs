@@ -1,4 +1,8 @@
-﻿using MessageBoard.Forms;
+﻿using DevExpress.XtraEditors;
+using MessageBoard.Forms;
+using MessageBoardCommon;
+using MessageBoardController;
+using MessageBoardController.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,11 +15,23 @@ using System.Windows.Forms;
 
 namespace MessageBoard
 {
-    public partial class MainForm : Form
+    public partial class MainForm : Form, IMainForm
     {
+        MainController _mainController;
+        private string _username;
+        public SimpleButton BtnDisplayUsers
+        {
+            get { return btnDisplayUsers; }
+        }
         public MainForm()
         {
             InitializeComponent();
+        }
+        public MainForm(string username)
+            :this()
+        {
+            _username = username;
+            _mainController = new MainController(this, _username);
         }
 
         private void btnDisplayUsers_Click(object sender, EventArgs e)
@@ -23,6 +39,21 @@ namespace MessageBoard
             DisplayUsersForm displayForm = new DisplayUsersForm();
             displayForm.Show();
             this.Hide();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                _mainController.IsAdministrator();
+            }
+            catch (Exception ex)
+            {
+
+                XtraMessageBox.Show(ex.Message);
+                Logger.Error(ex.Message);
+            }
+            
         }
     }
 }
