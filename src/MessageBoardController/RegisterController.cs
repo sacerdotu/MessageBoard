@@ -28,25 +28,6 @@ namespace MessageBoardController
         { }
         #endregion
 
-        #region GetSalt
-        public string GetSalt()
-        {
-            int minSaltLength = 4;
-            int maxSaltLength = 16;
-
-            byte[] SaltBytes = null;
-            Random r = new Random();
-            int SaltLength = r.Next(minSaltLength, maxSaltLength);
-            SaltBytes = new byte[SaltLength];
-            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-            rng.GetNonZeroBytes(SaltBytes);
-            string result = Convert.ToBase64String(SaltBytes);
-            rng.Dispose();
-
-            return result;
-        }
-        #endregion
-
         #region RegisterUser
         public void RegisterUser()
         {
@@ -59,7 +40,7 @@ namespace MessageBoardController
                 user.City = _form.TxtCity.EditValue.ToString();
                 user.Function = _form.CmbFunction.EditValue.ToString();
                 user.Username = _form.TxtUsername.EditValue.ToString();
-                user.PasswordSalt = GetSalt();
+                user.PasswordSalt = HashHelper.GetSalt();
                 user.PasswordHash = HashHelper.GetHash(_form.TxtPassword.EditValue.ToString(), user.PasswordSalt);
                 _service.InsertNewUser(user);
             }

@@ -46,5 +46,22 @@ namespace MessageBoardController.HelperClasses
             return Convert.ToBase64String(result);
         }
         #endregion
+
+        public static string GetSalt()
+        {
+            int minSaltLength = 4;
+            int maxSaltLength = 16;
+
+            byte[] SaltBytes = null;
+            Random r = new Random();
+            int SaltLength = r.Next(minSaltLength, maxSaltLength);
+            SaltBytes = new byte[SaltLength];
+            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+            rng.GetNonZeroBytes(SaltBytes);
+            string result = Convert.ToBase64String(SaltBytes);
+            rng.Dispose();
+
+            return result;
+        }
     }
 }

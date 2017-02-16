@@ -55,5 +55,21 @@ namespace MessageBoard
             }
             
         }
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ChangePasswordForm form = new ChangePasswordForm(_username);
+                form.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+                Logger.Error(ex.Message);
+            }
+            
+        }
     }
 }

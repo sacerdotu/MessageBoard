@@ -29,22 +29,33 @@
         private void InitializeComponent()
         {
             this.btnDisplayUsers = new DevExpress.XtraEditors.SimpleButton();
+            this.btnChangePassword = new DevExpress.XtraEditors.SimpleButton();
             this.SuspendLayout();
             // 
             // btnDisplayUsers
             // 
-            this.btnDisplayUsers.Location = new System.Drawing.Point(111, 111);
+            this.btnDisplayUsers.Location = new System.Drawing.Point(94, 81);
             this.btnDisplayUsers.Name = "btnDisplayUsers";
-            this.btnDisplayUsers.Size = new System.Drawing.Size(75, 23);
+            this.btnDisplayUsers.Size = new System.Drawing.Size(101, 23);
             this.btnDisplayUsers.TabIndex = 0;
             this.btnDisplayUsers.Text = "Display users";
             this.btnDisplayUsers.Click += new System.EventHandler(this.btnDisplayUsers_Click);
+            // 
+            // btnChangePassword
+            // 
+            this.btnChangePassword.Location = new System.Drawing.Point(94, 123);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(101, 23);
+            this.btnChangePassword.TabIndex = 1;
+            this.btnChangePassword.Text = "Change Password";
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.btnChangePassword);
             this.Controls.Add(this.btnDisplayUsers);
             this.Name = "MainForm";
             this.Text = "MainForm";
@@ -56,5 +67,6 @@
         #endregion
 
         private DevExpress.XtraEditors.SimpleButton btnDisplayUsers;
+        private DevExpress.XtraEditors.SimpleButton btnChangePassword;
     }
 }

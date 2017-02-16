@@ -44,6 +44,12 @@ namespace MessageBoardController.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/IsAdministrator", ReplyAction="http://tempuri.org/IService1/IsAdministratorResponse")]
         System.Threading.Tasks.Task<bool> IsAdministratorAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ChangePassword", ReplyAction="http://tempuri.org/IService1/ChangePasswordResponse")]
+        void ChangePassword(MessageBoardDTO.UserDTO user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ChangePassword", ReplyAction="http://tempuri.org/IService1/ChangePasswordResponse")]
+        System.Threading.Tasks.Task ChangePasswordAsync(MessageBoardDTO.UserDTO user);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -111,6 +117,14 @@ namespace MessageBoardController.ServiceReference {
         
         public System.Threading.Tasks.Task<bool> IsAdministratorAsync(string username) {
             return base.Channel.IsAdministratorAsync(username);
+        }
+        
+        public void ChangePassword(MessageBoardDTO.UserDTO user) {
+            base.Channel.ChangePassword(user);
+        }
+        
+        public System.Threading.Tasks.Task ChangePasswordAsync(MessageBoardDTO.UserDTO user) {
+            return base.Channel.ChangePasswordAsync(user);
         }
     }
 }
