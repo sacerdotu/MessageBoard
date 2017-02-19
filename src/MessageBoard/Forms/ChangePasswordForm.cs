@@ -41,7 +41,7 @@ namespace MessageBoard.Forms
         }
         private void btnBack_Click(object sender, EventArgs e)
         {
-            MainForm form = new MainForm();
+            MainForm form = new MainForm(_username);
             form.Show();
             this.Close();
         }

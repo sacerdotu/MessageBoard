@@ -13,6 +13,7 @@ using MessageBoardController.Interfaces;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using MessageBoardCommon;
+using DevExpress.XtraGrid.Views.Base;
 
 namespace MessageBoard.Forms
 {
@@ -34,13 +35,20 @@ namespace MessageBoard.Forms
             }
         }
         #endregion
+
         DisplayUsersController _controller;
+        string _username;
         #region Constructor
         public DisplayUsersForm()
         {
             InitializeComponent();
             _controller = new DisplayUsersController(this);
            
+        }
+        public DisplayUsersForm(string username)
+            :this()
+        {
+            _username = username;
         }
         #endregion
         #region Methods
@@ -77,10 +85,20 @@ namespace MessageBoard.Forms
         }
         private void btnBack_Click(object sender, EventArgs e)
         {
-            MainForm mainForm = new MainForm();
+            MainForm mainForm = new MainForm(_username);
             mainForm.Show();
             this.Close();
         }
         #endregion
+
+        private void btnSaveChanges_Click(object sender, EventArgs e)
+        {
+            _controller.SaveChanges();
+        }
+
+        private void viewDisplayUsers_RowUpdated(object sender, RowObjectEventArgs e)
+        {
+            _controller.GetChanges(e);
+        }
     }
 }

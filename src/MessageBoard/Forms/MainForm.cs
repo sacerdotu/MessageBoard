@@ -36,7 +36,7 @@ namespace MessageBoard
 
         private void btnDisplayUsers_Click(object sender, EventArgs e)
         {
-            DisplayUsersForm displayForm = new DisplayUsersForm();
+            DisplayUsersForm displayForm = new DisplayUsersForm(_username);
             displayForm.Show();
             this.Hide();
         }

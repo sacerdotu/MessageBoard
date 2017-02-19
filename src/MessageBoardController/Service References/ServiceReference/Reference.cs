@@ -28,10 +28,10 @@ namespace MessageBoardController.ServiceReference {
         System.Threading.Tasks.Task<MessageBoardDTO.UserDTO> CheckUserAndPasswordAsync(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FillUsersGrid", ReplyAction="http://tempuri.org/IService1/FillUsersGridResponse")]
-        MessageBoardDTO.UserDTO[] FillUsersGrid();
+        System.Collections.Generic.List<MessageBoardDTO.UserDTO> FillUsersGrid();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FillUsersGrid", ReplyAction="http://tempuri.org/IService1/FillUsersGridResponse")]
-        System.Threading.Tasks.Task<MessageBoardDTO.UserDTO[]> FillUsersGridAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardDTO.UserDTO>> FillUsersGridAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUserDetails", ReplyAction="http://tempuri.org/IService1/GetUserDetailsResponse")]
         MessageBoardDTO.UserDTO GetUserDetails(int userID);
@@ -50,6 +50,12 @@ namespace MessageBoardController.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ChangePassword", ReplyAction="http://tempuri.org/IService1/ChangePasswordResponse")]
         System.Threading.Tasks.Task ChangePasswordAsync(MessageBoardDTO.UserDTO user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateIsActive", ReplyAction="http://tempuri.org/IService1/UpdateIsActiveResponse")]
+        void UpdateIsActive(System.Collections.Generic.List<MessageBoardDTO.UserDTO> users);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateIsActive", ReplyAction="http://tempuri.org/IService1/UpdateIsActiveResponse")]
+        System.Threading.Tasks.Task UpdateIsActiveAsync(System.Collections.Generic.List<MessageBoardDTO.UserDTO> users);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -95,11 +101,11 @@ namespace MessageBoardController.ServiceReference {
             return base.Channel.CheckUserAndPasswordAsync(username);
         }
         
-        public MessageBoardDTO.UserDTO[] FillUsersGrid() {
+        public System.Collections.Generic.List<MessageBoardDTO.UserDTO> FillUsersGrid() {
             return base.Channel.FillUsersGrid();
         }
         
-        public System.Threading.Tasks.Task<MessageBoardDTO.UserDTO[]> FillUsersGridAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardDTO.UserDTO>> FillUsersGridAsync() {
             return base.Channel.FillUsersGridAsync();
         }
         
@@ -125,6 +131,14 @@ namespace MessageBoardController.ServiceReference {
         
         public System.Threading.Tasks.Task ChangePasswordAsync(MessageBoardDTO.UserDTO user) {
             return base.Channel.ChangePasswordAsync(user);
+        }
+        
+        public void UpdateIsActive(System.Collections.Generic.List<MessageBoardDTO.UserDTO> users) {
+            base.Channel.UpdateIsActive(users);
+        }
+        
+        public System.Threading.Tasks.Task UpdateIsActiveAsync(System.Collections.Generic.List<MessageBoardDTO.UserDTO> users) {
+            return base.Channel.UpdateIsActiveAsync(users);
         }
     }
 }
