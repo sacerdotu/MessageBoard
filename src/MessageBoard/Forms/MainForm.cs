@@ -38,7 +38,7 @@ namespace MessageBoard
         {
             DisplayUsersForm displayForm = new DisplayUsersForm(_username);
             displayForm.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void MainForm_Load(object sender, EventArgs e)

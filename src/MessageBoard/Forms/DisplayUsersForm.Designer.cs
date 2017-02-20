@@ -45,7 +45,7 @@
             this.colAccountCreationDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnBack = new DevExpress.XtraEditors.SimpleButton();
             this.btnSaveChanges = new DevExpress.XtraEditors.SimpleButton();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            //this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.grdDisplayUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewDisplayUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repIsAdministrator)).BeginInit();
@@ -257,6 +257,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colAccountCreationDate;
         private DevExpress.XtraEditors.SimpleButton btnBack;
         private DevExpress.XtraEditors.SimpleButton btnSaveChanges;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+       // private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

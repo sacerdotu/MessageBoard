@@ -37,7 +37,7 @@ namespace MessageBoardController
                 _form.TxtCountry.EditValue = userDetails.Country;
                 _form.TxtCity.EditValue = userDetails.City;
                 _form.IsActive.EditValue = userDetails.IsActive;
-                _form.IsAdministrator.EditValue = userDetails.IsActive;
+                _form.IsAdministrator.EditValue = userDetails.IsAdministrator;
                 _form.CmbFunction.EditValue = userDetails.Function;
                 _form.AccountCreationDate.EditValue = userDetails.AccountCreationDate;
                 DisableForm();

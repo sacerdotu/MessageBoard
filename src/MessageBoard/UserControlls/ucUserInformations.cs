@@ -93,10 +93,10 @@ namespace MessageBoard
         {
             get { return lblProfilePicture; }
         }
-        public PictureEdit ImgProfilePicture
-        {
-            get { return ImgProfilePicture; }
-        }
+        //public PictureEdit ImgProfilePicture
+        //{
+        //    get { return ImgProfilePicture; }
+        //}
         public LabelControl LblUsername
         {
             get { return lblUsername; }
@@ -109,6 +109,6 @@ namespace MessageBoard
         {
             get { return lblConfirmPassword; }
         }
-            #endregion
-        }
+        #endregion
+    }
 }

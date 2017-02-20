@@ -28,14 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnBack = new DevExpress.XtraEditors.SimpleButton();
             this.ucUserInformations1 = new MessageBoard.ucUserInformations();
             this.SuspendLayout();
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(388, 307);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.TabIndex = 1;
+            this.btnBack.Text = "Back";
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // ucUserInformations1
             // 
             this.ucUserInformations1.Location = new System.Drawing.Point(12, 12);
             this.ucUserInformations1.Name = "ucUserInformations1";
-            this.ucUserInformations1.Size = new System.Drawing.Size(489, 370);
+            this.ucUserInformations1.Size = new System.Drawing.Size(493, 305);
             this.ucUserInformations1.TabIndex = 0;
             this.ucUserInformations1.Load += new System.EventHandler(this.ucUserInformations1_Load);
             // 
@@ -43,7 +53,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(517, 385);
+            this.ClientSize = new System.Drawing.Size(508, 342);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.ucUserInformations1);
             this.Name = "UserDetailsForm";
             this.Text = "UserDetailsForm";
@@ -54,5 +65,6 @@
         #endregion
 
         private ucUserInformations ucUserInformations1;
+        private DevExpress.XtraEditors.SimpleButton btnBack;
     }
 }

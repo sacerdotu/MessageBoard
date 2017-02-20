@@ -51,6 +51,7 @@ namespace MessageBoard.Forms
             _username = username;
         }
         #endregion
+
         #region Methods
         private void UsersForm_Load(object sender, EventArgs e)
         {
@@ -69,8 +70,9 @@ namespace MessageBoard.Forms
                 int userID = _controller.GetUserID(e);
                 if (userID > 0)
                 {
-                    UserDetailsForm userDetails = new UserDetailsForm(userID);
+                    UserDetailsForm userDetails = new UserDetailsForm(userID, _username);
                     userDetails.Show();
+                    this.Close();
                 }
                 else
                 {

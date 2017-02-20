@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using MessageBoard.Forms;
 using MessageBoardCommon;
 using MessageBoardController;
 using MessageBoardController.Interfaces;
@@ -17,6 +18,7 @@ namespace MessageBoard
     public partial class UserDetailsForm : Form, IUserDetailsForm
     {
         UserDetailsController _controller;
+        string _username;
         #region Properties
         public TextEdit TxtFirstName
         {
@@ -71,10 +73,10 @@ namespace MessageBoard
         {
             get { return ucUserInformations1.LblProfilePicture; }
         }
-        public PictureEdit ImgProfilePicture
-        {
-            get { return ucUserInformations1.ImgProfilePicture; }
-        }
+        //public PictureEdit ImgProfilePicture
+        //{
+        //    get { return ucUserInformations1.ImgProfilePicture; }
+        //}
         public LabelControl LblUsername
         {
             get { return ucUserInformations1.LblUsername; }
@@ -93,10 +95,11 @@ namespace MessageBoard
         {
             InitializeComponent();
         }
-        public UserDetailsForm(int userID)
+        public UserDetailsForm(int userID, string username)
             :this()
         {
             _controller = new UserDetailsController(this, userID);
+            _username = username;
         }
 
         private void ucUserInformations1_Load(object sender, EventArgs e)
@@ -118,6 +121,13 @@ namespace MessageBoard
                 Logger.Error(ex.Message);
             }
             
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            DisplayUsersForm form = new DisplayUsersForm(_username);
+            form.Show();
+            this.Close();
         }
     }
 }
