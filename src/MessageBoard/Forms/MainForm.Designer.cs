@@ -30,6 +30,7 @@
         {
             this.btnDisplayUsers = new DevExpress.XtraEditors.SimpleButton();
             this.btnChangePassword = new DevExpress.XtraEditors.SimpleButton();
+            this.btnForum = new DevExpress.XtraEditors.SimpleButton();
             this.SuspendLayout();
             // 
             // btnDisplayUsers
@@ -50,11 +51,21 @@
             this.btnChangePassword.Text = "Change Password";
             this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
             // 
+            // btnForum
+            // 
+            this.btnForum.Location = new System.Drawing.Point(94, 165);
+            this.btnForum.Name = "btnForum";
+            this.btnForum.Size = new System.Drawing.Size(101, 23);
+            this.btnForum.TabIndex = 2;
+            this.btnForum.Text = "Forum";
+            this.btnForum.Click += new System.EventHandler(this.btnForum_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.btnForum);
             this.Controls.Add(this.btnChangePassword);
             this.Controls.Add(this.btnDisplayUsers);
             this.Name = "MainForm";
@@ -68,5 +79,6 @@
 
         private DevExpress.XtraEditors.SimpleButton btnDisplayUsers;
         private DevExpress.XtraEditors.SimpleButton btnChangePassword;
+        private DevExpress.XtraEditors.SimpleButton btnForum;
     }
 }

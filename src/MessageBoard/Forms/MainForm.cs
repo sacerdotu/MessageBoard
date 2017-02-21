@@ -71,5 +71,12 @@ namespace MessageBoard
             }
             
         }
+
+        private void btnForum_Click(object sender, EventArgs e)
+        {
+            ForumForm form = new ForumForm(_username);
+            form.Show();
+            this.Close();
+        }
     }
 }

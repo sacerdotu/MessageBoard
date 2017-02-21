@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:51604/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:51604/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:51604/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MessageBoardDTO" />
+      <xsd:import schemaLocation="http://localhost:51604/Service1.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_InsertNewUser_InputMessage">
@@ -49,6 +50,12 @@
   <wsdl:message name="IService1_UpdateIsActive_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateIsActiveResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_AddNewPost_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewPost" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddNewPost_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewPostResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="InsertNewUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertNewUser" message="tns:IService1_InsertNewUser_InputMessage" />
@@ -77,6 +84,10 @@
     <wsdl:operation name="UpdateIsActive">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateIsActive" message="tns:IService1_UpdateIsActive_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateIsActiveResponse" message="tns:IService1_UpdateIsActive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewPost">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddNewPost" message="tns:IService1_AddNewPost_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddNewPostResponse" message="tns:IService1_AddNewPost_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -137,6 +148,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateIsActive">
       <soap:operation soapAction="http://tempuri.org/IService1/UpdateIsActive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewPost">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddNewPost" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

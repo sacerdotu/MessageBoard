@@ -56,6 +56,12 @@ namespace MessageBoardController.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateIsActive", ReplyAction="http://tempuri.org/IService1/UpdateIsActiveResponse")]
         System.Threading.Tasks.Task UpdateIsActiveAsync(System.Collections.Generic.List<MessageBoardDTO.UserDTO> users);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddNewPost", ReplyAction="http://tempuri.org/IService1/AddNewPostResponse")]
+        void AddNewPost(System.Collections.Generic.List<string> addPost);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddNewPost", ReplyAction="http://tempuri.org/IService1/AddNewPostResponse")]
+        System.Threading.Tasks.Task AddNewPostAsync(System.Collections.Generic.List<string> addPost);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -139,6 +145,14 @@ namespace MessageBoardController.ServiceReference {
         
         public System.Threading.Tasks.Task UpdateIsActiveAsync(System.Collections.Generic.List<MessageBoardDTO.UserDTO> users) {
             return base.Channel.UpdateIsActiveAsync(users);
+        }
+        
+        public void AddNewPost(System.Collections.Generic.List<string> addPost) {
+            base.Channel.AddNewPost(addPost);
+        }
+        
+        public System.Threading.Tasks.Task AddNewPostAsync(System.Collections.Generic.List<string> addPost) {
+            return base.Channel.AddNewPostAsync(addPost);
         }
     }
 }
