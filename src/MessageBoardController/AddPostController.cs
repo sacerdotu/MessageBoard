@@ -21,10 +21,18 @@ namespace MessageBoardController
         }
         public void AddPost()
         {
-            List<string> addPost = new List<string>();
-            addPost.Add(_username);
-            addPost.Add(_form.RtbPost.Text);
-            _service.AddNewPost(addPost);
+            try
+            {
+                List<string> addPost = new List<string>();
+                addPost.Add(_username);
+                addPost.Add(_form.RtbPost.Text);
+                _service.AddNewPost(addPost);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+           
         }
     }
 }

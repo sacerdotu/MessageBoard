@@ -49,7 +49,6 @@ namespace MessageBoard
             }
             catch (Exception ex)
             {
-
                 XtraMessageBox.Show(ex.Message);
                 Logger.Error(ex.Message);
             }
