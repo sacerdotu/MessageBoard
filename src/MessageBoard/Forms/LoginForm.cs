@@ -82,7 +82,7 @@ namespace MessageBoard
                 else
                 {
                     XtraMessageBox.Show("Wrong Username or Password");
-                    Logger.Information("Username is: {0} and Password is {1}", TxtUsername.Text, TxtPassword.Text);
+                    Logger.Information("Failed login attempt: Username is: {0} and Password is {1}", TxtUsername.Text, TxtPassword.Text);
                 }
             }
             catch (EndpointNotFoundException ex)
