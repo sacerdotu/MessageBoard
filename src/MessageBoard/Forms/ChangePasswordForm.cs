@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using MessageBoardCommon;
 using MessageBoardController;
+using MessageBoardController.Constants;
 using MessageBoardController.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -50,22 +51,20 @@ namespace MessageBoard.Forms
         {
             try
             {
-                if(TxtPassword.Text == TxtConfirmPassword.Text)
+                if((TxtPassword.Text == TxtConfirmPassword.Text) && TxtPassword !=null)
                 {
                     _controller.GeneratePassword(_username);
                 }
                 else
                 {
-                    XtraMessageBox.Show("Please insert password again");
+                    XtraMessageBox.Show("Please insert passwords again");
                     TxtPassword.Text = String.Empty;
                     TxtConfirmPassword.Text = String.Empty;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
-                XtraMessageBox.Show(ex.Message);
-                Logger.Error(ex.Message);
+                XtraMessageBox.Show(Constants.ExceptionService);
             }
         }
     }

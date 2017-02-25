@@ -2,6 +2,7 @@
 using MessageBoard.Forms;
 using MessageBoardCommon;
 using MessageBoardController;
+using MessageBoardController.Constants;
 using MessageBoardController.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace MessageBoard
     {
         UserDetailsController _controller;
         string _username;
+
         #region Properties
         public TextEdit TxtFirstName
         {
@@ -114,12 +116,10 @@ namespace MessageBoard
                 TxtPassword.Visible = false;
                 TxtUsername.Visible = false;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                XtraMessageBox.Show(ex.Message);
-                Logger.Error(ex.Message);
-            }
-            
+                XtraMessageBox.Show(Constants.ExceptionService);
+            }    
         }
 
         private void btnBack_Click(object sender, EventArgs e)

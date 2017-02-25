@@ -1,4 +1,5 @@
-﻿using MessageBoardController.HelperClasses;
+﻿using MessageBoardCommon;
+using MessageBoardController.HelperClasses;
 using MessageBoardController.Interfaces;
 using MessageBoardController.ServiceReference;
 using MessageBoardDTO;
@@ -37,7 +38,7 @@ namespace MessageBoardController
             }
             catch (Exception ex)
             {
-
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
                 throw ex;
             }
 

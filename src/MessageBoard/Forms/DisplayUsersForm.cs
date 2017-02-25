@@ -14,6 +14,7 @@ using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using MessageBoardCommon;
 using DevExpress.XtraGrid.Views.Base;
+using MessageBoardController.Constants;
 
 namespace MessageBoard.Forms
 {
@@ -79,10 +80,9 @@ namespace MessageBoard.Forms
                     return;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                XtraMessageBox.Show(ex.Message);
-                Logger.Error(ex.Message);
+                XtraMessageBox.Show(Constants.ExceptionService);
             }
         }
         private void btnBack_Click(object sender, EventArgs e)
@@ -93,14 +93,25 @@ namespace MessageBoard.Forms
         }
         #endregion
 
+        #region SaveChanges
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
-            _controller.SaveChanges();
+            try
+            {
+                _controller.SaveChanges();
+            }
+            catch(Exception)
+            {
+                XtraMessageBox.Show(Constants.CouldNotSaveChanges);
+            }   
         }
+        #endregion
 
+        #region RowUpdate
         private void viewDisplayUsers_RowUpdated(object sender, RowObjectEventArgs e)
         {
-            _controller.GetChanges(e);
+            _controller.ModifiedUsers(e);
         }
+        #endregion
     }
 }

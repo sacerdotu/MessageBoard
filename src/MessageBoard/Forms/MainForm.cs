@@ -2,6 +2,7 @@
 using MessageBoard.Forms;
 using MessageBoardCommon;
 using MessageBoardController;
+using MessageBoardController.Constants;
 using MessageBoardController.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -47,28 +48,17 @@ namespace MessageBoard
             {
                 _mainController.IsAdministrator();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                XtraMessageBox.Show(ex.Message);
-                Logger.Error(ex.Message);
+                XtraMessageBox.Show(Constants.ExceptionService);
             }
-            
         }
 
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
-            try
-            {
-                ChangePasswordForm form = new ChangePasswordForm(_username);
-                form.Show();
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                XtraMessageBox.Show(ex.Message);
-                Logger.Error(ex.Message);
-            }
-            
+            ChangePasswordForm form = new ChangePasswordForm(_username);
+            form.Show();
+            this.Close();
         }
 
         private void btnForum_Click(object sender, EventArgs e)

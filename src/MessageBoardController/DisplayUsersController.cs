@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraGrid.Views.Base;
+using MessageBoardCommon;
 using MessageBoardController.Interfaces;
 using MessageBoardController.ServiceReference;
 using MessageBoardDTO;
@@ -29,7 +30,7 @@ namespace MessageBoardController
             }
             catch (Exception ex)
             {
-
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
                 throw ex;
             }  
         }
@@ -42,6 +43,7 @@ namespace MessageBoardController
             }
             catch (Exception ex)
             {
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
                 throw ex;
             }
         }
@@ -61,11 +63,12 @@ namespace MessageBoardController
             }
             catch (Exception ex)
             {
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
                 throw ex;
             }
         }
 
-        public void GetChanges(RowObjectEventArgs e)
+        public void ModifiedUsers(RowObjectEventArgs e)
         {
             try
             {
@@ -82,6 +85,7 @@ namespace MessageBoardController
             }
             catch(Exception ex)
             {
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
                 throw ex;
             }     
         }

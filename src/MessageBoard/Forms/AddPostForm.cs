@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using MessageBoardCommon;
 using MessageBoardController;
+using MessageBoardController.Constants;
 using MessageBoardController.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -40,10 +41,9 @@ namespace MessageBoard.Forms
                 _controller.AddPost();
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                XtraMessageBox.Show(ex.Message);
-                Logger.Error(ex.Message);
+                XtraMessageBox.Show(Constants.ExceptionService);
             }
             
         }

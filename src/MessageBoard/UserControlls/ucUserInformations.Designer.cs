@@ -69,7 +69,7 @@
             // imgProfilePicture
             // 
             imgProfilePicture.Cursor = System.Windows.Forms.Cursors.Default;
-            imgProfilePicture.Location = new System.Drawing.Point(351, 120);
+            imgProfilePicture.Location = new System.Drawing.Point(351, 79);
             imgProfilePicture.Name = "imgProfilePicture";
             imgProfilePicture.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             imgProfilePicture.Properties.ZoomAccelerationFactor = 1D;
@@ -139,7 +139,7 @@
             // 
             // lblFunction
             // 
-            this.lblFunction.Location = new System.Drawing.Point(264, -92);
+            this.lblFunction.Location = new System.Drawing.Point(250, 35);
             this.lblFunction.Name = "lblFunction";
             this.lblFunction.Size = new System.Drawing.Size(41, 13);
             this.lblFunction.TabIndex = 9;
@@ -147,7 +147,7 @@
             // 
             // cmbFunction
             // 
-            this.cmbFunction.Location = new System.Drawing.Point(351, -95);
+            this.cmbFunction.Location = new System.Drawing.Point(351, 32);
             this.cmbFunction.Name = "cmbFunction";
             this.cmbFunction.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -161,7 +161,7 @@
             // 
             // lblProfilePicture
             // 
-            this.lblProfilePicture.Location = new System.Drawing.Point(250, 120);
+            this.lblProfilePicture.Location = new System.Drawing.Point(249, 79);
             this.lblProfilePicture.Name = "lblProfilePicture";
             this.lblProfilePicture.Size = new System.Drawing.Size(66, 13);
             this.lblProfilePicture.TabIndex = 13;
@@ -216,7 +216,7 @@
             // 
             // chkAdministrator
             // 
-            this.chkAdministrator.Location = new System.Drawing.Point(250, 73);
+            this.chkAdministrator.Location = new System.Drawing.Point(250, 245);
             this.chkAdministrator.Name = "chkAdministrator";
             this.chkAdministrator.Properties.Caption = "Administrator";
             this.chkAdministrator.Size = new System.Drawing.Size(86, 19);
@@ -224,7 +224,7 @@
             // 
             // chkActive
             // 
-            this.chkActive.Location = new System.Drawing.Point(401, 73);
+            this.chkActive.Location = new System.Drawing.Point(376, 245);
             this.chkActive.Name = "chkActive";
             this.chkActive.Properties.Caption = "Active";
             this.chkActive.Size = new System.Drawing.Size(75, 19);
@@ -233,7 +233,7 @@
             // dateRegisterDate
             // 
             this.dateRegisterDate.EditValue = null;
-            this.dateRegisterDate.Location = new System.Drawing.Point(351, 32);
+            this.dateRegisterDate.Location = new System.Drawing.Point(351, 195);
             this.dateRegisterDate.Name = "dateRegisterDate";
             this.dateRegisterDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -244,7 +244,7 @@
             // 
             // lblRegisterDate
             // 
-            this.lblRegisterDate.Location = new System.Drawing.Point(250, 35);
+            this.lblRegisterDate.Location = new System.Drawing.Point(250, 202);
             this.lblRegisterDate.Name = "lblRegisterDate";
             this.lblRegisterDate.Size = new System.Drawing.Size(65, 13);
             this.lblRegisterDate.TabIndex = 23;

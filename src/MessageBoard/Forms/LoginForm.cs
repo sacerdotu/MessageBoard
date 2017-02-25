@@ -49,13 +49,14 @@ namespace MessageBoard
         }
         #endregion
 
+        #region Close
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        #endregion
 
-
-        #region btnClose
+        #region Register
         private void hplRegister_Click(object sender, EventArgs e)
         {
                 RegisterForm register = new RegisterForm();
@@ -69,6 +70,15 @@ namespace MessageBoard
         {
             try
             {
+                if(TxtUsername.EditValue == null)
+                {
+                    return;
+                } 
+                else if (TxtPassword.EditValue == null)
+                {
+                    XtraMessageBox.Show("Please insert the password!");
+                    return;
+                }
                 bool validation = _controller.ValidateLogin(TxtUsername.EditValue.ToString(), TxtPassword.EditValue.ToString());
 
                 if (validation == true)
@@ -77,7 +87,6 @@ namespace MessageBoard
                     MainForm mainForm = new MainForm(username);
                     mainForm.Show();
                     this.Hide();
-                    
                 }
                 else
                 {
@@ -85,22 +94,17 @@ namespace MessageBoard
                     Logger.Information("Failed login attempt: Username is: {0} and Password is {1}", TxtUsername.Text, TxtPassword.Text);
                 }
             }
-            catch (EndpointNotFoundException ex)
+            catch (EndpointNotFoundException)
             {
-                XtraMessageBox.Show(Constants.ExceptionService);
-                Logger.Error(ex.Message);           
+                XtraMessageBox.Show(Constants.ExceptionService);           
             }
-            catch (NullReferenceException ex)
+
+            catch (Exception)
             {
-                XtraMessageBox.Show(Constants.ExceptionNullObjReference);
-                Logger.Error(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                XtraMessageBox.Show(ex.Message);
-                Logger.Error(ex.Message);
+                XtraMessageBox.Show(Constants.CouldNotLogIn);
             }
         }
         #endregion
+
     }
 }

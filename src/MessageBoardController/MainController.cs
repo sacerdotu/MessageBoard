@@ -1,4 +1,5 @@
-﻿using MessageBoardController.Interfaces;
+﻿using MessageBoardCommon;
+using MessageBoardController.Interfaces;
 using MessageBoardController.ServiceReference;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace MessageBoardController
         private IService1 _service;
         private IMainForm _form;
         private string _username;
+
         #region Constructor
         public MainController(IMainForm form, string username)
         {
@@ -21,6 +23,7 @@ namespace MessageBoardController
             _service = new Service1Client();
         }
         #endregion
+
         #region IsAdministrator
         public void IsAdministrator()
         {
@@ -38,10 +41,9 @@ namespace MessageBoardController
             }
             catch (Exception ex)
             {
-
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
                 throw ex;
-            }
-            
+            }    
         }
         #endregion
     }

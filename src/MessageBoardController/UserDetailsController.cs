@@ -1,4 +1,5 @@
-﻿using MessageBoardController.Interfaces;
+﻿using MessageBoardCommon;
+using MessageBoardController.Interfaces;
 using MessageBoardController.ServiceReference;
 using MessageBoardDTO;
 using System;
@@ -42,10 +43,10 @@ namespace MessageBoardController
                 _form.AccountCreationDate.EditValue = userDetails.AccountCreationDate;
                 DisableForm();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
+                throw ex;
             }
         }
         #endregion
@@ -66,7 +67,7 @@ namespace MessageBoardController
             }
             catch (Exception ex)
             {
-
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
                 throw ex;
             }
         }

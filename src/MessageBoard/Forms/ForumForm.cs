@@ -34,16 +34,8 @@ namespace MessageBoard.Forms
 
         private void btnAddPost_Click(object sender, EventArgs e)
         {
-            try
-            {
-                AddPostForm form = new AddPostForm(_username);
-                form.Show();
-            }
-            catch (Exception ex)
-            {
-                XtraMessageBox.Show(ex.Message);
-                Logger.Error(ex.Message);
-            }
+            AddPostForm form = new AddPostForm(_username);
+            form.Show();
         }
     }
 }

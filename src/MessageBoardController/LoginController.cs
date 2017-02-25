@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using MessageBoardDTO;
 using MessageBoardController.HelperClasses;
+using MessageBoardCommon;
 
 namespace MessageBoardController
 {
@@ -21,11 +22,7 @@ namespace MessageBoardController
             _service = new Service1Client();
         }
 
-        private void BtnLogin_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
+        #region ValidateLogin
         public bool ValidateLogin(string username, string password)
         {
             try
@@ -48,16 +45,13 @@ namespace MessageBoardController
                     return false;
                 }
             }
-            catch (NullReferenceException ex)
-            {
-                throw ex;
-            }
             catch (Exception ex)
             {
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
                 throw ex;
             }
         }
-
+        #endregion
 
     }
 }

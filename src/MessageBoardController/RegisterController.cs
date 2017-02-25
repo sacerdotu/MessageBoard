@@ -1,4 +1,5 @@
-﻿using MessageBoardController.HelperClasses;
+﻿using MessageBoardCommon;
+using MessageBoardController.HelperClasses;
 using MessageBoardController.ServiceReference;
 using MessageBoardDTO;
 using System;
@@ -44,12 +45,9 @@ namespace MessageBoardController
                 user.PasswordHash = HashHelper.GetHash(_form.TxtPassword.EditValue.ToString(), user.PasswordSalt);
                 _service.InsertNewUser(user);
             }
-            catch (NullReferenceException ex)
-            {
-                throw ex;
-            }
             catch (Exception ex)
             {
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
                 throw ex;
             }
         }

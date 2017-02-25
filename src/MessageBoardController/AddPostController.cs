@@ -1,4 +1,5 @@
-﻿using MessageBoardController.Interfaces;
+﻿using MessageBoardCommon;
+using MessageBoardController.Interfaces;
 using MessageBoardController.ServiceReference;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,8 @@ namespace MessageBoardController
             _service = new Service1Client();
             _username = username;
         }
+
+        #region AddPost
         public void AddPost()
         {
             try
@@ -30,9 +33,10 @@ namespace MessageBoardController
             }
             catch (Exception ex)
             {
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
                 throw ex;
             }
-           
         }
+        #endregion
     }
 }

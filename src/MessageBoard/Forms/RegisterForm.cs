@@ -82,21 +82,12 @@ namespace MessageBoard.Forms
             _controller = new RegisterController(this);
             TxtConfirmPassword.KeyDown += TxtConfirmPassword_KeyDown;
         }
-        
+
         private void TxtConfirmPassword_KeyDown(object sender, KeyEventArgs e)
         {
-            try
+            if (e.KeyCode == Keys.Enter)
             {
-                if (e.KeyCode == Keys.Enter)
-                {
-                    RegisterUser(sender, e);
-                }
-            }
-            catch (Exception ex)
-            {
-
-                Logger.Error(ex.Message);
-                XtraMessageBox.Show(ex.Message);
+                RegisterUser(sender, e);
             }
         }
 
@@ -105,7 +96,7 @@ namespace MessageBoard.Forms
         {
             try
             {
-                if (TxtPassword.EditValue.ToString() == TxtConfirmPassword.EditValue.ToString())
+                if ((TxtPassword.EditValue.ToString() == TxtConfirmPassword.EditValue.ToString()) && TxtConfirmPassword != null)
                 {
                     _controller.RegisterUser();
                     LoginForm loginForm = new LoginForm();
@@ -118,19 +109,14 @@ namespace MessageBoard.Forms
                     
                 }
             }
-            catch (NullReferenceException ex)
+            catch (Exception)
             {
-                Logger.Error(ex.Message);
-                XtraMessageBox.Show(Constants.ExceptionNullObjReference);
-            }
-            catch (Exception ex)
-            {
-                Logger.Error(ex.Message);
-                XtraMessageBox.Show(ex.Message);
+                XtraMessageBox.Show(Constants.RegistrationFailed);
             }
         }
         #endregion
 
+        #region Load
         private void RegisterForm_Load(object sender, EventArgs e)
         {
             IsAdministrator.Visible = false;
@@ -138,5 +124,6 @@ namespace MessageBoard.Forms
             AccountCreationDate.Visible = false;
             lblRegisterDate.Visible = false;
         }
+        #endregion
     }
 }
