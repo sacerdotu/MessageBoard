@@ -44,6 +44,7 @@
             // rtbPost
             // 
             this.rtbPost.Location = new System.Drawing.Point(59, 31);
+            this.rtbPost.MaxLength = 160;
             this.rtbPost.Name = "rtbPost";
             this.rtbPost.Size = new System.Drawing.Size(287, 52);
             this.rtbPost.TabIndex = 1;

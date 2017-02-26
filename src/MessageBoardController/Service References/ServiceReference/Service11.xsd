@@ -104,4 +104,16 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="FillPostsGrid">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FillPostsGridResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FillPostsGridResult" nillable="true" type="q8:ArrayOfKeyValueOfPostDTONullableOfdateTimeWCLlTymE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
