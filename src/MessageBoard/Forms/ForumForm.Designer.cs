@@ -37,6 +37,7 @@
             this.colCreationDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUsername = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCommentDate = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdDisplayPosts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewDisplayPosts)).BeginInit();
             this.SuspendLayout();
@@ -81,9 +82,13 @@
             this.colIsPublished,
             this.colCreationDate,
             this.colName,
-            this.colUsername});
+            this.colUsername,
+            this.colCommentDate});
             this.viewDisplayPosts.GridControl = this.grdDisplayPosts;
             this.viewDisplayPosts.Name = "viewDisplayPosts";
+            this.viewDisplayPosts.OptionsView.ShowAutoFilterRow = true;
+            this.viewDisplayPosts.OptionsView.ShowGroupPanel = false;
+            this.viewDisplayPosts.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.viewDisplayPosts_CustomUnboundColumnData);
             // 
             // colPostText
             // 
@@ -123,6 +128,16 @@
             this.colUsername.Visible = true;
             this.colUsername.VisibleIndex = 4;
             // 
+            // colCommentDate
+            // 
+            this.colCommentDate.Caption = "Last comment date";
+            this.colCommentDate.FieldName = "CommentDate";
+            this.colCommentDate.Name = "colCommentDate";
+            this.colCommentDate.OptionsColumn.AllowEdit = false;
+            this.colCommentDate.UnboundType = DevExpress.Data.UnboundColumnType.DateTime;
+            this.colCommentDate.Visible = true;
+            this.colCommentDate.VisibleIndex = 5;
+            // 
             // ForumForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,5 +166,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colCreationDate;
         private DevExpress.XtraGrid.Columns.GridColumn colName;
         private DevExpress.XtraGrid.Columns.GridColumn colUsername;
+        private DevExpress.XtraGrid.Columns.GridColumn colCommentDate;
     }
 }

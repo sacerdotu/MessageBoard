@@ -3,6 +3,7 @@ using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using MessageBoardCommon;
 using MessageBoardController;
+using MessageBoardController.Constants;
 using MessageBoardController.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -63,6 +64,19 @@ namespace MessageBoard.Forms
         private void ForumForm_Load(object sender, EventArgs e)
         {
             _controller.LoadForm();
+        }
+
+        private void viewDisplayPosts_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
+        {
+            try
+            {
+                _controller.viewDisplayPosts_CustomUnboundColumnData(sender, e);
+            }
+            catch (Exception)
+            {
+                XtraMessageBox.Show(Constants.ExceptionService);
+            }
+            
         }
     }
 }
