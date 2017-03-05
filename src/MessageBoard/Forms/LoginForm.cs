@@ -16,6 +16,7 @@ using System.ServiceModel;
 using MessageBoardController.HelperClasses;
 using MessageBoardController.Constants;
 using MessageBoardCommon;
+using MessageBoardController.AppGlobalVariables;
 
 namespace MessageBoard
 {
@@ -79,12 +80,10 @@ namespace MessageBoard
                     XtraMessageBox.Show("Please insert the password!");
                     return;
                 }
-                bool validation = _controller.ValidateLogin(TxtUsername.EditValue.ToString(), TxtPassword.EditValue.ToString());
-
-                if (validation == true)
+                AppGlobalVariables.Instance.UserID = _controller.ValidateLogin(TxtUsername.EditValue.ToString(), TxtPassword.EditValue.ToString());
+                if (AppGlobalVariables.Instance.UserID > 0)
                 {
-                    string username = Convert.ToString(TxtUsername.Text);
-                    MainForm mainForm = new MainForm(username);
+                    MainForm mainForm = new MainForm();
                     mainForm.Show();
                     this.Hide();
                 }
@@ -106,5 +105,14 @@ namespace MessageBoard
         }
         #endregion
 
+        #region txtPasswordKeyDown
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin_Click(sender, e);
+            }
+        }
+        #endregion
     }
 }

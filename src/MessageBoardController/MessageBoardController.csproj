@@ -48,6 +48,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Extensions" />
@@ -61,11 +62,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddPostController.cs" />
+    <Compile Include="AppGlobalVariables\AppGlobalVariables.cs" />
     <Compile Include="ChangePasswordController.cs" />
     <Compile Include="Constants\Constants.cs" />
     <Compile Include="DisplayUsersController.cs" />
     <Compile Include="Enums\Enums.cs" />
     <Compile Include="ForumController.cs" />
+    <Compile Include="HelperClasses\ConvertImage.cs" />
     <Compile Include="HelperClasses\HashHelper.cs" />
     <Compile Include="Interfaces\IAddPostForm.cs" />
     <Compile Include="Interfaces\IChangePasswordForm.cs" />

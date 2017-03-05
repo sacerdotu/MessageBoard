@@ -15,17 +15,17 @@ namespace MessageBoardController
     {
         IMessageBoardService _service;
         IChangePasswordForm _form;
-        public ChangePasswordController()
-        {
 
-        }
+        #region Constructor
         public ChangePasswordController(IChangePasswordForm form)
         {
             _form = form;
             _service = new MessageBoardServiceClient();
         }
+        #endregion
 
-        public void GeneratePassword(string username)
+        #region GeneratePassword
+        public bool GeneratePassword(int userID)
         {
             try
             {
@@ -33,16 +33,23 @@ namespace MessageBoardController
                 string _password = _form.TxtPassword.Text;
                 user.PasswordSalt = HashHelper.GetSalt();
                 user.PasswordHash = HashHelper.GetHash(_password, user.PasswordSalt);
-                user.Username = username;
-                _service.ChangePassword(user);
+                user.UserID = userID;
+                if(_service.ChangePassword(user) == true)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                
             }
             catch (Exception ex)
             {
                 Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
                 throw ex;
-            }
-
-            
+            }       
         }
+        #endregion
     }
 }

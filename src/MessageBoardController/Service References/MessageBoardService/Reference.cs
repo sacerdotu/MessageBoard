@@ -40,28 +40,28 @@ namespace MessageBoardController.MessageBoardService {
         System.Threading.Tasks.Task<MessageBoardDTO.UserDTO> GetUserDetailsAsync(int userID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/IsAdministrator", ReplyAction="http://tempuri.org/IMessageBoardService/IsAdministratorResponse")]
-        bool IsAdministrator(string username);
+        bool IsAdministrator(int userID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/IsAdministrator", ReplyAction="http://tempuri.org/IMessageBoardService/IsAdministratorResponse")]
-        System.Threading.Tasks.Task<bool> IsAdministratorAsync(string username);
+        System.Threading.Tasks.Task<bool> IsAdministratorAsync(int userID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/ChangePassword", ReplyAction="http://tempuri.org/IMessageBoardService/ChangePasswordResponse")]
-        void ChangePassword(MessageBoardDTO.UserDTO user);
+        bool ChangePassword(MessageBoardDTO.UserDTO user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/ChangePassword", ReplyAction="http://tempuri.org/IMessageBoardService/ChangePasswordResponse")]
-        System.Threading.Tasks.Task ChangePasswordAsync(MessageBoardDTO.UserDTO user);
+        System.Threading.Tasks.Task<bool> ChangePasswordAsync(MessageBoardDTO.UserDTO user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/UpdateIsActive", ReplyAction="http://tempuri.org/IMessageBoardService/UpdateIsActiveResponse")]
-        void UpdateIsActive(System.Collections.Generic.List<MessageBoardDTO.UserDTO> users);
+        bool UpdateIsActive(System.Collections.Generic.List<MessageBoardDTO.UserDTO> users);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/UpdateIsActive", ReplyAction="http://tempuri.org/IMessageBoardService/UpdateIsActiveResponse")]
-        System.Threading.Tasks.Task UpdateIsActiveAsync(System.Collections.Generic.List<MessageBoardDTO.UserDTO> users);
+        System.Threading.Tasks.Task<bool> UpdateIsActiveAsync(System.Collections.Generic.List<MessageBoardDTO.UserDTO> users);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/AddNewPost", ReplyAction="http://tempuri.org/IMessageBoardService/AddNewPostResponse")]
-        void AddNewPost(System.Collections.Generic.List<string> addPost);
+        bool AddNewPost(MessageBoardDTO.PostDTO addPost);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/AddNewPost", ReplyAction="http://tempuri.org/IMessageBoardService/AddNewPostResponse")]
-        System.Threading.Tasks.Task AddNewPostAsync(System.Collections.Generic.List<string> addPost);
+        System.Threading.Tasks.Task<bool> AddNewPostAsync(MessageBoardDTO.PostDTO addPost);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/FillPostsGrid", ReplyAction="http://tempuri.org/IMessageBoardService/FillPostsGridResponse")]
         System.Collections.Generic.Dictionary<MessageBoardDTO.PostDTO, System.Nullable<System.DateTime>> FillPostsGrid();
@@ -129,35 +129,35 @@ namespace MessageBoardController.MessageBoardService {
             return base.Channel.GetUserDetailsAsync(userID);
         }
         
-        public bool IsAdministrator(string username) {
-            return base.Channel.IsAdministrator(username);
+        public bool IsAdministrator(int userID) {
+            return base.Channel.IsAdministrator(userID);
         }
         
-        public System.Threading.Tasks.Task<bool> IsAdministratorAsync(string username) {
-            return base.Channel.IsAdministratorAsync(username);
+        public System.Threading.Tasks.Task<bool> IsAdministratorAsync(int userID) {
+            return base.Channel.IsAdministratorAsync(userID);
         }
         
-        public void ChangePassword(MessageBoardDTO.UserDTO user) {
-            base.Channel.ChangePassword(user);
+        public bool ChangePassword(MessageBoardDTO.UserDTO user) {
+            return base.Channel.ChangePassword(user);
         }
         
-        public System.Threading.Tasks.Task ChangePasswordAsync(MessageBoardDTO.UserDTO user) {
+        public System.Threading.Tasks.Task<bool> ChangePasswordAsync(MessageBoardDTO.UserDTO user) {
             return base.Channel.ChangePasswordAsync(user);
         }
         
-        public void UpdateIsActive(System.Collections.Generic.List<MessageBoardDTO.UserDTO> users) {
-            base.Channel.UpdateIsActive(users);
+        public bool UpdateIsActive(System.Collections.Generic.List<MessageBoardDTO.UserDTO> users) {
+            return base.Channel.UpdateIsActive(users);
         }
         
-        public System.Threading.Tasks.Task UpdateIsActiveAsync(System.Collections.Generic.List<MessageBoardDTO.UserDTO> users) {
+        public System.Threading.Tasks.Task<bool> UpdateIsActiveAsync(System.Collections.Generic.List<MessageBoardDTO.UserDTO> users) {
             return base.Channel.UpdateIsActiveAsync(users);
         }
         
-        public void AddNewPost(System.Collections.Generic.List<string> addPost) {
-            base.Channel.AddNewPost(addPost);
+        public bool AddNewPost(MessageBoardDTO.PostDTO addPost) {
+            return base.Channel.AddNewPost(addPost);
         }
         
-        public System.Threading.Tasks.Task AddNewPostAsync(System.Collections.Generic.List<string> addPost) {
+        public System.Threading.Tasks.Task<bool> AddNewPostAsync(MessageBoardDTO.PostDTO addPost) {
             return base.Channel.AddNewPostAsync(addPost);
         }
         

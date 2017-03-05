@@ -41,17 +41,21 @@ namespace MessageBoardController
                 user.City = _form.TxtCity.EditValue.ToString();
                 user.Function = _form.CmbFunction.EditValue.ToString();
                 user.Username = _form.TxtUsername.EditValue.ToString();
+                user.ProfileImage = ConvertImage.ImageToByteArray(_form.ImgProfilePicture.Image);
                 user.PasswordSalt = HashHelper.GetSalt();
                 user.PasswordHash = HashHelper.GetHash(_form.TxtPassword.EditValue.ToString(), user.PasswordSalt);
 
-                return _service.InsertNewUser(user);
+                int newUser = _service.InsertNewUser(user);
+                return newUser;
             }
             catch (Exception ex)
             {
                 Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
-                throw ex;
+                return 0;
             }
         }
+
+
         #endregion
 
     }

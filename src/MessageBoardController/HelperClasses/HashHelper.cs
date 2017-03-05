@@ -47,6 +47,7 @@ namespace MessageBoardController.HelperClasses
         }
         #endregion
 
+        #region GetSalt
         public static string GetSalt()
         {
             int minSaltLength = 4;
@@ -63,5 +64,6 @@ namespace MessageBoardController.HelperClasses
 
             return result;
         }
+        #endregion
     }
 }

@@ -23,6 +23,9 @@ namespace MessageBoard.Forms
 {
     public partial class ForumForm : Form, IForumForm
     {
+        ForumController _controller;
+ 
+        #region Properties
         public GridControl GrdDisplayPosts
         {
             get
@@ -38,39 +41,42 @@ namespace MessageBoard.Forms
                 return viewDisplayPosts;
             }
         }
+        #endregion
 
-        ForumController _controller;
-        private string _username;
+        #region Constructor
         public ForumForm()
         {
             InitializeComponent();
-        }
-        public ForumForm(string username)
-            :this()
-        {
-            _username = username;
             _controller = new ForumController(this);
         }
+        #endregion
 
+        #region BackClick
         private void btnBack_Click(object sender, EventArgs e)
         {
-            MainForm form = new MainForm(_username);
+            MainForm form = new MainForm();
             form.Show();
             this.Close();
         }
+        #endregion
 
+        #region AddPostClick
         private void btnAddPost_Click(object sender, EventArgs e)
         {
-            AddPostForm form = new AddPostForm(_username);
+            AddPostForm form = new AddPostForm();
             form.Show();
+            this.Close();
         }
+        #endregion
 
+        #region LoadForm
         private void ForumForm_Load(object sender, EventArgs e)
         {
             _controller.LoadForm();
-            
         }
+        #endregion
 
+        #region CustomUnboundColumnData
         private void viewDisplayPosts_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
         {
             try
@@ -80,10 +86,11 @@ namespace MessageBoard.Forms
             catch (Exception)
             {
                 XtraMessageBox.Show(Constants.ExceptionService);
-            }
-            
+            }   
         }
+        #endregion
 
+        #region CustomRowCellEdit
         private void viewDisplayPosts_CustomRowCellEdit(object sender, CustomRowCellEditEventArgs e)
         {
             if(e.RowHandle == GridControl.AutoFilterRowHandle)
@@ -94,5 +101,6 @@ namespace MessageBoard.Forms
                 }
             }
         }
+        #endregion
     }
 }

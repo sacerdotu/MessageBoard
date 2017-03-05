@@ -1,6 +1,7 @@
 ﻿using MessageBoardCommon;
 using MessageBoardController.Interfaces;
 using MessageBoardController.MessageBoardService;
+using MessageBoardDTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,28 +14,37 @@ namespace MessageBoardController
     {
         private IAddPostForm _form;
         private IMessageBoardService _service;
-        private string _username;
-        public AddPostController(IAddPostForm form, string username)
+
+        #region Constructor
+        public AddPostController(IAddPostForm form)
         {
             _form = form;
             _service = new MessageBoardServiceClient();
-            _username = username;
         }
+        #endregion
 
         #region AddPost
-        public void AddPost()
+        public bool AddPost(int userID)
         {
             try
             {
-                List<string> addPost = new List<string>();
-                addPost.Add(_username);
-                addPost.Add(_form.RtbPost.Text);
-                _service.AddNewPost(addPost);
+                PostDTO addPost = new PostDTO();
+                addPost.UserID = userID;
+                addPost.PostText = _form.RtbPost.Text;
+               
+                if(_service.AddNewPost(addPost) == true)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception ex)
             {
                 Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
-                throw ex;
+                return false;
             }
         }
         #endregion

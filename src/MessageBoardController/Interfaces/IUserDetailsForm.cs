@@ -18,5 +18,6 @@ namespace MessageBoardController.Interfaces
         CheckEdit IsAdministrator { get; }
         CheckEdit IsActive { get; }
         DateEdit AccountCreationDate { get; }
+        PictureEdit ImgProfilePicture { get; }
     }
 }

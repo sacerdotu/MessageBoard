@@ -2,6 +2,7 @@
 using MessageBoard.Forms;
 using MessageBoardCommon;
 using MessageBoardController;
+using MessageBoardController.AppGlobalVariables;
 using MessageBoardController.Constants;
 using MessageBoardController.Interfaces;
 using System;
@@ -19,53 +20,61 @@ namespace MessageBoard
     public partial class MainForm : Form, IMainForm
     {
         MainController _mainController;
-        private string _username;
+
+        #region Properties
         public SimpleButton BtnDisplayUsers
         {
             get { return btnDisplayUsers; }
         }
+        #endregion
+
+        #region Constructor
         public MainForm()
         {
             InitializeComponent();
+            _mainController = new MainController(this);
         }
-        public MainForm(string username)
-            :this()
-        {
-            _username = username;
-            _mainController = new MainController(this, _username);
-        }
+        #endregion
 
+        #region DisplayUsersClick
         private void btnDisplayUsers_Click(object sender, EventArgs e)
         {
-            DisplayUsersForm displayForm = new DisplayUsersForm(_username);
+            DisplayUsersForm displayForm = new DisplayUsersForm();
             displayForm.Show();
             this.Close();
         }
+        #endregion
 
+        #region MainFormLoad
         private void MainForm_Load(object sender, EventArgs e)
         {
             try
             {
-                _mainController.IsAdministrator();
+                _mainController.IsAdministrator(AppGlobalVariables.Instance.UserID);
             }
             catch (Exception)
             {
                 XtraMessageBox.Show(Constants.ExceptionService);
             }
         }
+        #endregion
 
+        #region ChangePasswordClick
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
-            ChangePasswordForm form = new ChangePasswordForm(_username);
+            ChangePasswordForm form = new ChangePasswordForm();
             form.Show();
             this.Close();
         }
+        #endregion
 
+        #region ForumClick
         private void btnForum_Click(object sender, EventArgs e)
         {
-            ForumForm form = new ForumForm(_username);
+            ForumForm form = new ForumForm();
             form.Show();
             this.Close();
         }
+        #endregion
     }
 }

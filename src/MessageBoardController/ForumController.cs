@@ -15,11 +15,15 @@ namespace MessageBoardController
         private IForumForm _form;
         Dictionary<PostDTO, DateTime?> postsDictionary = new Dictionary<PostDTO, DateTime?>();
 
+        #region Constructor
         public ForumController(IForumForm form)
         {
             _form = form;
             _service = new MessageBoardServiceClient();
         }
+        #endregion
+
+        #region LoadForm
         public void LoadForm()
         {
             try
@@ -33,7 +37,9 @@ namespace MessageBoardController
                 throw ex;
             }
         }
+        #endregion
 
+        #region CustomUnboundColumnData
         public void viewDisplayPosts_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
         {
             try
@@ -57,5 +63,6 @@ namespace MessageBoardController
                 throw ex;
             }
         }
+        #endregion
     }
 }

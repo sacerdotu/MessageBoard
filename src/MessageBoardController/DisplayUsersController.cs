@@ -17,11 +17,16 @@ namespace MessageBoardController
         private IDisplayUsersForm _form;
         private IMessageBoardService _service;
         List<UserDTO> _users = new List<UserDTO>();
+
+        #region Constructor
         public DisplayUsersController(IDisplayUsersForm form)
         {
             _form = form;
             _service = new MessageBoardServiceClient();
         }
+        #endregion
+
+        #region LoadForm
         public void LoadForm()
         {
             try
@@ -34,19 +39,32 @@ namespace MessageBoardController
                 throw ex;
             }  
         }
-        public void SaveChanges()
+        #endregion
+
+        #region SaveChanges
+        public bool SaveChanges()
         {
             try
             {
-                _service.UpdateIsActive(_users);
-                _users.Clear();
+                if (_service.UpdateIsActive(_users) == true)
+                {
+                    _users.Clear();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception ex)
             {
                 Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
-                throw ex;
+                return false;
             }
         }
+        #endregion
+
+        #region GetUserID
         public int GetUserID(DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             try
@@ -67,7 +85,9 @@ namespace MessageBoardController
                 throw ex;
             }
         }
+        #endregion
 
+        #region ModifiedUsers
         public void ModifiedUsers(RowObjectEventArgs e)
         {
             try
@@ -89,6 +109,7 @@ namespace MessageBoardController
                 throw ex;
             }     
         }
+        #endregion
     }
 }
 

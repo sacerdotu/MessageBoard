@@ -16,10 +16,8 @@ namespace MessageBoard.Forms
 {
     public partial class RegisterForm : Form, IRegisterForm
     {
-        #region Members
         RegisterController _controller;
-        #endregion
-
+        
         #region Properties
         public TextEdit TxtFirstName
         {
@@ -74,6 +72,11 @@ namespace MessageBoard.Forms
         public LabelControl lblRegisterDate
         {
             get { return ucUserInformations.LblRegisterDate; }
+        }
+
+        public PictureEdit ImgProfilePicture
+        {
+            get { return ucUserInformations.ImgProfilePicture; }
         }
         #endregion
 

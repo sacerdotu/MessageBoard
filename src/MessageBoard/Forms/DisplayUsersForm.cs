@@ -20,6 +20,8 @@ namespace MessageBoard.Forms
 {
     public partial class DisplayUsersForm : Form, IDisplayUsersForm
     {
+        DisplayUsersController _controller;
+
         #region Properties
         public GridControl GrdDisplayUsers
         {
@@ -37,8 +39,6 @@ namespace MessageBoard.Forms
         }
         #endregion
 
-        DisplayUsersController _controller;
-        string _username;
         #region Constructor
         public DisplayUsersForm()
         {
@@ -46,32 +46,31 @@ namespace MessageBoard.Forms
             _controller = new DisplayUsersController(this);
            
         }
-        public DisplayUsersForm(string username)
-            :this()
-        {
-            _username = username;
-        }
         #endregion
 
-        #region Methods
+        #region FormLoad
         private void UsersForm_Load(object sender, EventArgs e)
         {
             _controller.LoadForm();
         }
+        #endregion
+
         #region GridLayout
         private void GridLayout()
         {
            
         }
         #endregion
-        private void grdDisplayUsers_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+
+        #region DisplayUsersClick
+        private void grdDisplayUsers_RowClick(object sender, RowClickEventArgs e)
         {
             try
             {
                 int userID = _controller.GetUserID(e);
                 if (userID > 0)
                 {
-                    UserDetailsForm userDetails = new UserDetailsForm(userID, _username);
+                    UserDetailsForm userDetails = new UserDetailsForm(userID);
                     userDetails.Show();
                     this.Close();
                 }
@@ -85,9 +84,12 @@ namespace MessageBoard.Forms
                 XtraMessageBox.Show(Constants.ExceptionService);
             }
         }
+        #endregion
+
+        #region BackClick
         private void btnBack_Click(object sender, EventArgs e)
         {
-            MainForm mainForm = new MainForm(_username);
+            MainForm mainForm = new MainForm();
             mainForm.Show();
             this.Close();
         }
@@ -98,7 +100,14 @@ namespace MessageBoard.Forms
         {
             try
             {
-                _controller.SaveChanges();
+                if (_controller.SaveChanges() == true)
+                {
+                    XtraMessageBox.Show("Changes were saved!");
+                }
+                else
+                {
+                    XtraMessageBox.Show("Could not save changes!");
+                }
             }
             catch(Exception)
             {

@@ -16,14 +16,17 @@ namespace MessageBoardController
     {
         private ILoginForm _form;
         private IMessageBoardService _service;
+
+        #region Constructor
         public LoginController(ILoginForm form)
         {
             _form = form;
             _service = new MessageBoardServiceClient();
         }
+        #endregion
 
         #region ValidateLogin
-        public bool ValidateLogin(string username, string password)
+        public int ValidateLogin(string username, string password)
         {
             try
             {
@@ -33,22 +36,22 @@ namespace MessageBoardController
                     string generatedPassword = HashHelper.GetHash(password, user.PasswordSalt);
                     if (generatedPassword != null && generatedPassword == user.PasswordHash)
                     {
-                        return true;
+                        return user.UserID;
                     }
                     else
                     {
-                        return false;
+                        return -1;
                     }
                 }
                 else
                 {
-                    return false;
+                    return -1;
                 }
             }
             catch (Exception ex)
             {
                 Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
-                throw ex;
+                throw;
             }
         }
         #endregion

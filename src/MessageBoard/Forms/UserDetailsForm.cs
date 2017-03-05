@@ -19,7 +19,6 @@ namespace MessageBoard
     public partial class UserDetailsForm : Form, IUserDetailsForm
     {
         UserDetailsController _controller;
-        string _username;
 
         #region Properties
         public TextEdit TxtFirstName
@@ -75,10 +74,10 @@ namespace MessageBoard
         {
             get { return ucUserInformations1.LblProfilePicture; }
         }
-        //public PictureEdit ImgProfilePicture
-        //{
-        //    get { return ucUserInformations1.ImgProfilePicture; }
-        //}
+        public PictureEdit ImgProfilePicture
+        {
+            get { return ucUserInformations1.ImgProfilePicture; }
+        }
         public LabelControl LblUsername
         {
             get { return ucUserInformations1.LblUsername; }
@@ -91,19 +90,26 @@ namespace MessageBoard
         {
             get { return ucUserInformations1.LblConfirmPassword; }
         }
+
+        public SimpleButton BtnBrowse
+        {
+            get { return ucUserInformations1.BtnBrowse; }
+        }
         #endregion
 
+        #region Constructors
         public UserDetailsForm()
         {
             InitializeComponent();
         }
-        public UserDetailsForm(int userID, string username)
+        public UserDetailsForm(int userID)
             :this()
         {
             _controller = new UserDetailsController(this, userID);
-            _username = username;
         }
+        #endregion
 
+        #region LoadUserControl
         private void ucUserInformations1_Load(object sender, EventArgs e)
         {
             try
@@ -115,18 +121,22 @@ namespace MessageBoard
                 TxtConfirmPassword.Visible = false;
                 TxtPassword.Visible = false;
                 TxtUsername.Visible = false;
+                BtnBrowse.Visible = false;
             }
             catch (Exception)
             {
                 XtraMessageBox.Show(Constants.ExceptionService);
             }    
         }
+        #endregion
 
+        #region BackClick
         private void btnBack_Click(object sender, EventArgs e)
         {
-            DisplayUsersForm form = new DisplayUsersForm(_username);
+            DisplayUsersForm form = new DisplayUsersForm();
             form.Show();
             this.Close();
         }
+        #endregion
     }
 }

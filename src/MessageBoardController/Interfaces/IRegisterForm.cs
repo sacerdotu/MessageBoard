@@ -19,5 +19,6 @@ namespace MessageBoardController
         TextEdit TxtPassword { get; }
         TextEdit TxtConfirmPassword { get; }
         ComboBoxEdit CmbFunction { get; }
+        PictureEdit ImgProfilePicture { get; }
     }
 }

@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MessageBoardDTO;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Repository;
+using System.IO;
 
 namespace MessageBoard
 {
@@ -20,11 +22,6 @@ namespace MessageBoard
         }
 
         private void ucUserInformations_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dropDownButton1_Click(object sender, EventArgs e)
         {
 
         }
@@ -93,10 +90,10 @@ namespace MessageBoard
         {
             get { return lblProfilePicture; }
         }
-        //public PictureEdit ImgProfilePicture
-        //{
-        //    get { return ImgProfilePicture; }
-        //}
+        public PictureEdit ImgProfilePicture
+        {
+            get { return imgProfilePicture; }
+        }
         public LabelControl LblUsername
         {
             get { return lblUsername; }
@@ -109,6 +106,32 @@ namespace MessageBoard
         {
             get { return lblConfirmPassword; }
         }
+
+        public SimpleButton BtnBrowse
+        {
+            get { return btnBrowse; }
+        }
         #endregion
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            openFile.Filter = "jpeg|*.jpg|bmp|*.bmp|all files|*.*";
+            openFile.Title = "Select picture";
+            if(openFile.ShowDialog() == DialogResult.OK)
+            {
+                string picture = openFile.FileName.ToString();
+                var initialImage = Image.FromFile(openFile.FileName);
+
+                var newWidth = imgProfilePicture.Width;
+                var newHeight = imgProfilePicture.Height;
+
+                var newImage = new Bitmap(newWidth, newHeight);
+
+                using (var graphics = Graphics.FromImage(newImage))
+                    graphics.DrawImage(initialImage, 0, 0, newWidth, newHeight);
+                imgProfilePicture.Image = newImage;              
+            }
+        }
     }
 }

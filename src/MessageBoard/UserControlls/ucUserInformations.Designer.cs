@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.PictureEdit imgProfilePicture;
             this.txtFirstName = new DevExpress.XtraEditors.TextEdit();
             this.txtLastName = new DevExpress.XtraEditors.TextEdit();
             this.txtCountry = new DevExpress.XtraEditors.TextEdit();
@@ -50,8 +49,8 @@
             this.chkActive = new DevExpress.XtraEditors.CheckEdit();
             this.dateRegisterDate = new DevExpress.XtraEditors.DateEdit();
             this.lblRegisterDate = new DevExpress.XtraEditors.LabelControl();
-            imgProfilePicture = new DevExpress.XtraEditors.PictureEdit();
-            ((System.ComponentModel.ISupportInitialize)(imgProfilePicture.Properties)).BeginInit();
+            this.btnBrowse = new DevExpress.XtraEditors.SimpleButton();
+            this.imgProfilePicture = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFirstName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLastName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCountry.Properties)).BeginInit();
@@ -64,18 +63,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkActive.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateRegisterDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateRegisterDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgProfilePicture.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // imgProfilePicture
-            // 
-            imgProfilePicture.Cursor = System.Windows.Forms.Cursors.Default;
-            imgProfilePicture.Location = new System.Drawing.Point(351, 79);
-            imgProfilePicture.Name = "imgProfilePicture";
-            imgProfilePicture.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            imgProfilePicture.Properties.ZoomAccelerationFactor = 1D;
-            imgProfilePicture.Size = new System.Drawing.Size(100, 91);
-            imgProfilePicture.TabIndex = 12;
-            imgProfilePicture.EditValueChanged += new System.EventHandler(this.peProfilePicture_EditValueChanged);
             // 
             // txtFirstName
             // 
@@ -216,7 +205,7 @@
             // 
             // chkAdministrator
             // 
-            this.chkAdministrator.Location = new System.Drawing.Point(250, 245);
+            this.chkAdministrator.Location = new System.Drawing.Point(250, 273);
             this.chkAdministrator.Name = "chkAdministrator";
             this.chkAdministrator.Properties.Caption = "Administrator";
             this.chkAdministrator.Size = new System.Drawing.Size(86, 19);
@@ -224,7 +213,7 @@
             // 
             // chkActive
             // 
-            this.chkActive.Location = new System.Drawing.Point(376, 245);
+            this.chkActive.Location = new System.Drawing.Point(376, 273);
             this.chkActive.Name = "chkActive";
             this.chkActive.Properties.Caption = "Active";
             this.chkActive.Size = new System.Drawing.Size(75, 19);
@@ -233,7 +222,7 @@
             // dateRegisterDate
             // 
             this.dateRegisterDate.EditValue = null;
-            this.dateRegisterDate.Location = new System.Drawing.Point(351, 195);
+            this.dateRegisterDate.Location = new System.Drawing.Point(351, 228);
             this.dateRegisterDate.Name = "dateRegisterDate";
             this.dateRegisterDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -244,16 +233,37 @@
             // 
             // lblRegisterDate
             // 
-            this.lblRegisterDate.Location = new System.Drawing.Point(250, 202);
+            this.lblRegisterDate.Location = new System.Drawing.Point(249, 231);
             this.lblRegisterDate.Name = "lblRegisterDate";
             this.lblRegisterDate.Size = new System.Drawing.Size(65, 13);
             this.lblRegisterDate.TabIndex = 23;
             this.lblRegisterDate.Text = "Register date";
             // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Location = new System.Drawing.Point(364, 188);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowse.TabIndex = 24;
+            this.btnBrowse.Text = "Browse";
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            // 
+            // imgProfilePicture
+            // 
+            this.imgProfilePicture.Cursor = System.Windows.Forms.Cursors.Default;
+            this.imgProfilePicture.Location = new System.Drawing.Point(351, 79);
+            this.imgProfilePicture.Name = "imgProfilePicture";
+            this.imgProfilePicture.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.imgProfilePicture.Properties.ZoomAccelerationFactor = 1D;
+            this.imgProfilePicture.Size = new System.Drawing.Size(100, 91);
+            this.imgProfilePicture.TabIndex = 12;
+            this.imgProfilePicture.EditValueChanged += new System.EventHandler(this.peProfilePicture_EditValueChanged);
+            // 
             // ucUserInformations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.lblRegisterDate);
             this.Controls.Add(this.dateRegisterDate);
             this.Controls.Add(this.chkActive);
@@ -265,7 +275,7 @@
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.lblProfilePicture);
-            this.Controls.Add(imgProfilePicture);
+            this.Controls.Add(this.imgProfilePicture);
             this.Controls.Add(this.cmbFunction);
             this.Controls.Add(this.lblFunction);
             this.Controls.Add(this.lblCity);
@@ -279,7 +289,6 @@
             this.Name = "ucUserInformations";
             this.Size = new System.Drawing.Size(489, 370);
             this.Load += new System.EventHandler(this.ucUserInformations_Load);
-            ((System.ComponentModel.ISupportInitialize)(imgProfilePicture.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFirstName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLastName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCountry.Properties)).EndInit();
@@ -292,6 +301,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkActive.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateRegisterDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateRegisterDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgProfilePicture.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -320,5 +330,7 @@
         private DevExpress.XtraEditors.CheckEdit chkActive;
         private DevExpress.XtraEditors.DateEdit dateRegisterDate;
         private DevExpress.XtraEditors.LabelControl lblRegisterDate;
+        private DevExpress.XtraEditors.SimpleButton btnBrowse;
+        private DevExpress.XtraEditors.PictureEdit imgProfilePicture;
     }
 }

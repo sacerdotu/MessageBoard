@@ -13,23 +13,21 @@ namespace MessageBoardController
     {
         private IMessageBoardService _service;
         private IMainForm _form;
-        private string _username;
 
         #region Constructor
-        public MainController(IMainForm form, string username)
+        public MainController(IMainForm form)
         {
-            _username = username;
             _form = form;
             _service = new MessageBoardServiceClient();
         }
         #endregion
 
         #region IsAdministrator
-        public void IsAdministrator()
+        public void IsAdministrator(int userID)
         {
             try
             {
-                bool isAdministrator = _service.IsAdministrator(_username);
+                bool isAdministrator = _service.IsAdministrator(userID);
                 if (isAdministrator == true)
                 {
                     _form.BtnDisplayUsers.Visible = true;

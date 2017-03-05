@@ -1,4 +1,5 @@
 ﻿using MessageBoardCommon;
+using MessageBoardController.HelperClasses;
 using MessageBoardController.Interfaces;
 using MessageBoardController.MessageBoardService;
 using MessageBoardDTO;
@@ -41,6 +42,7 @@ namespace MessageBoardController
                 _form.IsAdministrator.EditValue = userDetails.IsAdministrator;
                 _form.CmbFunction.EditValue = userDetails.Function;
                 _form.AccountCreationDate.EditValue = userDetails.AccountCreationDate;
+                _form.ImgProfilePicture.Image = ConvertImage.ByteArrayToImage(userDetails.ProfileImage);
                 DisableForm();
             }
             catch (Exception ex)

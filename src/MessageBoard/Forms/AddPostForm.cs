@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using MessageBoardCommon;
 using MessageBoardController;
+using MessageBoardController.AppGlobalVariables;
 using MessageBoardController.Constants;
 using MessageBoardController.Interfaces;
 using System;
@@ -18,7 +19,8 @@ namespace MessageBoard.Forms
     public partial class AddPostForm : Form, IAddPostForm
     {
         AddPostController _controller;
-        private string _username;
+
+        #region Properties
         public RichTextBox RtbPost
         {
             get { return rtbPost; }
@@ -26,26 +28,32 @@ namespace MessageBoard.Forms
         public AddPostForm()
         {
             InitializeComponent();
+            _controller = new AddPostController(this);
         }
-        public AddPostForm(string username)
-            :this()
-        {
-            _username = username;
-            _controller = new AddPostController(this, _username);
-        }
+        #endregion
 
+        #region AddPostClick
         private void btnAddPost_Click(object sender, EventArgs e)
         {
             try
             {
-                _controller.AddPost();
-
+                int userID = AppGlobalVariables.Instance.UserID;
+                if (_controller.AddPost(userID) == true)
+                {
+                    ForumForm form = new ForumForm();
+                    form.Show();
+                    this.Close();
+                }
+                else
+                {
+                    XtraMessageBox.Show("Could not add a new post!");
+                }
             }
             catch (Exception)
             {
                 XtraMessageBox.Show(Constants.ExceptionService);
             }
-            
         }
+        #endregion
     }
 }
