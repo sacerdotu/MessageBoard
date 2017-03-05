@@ -1,7 +1,7 @@
 ﻿using DevExpress.XtraGrid.Views.Grid;
 using MessageBoardCommon;
 using MessageBoardController.Interfaces;
-using MessageBoardController.ServiceReference;
+using MessageBoardController.MessageBoardService;
 using MessageBoardDTO;
 using System;
 using System.Collections.Generic;
@@ -11,14 +11,14 @@ namespace MessageBoardController
 {
     public class ForumController
     {
-        private IService1 _service;
+        private IMessageBoardService _service;
         private IForumForm _form;
         Dictionary<PostDTO, DateTime?> postsDictionary = new Dictionary<PostDTO, DateTime?>();
 
         public ForumController(IForumForm form)
         {
             _form = form;
-            _service = new Service1Client();
+            _service = new MessageBoardServiceClient();
         }
         public void LoadForm()
         {

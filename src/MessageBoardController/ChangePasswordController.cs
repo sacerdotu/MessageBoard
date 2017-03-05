@@ -1,7 +1,7 @@
 ﻿using MessageBoardCommon;
 using MessageBoardController.HelperClasses;
 using MessageBoardController.Interfaces;
-using MessageBoardController.ServiceReference;
+using MessageBoardController.MessageBoardService;
 using MessageBoardDTO;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace MessageBoardController
 {
     public class ChangePasswordController
     {
-        IService1 _service;
+        IMessageBoardService _service;
         IChangePasswordForm _form;
         public ChangePasswordController()
         {
@@ -22,7 +22,7 @@ namespace MessageBoardController
         public ChangePasswordController(IChangePasswordForm form)
         {
             _form = form;
-            _service = new Service1Client();
+            _service = new MessageBoardServiceClient();
         }
 
         public void GeneratePassword(string username)

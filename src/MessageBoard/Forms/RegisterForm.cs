@@ -76,13 +76,17 @@ namespace MessageBoard.Forms
             get { return ucUserInformations.LblRegisterDate; }
         }
         #endregion
+
+        #region Constructor
         public RegisterForm()
         {
             InitializeComponent();
             _controller = new RegisterController(this);
             TxtConfirmPassword.KeyDown += TxtConfirmPassword_KeyDown;
         }
+        #endregion
 
+        #region EnterKeyEvent
         private void TxtConfirmPassword_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -90,6 +94,7 @@ namespace MessageBoard.Forms
                 RegisterUser(sender, e);
             }
         }
+        #endregion
 
         #region RegisterUserButton
         private void RegisterUser(object sender, EventArgs e)
@@ -98,15 +103,21 @@ namespace MessageBoard.Forms
             {
                 if ((TxtPassword.EditValue.ToString() == TxtConfirmPassword.EditValue.ToString()) && TxtConfirmPassword != null)
                 {
-                    _controller.RegisterUser();
-                    LoginForm loginForm = new LoginForm();
-                    loginForm.Show();
-                    this.Close();
+                    if (_controller.RegisterUser() > 0)
+                    {
+                        XtraMessageBox.Show("Your account has been created!");
+                        LoginForm loginForm = new LoginForm();
+                        loginForm.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show(Constants.RegistrationFailed);
+                    }                    
                 }
                 else
                 {
                     XtraMessageBox.Show("Insert passwords again!");
-                    
                 }
             }
             catch (Exception)
@@ -123,6 +134,15 @@ namespace MessageBoard.Forms
             IsActive.Visible = false;
             AccountCreationDate.Visible = false;
             lblRegisterDate.Visible = false;
+        }
+        #endregion
+
+        #region BackButton
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Close();
         }
         #endregion
     }

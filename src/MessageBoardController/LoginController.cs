@@ -1,5 +1,4 @@
 ﻿using MessageBoardController.Interfaces;
-using MessageBoardController.ServiceReference;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,17 +8,18 @@ using System.Security.Cryptography;
 using MessageBoardDTO;
 using MessageBoardController.HelperClasses;
 using MessageBoardCommon;
+using MessageBoardController.MessageBoardService;
 
 namespace MessageBoardController
 {
     public class LoginController
     {
         private ILoginForm _form;
-        private IService1 _service;
+        private IMessageBoardService _service;
         public LoginController(ILoginForm form)
         {
             _form = form;
-            _service = new Service1Client();
+            _service = new MessageBoardServiceClient();
         }
 
         #region ValidateLogin

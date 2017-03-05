@@ -1,6 +1,6 @@
 ﻿using MessageBoardCommon;
 using MessageBoardController.Interfaces;
-using MessageBoardController.ServiceReference;
+using MessageBoardController.MessageBoardService;
 using MessageBoardDTO;
 using System;
 using System.Collections.Generic;
@@ -14,7 +14,7 @@ namespace MessageBoardController
     {
         #region Members
         private IUserDetailsForm _form;
-        private IService1 _service;
+        private IMessageBoardService _service;
         private int _userID;
         #endregion
 
@@ -22,7 +22,7 @@ namespace MessageBoardController
         public UserDetailsController(IUserDetailsForm form, int userID)
         {
             _form = form;
-            _service = new Service1Client();
+            _service = new MessageBoardServiceClient();
             _userID = userID;
         }
         #endregion

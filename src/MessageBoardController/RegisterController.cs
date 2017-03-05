@@ -1,6 +1,6 @@
 ﻿using MessageBoardCommon;
 using MessageBoardController.HelperClasses;
-using MessageBoardController.ServiceReference;
+using MessageBoardController.MessageBoardService;
 using MessageBoardDTO;
 using System;
 using System.Collections.Generic;
@@ -15,14 +15,14 @@ namespace MessageBoardController
     {
         #region Members
         private IRegisterForm _form;
-        private IService1 _service;
+        private IMessageBoardService _service;
         #endregion
 
         #region Constructors
         public RegisterController(IRegisterForm form)
         {
             _form = form;
-            _service = new Service1Client();
+            _service = new MessageBoardServiceClient();
         }
 
         public RegisterController()
@@ -30,7 +30,7 @@ namespace MessageBoardController
         #endregion
 
         #region RegisterUser
-        public void RegisterUser()
+        public int RegisterUser()
         {
             try
             {
@@ -43,7 +43,8 @@ namespace MessageBoardController
                 user.Username = _form.TxtUsername.EditValue.ToString();
                 user.PasswordSalt = HashHelper.GetSalt();
                 user.PasswordHash = HashHelper.GetHash(_form.TxtPassword.EditValue.ToString(), user.PasswordSalt);
-                _service.InsertNewUser(user);
+
+                return _service.InsertNewUser(user);
             }
             catch (Exception ex)
             {

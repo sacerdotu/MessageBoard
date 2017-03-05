@@ -38,8 +38,11 @@
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUsername = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCommentDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repCommentDate = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDisplayPosts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewDisplayPosts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repCommentDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repCommentDate.CalendarTimeProperties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBack
@@ -70,6 +73,8 @@
             this.grdDisplayPosts.Location = new System.Drawing.Point(0, 0);
             this.grdDisplayPosts.MainView = this.viewDisplayPosts;
             this.grdDisplayPosts.Name = "grdDisplayPosts";
+            this.grdDisplayPosts.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repCommentDate});
             this.grdDisplayPosts.Size = new System.Drawing.Size(716, 304);
             this.grdDisplayPosts.TabIndex = 2;
             this.grdDisplayPosts.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -88,12 +93,15 @@
             this.viewDisplayPosts.Name = "viewDisplayPosts";
             this.viewDisplayPosts.OptionsView.ShowAutoFilterRow = true;
             this.viewDisplayPosts.OptionsView.ShowGroupPanel = false;
+            this.viewDisplayPosts.CustomRowCellEdit += new DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventHandler(this.viewDisplayPosts_CustomRowCellEdit);
             this.viewDisplayPosts.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.viewDisplayPosts_CustomUnboundColumnData);
             // 
             // colPostText
             // 
             this.colPostText.FieldName = "PostText";
             this.colPostText.Name = "colPostText";
+            this.colPostText.OptionsColumn.AllowEdit = false;
+            this.colPostText.OptionsColumn.ReadOnly = true;
             this.colPostText.Visible = true;
             this.colPostText.VisibleIndex = 0;
             // 
@@ -101,6 +109,8 @@
             // 
             this.colIsPublished.FieldName = "IsPublished";
             this.colIsPublished.Name = "colIsPublished";
+            this.colIsPublished.OptionsColumn.AllowEdit = false;
+            this.colIsPublished.OptionsColumn.ReadOnly = true;
             this.colIsPublished.Visible = true;
             this.colIsPublished.VisibleIndex = 1;
             // 
@@ -109,6 +119,8 @@
             this.colCreationDate.Caption = "Post creation date";
             this.colCreationDate.FieldName = "CreationDate";
             this.colCreationDate.Name = "colCreationDate";
+            this.colCreationDate.OptionsColumn.AllowEdit = false;
+            this.colCreationDate.OptionsColumn.ReadOnly = true;
             this.colCreationDate.Visible = true;
             this.colCreationDate.VisibleIndex = 2;
             // 
@@ -117,6 +129,8 @@
             this.colName.Caption = "Full Name";
             this.colName.FieldName = "tblUser.FullName";
             this.colName.Name = "colName";
+            this.colName.OptionsColumn.AllowEdit = false;
+            this.colName.OptionsColumn.ReadOnly = true;
             this.colName.Visible = true;
             this.colName.VisibleIndex = 3;
             // 
@@ -125,6 +139,8 @@
             this.colUsername.Caption = "Username";
             this.colUsername.FieldName = "tblUser.Username";
             this.colUsername.Name = "colUsername";
+            this.colUsername.OptionsColumn.AllowEdit = false;
+            this.colUsername.OptionsColumn.ReadOnly = true;
             this.colUsername.Visible = true;
             this.colUsername.VisibleIndex = 4;
             // 
@@ -134,9 +150,19 @@
             this.colCommentDate.FieldName = "CommentDate";
             this.colCommentDate.Name = "colCommentDate";
             this.colCommentDate.OptionsColumn.AllowEdit = false;
+            this.colCommentDate.OptionsColumn.ReadOnly = true;
             this.colCommentDate.UnboundType = DevExpress.Data.UnboundColumnType.DateTime;
             this.colCommentDate.Visible = true;
             this.colCommentDate.VisibleIndex = 5;
+            // 
+            // repCommentDate
+            // 
+            this.repCommentDate.AutoHeight = false;
+            this.repCommentDate.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repCommentDate.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repCommentDate.Name = "repCommentDate";
             // 
             // ForumForm
             // 
@@ -151,6 +177,8 @@
             this.Load += new System.EventHandler(this.ForumForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdDisplayPosts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewDisplayPosts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repCommentDate.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repCommentDate)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -167,5 +195,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colName;
         private DevExpress.XtraGrid.Columns.GridColumn colUsername;
         private DevExpress.XtraGrid.Columns.GridColumn colCommentDate;
+        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repCommentDate;
     }
 }

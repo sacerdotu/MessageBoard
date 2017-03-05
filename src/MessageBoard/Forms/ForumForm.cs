@@ -1,4 +1,7 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Data.Filtering;
+using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using MessageBoardCommon;
@@ -6,6 +9,7 @@ using MessageBoardController;
 using MessageBoardController.Constants;
 using MessageBoardController.Interfaces;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -64,6 +68,7 @@ namespace MessageBoard.Forms
         private void ForumForm_Load(object sender, EventArgs e)
         {
             _controller.LoadForm();
+            
         }
 
         private void viewDisplayPosts_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
@@ -77,6 +82,17 @@ namespace MessageBoard.Forms
                 XtraMessageBox.Show(Constants.ExceptionService);
             }
             
+        }
+
+        private void viewDisplayPosts_CustomRowCellEdit(object sender, CustomRowCellEditEventArgs e)
+        {
+            if(e.RowHandle == GridControl.AutoFilterRowHandle)
+            {
+                if(e.Column.ColumnType.Name.Equals("DateTime"))
+                {
+                    e.RepositoryItem = repCommentDate;
+                }
+            }
         }
     }
 }

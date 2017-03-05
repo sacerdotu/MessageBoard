@@ -1,7 +1,7 @@
 ﻿using DevExpress.XtraGrid.Views.Base;
 using MessageBoardCommon;
 using MessageBoardController.Interfaces;
-using MessageBoardController.ServiceReference;
+using MessageBoardController.MessageBoardService;
 using MessageBoardDTO;
 using System;
 using System.Collections.Generic;
@@ -15,12 +15,12 @@ namespace MessageBoardController
     public class DisplayUsersController
     {
         private IDisplayUsersForm _form;
-        private IService1 _service;
+        private IMessageBoardService _service;
         List<UserDTO> _users = new List<UserDTO>();
         public DisplayUsersController(IDisplayUsersForm form)
         {
             _form = form;
-            _service = new Service1Client();
+            _service = new MessageBoardServiceClient();
         }
         public void LoadForm()
         {

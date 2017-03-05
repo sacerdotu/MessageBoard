@@ -1,6 +1,6 @@
 ﻿using MessageBoardCommon;
 using MessageBoardController.Interfaces;
-using MessageBoardController.ServiceReference;
+using MessageBoardController.MessageBoardService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +12,12 @@ namespace MessageBoardController
     public class AddPostController
     {
         private IAddPostForm _form;
-        private IService1 _service;
+        private IMessageBoardService _service;
         private string _username;
         public AddPostController(IAddPostForm form, string username)
         {
             _form = form;
-            _service = new Service1Client();
+            _service = new MessageBoardServiceClient();
             _username = username;
         }
 

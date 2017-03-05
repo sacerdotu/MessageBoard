@@ -8,100 +8,100 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MessageBoardController.ServiceReference {
+namespace MessageBoardController.MessageBoardService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.IService1")]
-    public interface IService1 {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MessageBoardService.IMessageBoardService")]
+    public interface IMessageBoardService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertNewUser", ReplyAction="http://tempuri.org/IService1/InsertNewUserResponse")]
-        void InsertNewUser(MessageBoardDTO.UserDTO user);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/InsertNewUser", ReplyAction="http://tempuri.org/IMessageBoardService/InsertNewUserResponse")]
+        int InsertNewUser(MessageBoardDTO.UserDTO user);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertNewUser", ReplyAction="http://tempuri.org/IService1/InsertNewUserResponse")]
-        System.Threading.Tasks.Task InsertNewUserAsync(MessageBoardDTO.UserDTO user);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/InsertNewUser", ReplyAction="http://tempuri.org/IMessageBoardService/InsertNewUserResponse")]
+        System.Threading.Tasks.Task<int> InsertNewUserAsync(MessageBoardDTO.UserDTO user);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CheckUserAndPassword", ReplyAction="http://tempuri.org/IService1/CheckUserAndPasswordResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/CheckUserAndPassword", ReplyAction="http://tempuri.org/IMessageBoardService/CheckUserAndPasswordResponse")]
         MessageBoardDTO.UserDTO CheckUserAndPassword(string username);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CheckUserAndPassword", ReplyAction="http://tempuri.org/IService1/CheckUserAndPasswordResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/CheckUserAndPassword", ReplyAction="http://tempuri.org/IMessageBoardService/CheckUserAndPasswordResponse")]
         System.Threading.Tasks.Task<MessageBoardDTO.UserDTO> CheckUserAndPasswordAsync(string username);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FillUsersGrid", ReplyAction="http://tempuri.org/IService1/FillUsersGridResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/FillUsersGrid", ReplyAction="http://tempuri.org/IMessageBoardService/FillUsersGridResponse")]
         System.Collections.Generic.List<MessageBoardDTO.UserDTO> FillUsersGrid();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FillUsersGrid", ReplyAction="http://tempuri.org/IService1/FillUsersGridResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/FillUsersGrid", ReplyAction="http://tempuri.org/IMessageBoardService/FillUsersGridResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardDTO.UserDTO>> FillUsersGridAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUserDetails", ReplyAction="http://tempuri.org/IService1/GetUserDetailsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/GetUserDetails", ReplyAction="http://tempuri.org/IMessageBoardService/GetUserDetailsResponse")]
         MessageBoardDTO.UserDTO GetUserDetails(int userID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUserDetails", ReplyAction="http://tempuri.org/IService1/GetUserDetailsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/GetUserDetails", ReplyAction="http://tempuri.org/IMessageBoardService/GetUserDetailsResponse")]
         System.Threading.Tasks.Task<MessageBoardDTO.UserDTO> GetUserDetailsAsync(int userID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/IsAdministrator", ReplyAction="http://tempuri.org/IService1/IsAdministratorResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/IsAdministrator", ReplyAction="http://tempuri.org/IMessageBoardService/IsAdministratorResponse")]
         bool IsAdministrator(string username);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/IsAdministrator", ReplyAction="http://tempuri.org/IService1/IsAdministratorResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/IsAdministrator", ReplyAction="http://tempuri.org/IMessageBoardService/IsAdministratorResponse")]
         System.Threading.Tasks.Task<bool> IsAdministratorAsync(string username);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ChangePassword", ReplyAction="http://tempuri.org/IService1/ChangePasswordResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/ChangePassword", ReplyAction="http://tempuri.org/IMessageBoardService/ChangePasswordResponse")]
         void ChangePassword(MessageBoardDTO.UserDTO user);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ChangePassword", ReplyAction="http://tempuri.org/IService1/ChangePasswordResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/ChangePassword", ReplyAction="http://tempuri.org/IMessageBoardService/ChangePasswordResponse")]
         System.Threading.Tasks.Task ChangePasswordAsync(MessageBoardDTO.UserDTO user);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateIsActive", ReplyAction="http://tempuri.org/IService1/UpdateIsActiveResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/UpdateIsActive", ReplyAction="http://tempuri.org/IMessageBoardService/UpdateIsActiveResponse")]
         void UpdateIsActive(System.Collections.Generic.List<MessageBoardDTO.UserDTO> users);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateIsActive", ReplyAction="http://tempuri.org/IService1/UpdateIsActiveResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/UpdateIsActive", ReplyAction="http://tempuri.org/IMessageBoardService/UpdateIsActiveResponse")]
         System.Threading.Tasks.Task UpdateIsActiveAsync(System.Collections.Generic.List<MessageBoardDTO.UserDTO> users);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddNewPost", ReplyAction="http://tempuri.org/IService1/AddNewPostResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/AddNewPost", ReplyAction="http://tempuri.org/IMessageBoardService/AddNewPostResponse")]
         void AddNewPost(System.Collections.Generic.List<string> addPost);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddNewPost", ReplyAction="http://tempuri.org/IService1/AddNewPostResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/AddNewPost", ReplyAction="http://tempuri.org/IMessageBoardService/AddNewPostResponse")]
         System.Threading.Tasks.Task AddNewPostAsync(System.Collections.Generic.List<string> addPost);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FillPostsGrid", ReplyAction="http://tempuri.org/IService1/FillPostsGridResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/FillPostsGrid", ReplyAction="http://tempuri.org/IMessageBoardService/FillPostsGridResponse")]
         System.Collections.Generic.Dictionary<MessageBoardDTO.PostDTO, System.Nullable<System.DateTime>> FillPostsGrid();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FillPostsGrid", ReplyAction="http://tempuri.org/IService1/FillPostsGridResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/FillPostsGrid", ReplyAction="http://tempuri.org/IMessageBoardService/FillPostsGridResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<MessageBoardDTO.PostDTO, System.Nullable<System.DateTime>>> FillPostsGridAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IService1Channel : MessageBoardController.ServiceReference.IService1, System.ServiceModel.IClientChannel {
+    public interface IMessageBoardServiceChannel : MessageBoardController.MessageBoardService.IMessageBoardService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class Service1Client : System.ServiceModel.ClientBase<MessageBoardController.ServiceReference.IService1>, MessageBoardController.ServiceReference.IService1 {
+    public partial class MessageBoardServiceClient : System.ServiceModel.ClientBase<MessageBoardController.MessageBoardService.IMessageBoardService>, MessageBoardController.MessageBoardService.IMessageBoardService {
         
-        public Service1Client() {
+        public MessageBoardServiceClient() {
         }
         
-        public Service1Client(string endpointConfigurationName) : 
+        public MessageBoardServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public Service1Client(string endpointConfigurationName, string remoteAddress) : 
+        public MessageBoardServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public Service1Client(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public MessageBoardServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public Service1Client(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public MessageBoardServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        public void InsertNewUser(MessageBoardDTO.UserDTO user) {
-            base.Channel.InsertNewUser(user);
+        public int InsertNewUser(MessageBoardDTO.UserDTO user) {
+            return base.Channel.InsertNewUser(user);
         }
         
-        public System.Threading.Tasks.Task InsertNewUserAsync(MessageBoardDTO.UserDTO user) {
+        public System.Threading.Tasks.Task<int> InsertNewUserAsync(MessageBoardDTO.UserDTO user) {
             return base.Channel.InsertNewUserAsync(user);
         }
         

@@ -30,6 +30,7 @@
         {
             this.btnRegister = new DevExpress.XtraEditors.SimpleButton();
             this.ucUserInformations = new MessageBoard.ucUserInformations();
+            this.btnBack = new DevExpress.XtraEditors.SimpleButton();
             this.SuspendLayout();
             // 
             // btnRegister
@@ -48,11 +49,21 @@
             this.ucUserInformations.Size = new System.Drawing.Size(489, 370);
             this.ucUserInformations.TabIndex = 0;
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(12, 347);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.TabIndex = 2;
+            this.btnBack.Text = "Back";
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(557, 382);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.ucUserInformations);
             this.Name = "RegisterForm";
@@ -66,5 +77,6 @@
 
         private ucUserInformations ucUserInformations;
         private DevExpress.XtraEditors.SimpleButton btnRegister;
+        private DevExpress.XtraEditors.SimpleButton btnBack;
     }
 }

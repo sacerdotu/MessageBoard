@@ -1,6 +1,6 @@
 ﻿using MessageBoardCommon;
 using MessageBoardController.Interfaces;
-using MessageBoardController.ServiceReference;
+using MessageBoardController.MessageBoardService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ namespace MessageBoardController
 {
     public class MainController
     {
-        private IService1 _service;
+        private IMessageBoardService _service;
         private IMainForm _form;
         private string _username;
 
@@ -20,7 +20,7 @@ namespace MessageBoardController
         {
             _username = username;
             _form = form;
-            _service = new Service1Client();
+            _service = new MessageBoardServiceClient();
         }
         #endregion
 
