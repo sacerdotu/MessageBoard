@@ -13,7 +13,7 @@ namespace MessageBoardController
     {
         private IMessageBoardService _service;
         private IForumForm _form;
-        Dictionary<PostDTO, DateTime?> postsDictionary = new Dictionary<PostDTO, DateTime?>();
+        //List<PostDTO> postsList = new List<PostDTO>();
 
         #region Constructor
         public ForumController(IForumForm form)
@@ -28,36 +28,10 @@ namespace MessageBoardController
         {
             try
             {
-                postsDictionary = _service.FillPostsGrid();
-                _form.GrdDisplayPosts.DataSource = postsDictionary.Keys.ToList();
+                //postsList = _service.FillPostsGrid();
+                _form.GrdDisplayPosts.DataSource = _service.FillPostsGrid();
             }
             catch (Exception ex)
-            {
-                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
-                throw ex;
-            }
-        }
-        #endregion
-
-        #region CustomUnboundColumnData
-        public void viewDisplayPosts_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
-        {
-            try
-            {
-                GridView view = sender as GridView;
-                if (e.Column.FieldName == "CommentDate" && e.IsGetData)
-                {
-                    PostDTO post = (PostDTO)e.Row;
-                    foreach (var item in postsDictionary)
-                    {
-                        if (((PostDTO)item.Key).PostID == post.PostID)
-                        {
-                            e.Value = item.Value;
-                        }
-                    }
-                }
-            }
-            catch(Exception ex)
             {
                 Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
                 throw ex;

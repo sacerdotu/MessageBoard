@@ -64,10 +64,10 @@ namespace MessageBoardController.MessageBoardService {
         System.Threading.Tasks.Task<bool> AddNewPostAsync(MessageBoardDTO.PostDTO addPost);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/FillPostsGrid", ReplyAction="http://tempuri.org/IMessageBoardService/FillPostsGridResponse")]
-        System.Collections.Generic.Dictionary<MessageBoardDTO.PostDTO, System.Nullable<System.DateTime>> FillPostsGrid();
+        System.Collections.Generic.List<MessageBoardDTO.PostDTO> FillPostsGrid();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/FillPostsGrid", ReplyAction="http://tempuri.org/IMessageBoardService/FillPostsGridResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<MessageBoardDTO.PostDTO, System.Nullable<System.DateTime>>> FillPostsGridAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardDTO.PostDTO>> FillPostsGridAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -161,11 +161,11 @@ namespace MessageBoardController.MessageBoardService {
             return base.Channel.AddNewPostAsync(addPost);
         }
         
-        public System.Collections.Generic.Dictionary<MessageBoardDTO.PostDTO, System.Nullable<System.DateTime>> FillPostsGrid() {
+        public System.Collections.Generic.List<MessageBoardDTO.PostDTO> FillPostsGrid() {
             return base.Channel.FillPostsGrid();
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<MessageBoardDTO.PostDTO, System.Nullable<System.DateTime>>> FillPostsGridAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardDTO.PostDTO>> FillPostsGridAsync() {
             return base.Channel.FillPostsGridAsync();
         }
     }

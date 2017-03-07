@@ -14,6 +14,7 @@ namespace MessageBoardController
 {
     public class LoginController
     {
+        private int _userID;
         private ILoginForm _form;
         private IMessageBoardService _service;
 
@@ -30,28 +31,43 @@ namespace MessageBoardController
         {
             try
             {
+                if (username == null || password == null)
+                {
+                    return 0;
+                }
                 var user = _service.CheckUserAndPassword(username);
                 if (user != null)
                 {
                     string generatedPassword = HashHelper.GetHash(password, user.PasswordSalt);
                     if (generatedPassword != null && generatedPassword == user.PasswordHash)
                     {
-                        return user.UserID;
+                        _userID = user.UserID;
                     }
                     else
                     {
-                        return -1;
+                        _userID = 0;
                     }
                 }
-                else
-                {
-                    return -1;
-                }
+                return _userID;
             }
             catch (Exception ex)
             {
                 Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
                 throw;
+            }
+        }
+        #endregion
+
+        #region CheckUserID
+        public void CheckUserID()
+        {
+            if(_userID > 0)
+            {
+                _form.LoadMainForm();
+            }
+            else
+            {
+                _form.InsertPasswordAgain();
             }
         }
         #endregion

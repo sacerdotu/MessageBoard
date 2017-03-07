@@ -9,6 +9,8 @@ namespace MessageBoardController.Interfaces
 {
     public interface ILoginForm
     {
+        void InsertPasswordAgain();
+        void LoadMainForm();
         TextEdit TxtUsername { get; }
         TextEdit TxtPassword { get; }
     }

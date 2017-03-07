@@ -60,4 +60,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CommentDTO" nillable="true" type="tns:CommentDTO" />
+  <xs:complexType name="ArrayOfPostDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PostDTO" nillable="true" type="tns:PostDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPostDTO" nillable="true" type="tns:ArrayOfPostDTO" />
 </xs:schema>

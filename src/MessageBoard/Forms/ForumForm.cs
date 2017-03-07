@@ -76,26 +76,12 @@ namespace MessageBoard.Forms
         }
         #endregion
 
-        #region CustomUnboundColumnData
-        private void viewDisplayPosts_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
-        {
-            try
-            {
-                _controller.viewDisplayPosts_CustomUnboundColumnData(sender, e);
-            }
-            catch (Exception)
-            {
-                XtraMessageBox.Show(Constants.ExceptionService);
-            }   
-        }
-        #endregion
-
         #region CustomRowCellEdit
         private void viewDisplayPosts_CustomRowCellEdit(object sender, CustomRowCellEditEventArgs e)
         {
-            if(e.RowHandle == GridControl.AutoFilterRowHandle)
+            if (e.RowHandle == GridControl.AutoFilterRowHandle)
             {
-                if(e.Column.ColumnType.Name.Equals("DateTime"))
+                if (e.Column.ColumnType.Name.Equals("DateTime")||e.Column.Caption.Equals("Last Comment Date"))
                 {
                     e.RepositoryItem = repCommentDate;
                 }

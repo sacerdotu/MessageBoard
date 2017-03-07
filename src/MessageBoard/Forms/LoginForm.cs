@@ -66,38 +66,37 @@ namespace MessageBoard
         }
         #endregion
 
+        #region LoadMainForm
+        public void LoadMainForm()
+        {
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
+            this.Hide();
+        }
+        #endregion
+
+        #region InsertPasswordAgain
+        public void InsertPasswordAgain()
+        {
+            XtraMessageBox.Show("Wrong Username or Password");
+            Logger.Information("Failed login attempt: Username is: {0} and Password is {1}", TxtUsername.Text, TxtPassword.Text);
+            TxtPassword.Text = string.Empty;
+            TxtUsername.Text = string.Empty;
+        }
+        #endregion
+
         #region btnLogin
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
-            {
-                if(TxtUsername.EditValue == null)
-                {
-                    return;
-                } 
-                else if (TxtPassword.EditValue == null)
-                {
-                    XtraMessageBox.Show("Please insert the password!");
-                    return;
-                }
+            { 
                 AppGlobalVariables.Instance.UserID = _controller.ValidateLogin(TxtUsername.EditValue.ToString(), TxtPassword.EditValue.ToString());
-                if (AppGlobalVariables.Instance.UserID > 0)
-                {
-                    MainForm mainForm = new MainForm();
-                    mainForm.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    XtraMessageBox.Show("Wrong Username or Password");
-                    Logger.Information("Failed login attempt: Username is: {0} and Password is {1}", TxtUsername.Text, TxtPassword.Text);
-                }
+                _controller.CheckUserID();
             }
             catch (EndpointNotFoundException)
             {
                 XtraMessageBox.Show(Constants.ExceptionService);           
             }
-
             catch (Exception)
             {
                 XtraMessageBox.Show(Constants.CouldNotLogIn);

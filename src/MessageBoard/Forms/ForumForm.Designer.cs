@@ -37,7 +37,7 @@
             this.colCreationDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUsername = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCommentDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLastCommentDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repCommentDate = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDisplayPosts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewDisplayPosts)).BeginInit();
@@ -88,16 +88,17 @@
             this.colCreationDate,
             this.colName,
             this.colUsername,
-            this.colCommentDate});
+            this.colLastCommentDate});
             this.viewDisplayPosts.GridControl = this.grdDisplayPosts;
             this.viewDisplayPosts.Name = "viewDisplayPosts";
             this.viewDisplayPosts.OptionsView.ShowAutoFilterRow = true;
             this.viewDisplayPosts.OptionsView.ShowGroupPanel = false;
             this.viewDisplayPosts.CustomRowCellEdit += new DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventHandler(this.viewDisplayPosts_CustomRowCellEdit);
-            this.viewDisplayPosts.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.viewDisplayPosts_CustomUnboundColumnData);
             // 
             // colPostText
             // 
+            this.colPostText.DisplayFormat.FormatString = "d";
+            this.colPostText.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colPostText.FieldName = "PostText";
             this.colPostText.Name = "colPostText";
             this.colPostText.OptionsColumn.AllowEdit = false;
@@ -144,16 +145,19 @@
             this.colUsername.Visible = true;
             this.colUsername.VisibleIndex = 4;
             // 
-            // colCommentDate
+            // colLastCommentDate
             // 
-            this.colCommentDate.Caption = "Last comment date";
-            this.colCommentDate.FieldName = "CommentDate";
-            this.colCommentDate.Name = "colCommentDate";
-            this.colCommentDate.OptionsColumn.AllowEdit = false;
-            this.colCommentDate.OptionsColumn.ReadOnly = true;
-            this.colCommentDate.UnboundType = DevExpress.Data.UnboundColumnType.DateTime;
-            this.colCommentDate.Visible = true;
-            this.colCommentDate.VisibleIndex = 5;
+            this.colLastCommentDate.Caption = "Last Comment Date";
+            this.colLastCommentDate.DisplayFormat.FormatString = "d";
+            this.colLastCommentDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colLastCommentDate.FieldName = "LastCommentDate";
+            this.colLastCommentDate.GroupFormat.FormatString = "d";
+            this.colLastCommentDate.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colLastCommentDate.Name = "colLastCommentDate";
+            this.colLastCommentDate.OptionsColumn.AllowEdit = false;
+            this.colLastCommentDate.OptionsColumn.ReadOnly = true;
+            this.colLastCommentDate.Visible = true;
+            this.colLastCommentDate.VisibleIndex = 5;
             // 
             // repCommentDate
             // 
@@ -194,7 +198,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colCreationDate;
         private DevExpress.XtraGrid.Columns.GridColumn colName;
         private DevExpress.XtraGrid.Columns.GridColumn colUsername;
-        private DevExpress.XtraGrid.Columns.GridColumn colCommentDate;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repCommentDate;
+        private DevExpress.XtraGrid.Columns.GridColumn colLastCommentDate;
     }
 }
