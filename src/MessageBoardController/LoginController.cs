@@ -31,34 +31,40 @@ namespace MessageBoardController
         {
             try
             {
-                if (username == string.Empty && password == string.Empty)
+                if (String.IsNullOrEmpty(username) && String.IsNullOrEmpty(password))
                 {
                     _form.UsernameAndPasswordAreNull();
+                    _userID = 0;
                 }
-                else if (username == string.Empty)
+                else if (String.IsNullOrEmpty(username))
                 {
                     _form.UsernameIsNull();
+                    _userID = 0;
                 }
-                else if(password == string.Empty)
+                else if (String.IsNullOrEmpty(password))
                 {
                     _form.PasswordIsNull();
+                    _userID = 0;
                 }
-                var user = _service.CheckUserAndPassword(username);
-                if (user != null)
+                else
                 {
-                    string generatedPassword = HashHelper.GetHash(password, user.PasswordSalt);
-                    if (generatedPassword != null && generatedPassword == user.PasswordHash)
+                    var user = _service.CheckUserAndPassword(username);
+                    if (user != null)
                     {
-                        _userID = user.UserID;
+                        string generatedPassword = HashHelper.GetHash(password, user.PasswordSalt);
+                        if (generatedPassword != null && generatedPassword == user.PasswordHash)
+                        {
+                            _userID = user.UserID;
+                        }
+                        else
+                        {
+                            _userID = -1;
+                        }
                     }
                     else
                     {
                         _userID = -1;
                     }
-                }
-                else
-                {
-                    _userID = -1;
                 }
                 return _userID;
             }

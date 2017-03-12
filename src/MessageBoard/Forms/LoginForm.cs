@@ -97,7 +97,7 @@ namespace MessageBoard
             {
                 XtraMessageBox.Show(Constants.ExceptionService);           
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 XtraMessageBox.Show(Constants.CouldNotLogIn);
             }
