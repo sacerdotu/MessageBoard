@@ -78,7 +78,7 @@ namespace MessageBoard
         #region InsertPasswordAgain
         public void InsertPasswordAgain()
         {
-            XtraMessageBox.Show("Wrong Username or Password");
+            XtraMessageBox.Show("Wrong Username or Password!");
             Logger.Information("Failed login attempt: Username is: {0} and Password is {1}", TxtUsername.Text, TxtPassword.Text);
             TxtPassword.Text = string.Empty;
             TxtUsername.Text = string.Empty;
@@ -90,14 +90,14 @@ namespace MessageBoard
         {
             try
             { 
-                AppGlobalVariables.Instance.UserID = _controller.ValidateLogin(TxtUsername.EditValue.ToString(), TxtPassword.EditValue.ToString());
+                AppGlobalVariables.Instance.UserID = _controller.ValidateLogin(Convert.ToString(TxtUsername.EditValue), Convert.ToString(TxtPassword.EditValue));
                 _controller.CheckUserID();
             }
             catch (EndpointNotFoundException)
             {
                 XtraMessageBox.Show(Constants.ExceptionService);           
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 XtraMessageBox.Show(Constants.CouldNotLogIn);
             }
@@ -113,5 +113,31 @@ namespace MessageBoard
             }
         }
         #endregion
+
+        #region UsernameIsNull
+        public void UsernameIsNull()
+        {
+            XtraMessageBox.Show(Constants.UsernameIsNull);
+        }
+        #endregion
+
+        #region PasswordIsNull
+        public void PasswordIsNull()
+        {
+            XtraMessageBox.Show(Constants.PasswordIsNull);
+        }
+        #endregion
+
+        #region UsernameAndPasswordAreNull
+        public void UsernameAndPasswordAreNull()
+        {
+            XtraMessageBox.Show(Constants.UsernameAndPasswordAreNull);
+        }
+        #endregion
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            TxtUsername.Focus();
+        }
     }
 }

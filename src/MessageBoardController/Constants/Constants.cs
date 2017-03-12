@@ -13,5 +13,8 @@ namespace MessageBoardController.Constants
         public const string RegistrationFailed = "Registration failed";
         public const string CouldNotSaveChanges = "Could not save changes!";
         public const string CouldNotLogIn = "Could not Log In!";
+        public const string PasswordIsNull = "Please insert password!";
+        public const string UsernameIsNull = "Please insert username!";
+        public const string UsernameAndPasswordAreNull ="Please insert username and password!";
     }
 }

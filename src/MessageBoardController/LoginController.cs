@@ -31,9 +31,17 @@ namespace MessageBoardController
         {
             try
             {
-                if (username == null || password == null)
+                if (username == string.Empty && password == string.Empty)
                 {
-                    return 0;
+                    _form.UsernameAndPasswordAreNull();
+                }
+                else if (username == string.Empty)
+                {
+                    _form.UsernameIsNull();
+                }
+                else if(password == string.Empty)
+                {
+                    _form.PasswordIsNull();
                 }
                 var user = _service.CheckUserAndPassword(username);
                 if (user != null)
@@ -45,8 +53,12 @@ namespace MessageBoardController
                     }
                     else
                     {
-                        _userID = 0;
+                        _userID = -1;
                     }
+                }
+                else
+                {
+                    _userID = -1;
                 }
                 return _userID;
             }
@@ -65,7 +77,7 @@ namespace MessageBoardController
             {
                 _form.LoadMainForm();
             }
-            else
+            else if(_userID == -1)
             {
                 _form.InsertPasswordAgain();
             }

@@ -44,7 +44,7 @@
             this.btnClose.Location = new System.Drawing.Point(52, 119);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 0;
+            this.btnClose.TabIndex = 3;
             this.btnClose.Text = "Close";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -53,7 +53,7 @@
             this.btnLogin.Location = new System.Drawing.Point(187, 119);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
-            this.btnLogin.TabIndex = 1;
+            this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
@@ -63,7 +63,7 @@
             this.hplRegister.Location = new System.Drawing.Point(222, 148);
             this.hplRegister.Name = "hplRegister";
             this.hplRegister.Size = new System.Drawing.Size(40, 13);
-            this.hplRegister.TabIndex = 3;
+            this.hplRegister.TabIndex = 5;
             this.hplRegister.Text = "Register";
             this.hplRegister.Click += new System.EventHandler(this.hplRegister_Click);
             // 
@@ -72,7 +72,7 @@
             this.txtUsername.Location = new System.Drawing.Point(146, 52);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(116, 20);
-            this.txtUsername.TabIndex = 4;
+            this.txtUsername.TabIndex = 1;
             // 
             // txtPassword
             // 
@@ -80,7 +80,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Properties.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(116, 20);
-            this.txtPassword.TabIndex = 5;
+            this.txtPassword.TabIndex = 2;
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // lblUsername
@@ -117,6 +117,7 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "                                              Login";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
             this.ResumeLayout(false);

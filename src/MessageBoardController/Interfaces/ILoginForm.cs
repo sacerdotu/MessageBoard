@@ -11,6 +11,9 @@ namespace MessageBoardController.Interfaces
     {
         void InsertPasswordAgain();
         void LoadMainForm();
+        void UsernameIsNull();
+        void PasswordIsNull();
+        void UsernameAndPasswordAreNull();
         TextEdit TxtUsername { get; }
         TextEdit TxtPassword { get; }
     }
