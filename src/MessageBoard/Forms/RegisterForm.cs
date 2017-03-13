@@ -104,29 +104,31 @@ namespace MessageBoard.Forms
         {
             try
             {
-                if ((TxtPassword.EditValue.ToString() == TxtConfirmPassword.EditValue.ToString()) && TxtConfirmPassword != null)
-                {
-                    if (_controller.RegisterUser() > 0)
-                    {
-                        XtraMessageBox.Show("Your account has been created!");
-                        LoginForm loginForm = new LoginForm();
-                        loginForm.Show();
-                        this.Close();
-                    }
-                    else
-                    {
-                        XtraMessageBox.Show(Constants.RegistrationFailed);
-                    }                    
-                }
-                else
-                {
-                    XtraMessageBox.Show("Insert passwords again!");
-                }
+                _controller.RegisterUser(Convert.ToString(TxtPassword.EditValue), Convert.ToString(TxtConfirmPassword.EditValue));
             }
             catch (Exception)
             {
                 XtraMessageBox.Show(Constants.RegistrationFailed);
             }
+        }
+        #endregion
+
+        #region AccountCreated
+        public void AccountCreated()
+        {
+            XtraMessageBox.Show(Constants.AccountCreated);
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Close();
+        }
+        #endregion
+
+        #region InsertPasswordsAgain
+        public void FillAllFields()
+        {
+            XtraMessageBox.Show(Constants.FillAllFields);
+            TxtPassword.Text = string.Empty;
+            TxtConfirmPassword.Text = string.Empty;
         }
         #endregion
 

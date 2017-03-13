@@ -10,5 +10,6 @@ namespace MessageBoardController.Interfaces
     public interface IAddPostForm
     {
         RichTextBox RtbPost { get; }
+        void PostWasAdded();
     }
 }

@@ -20,5 +20,7 @@ namespace MessageBoardController
         TextEdit TxtConfirmPassword { get; }
         ComboBoxEdit CmbFunction { get; }
         PictureEdit ImgProfilePicture { get; }
+        void AccountCreated();
+        void FillAllFields();
     }
 }

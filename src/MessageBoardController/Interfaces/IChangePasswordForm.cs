@@ -11,5 +11,8 @@ namespace MessageBoardController.Interfaces
     {
         TextEdit TxtPassword { get; }
         TextEdit TxtConfirmPassword { get; }
+        void PasswordWasChanged();
+        void InsertPasswordAgain();
+
     }
 }

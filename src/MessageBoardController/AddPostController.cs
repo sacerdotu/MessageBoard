@@ -24,7 +24,7 @@ namespace MessageBoardController
         #endregion
 
         #region AddPost
-        public bool AddPost(int userID)
+        public void AddPost(int userID)
         {
             try
             {
@@ -34,17 +34,13 @@ namespace MessageBoardController
                
                 if(_service.AddNewPost(addPost) == true)
                 {
-                    return true;
-                }
-                else
-                {
-                    return false;
+                    _form.PostWasAdded();
                 }
             }
             catch (Exception ex)
             {
                 Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
-                return false;
+                throw ex;
             }
         }
         #endregion

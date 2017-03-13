@@ -56,24 +56,28 @@ namespace MessageBoard.Forms
         {
             try
             {
-                if ((TxtPassword.Text == TxtConfirmPassword.Text) && TxtPassword != null)
-                {
-                    if (_controller.GeneratePassword(AppGlobalVariables.Instance.UserID) == true)
-                    {
-                        XtraMessageBox.Show("Password was changed!");
-                    }
-                }
-                else
-                {
-                    XtraMessageBox.Show("Please insert passwords again");
-                    TxtPassword.Text = String.Empty;
-                    TxtConfirmPassword.Text = String.Empty;
-                }
+                    _controller.GeneratePassword(AppGlobalVariables.Instance.UserID, Convert.ToString(TxtPassword.EditValue), Convert.ToString(TxtConfirmPassword.EditValue));
             }
             catch (Exception)
             {
                 XtraMessageBox.Show(Constants.ExceptionService);
             }
+        }
+        #endregion
+
+        #region PasswordWasChanged
+        public void PasswordWasChanged()
+        {
+            XtraMessageBox.Show("Password was changed!");
+        }
+        #endregion
+
+        #region InsertPasswordAgain
+        public void InsertPasswordAgain()
+        {
+            XtraMessageBox.Show("Please insert passwords again");
+            TxtPassword.Text = String.Empty;
+            TxtConfirmPassword.Text = String.Empty;
         }
         #endregion
     }

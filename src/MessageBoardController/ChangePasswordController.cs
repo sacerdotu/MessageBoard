@@ -25,24 +25,26 @@ namespace MessageBoardController
         #endregion
 
         #region GeneratePassword
-        public bool GeneratePassword(int userID)
+        public void GeneratePassword(int userID, string password, string confirmPassword)
         {
             try
             {
-                UserDTO user = new UserDTO();
-                string _password = _form.TxtPassword.Text;
-                user.PasswordSalt = HashHelper.GetSalt();
-                user.PasswordHash = HashHelper.GetHash(_password, user.PasswordSalt);
-                user.UserID = userID;
-                if(_service.ChangePassword(user) == true)
+                if ((!String.IsNullOrEmpty(password)) && (!String.IsNullOrEmpty(confirmPassword)) && password == confirmPassword)
                 {
-                    return true;
+                    UserDTO user = new UserDTO();
+                    string _password = _form.TxtPassword.Text;
+                    user.PasswordSalt = HashHelper.GetSalt();
+                    user.PasswordHash = HashHelper.GetHash(_password, user.PasswordSalt);
+                    user.UserID = userID;
+                    if (_service.ChangePassword(user) == true)
+                    {
+                        _form.PasswordWasChanged();
+                    }
                 }
                 else
                 {
-                    return false;
+                    _form.InsertPasswordAgain();
                 }
-                
             }
             catch (Exception ex)
             {

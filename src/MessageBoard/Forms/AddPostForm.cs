@@ -37,22 +37,22 @@ namespace MessageBoard.Forms
         {
             try
             {
-                int userID = AppGlobalVariables.Instance.UserID;
-                if (_controller.AddPost(userID) == true)
-                {
-                    ForumForm form = new ForumForm();
-                    form.Show();
-                    this.Close();
-                }
-                else
-                {
-                    XtraMessageBox.Show("Could not add a new post!");
-                }
+                _controller.AddPost(AppGlobalVariables.Instance.UserID);
             }
             catch (Exception)
             {
-                XtraMessageBox.Show(Constants.ExceptionService);
+                XtraMessageBox.Show(Constants.AddPostFailed);
             }
+        }
+        #endregion
+
+        #region PostWasAdded
+        public void PostWasAdded()
+        {
+            XtraMessageBox.Show(Constants.Success);
+            ForumForm form = new ForumForm();
+            form.Show();
+            this.Close();
         }
         #endregion
     }

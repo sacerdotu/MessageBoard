@@ -15,6 +15,10 @@ namespace MessageBoardController.Constants
         public const string CouldNotLogIn = "Could not Log In!";
         public const string PasswordIsNull = "Please insert password!";
         public const string UsernameIsNull = "Please insert username!";
-        public const string UsernameAndPasswordAreNull ="Please insert username and password!";
+        public const string UsernameAndPasswordAreNull = "Please insert username and password!";
+        public const string FillAllFields = "Please fill all fields!";
+        public const string AccountCreated = "Account created!";
+        public const string Success = "Success!";
+        public const string AddPostFailed = "Could not add a new post";
     }
 }

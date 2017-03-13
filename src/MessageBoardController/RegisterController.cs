@@ -30,28 +30,37 @@ namespace MessageBoardController
         #endregion
 
         #region RegisterUser
-        public int RegisterUser()
+        public void RegisterUser(string password, string confirmPassword)
         {
             try
             {
-                UserDTO user = new UserDTO();
-                user.FirstName = _form.TxtFirstName.EditValue.ToString();
-                user.LastName = _form.TxtLastName.EditValue.ToString();
-                user.Country = _form.TxtCountry.EditValue.ToString();
-                user.City = _form.TxtCity.EditValue.ToString();
-                user.Function = _form.CmbFunction.EditValue.ToString();
-                user.Username = _form.TxtUsername.EditValue.ToString();
-                user.ProfileImage = ConvertImage.ImageToByteArray(_form.ImgProfilePicture.Image);
-                user.PasswordSalt = HashHelper.GetSalt();
-                user.PasswordHash = HashHelper.GetHash(_form.TxtPassword.EditValue.ToString(), user.PasswordSalt);
-
-                int newUser = _service.InsertNewUser(user);
-                return newUser;
+                int newUserID = 0;
+                if (!String.IsNullOrEmpty(password) && (password == confirmPassword))
+                {
+                    UserDTO user = new UserDTO();
+                    user.FirstName = _form.TxtFirstName.EditValue.ToString();
+                    user.LastName = _form.TxtLastName.EditValue.ToString();
+                    user.Country = _form.TxtCountry.EditValue.ToString();
+                    user.City = _form.TxtCity.EditValue.ToString();
+                    user.Function = _form.CmbFunction.EditValue.ToString();
+                    user.Username = _form.TxtUsername.EditValue.ToString();
+                    user.ProfileImage = ConvertImage.ImageToByteArray(_form.ImgProfilePicture.Image);
+                    user.PasswordSalt = HashHelper.GetSalt();
+                    user.PasswordHash = HashHelper.GetHash(_form.TxtPassword.EditValue.ToString(), user.PasswordSalt);
+                    newUserID = _service.InsertNewUser(user);
+                }
+                if (newUserID > 0)
+                {
+                    _form.AccountCreated();
+                }
+                else
+                {
+                    _form.FillAllFields();
+                }
             }
             catch (Exception ex)
             {
                 Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
-                return 0;
             }
         }
 
