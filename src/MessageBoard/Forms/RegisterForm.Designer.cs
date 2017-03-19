@@ -30,6 +30,7 @@
         {
             this.btnRegister = new DevExpress.XtraEditors.SimpleButton();
             this.btnBack = new DevExpress.XtraEditors.SimpleButton();
+            this.lblRegister = new DevExpress.XtraEditors.LabelControl();
             this.ucUserInformations = new MessageBoard.ucUserInformations();
             this.SuspendLayout();
             // 
@@ -44,7 +45,7 @@
             this.btnRegister.Appearance.Options.UseForeColor = true;
             this.btnRegister.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.btnRegister.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegister.Location = new System.Drawing.Point(12, 484);
+            this.btnRegister.Location = new System.Drawing.Point(12, 545);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(187, 40);
             this.btnRegister.TabIndex = 1;
@@ -60,17 +61,29 @@
             this.btnBack.Appearance.Options.UseFont = true;
             this.btnBack.Appearance.Options.UseForeColor = true;
             this.btnBack.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.btnBack.Location = new System.Drawing.Point(323, 484);
+            this.btnBack.Location = new System.Drawing.Point(323, 545);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(187, 40);
             this.btnBack.TabIndex = 2;
             this.btnBack.Text = "Back";
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // lblRegister
+            // 
+            this.lblRegister.Appearance.Font = new System.Drawing.Font("Verdana", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegister.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.lblRegister.Appearance.Options.UseFont = true;
+            this.lblRegister.Appearance.Options.UseForeColor = true;
+            this.lblRegister.Location = new System.Drawing.Point(182, 12);
+            this.lblRegister.Name = "lblRegister";
+            this.lblRegister.Size = new System.Drawing.Size(154, 45);
+            this.lblRegister.TabIndex = 12;
+            this.lblRegister.Text = "Register";
+            // 
             // ucUserInformations
             // 
             this.ucUserInformations.BackColor = System.Drawing.Color.White;
-            this.ucUserInformations.Location = new System.Drawing.Point(-1, 0);
+            this.ucUserInformations.Location = new System.Drawing.Point(-1, 61);
             this.ucUserInformations.Name = "ucUserInformations";
             this.ucUserInformations.Size = new System.Drawing.Size(639, 475);
             this.ucUserInformations.TabIndex = 0;
@@ -80,7 +93,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(522, 536);
+            this.ClientSize = new System.Drawing.Size(522, 619);
+            this.Controls.Add(this.lblRegister);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.ucUserInformations);
@@ -90,6 +104,7 @@
             this.Text = "Register";
             this.Load += new System.EventHandler(this.RegisterForm_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -98,5 +113,6 @@
         private ucUserInformations ucUserInformations;
         private DevExpress.XtraEditors.SimpleButton btnRegister;
         private DevExpress.XtraEditors.SimpleButton btnBack;
+        private DevExpress.XtraEditors.LabelControl lblRegister;
     }
 }

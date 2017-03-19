@@ -80,5 +80,24 @@ namespace MessageBoard.Forms
             TxtConfirmPassword.Text = String.Empty;
         }
         #endregion
+
+        private void ChangePasswordForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        #region EscKey
+        protected override bool ProcessDialogKey(Keys keyData)
+        {
+            if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
+            {
+                ForumForm form = new ForumForm();
+                form.Show();
+                this.Close();
+                return true;
+            }
+            return base.ProcessDialogKey(keyData);
+        }
+        #endregion
     }
 }

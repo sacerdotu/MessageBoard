@@ -28,7 +28,9 @@ namespace MessageBoardController
         {
             try
             {
-                _form.GrdDisplayPosts.DataSource = _service.FillPostsGrid();
+                List<PostDTO> list = new List<PostDTO>();
+                list = _service.FillPostsGrid();
+                _form.GrdDisplayPosts.DataSource = list;
             }
             catch (Exception ex)
             {

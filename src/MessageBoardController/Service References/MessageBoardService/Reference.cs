@@ -16,10 +16,10 @@ namespace MessageBoardController.MessageBoardService {
     public interface IMessageBoardService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/InsertNewUser", ReplyAction="http://tempuri.org/IMessageBoardService/InsertNewUserResponse")]
-        int InsertNewUser(MessageBoardDTO.UserDTO user);
+        MessageBoardDTO.UserDTO InsertNewUser(MessageBoardDTO.UserDTO user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/InsertNewUser", ReplyAction="http://tempuri.org/IMessageBoardService/InsertNewUserResponse")]
-        System.Threading.Tasks.Task<int> InsertNewUserAsync(MessageBoardDTO.UserDTO user);
+        System.Threading.Tasks.Task<MessageBoardDTO.UserDTO> InsertNewUserAsync(MessageBoardDTO.UserDTO user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/CheckUserAndPassword", ReplyAction="http://tempuri.org/IMessageBoardService/CheckUserAndPasswordResponse")]
         MessageBoardDTO.UserDTO CheckUserAndPassword(string username);
@@ -68,6 +68,18 @@ namespace MessageBoardController.MessageBoardService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/FillPostsGrid", ReplyAction="http://tempuri.org/IMessageBoardService/FillPostsGridResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardDTO.PostDTO>> FillPostsGridAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/ChangeProfilePicture", ReplyAction="http://tempuri.org/IMessageBoardService/ChangeProfilePictureResponse")]
+        bool ChangeProfilePicture(MessageBoardDTO.UserDTO user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/ChangeProfilePicture", ReplyAction="http://tempuri.org/IMessageBoardService/ChangeProfilePictureResponse")]
+        System.Threading.Tasks.Task<bool> ChangeProfilePictureAsync(MessageBoardDTO.UserDTO user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/GetProfilePicture", ReplyAction="http://tempuri.org/IMessageBoardService/GetProfilePictureResponse")]
+        MessageBoardDTO.UserDTO GetProfilePicture(int userID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/GetProfilePicture", ReplyAction="http://tempuri.org/IMessageBoardService/GetProfilePictureResponse")]
+        System.Threading.Tasks.Task<MessageBoardDTO.UserDTO> GetProfilePictureAsync(int userID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -97,11 +109,11 @@ namespace MessageBoardController.MessageBoardService {
                 base(binding, remoteAddress) {
         }
         
-        public int InsertNewUser(MessageBoardDTO.UserDTO user) {
+        public MessageBoardDTO.UserDTO InsertNewUser(MessageBoardDTO.UserDTO user) {
             return base.Channel.InsertNewUser(user);
         }
         
-        public System.Threading.Tasks.Task<int> InsertNewUserAsync(MessageBoardDTO.UserDTO user) {
+        public System.Threading.Tasks.Task<MessageBoardDTO.UserDTO> InsertNewUserAsync(MessageBoardDTO.UserDTO user) {
             return base.Channel.InsertNewUserAsync(user);
         }
         
@@ -167,6 +179,22 @@ namespace MessageBoardController.MessageBoardService {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardDTO.PostDTO>> FillPostsGridAsync() {
             return base.Channel.FillPostsGridAsync();
+        }
+        
+        public bool ChangeProfilePicture(MessageBoardDTO.UserDTO user) {
+            return base.Channel.ChangeProfilePicture(user);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ChangeProfilePictureAsync(MessageBoardDTO.UserDTO user) {
+            return base.Channel.ChangeProfilePictureAsync(user);
+        }
+        
+        public MessageBoardDTO.UserDTO GetProfilePicture(int userID) {
+            return base.Channel.GetProfilePicture(userID);
+        }
+        
+        public System.Threading.Tasks.Task<MessageBoardDTO.UserDTO> GetProfilePictureAsync(int userID) {
+            return base.Channel.GetProfilePictureAsync(userID);
         }
     }
 }

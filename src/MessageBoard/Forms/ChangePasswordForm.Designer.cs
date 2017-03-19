@@ -28,79 +28,111 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblPassword = new DevExpress.XtraEditors.LabelControl();
-            this.lblConfirmPassword = new DevExpress.XtraEditors.LabelControl();
             this.txtPassword = new DevExpress.XtraEditors.TextEdit();
             this.txtConfirmPassword = new DevExpress.XtraEditors.TextEdit();
             this.btnChangePassword = new DevExpress.XtraEditors.SimpleButton();
-            this.btnBack = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.lblConfirmPassword = new DevExpress.XtraEditors.LabelControl();
+            this.lblLogin = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConfirmPassword.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblPassword
-            // 
-            this.lblPassword.Location = new System.Drawing.Point(28, 61);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(46, 13);
-            this.lblPassword.TabIndex = 0;
-            this.lblPassword.Text = "Password";
-            // 
-            // lblConfirmPassword
-            // 
-            this.lblConfirmPassword.Location = new System.Drawing.Point(28, 99);
-            this.lblConfirmPassword.Name = "lblConfirmPassword";
-            this.lblConfirmPassword.Size = new System.Drawing.Size(86, 13);
-            this.lblConfirmPassword.TabIndex = 1;
-            this.lblConfirmPassword.Text = "Confirm Password";
-            // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(121, 53);
+            this.txtPassword.Location = new System.Drawing.Point(87, 117);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Properties.Appearance.Options.UseBackColor = true;
+            this.txtPassword.Properties.Appearance.Options.UseFont = true;
+            this.txtPassword.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtPassword.Properties.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(100, 20);
+            this.txtPassword.Size = new System.Drawing.Size(188, 34);
             this.txtPassword.TabIndex = 2;
             // 
             // txtConfirmPassword
             // 
-            this.txtConfirmPassword.Location = new System.Drawing.Point(121, 92);
+            this.txtConfirmPassword.Location = new System.Drawing.Point(87, 188);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.txtConfirmPassword.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmPassword.Properties.Appearance.Options.UseBackColor = true;
+            this.txtConfirmPassword.Properties.Appearance.Options.UseFont = true;
+            this.txtConfirmPassword.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtConfirmPassword.Properties.PasswordChar = '*';
-            this.txtConfirmPassword.Size = new System.Drawing.Size(100, 20);
+            this.txtConfirmPassword.Size = new System.Drawing.Size(188, 34);
             this.txtConfirmPassword.TabIndex = 3;
             // 
             // btnChangePassword
             // 
-            this.btnChangePassword.Location = new System.Drawing.Point(177, 226);
+            this.btnChangePassword.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(152)))), ((int)(((byte)(220)))));
+            this.btnChangePassword.Appearance.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangePassword.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnChangePassword.Appearance.Options.UseBackColor = true;
+            this.btnChangePassword.Appearance.Options.UseFont = true;
+            this.btnChangePassword.Appearance.Options.UseForeColor = true;
+            this.btnChangePassword.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.btnChangePassword.Location = new System.Drawing.Point(87, 255);
             this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(95, 23);
+            this.btnChangePassword.Size = new System.Drawing.Size(187, 40);
             this.btnChangePassword.TabIndex = 4;
-            this.btnChangePassword.Text = "Change Password";
+            this.btnChangePassword.Text = "Save";
             this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
             // 
-            // btnBack
+            // labelControl1
             // 
-            this.btnBack.Location = new System.Drawing.Point(13, 225);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 23);
-            this.btnBack.TabIndex = 5;
-            this.btnBack.Text = "Back";
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Appearance.Options.UseForeColor = true;
+            this.labelControl1.Location = new System.Drawing.Point(88, 95);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(68, 16);
+            this.labelControl1.TabIndex = 11;
+            this.labelControl1.Text = "Password:";
+            // 
+            // lblConfirmPassword
+            // 
+            this.lblConfirmPassword.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfirmPassword.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.lblConfirmPassword.Appearance.Options.UseFont = true;
+            this.lblConfirmPassword.Appearance.Options.UseForeColor = true;
+            this.lblConfirmPassword.Location = new System.Drawing.Point(87, 166);
+            this.lblConfirmPassword.Name = "lblConfirmPassword";
+            this.lblConfirmPassword.Size = new System.Drawing.Size(122, 16);
+            this.lblConfirmPassword.TabIndex = 12;
+            this.lblConfirmPassword.Text = "Confirm password:";
+            // 
+            // lblLogin
+            // 
+            this.lblLogin.Appearance.Font = new System.Drawing.Font("Verdana", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.lblLogin.Appearance.Options.UseFont = true;
+            this.lblLogin.Appearance.Options.UseForeColor = true;
+            this.lblLogin.Location = new System.Drawing.Point(22, 25);
+            this.lblLogin.Name = "lblLogin";
+            this.lblLogin.Size = new System.Drawing.Size(325, 45);
+            this.lblLogin.TabIndex = 13;
+            this.lblLogin.Text = "Change Password";
             // 
             // ChangePasswordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.btnBack);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(366, 367);
+            this.Controls.Add(this.lblLogin);
+            this.Controls.Add(this.lblConfirmPassword);
+            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.btnChangePassword);
             this.Controls.Add(this.txtConfirmPassword);
             this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.lblConfirmPassword);
-            this.Controls.Add(this.lblPassword);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ChangePasswordForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChangePasswordForm";
+            this.Load += new System.EventHandler(this.ChangePasswordForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConfirmPassword.Properties)).EndInit();
             this.ResumeLayout(false);
@@ -109,12 +141,11 @@
         }
 
         #endregion
-
-        private DevExpress.XtraEditors.LabelControl lblPassword;
-        private DevExpress.XtraEditors.LabelControl lblConfirmPassword;
         private DevExpress.XtraEditors.TextEdit txtPassword;
         private DevExpress.XtraEditors.TextEdit txtConfirmPassword;
         private DevExpress.XtraEditors.SimpleButton btnChangePassword;
-        private DevExpress.XtraEditors.SimpleButton btnBack;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl lblConfirmPassword;
+        private DevExpress.XtraEditors.LabelControl lblLogin;
     }
 }

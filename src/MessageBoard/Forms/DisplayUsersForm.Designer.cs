@@ -45,7 +45,6 @@
             this.colAccountCreationDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnBack = new DevExpress.XtraEditors.SimpleButton();
             this.btnSaveChanges = new DevExpress.XtraEditors.SimpleButton();
-            //this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.grdDisplayUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewDisplayUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repIsAdministrator)).BeginInit();
@@ -229,6 +228,7 @@
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.grdDisplayUsers);
             this.Name = "DisplayUsersForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DisplayUsersForm";
             this.Load += new System.EventHandler(this.UsersForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdDisplayUsers)).EndInit();

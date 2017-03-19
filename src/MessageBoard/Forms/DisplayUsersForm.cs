@@ -89,8 +89,8 @@ namespace MessageBoard.Forms
         #region BackClick
         private void btnBack_Click(object sender, EventArgs e)
         {
-            MainForm mainForm = new MainForm();
-            mainForm.Show();
+            ForumForm form = new ForumForm();
+            form.Show();
             this.Close();
         }
         #endregion

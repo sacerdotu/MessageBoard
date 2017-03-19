@@ -123,14 +123,14 @@ namespace MessageBoard
                 string picture = openFile.FileName.ToString();
                 var initialImage = Image.FromFile(openFile.FileName);
 
-                var newWidth = imgProfilePicture.Width;
-                var newHeight = imgProfilePicture.Height;
+                var newWidth = ImgProfilePicture.Width;
+                var newHeight = ImgProfilePicture.Height;
 
                 var newImage = new Bitmap(newWidth, newHeight);
 
                 using (var graphics = Graphics.FromImage(newImage))
                     graphics.DrawImage(initialImage, 0, 0, newWidth, newHeight);
-                imgProfilePicture.Image = newImage;              
+                ImgProfilePicture.Image = newImage;              
             }
         }
     }

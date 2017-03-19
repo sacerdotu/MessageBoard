@@ -50,7 +50,7 @@
             this.btnLogin.Appearance.Options.UseForeColor = true;
             this.btnLogin.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogin.Location = new System.Drawing.Point(44, 290);
+            this.btnLogin.Location = new System.Drawing.Point(54, 261);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(271, 50);
             this.btnLogin.TabIndex = 4;
@@ -64,7 +64,7 @@
             this.hplRegister.Appearance.Options.UseFont = true;
             this.hplRegister.Appearance.Options.UseForeColor = true;
             this.hplRegister.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.hplRegister.Location = new System.Drawing.Point(150, 376);
+            this.hplRegister.Location = new System.Drawing.Point(159, 347);
             this.hplRegister.Name = "hplRegister";
             this.hplRegister.Size = new System.Drawing.Size(68, 18);
             this.hplRegister.TabIndex = 5;
@@ -75,7 +75,7 @@
             // 
             this.txtUsername.CausesValidation = false;
             this.txtUsername.EditValue = "";
-            this.txtUsername.Location = new System.Drawing.Point(44, 135);
+            this.txtUsername.Location = new System.Drawing.Point(54, 106);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.txtUsername.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 27F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -90,7 +90,7 @@
             // txtPassword
             // 
             this.txtPassword.EditValue = "";
-            this.txtPassword.Location = new System.Drawing.Point(44, 222);
+            this.txtPassword.Location = new System.Drawing.Point(54, 193);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 27F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -111,7 +111,7 @@
             this.lblUsername.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.lblUsername.Appearance.Options.UseFont = true;
             this.lblUsername.Appearance.Options.UseForeColor = true;
-            this.lblUsername.Location = new System.Drawing.Point(44, 115);
+            this.lblUsername.Location = new System.Drawing.Point(54, 86);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(70, 16);
             this.lblUsername.TabIndex = 9;
@@ -123,7 +123,7 @@
             this.lblPassword.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.lblPassword.Appearance.Options.UseFont = true;
             this.lblPassword.Appearance.Options.UseForeColor = true;
-            this.lblPassword.Location = new System.Drawing.Point(44, 200);
+            this.lblPassword.Location = new System.Drawing.Point(54, 171);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(68, 16);
             this.lblPassword.TabIndex = 10;
@@ -131,13 +131,13 @@
             // 
             // lblLogin
             // 
-            this.lblLogin.Appearance.Font = new System.Drawing.Font("Verdana", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin.Appearance.Font = new System.Drawing.Font("Verdana", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogin.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.lblLogin.Appearance.Options.UseFont = true;
             this.lblLogin.Appearance.Options.UseForeColor = true;
-            this.lblLogin.Location = new System.Drawing.Point(103, 12);
+            this.lblLogin.Location = new System.Drawing.Point(142, 12);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(174, 78);
+            this.lblLogin.Size = new System.Drawing.Size(99, 45);
             this.lblLogin.TabIndex = 11;
             this.lblLogin.Text = "Login";
             // 

@@ -118,7 +118,14 @@ namespace MessageBoard.Forms
 
         private void barUserInformations_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            UserDetailsForm form = new UserDetailsForm();
+            DisplayUsersForm form = new DisplayUsersForm();
+            form.Show();
+            this.Close();
+        }
+
+        private void barChangeProfilePicture_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ChangeProfilePictureForm form = new ChangeProfilePictureForm();
             form.Show();
             this.Close();
         }

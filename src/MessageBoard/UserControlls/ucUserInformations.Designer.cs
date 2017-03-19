@@ -51,7 +51,7 @@
             this.dateRegisterDate = new DevExpress.XtraEditors.DateEdit();
             this.lblRegisterDate = new DevExpress.XtraEditors.LabelControl();
             this.btnBrowse = new DevExpress.XtraEditors.SimpleButton();
-            this.imgProfilePicture = new DevExpress.XtraEditors.PictureEdit();
+            imgProfilePicture = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFirstName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLastName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCountry.Properties)).BeginInit();
@@ -64,7 +64,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkActive.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateRegisterDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateRegisterDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgProfilePicture.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(imgProfilePicture.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtFirstName
@@ -285,7 +285,9 @@
             this.chkAdministrator.Location = new System.Drawing.Point(318, 270);
             this.chkAdministrator.Name = "chkAdministrator";
             this.chkAdministrator.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkAdministrator.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.chkAdministrator.Properties.Appearance.Options.UseFont = true;
+            this.chkAdministrator.Properties.Appearance.Options.UseForeColor = true;
             this.chkAdministrator.Properties.Caption = "Administrator";
             this.chkAdministrator.Size = new System.Drawing.Size(107, 20);
             this.chkAdministrator.TabIndex = 20;
@@ -295,7 +297,9 @@
             this.chkActive.Location = new System.Drawing.Point(318, 307);
             this.chkActive.Name = "chkActive";
             this.chkActive.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F);
+            this.chkActive.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.chkActive.Properties.Appearance.Options.UseFont = true;
+            this.chkActive.Properties.Appearance.Options.UseForeColor = true;
             this.chkActive.Properties.Caption = "Active";
             this.chkActive.Size = new System.Drawing.Size(75, 20);
             this.chkActive.TabIndex = 21;
@@ -331,6 +335,14 @@
             // 
             // btnBrowse
             // 
+            this.btnBrowse.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(152)))), ((int)(((byte)(220)))));
+            this.btnBrowse.Appearance.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBrowse.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnBrowse.Appearance.Options.UseBackColor = true;
+            this.btnBrowse.Appearance.Options.UseFont = true;
+            this.btnBrowse.Appearance.Options.UseForeColor = true;
+            this.btnBrowse.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.btnBrowse.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBrowse.Location = new System.Drawing.Point(431, 130);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(75, 23);
@@ -340,14 +352,14 @@
             // 
             // imgProfilePicture
             // 
-            this.imgProfilePicture.Cursor = System.Windows.Forms.Cursors.Default;
-            this.imgProfilePicture.Location = new System.Drawing.Point(318, 102);
-            this.imgProfilePicture.Name = "imgProfilePicture";
-            this.imgProfilePicture.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.imgProfilePicture.Properties.ZoomAccelerationFactor = 1D;
-            this.imgProfilePicture.Size = new System.Drawing.Size(100, 91);
-            this.imgProfilePicture.TabIndex = 12;
-            this.imgProfilePicture.EditValueChanged += new System.EventHandler(this.peProfilePicture_EditValueChanged);
+            imgProfilePicture.Cursor = System.Windows.Forms.Cursors.Default;
+            imgProfilePicture.Location = new System.Drawing.Point(318, 102);
+            imgProfilePicture.Name = "imgProfilePicture";
+            imgProfilePicture.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            imgProfilePicture.Properties.ZoomAccelerationFactor = 1D;
+            imgProfilePicture.Size = new System.Drawing.Size(100, 91);
+            imgProfilePicture.TabIndex = 12;
+            imgProfilePicture.EditValueChanged += new System.EventHandler(this.peProfilePicture_EditValueChanged);
             // 
             // ucUserInformations
             // 
@@ -392,7 +404,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkActive.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateRegisterDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateRegisterDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgProfilePicture.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(imgProfilePicture.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -422,6 +434,6 @@
         private DevExpress.XtraEditors.DateEdit dateRegisterDate;
         private DevExpress.XtraEditors.LabelControl lblRegisterDate;
         private DevExpress.XtraEditors.SimpleButton btnBrowse;
-        private DevExpress.XtraEditors.PictureEdit imgProfilePicture;
+        DevExpress.XtraEditors.PictureEdit imgProfilePicture;
     }
 }

@@ -49,6 +49,7 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.barChangeProfilePicture = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.grdDisplayPosts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewDisplayPosts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repCommentDate)).BeginInit();
@@ -191,9 +192,10 @@
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.barMenu,
             this.barChangePassword,
-            this.barUserInformations});
+            this.barUserInformations,
+            this.barChangeProfilePicture});
             this.barManager1.MainMenu = this.barMainMenu;
-            this.barManager1.MaxItemId = 3;
+            this.barManager1.MaxItemId = 4;
             // 
             // barMainMenu
             // 
@@ -216,6 +218,7 @@
             this.barMenu.Id = 0;
             this.barMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barChangePassword),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barChangeProfilePicture),
             new DevExpress.XtraBars.LinkPersistInfo(this.barUserInformations)});
             this.barMenu.Name = "barMenu";
             // 
@@ -260,6 +263,13 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(716, 22);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 356);
+            // 
+            // barChangeProfilePicture
+            // 
+            this.barChangeProfilePicture.Caption = "Change Profile Picture";
+            this.barChangeProfilePicture.Id = 3;
+            this.barChangeProfilePicture.Name = "barChangeProfilePicture";
+            this.barChangeProfilePicture.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barChangeProfilePicture_ItemClick);
             // 
             // ForumForm
             // 
@@ -309,5 +319,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraBars.BarButtonItem barChangeProfilePicture;
     }
 }

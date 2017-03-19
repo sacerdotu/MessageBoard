@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b1667deb-b51c-4a08-ab4f-97fa14d061e0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9fd3302d-f569-4011-bad9-b6d37d0e8b4b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -24,11 +24,11 @@
     <MetadataSource Address="http://localhost:51604/MessageBoardService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="MessageBoardService2.xsd" MetadataType="Schema" ID="8c8840ff-16ad-4861-b1e0-72ceff64535f" SourceId="1" SourceUrl="http://localhost:51604/MessageBoardService.svc?xsd=xsd1" />
-    <MetadataFile FileName="MessageBoardService.wsdl" MetadataType="Wsdl" ID="0c0077c4-d0be-4153-89b3-6de801d4bcc4" SourceId="1" SourceUrl="http://localhost:51604/MessageBoardService.svc?wsdl" />
-    <MetadataFile FileName="MessageBoardService.xsd" MetadataType="Schema" ID="9b8f8672-c5e6-4f30-ac27-70db6c0d9cac" SourceId="1" SourceUrl="http://localhost:51604/MessageBoardService.svc?xsd=xsd2" />
-    <MetadataFile FileName="MessageBoardService.disco" MetadataType="Disco" ID="d26849db-bd29-4299-8542-6fe26dcc1cf0" SourceId="1" SourceUrl="http://localhost:51604/MessageBoardService.svc?disco" />
-    <MetadataFile FileName="MessageBoardService1.xsd" MetadataType="Schema" ID="dfd3fef3-beb7-4f3e-943f-f082d041223e" SourceId="1" SourceUrl="http://localhost:51604/MessageBoardService.svc?xsd=xsd0" />
+    <MetadataFile FileName="MessageBoardService.xsd" MetadataType="Schema" ID="5b323c01-34c5-4feb-b2b4-24e9261d8d10" SourceId="1" SourceUrl="http://localhost:51604/MessageBoardService.svc?xsd=xsd1" />
+    <MetadataFile FileName="MessageBoardService.wsdl" MetadataType="Wsdl" ID="3023dff6-be2d-4ea5-b770-a3d2d774883d" SourceId="1" SourceUrl="http://localhost:51604/MessageBoardService.svc?wsdl" />
+    <MetadataFile FileName="MessageBoardService1.xsd" MetadataType="Schema" ID="20909709-caf0-4f46-9731-1f0a19080a77" SourceId="1" SourceUrl="http://localhost:51604/MessageBoardService.svc?xsd=xsd2" />
+    <MetadataFile FileName="MessageBoardService.disco" MetadataType="Disco" ID="121b163b-4bb9-4ad8-a03e-5c5825906afe" SourceId="1" SourceUrl="http://localhost:51604/MessageBoardService.svc?disco" />
+    <MetadataFile FileName="MessageBoardService2.xsd" MetadataType="Schema" ID="ac89f1c3-b485-4ba3-b1ab-931da3ca1acf" SourceId="1" SourceUrl="http://localhost:51604/MessageBoardService.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

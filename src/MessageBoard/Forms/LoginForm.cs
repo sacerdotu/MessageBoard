@@ -146,6 +146,7 @@ namespace MessageBoard
 
         }
 
+        #region EscKey
         protected override bool ProcessDialogKey(Keys keyData)
         {
             if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
@@ -155,5 +156,6 @@ namespace MessageBoard
             }
             return base.ProcessDialogKey(keyData);
         }
+        #endregion
     }
 }

@@ -93,6 +93,12 @@
     <Compile Include="Forms\ChangePasswordForm.Designer.cs">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ChangeProfilePictureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChangeProfilePictureForm.Designer.cs">
+      <DependentUpon>ChangeProfilePictureForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DisplayUsersForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChangeProfilePictureForm.resx">
+      <DependentUpon>ChangeProfilePictureForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DisplayUsersForm.resx">
       <DependentUpon>DisplayUsersForm.cs</DependentUpon>

@@ -61,6 +61,18 @@
   <wsdl:message name="IMessageBoardService_FillPostsGrid_OutputMessage">
     <wsdl:part name="parameters" element="tns:FillPostsGridResponse" />
   </wsdl:message>
+  <wsdl:message name="IMessageBoardService_ChangeProfilePicture_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeProfilePicture" />
+  </wsdl:message>
+  <wsdl:message name="IMessageBoardService_ChangeProfilePicture_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeProfilePictureResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageBoardService_GetProfilePicture_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfilePicture" />
+  </wsdl:message>
+  <wsdl:message name="IMessageBoardService_GetProfilePicture_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfilePictureResponse" />
+  </wsdl:message>
   <wsdl:portType name="IMessageBoardService">
     <wsdl:operation name="InsertNewUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IMessageBoardService/InsertNewUser" message="tns:IMessageBoardService_InsertNewUser_InputMessage" />
@@ -97,6 +109,14 @@
     <wsdl:operation name="FillPostsGrid">
       <wsdl:input wsaw:Action="http://tempuri.org/IMessageBoardService/FillPostsGrid" message="tns:IMessageBoardService_FillPostsGrid_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMessageBoardService/FillPostsGridResponse" message="tns:IMessageBoardService_FillPostsGrid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeProfilePicture">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageBoardService/ChangeProfilePicture" message="tns:IMessageBoardService_ChangeProfilePicture_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageBoardService/ChangeProfilePictureResponse" message="tns:IMessageBoardService_ChangeProfilePicture_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProfilePicture">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageBoardService/GetProfilePicture" message="tns:IMessageBoardService_GetProfilePicture_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageBoardService/GetProfilePictureResponse" message="tns:IMessageBoardService_GetProfilePicture_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IMessageBoardService" type="tns:IMessageBoardService">
@@ -175,6 +195,24 @@
     </wsdl:operation>
     <wsdl:operation name="FillPostsGrid">
       <soap:operation soapAction="http://tempuri.org/IMessageBoardService/FillPostsGrid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeProfilePicture">
+      <soap:operation soapAction="http://tempuri.org/IMessageBoardService/ChangeProfilePicture" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProfilePicture">
+      <soap:operation soapAction="http://tempuri.org/IMessageBoardService/GetProfilePicture" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

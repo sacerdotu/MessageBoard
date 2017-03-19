@@ -42,8 +42,11 @@ namespace MessageBoardController
                 _form.IsAdministrator.EditValue = userDetails.IsAdministrator;
                 _form.CmbFunction.EditValue = userDetails.Function;
                 _form.AccountCreationDate.EditValue = userDetails.AccountCreationDate;
-                _form.ImgProfilePicture.Image = ConvertImage.ByteArrayToImage(userDetails.ProfileImage);
-                DisableForm();
+                if (userDetails.ProfileImage != null)
+                {
+                    _form.ImgProfilePicture.Image = ConvertImage.ByteArrayToImage(userDetails.ProfileImage);
+                }
+                DisableFormControls();
             }
             catch (Exception ex)
             {
@@ -53,8 +56,8 @@ namespace MessageBoardController
         }
         #endregion
 
-        #region DisableForm
-        public void DisableForm()
+        #region DisableFormControls
+        public void DisableFormControls()
         {
             try
             {

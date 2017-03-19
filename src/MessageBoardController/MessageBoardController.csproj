@@ -64,6 +64,7 @@
     <Compile Include="AddPostController.cs" />
     <Compile Include="AppGlobalVariables\AppGlobalVariables.cs" />
     <Compile Include="ChangePasswordController.cs" />
+    <Compile Include="ChangeProfilePictureController.cs" />
     <Compile Include="Constants\Constants.cs" />
     <Compile Include="DisplayUsersController.cs" />
     <Compile Include="Enums\Enums.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="HelperClasses\HashHelper.cs" />
     <Compile Include="Interfaces\IAddPostForm.cs" />
     <Compile Include="Interfaces\IChangePasswordForm.cs" />
+    <Compile Include="Interfaces\IChangeProfilePictureForm.cs" />
     <Compile Include="Interfaces\IDisplayUsersForm.cs" />
     <Compile Include="Interfaces\IForumForm.cs" />
     <Compile Include="Interfaces\ILoginForm.cs" />
