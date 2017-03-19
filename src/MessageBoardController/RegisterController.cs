@@ -47,7 +47,8 @@ namespace MessageBoardController
                     user.ProfileImage = ConvertImage.ImageToByteArray(_form.ImgProfilePicture.Image);
                     user.PasswordSalt = HashHelper.GetSalt();
                     user.PasswordHash = HashHelper.GetHash(_form.TxtPassword.EditValue.ToString(), user.PasswordSalt);
-                    //user = _service.InsertNewUser(user);
+                    UserDTO error = new UserDTO();
+                    error = _service.InsertNewUser(user);
                 }
                 if (newUserID > 0)
                 {

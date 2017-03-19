@@ -5,11 +5,13 @@
       <xs:element minOccurs="0" name="AccountCreationDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Function" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
       <xs:element minOccurs="0" name="IsAdministrator" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsError" type="xs:boolean" />
       <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PasswordHash" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PasswordSalt" nillable="true" type="xs:string" />
