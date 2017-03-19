@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            
             this.txtFirstName = new DevExpress.XtraEditors.TextEdit();
             this.txtLastName = new DevExpress.XtraEditors.TextEdit();
             this.txtCountry = new DevExpress.XtraEditors.TextEdit();
@@ -51,7 +50,7 @@
             this.dateRegisterDate = new DevExpress.XtraEditors.DateEdit();
             this.lblRegisterDate = new DevExpress.XtraEditors.LabelControl();
             this.btnBrowse = new DevExpress.XtraEditors.SimpleButton();
-            imgProfilePicture = new DevExpress.XtraEditors.PictureEdit();
+            this.imgProfilePicture = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFirstName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLastName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCountry.Properties)).BeginInit();
@@ -64,7 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkActive.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateRegisterDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateRegisterDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(imgProfilePicture.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgProfilePicture.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtFirstName
@@ -73,8 +72,10 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.txtFirstName.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFirstName.Properties.Appearance.ForeColor = System.Drawing.Color.DarkGray;
             this.txtFirstName.Properties.Appearance.Options.UseBackColor = true;
             this.txtFirstName.Properties.Appearance.Options.UseFont = true;
+            this.txtFirstName.Properties.Appearance.Options.UseForeColor = true;
             this.txtFirstName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtFirstName.Size = new System.Drawing.Size(188, 34);
             this.txtFirstName.TabIndex = 0;
@@ -85,8 +86,10 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.txtLastName.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLastName.Properties.Appearance.ForeColor = System.Drawing.Color.DarkGray;
             this.txtLastName.Properties.Appearance.Options.UseBackColor = true;
             this.txtLastName.Properties.Appearance.Options.UseFont = true;
+            this.txtLastName.Properties.Appearance.Options.UseForeColor = true;
             this.txtLastName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtLastName.Size = new System.Drawing.Size(188, 34);
             this.txtLastName.TabIndex = 1;
@@ -97,8 +100,10 @@
             this.txtCountry.Name = "txtCountry";
             this.txtCountry.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.txtCountry.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCountry.Properties.Appearance.ForeColor = System.Drawing.Color.DarkGray;
             this.txtCountry.Properties.Appearance.Options.UseBackColor = true;
             this.txtCountry.Properties.Appearance.Options.UseFont = true;
+            this.txtCountry.Properties.Appearance.Options.UseForeColor = true;
             this.txtCountry.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtCountry.Size = new System.Drawing.Size(188, 34);
             this.txtCountry.TabIndex = 2;
@@ -109,8 +114,10 @@
             this.txtCity.Name = "txtCity";
             this.txtCity.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.txtCity.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCity.Properties.Appearance.ForeColor = System.Drawing.Color.DarkGray;
             this.txtCity.Properties.Appearance.Options.UseBackColor = true;
             this.txtCity.Properties.Appearance.Options.UseFont = true;
+            this.txtCity.Properties.Appearance.Options.UseForeColor = true;
             this.txtCity.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtCity.Size = new System.Drawing.Size(188, 34);
             this.txtCity.TabIndex = 3;
@@ -181,8 +188,10 @@
             this.cmbFunction.Name = "cmbFunction";
             this.cmbFunction.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.cmbFunction.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbFunction.Properties.Appearance.ForeColor = System.Drawing.Color.DarkGray;
             this.cmbFunction.Properties.Appearance.Options.UseBackColor = true;
             this.cmbFunction.Properties.Appearance.Options.UseFont = true;
+            this.cmbFunction.Properties.Appearance.Options.UseForeColor = true;
             this.cmbFunction.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.cmbFunction.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -248,8 +257,10 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.txtUsername.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Properties.Appearance.ForeColor = System.Drawing.Color.DarkGray;
             this.txtUsername.Properties.Appearance.Options.UseBackColor = true;
             this.txtUsername.Properties.Appearance.Options.UseFont = true;
+            this.txtUsername.Properties.Appearance.Options.UseForeColor = true;
             this.txtUsername.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtUsername.Size = new System.Drawing.Size(188, 34);
             this.txtUsername.TabIndex = 4;
@@ -260,8 +271,10 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Properties.Appearance.ForeColor = System.Drawing.Color.DarkGray;
             this.txtPassword.Properties.Appearance.Options.UseBackColor = true;
             this.txtPassword.Properties.Appearance.Options.UseFont = true;
+            this.txtPassword.Properties.Appearance.Options.UseForeColor = true;
             this.txtPassword.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtPassword.Properties.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(188, 34);
@@ -273,8 +286,10 @@
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.txtConfirmPassword.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmPassword.Properties.Appearance.ForeColor = System.Drawing.Color.DarkGray;
             this.txtConfirmPassword.Properties.Appearance.Options.UseBackColor = true;
             this.txtConfirmPassword.Properties.Appearance.Options.UseFont = true;
+            this.txtConfirmPassword.Properties.Appearance.Options.UseForeColor = true;
             this.txtConfirmPassword.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtConfirmPassword.Properties.PasswordChar = '*';
             this.txtConfirmPassword.Size = new System.Drawing.Size(188, 34);
@@ -311,8 +326,10 @@
             this.dateRegisterDate.Name = "dateRegisterDate";
             this.dateRegisterDate.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.dateRegisterDate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateRegisterDate.Properties.Appearance.ForeColor = System.Drawing.Color.DarkGray;
             this.dateRegisterDate.Properties.Appearance.Options.UseBackColor = true;
             this.dateRegisterDate.Properties.Appearance.Options.UseFont = true;
+            this.dateRegisterDate.Properties.Appearance.Options.UseForeColor = true;
             this.dateRegisterDate.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.dateRegisterDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -352,14 +369,14 @@
             // 
             // imgProfilePicture
             // 
-            imgProfilePicture.Cursor = System.Windows.Forms.Cursors.Default;
-            imgProfilePicture.Location = new System.Drawing.Point(318, 102);
-            imgProfilePicture.Name = "imgProfilePicture";
-            imgProfilePicture.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            imgProfilePicture.Properties.ZoomAccelerationFactor = 1D;
-            imgProfilePicture.Size = new System.Drawing.Size(100, 91);
-            imgProfilePicture.TabIndex = 12;
-            imgProfilePicture.EditValueChanged += new System.EventHandler(this.peProfilePicture_EditValueChanged);
+            this.imgProfilePicture.Cursor = System.Windows.Forms.Cursors.Default;
+            this.imgProfilePicture.Location = new System.Drawing.Point(318, 102);
+            this.imgProfilePicture.Name = "imgProfilePicture";
+            this.imgProfilePicture.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.imgProfilePicture.Properties.ZoomAccelerationFactor = 1D;
+            this.imgProfilePicture.Size = new System.Drawing.Size(100, 91);
+            this.imgProfilePicture.TabIndex = 12;
+            this.imgProfilePicture.EditValueChanged += new System.EventHandler(this.peProfilePicture_EditValueChanged);
             // 
             // ucUserInformations
             // 
@@ -404,7 +421,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkActive.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateRegisterDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateRegisterDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(imgProfilePicture.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgProfilePicture.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -434,6 +451,6 @@
         private DevExpress.XtraEditors.DateEdit dateRegisterDate;
         private DevExpress.XtraEditors.LabelControl lblRegisterDate;
         private DevExpress.XtraEditors.SimpleButton btnBrowse;
-        DevExpress.XtraEditors.PictureEdit imgProfilePicture;
+        private DevExpress.XtraEditors.PictureEdit imgProfilePicture;
     }
 }

@@ -44,8 +44,10 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Properties.Appearance.ForeColor = System.Drawing.Color.DarkGray;
             this.txtPassword.Properties.Appearance.Options.UseBackColor = true;
             this.txtPassword.Properties.Appearance.Options.UseFont = true;
+            this.txtPassword.Properties.Appearance.Options.UseForeColor = true;
             this.txtPassword.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtPassword.Properties.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(188, 34);
@@ -57,8 +59,10 @@
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.txtConfirmPassword.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmPassword.Properties.Appearance.ForeColor = System.Drawing.Color.DarkGray;
             this.txtConfirmPassword.Properties.Appearance.Options.UseBackColor = true;
             this.txtConfirmPassword.Properties.Appearance.Options.UseFont = true;
+            this.txtConfirmPassword.Properties.Appearance.Options.UseForeColor = true;
             this.txtConfirmPassword.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtConfirmPassword.Properties.PasswordChar = '*';
             this.txtConfirmPassword.Size = new System.Drawing.Size(188, 34);
