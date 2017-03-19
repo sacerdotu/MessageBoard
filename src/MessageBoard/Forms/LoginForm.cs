@@ -17,6 +17,7 @@ using MessageBoardController.HelperClasses;
 using MessageBoardController.Constants;
 using MessageBoardCommon;
 using MessageBoardController.AppGlobalVariables;
+using DevExpress.Utils;
 
 namespace MessageBoard
 {
@@ -67,10 +68,10 @@ namespace MessageBoard
         #endregion
 
         #region LoadMainForm
-        public void LoadMainForm()
+        public void LoadForumForm()
         {
-            MainForm mainForm = new MainForm();
-            mainForm.Show();
+            ForumForm form = new ForumForm();
+            form.Show();
             this.Hide();
         }
         #endregion
@@ -137,7 +138,22 @@ namespace MessageBoard
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            TxtUsername.Focus();
+            TxtUsername.Focus();      
+        }
+
+        private void txtPassword_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected override bool ProcessDialogKey(Keys keyData)
+        {
+            if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
+            {
+                this.Close();
+                return true;
+            }
+            return base.ProcessDialogKey(keyData);
         }
     }
 }

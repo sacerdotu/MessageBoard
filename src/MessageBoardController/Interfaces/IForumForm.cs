@@ -10,6 +10,7 @@ namespace MessageBoardController.Interfaces
 {
     public interface IForumForm
     {
+        void HideUserDetailsBar();
         GridControl GrdDisplayPosts { get; }
         GridView ViewDisplayPosts { get; }
     }

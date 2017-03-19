@@ -1,11 +1,15 @@
 ﻿using DevExpress.Data.Filtering;
+using DevExpress.XtraBars;
+using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.ButtonPanel;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using MessageBoardCommon;
 using MessageBoardController;
+using MessageBoardController.AppGlobalVariables;
 using MessageBoardController.Constants;
 using MessageBoardController.Interfaces;
 using System;
@@ -41,6 +45,14 @@ namespace MessageBoard.Forms
                 return viewDisplayPosts;
             }
         }
+
+        public BarButtonItem BarUserInformations
+        {
+            get
+            {
+                return barUserInformations;
+            }
+        } 
         #endregion
 
         #region Constructor
@@ -54,7 +66,7 @@ namespace MessageBoard.Forms
         #region BackClick
         private void btnBack_Click(object sender, EventArgs e)
         {
-            MainForm form = new MainForm();
+            LoginForm form = new LoginForm();
             form.Show();
             this.Close();
         }
@@ -73,6 +85,14 @@ namespace MessageBoard.Forms
         private void ForumForm_Load(object sender, EventArgs e)
         {
             _controller.LoadForm();
+            _controller.IsAdministrator(AppGlobalVariables.Instance.UserID);
+        }
+        #endregion
+
+        #region AllowUserDetailsBar
+        public void HideUserDetailsBar()
+        {
+            BarUserInformations.Visibility = BarItemVisibility.Never;
         }
         #endregion
 
@@ -88,5 +108,19 @@ namespace MessageBoard.Forms
             }
         }
         #endregion
+
+        private void barChangePassword_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ChangePasswordForm form = new ChangePasswordForm();
+            form.Show();
+            this.Close();
+        }
+
+        private void barUserInformations_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            UserDetailsForm form = new UserDetailsForm();
+            form.Show();
+            this.Close();
+        }
     }
 }

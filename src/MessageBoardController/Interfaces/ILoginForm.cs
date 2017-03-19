@@ -10,7 +10,7 @@ namespace MessageBoardController.Interfaces
     public interface ILoginForm
     {
         void InsertPasswordAgain();
-        void LoadMainForm();
+        void LoadForumForm();
         void UsernameIsNull();
         void PasswordIsNull();
         void UsernameAndPasswordAreNull();

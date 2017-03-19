@@ -28,7 +28,6 @@ namespace MessageBoardController
         {
             try
             {
-                //postsList = _service.FillPostsGrid();
                 _form.GrdDisplayPosts.DataSource = _service.FillPostsGrid();
             }
             catch (Exception ex)
@@ -38,5 +37,25 @@ namespace MessageBoardController
             }
         }
         #endregion
+
+        #region IsAdministrator
+        public void IsAdministrator(int userID)
+        {
+            try
+            {
+                bool isAdministrator = _service.IsAdministrator(userID);
+                if (isAdministrator == false)
+                {
+                    _form.HideUserDetailsBar();
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
+                throw ex;
+            }
+        }
+        #endregion
+
     }
 }

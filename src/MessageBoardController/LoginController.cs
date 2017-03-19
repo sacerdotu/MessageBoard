@@ -81,7 +81,7 @@ namespace MessageBoardController
         {
             if(_userID > 0)
             {
-                _form.LoadMainForm();
+                _form.LoadForumForm();
             }
             else if(_userID == -1)
             {

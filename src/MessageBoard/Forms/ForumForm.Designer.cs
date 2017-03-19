@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnBack = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddPost = new DevExpress.XtraEditors.SimpleButton();
             this.grdDisplayPosts = new DevExpress.XtraGrid.GridControl();
@@ -39,10 +40,20 @@
             this.colUsername = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLastCommentDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repCommentDate = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barMainMenu = new DevExpress.XtraBars.Bar();
+            this.barMenu = new DevExpress.XtraBars.BarSubItem();
+            this.barChangePassword = new DevExpress.XtraBars.BarButtonItem();
+            this.barUserInformations = new DevExpress.XtraBars.BarButtonItem();
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdDisplayPosts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewDisplayPosts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repCommentDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repCommentDate.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBack
@@ -70,12 +81,12 @@
             this.grdDisplayPosts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grdDisplayPosts.Location = new System.Drawing.Point(0, 0);
+            this.grdDisplayPosts.Location = new System.Drawing.Point(0, 28);
             this.grdDisplayPosts.MainView = this.viewDisplayPosts;
             this.grdDisplayPosts.Name = "grdDisplayPosts";
             this.grdDisplayPosts.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repCommentDate});
-            this.grdDisplayPosts.Size = new System.Drawing.Size(716, 304);
+            this.grdDisplayPosts.Size = new System.Drawing.Size(716, 276);
             this.grdDisplayPosts.TabIndex = 2;
             this.grdDisplayPosts.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.viewDisplayPosts});
@@ -168,6 +179,88 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repCommentDate.Name = "repCommentDate";
             // 
+            // barManager1
+            // 
+            this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
+            this.barMainMenu});
+            this.barManager1.DockControls.Add(this.barDockControlTop);
+            this.barManager1.DockControls.Add(this.barDockControlBottom);
+            this.barManager1.DockControls.Add(this.barDockControlLeft);
+            this.barManager1.DockControls.Add(this.barDockControlRight);
+            this.barManager1.Form = this;
+            this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.barMenu,
+            this.barChangePassword,
+            this.barUserInformations});
+            this.barManager1.MainMenu = this.barMainMenu;
+            this.barManager1.MaxItemId = 3;
+            // 
+            // barMainMenu
+            // 
+            this.barMainMenu.BarName = "Main menu";
+            this.barMainMenu.DockCol = 0;
+            this.barMainMenu.DockRow = 0;
+            this.barMainMenu.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this.barMainMenu.FloatLocation = new System.Drawing.Point(430, 137);
+            this.barMainMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barMenu)});
+            this.barMainMenu.OptionsBar.AllowQuickCustomization = false;
+            this.barMainMenu.OptionsBar.DisableCustomization = true;
+            this.barMainMenu.OptionsBar.DrawDragBorder = false;
+            this.barMainMenu.OptionsBar.UseWholeRow = true;
+            this.barMainMenu.Text = "Main menu";
+            // 
+            // barMenu
+            // 
+            this.barMenu.Caption = "Menu";
+            this.barMenu.Id = 0;
+            this.barMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barChangePassword),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barUserInformations)});
+            this.barMenu.Name = "barMenu";
+            // 
+            // barChangePassword
+            // 
+            this.barChangePassword.Caption = "Change Password";
+            this.barChangePassword.Id = 1;
+            this.barChangePassword.Name = "barChangePassword";
+            this.barChangePassword.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barChangePassword_ItemClick);
+            // 
+            // barUserInformations
+            // 
+            this.barUserInformations.Caption = "User Informations";
+            this.barUserInformations.Id = 2;
+            this.barUserInformations.Name = "barUserInformations";
+            this.barUserInformations.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barUserInformations_ItemClick);
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(716, 22);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 378);
+            this.barDockControlBottom.Size = new System.Drawing.Size(716, 0);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 22);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 356);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(716, 22);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 356);
+            // 
             // ForumForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,14 +269,21 @@
             this.Controls.Add(this.grdDisplayPosts);
             this.Controls.Add(this.btnAddPost);
             this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.barDockControlLeft);
+            this.Controls.Add(this.barDockControlRight);
+            this.Controls.Add(this.barDockControlBottom);
+            this.Controls.Add(this.barDockControlTop);
             this.Name = "ForumForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ForumForm";
             this.Load += new System.EventHandler(this.ForumForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdDisplayPosts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewDisplayPosts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repCommentDate.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repCommentDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -200,5 +300,14 @@
         private DevExpress.XtraGrid.Columns.GridColumn colUsername;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repCommentDate;
         private DevExpress.XtraGrid.Columns.GridColumn colLastCommentDate;
+        private DevExpress.XtraBars.BarManager barManager1;
+        private DevExpress.XtraBars.Bar barMainMenu;
+        private DevExpress.XtraBars.BarSubItem barMenu;
+        private DevExpress.XtraBars.BarButtonItem barChangePassword;
+        private DevExpress.XtraBars.BarButtonItem barUserInformations;
+        private DevExpress.XtraBars.BarDockControl barDockControlTop;
+        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
     }
 }
