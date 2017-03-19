@@ -65,6 +65,7 @@
     <Compile Include="AppGlobalVariables\AppGlobalVariables.cs" />
     <Compile Include="ChangePasswordController.cs" />
     <Compile Include="ChangeProfilePictureController.cs" />
+    <Compile Include="CommentsController.cs" />
     <Compile Include="Constants\Constants.cs" />
     <Compile Include="DisplayUsersController.cs" />
     <Compile Include="Enums\Enums.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Interfaces\IAddPostForm.cs" />
     <Compile Include="Interfaces\IChangePasswordForm.cs" />
     <Compile Include="Interfaces\IChangeProfilePictureForm.cs" />
+    <Compile Include="Interfaces\ICommentsForm.cs" />
     <Compile Include="Interfaces\IDisplayUsersForm.cs" />
     <Compile Include="Interfaces\IForumForm.cs" />
     <Compile Include="Interfaces\ILoginForm.cs" />
@@ -96,6 +98,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\MessageBoardDTO.CommentDTO.datasource" />
     <None Include="Properties\DataSources\MessageBoardDTO.PostDTO.datasource" />
     <None Include="Properties\DataSources\MessageBoardDTO.UserDTO.datasource" />
     <None Include="Service References\MessageBoardService\MessageBoardService.wsdl" />

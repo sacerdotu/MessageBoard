@@ -151,4 +151,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetCommentsForPostID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="postID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCommentsForPostIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MessageBoardDTO" minOccurs="0" name="GetCommentsForPostIDResult" nillable="true" type="q12:ArrayOfCommentDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

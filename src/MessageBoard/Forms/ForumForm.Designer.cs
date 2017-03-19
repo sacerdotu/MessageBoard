@@ -44,12 +44,12 @@
             this.barMainMenu = new DevExpress.XtraBars.Bar();
             this.barMenu = new DevExpress.XtraBars.BarSubItem();
             this.barChangePassword = new DevExpress.XtraBars.BarButtonItem();
+            this.barChangeProfilePicture = new DevExpress.XtraBars.BarButtonItem();
             this.barUserInformations = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.barChangeProfilePicture = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.grdDisplayPosts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewDisplayPosts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repCommentDate)).BeginInit();
@@ -105,6 +105,7 @@
             this.viewDisplayPosts.Name = "viewDisplayPosts";
             this.viewDisplayPosts.OptionsView.ShowAutoFilterRow = true;
             this.viewDisplayPosts.OptionsView.ShowGroupPanel = false;
+            this.viewDisplayPosts.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.viewDisplayPosts_RowClick);
             this.viewDisplayPosts.CustomRowCellEdit += new DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventHandler(this.viewDisplayPosts_CustomRowCellEdit);
             // 
             // colPostText
@@ -229,6 +230,13 @@
             this.barChangePassword.Name = "barChangePassword";
             this.barChangePassword.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barChangePassword_ItemClick);
             // 
+            // barChangeProfilePicture
+            // 
+            this.barChangeProfilePicture.Caption = "Change Profile Picture";
+            this.barChangeProfilePicture.Id = 3;
+            this.barChangeProfilePicture.Name = "barChangeProfilePicture";
+            this.barChangeProfilePicture.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barChangeProfilePicture_ItemClick);
+            // 
             // barUserInformations
             // 
             this.barUserInformations.Caption = "User Informations";
@@ -263,13 +271,6 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(716, 22);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 356);
-            // 
-            // barChangeProfilePicture
-            // 
-            this.barChangeProfilePicture.Caption = "Change Profile Picture";
-            this.barChangeProfilePicture.Id = 3;
-            this.barChangeProfilePicture.Name = "barChangeProfilePicture";
-            this.barChangeProfilePicture.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barChangeProfilePicture_ItemClick);
             // 
             // ForumForm
             // 

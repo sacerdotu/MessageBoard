@@ -59,5 +59,27 @@ namespace MessageBoardController
         }
         #endregion
 
+        #region GetPost
+        public PostDTO GetPost(DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            try
+            {
+                PostDTO post = new PostDTO();
+                for (int i = 0; i < _form.ViewDisplayPosts.RowCount; i++)
+                {
+                    if (e.Clicks == 1)
+                    {
+                        post = (PostDTO)_form.ViewDisplayPosts.GetFocusedRow();
+                    }
+                }
+                return post;
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
+                throw ex;
+            }
+        }
+        #endregion
     }
 }

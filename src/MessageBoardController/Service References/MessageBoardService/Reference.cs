@@ -80,6 +80,12 @@ namespace MessageBoardController.MessageBoardService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/GetProfilePicture", ReplyAction="http://tempuri.org/IMessageBoardService/GetProfilePictureResponse")]
         System.Threading.Tasks.Task<MessageBoardDTO.UserDTO> GetProfilePictureAsync(int userID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/GetCommentsForPostID", ReplyAction="http://tempuri.org/IMessageBoardService/GetCommentsForPostIDResponse")]
+        System.Collections.Generic.List<MessageBoardDTO.CommentDTO> GetCommentsForPostID(int postID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/GetCommentsForPostID", ReplyAction="http://tempuri.org/IMessageBoardService/GetCommentsForPostIDResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardDTO.CommentDTO>> GetCommentsForPostIDAsync(int postID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -195,6 +201,14 @@ namespace MessageBoardController.MessageBoardService {
         
         public System.Threading.Tasks.Task<MessageBoardDTO.UserDTO> GetProfilePictureAsync(int userID) {
             return base.Channel.GetProfilePictureAsync(userID);
+        }
+        
+        public System.Collections.Generic.List<MessageBoardDTO.CommentDTO> GetCommentsForPostID(int postID) {
+            return base.Channel.GetCommentsForPostID(postID);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardDTO.CommentDTO>> GetCommentsForPostIDAsync(int postID) {
+            return base.Channel.GetCommentsForPostIDAsync(postID);
         }
     }
 }

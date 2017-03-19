@@ -12,6 +12,7 @@ using MessageBoardController;
 using MessageBoardController.AppGlobalVariables;
 using MessageBoardController.Constants;
 using MessageBoardController.Interfaces;
+using MessageBoardDTO;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -129,5 +130,29 @@ namespace MessageBoard.Forms
             form.Show();
             this.Close();
         }
+
+        #region DisplayCommentsClick
+        private void viewDisplayPosts_RowClick(object sender, RowClickEventArgs e)
+        {
+            try
+            {
+                PostDTO post = _controller.GetPost(e);
+                if (post != null)
+                {
+                    CommentsForm postComments = new CommentsForm(post);
+                    postComments.Show();
+                    this.Close();
+                }
+                else
+                {
+                    return;
+                }
+            }
+            catch (Exception)
+            {
+                XtraMessageBox.Show(Constants.ExceptionService);
+            }
+        }
+        #endregion
     }
 }
