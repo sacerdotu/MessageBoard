@@ -110,48 +110,65 @@ namespace MessageBoard.Forms
         }
         #endregion
 
+        #region ChangePasswordClick
         private void barChangePassword_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ChangePasswordForm form = new ChangePasswordForm();
             form.Show();
             this.Close();
         }
+        #endregion
 
+        #region UserInformationsClick
         private void barUserInformations_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             DisplayUsersForm form = new DisplayUsersForm();
             form.Show();
             this.Close();
         }
+        #endregion
 
+        #region ChangeProfilePictureClick
         private void barChangeProfilePicture_ItemClick(object sender, ItemClickEventArgs e)
         {
             ChangeProfilePictureForm form = new ChangeProfilePictureForm();
             form.Show();
             this.Close();
         }
+        #endregion
 
         #region DisplayCommentsClick
         private void viewDisplayPosts_RowClick(object sender, RowClickEventArgs e)
         {
             try
             {
-                PostDTO post = _controller.GetPost(e);
-                if (post != null)
-                {
-                    CommentsForm postComments = new CommentsForm(post);
-                    postComments.Show();
-                    this.Close();
-                }
-                else
-                {
-                    return;
-                }
+                _controller.GetPost(e);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                XtraMessageBox.Show(Constants.ExceptionService);
+                XtraMessageBox.Show(ex.Message);
             }
+        }
+        #endregion
+
+        #region LoadCommnetsForm
+        public void LoadCommentsForm(PostDTO post)
+        {
+            CommentsForm postComments = new CommentsForm(post);
+            postComments.Show();
+            this.Close();
+        }
+        #endregion
+
+        #region EscKey
+        protected override bool ProcessDialogKey(Keys keyData)
+        {
+            if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
+            {
+                this.Close();
+                return true;
+            }
+            return base.ProcessDialogKey(keyData);
         }
         #endregion
     }

@@ -49,6 +49,7 @@ namespace MessageBoardController
                     user.PasswordHash = HashHelper.GetHash(_form.TxtPassword.EditValue.ToString(), user.PasswordSalt);
                     UserDTO error = new UserDTO();
                     error = _service.InsertNewUser(user);
+                    newUserID = error.UserID;
                 }
                 if (newUserID > 0)
                 {

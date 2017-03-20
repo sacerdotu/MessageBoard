@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
+using MessageBoardDTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,6 @@ namespace MessageBoardController.Interfaces
         void HideUserDetailsBar();
         GridControl GrdDisplayPosts { get; }
         GridView ViewDisplayPosts { get; }
+        void LoadCommentsForm(PostDTO post);
     }
 }

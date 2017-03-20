@@ -13,6 +13,7 @@ namespace MessageBoardController
     {
         private IMessageBoardService _service;
         private IForumForm _form;
+        PostDTO _post = new PostDTO();
         //List<PostDTO> postsList = new List<PostDTO>();
 
         #region Constructor
@@ -60,19 +61,27 @@ namespace MessageBoardController
         #endregion
 
         #region GetPost
-        public PostDTO GetPost(DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        public void GetPost(DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             try
             {
-                PostDTO post = new PostDTO();
+                
                 for (int i = 0; i < _form.ViewDisplayPosts.RowCount; i++)
                 {
-                    if (e.Clicks == 1)
+                    if (e.Clicks == 2)
                     {
-                        post = (PostDTO)_form.ViewDisplayPosts.GetFocusedRow();
+                        _post = (PostDTO)_form.ViewDisplayPosts.GetFocusedRow();
                     }
                 }
-                return post;
+                if (_post.PostID > 0)
+                {
+                    
+                    _form.LoadCommentsForm(_post);
+                }
+                else
+                {
+                    return;
+                }
             }
             catch (Exception ex)
             {

@@ -15,6 +15,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using MessageBoardCommon;
 using DevExpress.XtraGrid.Views.Base;
 using MessageBoardController.Constants;
+using MessageBoardController.AppGlobalVariables;
 
 namespace MessageBoard.Forms
 {
@@ -55,29 +56,12 @@ namespace MessageBoard.Forms
         }
         #endregion
 
-        #region GridLayout
-        private void GridLayout()
-        {
-           
-        }
-        #endregion
-
         #region DisplayUsersClick
         private void grdDisplayUsers_RowClick(object sender, RowClickEventArgs e)
         {
             try
             {
-                int userID = _controller.GetUserID(e);
-                if (userID > 0)
-                {
-                    UserDetailsForm userDetails = new UserDetailsForm(userID);
-                    userDetails.Show();
-                    this.Close();
-                }
-                else
-                {
-                    return;
-                }
+                _controller.GetUserID(e);
             }
             catch (Exception)
             {
@@ -85,6 +69,13 @@ namespace MessageBoard.Forms
             }
         }
         #endregion
+
+        public void LoadUserDetailsForm()
+        {
+            UserDetailsForm userDetails = new UserDetailsForm(AppGlobalVariables.Instance.UserID);
+            userDetails.Show();
+            this.Close();
+        }
 
         #region BackClick
         private void btnBack_Click(object sender, EventArgs e)

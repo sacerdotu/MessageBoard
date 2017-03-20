@@ -50,19 +50,29 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.repPostText = new DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDisplayPosts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewDisplayPosts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repCommentDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repCommentDate.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repPostText)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBack
             // 
             this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBack.Location = new System.Drawing.Point(611, 341);
+            this.btnBack.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(152)))), ((int)(((byte)(220)))));
+            this.btnBack.Appearance.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Appearance.Options.UseBackColor = true;
+            this.btnBack.Appearance.Options.UseFont = true;
+            this.btnBack.Appearance.Options.UseForeColor = true;
+            this.btnBack.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.btnBack.Location = new System.Drawing.Point(13, 412);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(93, 25);
+            this.btnBack.Size = new System.Drawing.Size(187, 40);
             this.btnBack.TabIndex = 0;
             this.btnBack.Text = "Back";
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -70,9 +80,17 @@
             // btnAddPost
             // 
             this.btnAddPost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddPost.Location = new System.Drawing.Point(611, 310);
+            this.btnAddPost.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(152)))), ((int)(((byte)(220)))));
+            this.btnAddPost.Appearance.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPost.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnAddPost.Appearance.Options.UseBackColor = true;
+            this.btnAddPost.Appearance.Options.UseFont = true;
+            this.btnAddPost.Appearance.Options.UseForeColor = true;
+            this.btnAddPost.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.btnAddPost.Location = new System.Drawing.Point(755, 412);
+            this.btnAddPost.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddPost.Name = "btnAddPost";
-            this.btnAddPost.Size = new System.Drawing.Size(93, 25);
+            this.btnAddPost.Size = new System.Drawing.Size(187, 40);
             this.btnAddPost.TabIndex = 1;
             this.btnAddPost.Text = "Add post";
             this.btnAddPost.Click += new System.EventHandler(this.btnAddPost_Click);
@@ -82,18 +100,23 @@
             this.grdDisplayPosts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grdDisplayPosts.Location = new System.Drawing.Point(0, 28);
+            this.grdDisplayPosts.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
+            this.grdDisplayPosts.Location = new System.Drawing.Point(0, 34);
             this.grdDisplayPosts.MainView = this.viewDisplayPosts;
+            this.grdDisplayPosts.Margin = new System.Windows.Forms.Padding(4);
             this.grdDisplayPosts.Name = "grdDisplayPosts";
             this.grdDisplayPosts.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repCommentDate});
-            this.grdDisplayPosts.Size = new System.Drawing.Size(716, 276);
+            this.repCommentDate,
+            this.repPostText});
+            this.grdDisplayPosts.Size = new System.Drawing.Size(955, 340);
             this.grdDisplayPosts.TabIndex = 2;
             this.grdDisplayPosts.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.viewDisplayPosts});
             // 
             // viewDisplayPosts
             // 
+            this.viewDisplayPosts.Appearance.FocusedCell.Options.UseTextOptions = true;
+            this.viewDisplayPosts.Appearance.FocusedCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.viewDisplayPosts.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colPostText,
             this.colIsPublished,
@@ -103,6 +126,7 @@
             this.colLastCommentDate});
             this.viewDisplayPosts.GridControl = this.grdDisplayPosts;
             this.viewDisplayPosts.Name = "viewDisplayPosts";
+            this.viewDisplayPosts.OptionsView.RowAutoHeight = true;
             this.viewDisplayPosts.OptionsView.ShowAutoFilterRow = true;
             this.viewDisplayPosts.OptionsView.ShowGroupPanel = false;
             this.viewDisplayPosts.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.viewDisplayPosts_RowClick);
@@ -110,6 +134,9 @@
             // 
             // colPostText
             // 
+            this.colPostText.AppearanceCell.Options.UseTextOptions = true;
+            this.colPostText.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.colPostText.ColumnEdit = this.repPostText;
             this.colPostText.DisplayFormat.FormatString = "d";
             this.colPostText.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colPostText.FieldName = "PostText";
@@ -249,35 +276,44 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(716, 22);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4);
+            this.barDockControlTop.Size = new System.Drawing.Size(955, 22);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 378);
-            this.barDockControlBottom.Size = new System.Drawing.Size(716, 0);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 465);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4);
+            this.barDockControlBottom.Size = new System.Drawing.Size(955, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 22);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 356);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 443);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(716, 22);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 356);
+            this.barDockControlRight.Location = new System.Drawing.Point(955, 22);
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 443);
+            // 
+            // repPostText
+            // 
+            this.repPostText.Name = "repPostText";
+            this.repPostText.ShowCaretInReadOnly = false;
             // 
             // ForumForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(716, 378);
+            this.ClientSize = new System.Drawing.Size(955, 465);
             this.Controls.Add(this.grdDisplayPosts);
             this.Controls.Add(this.btnAddPost);
             this.Controls.Add(this.btnBack);
@@ -285,6 +321,9 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ForumForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ForumForm";
@@ -294,6 +333,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repCommentDate.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repCommentDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repPostText)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,5 +362,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarButtonItem barChangeProfilePicture;
+        private DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit repPostText;
     }
 }

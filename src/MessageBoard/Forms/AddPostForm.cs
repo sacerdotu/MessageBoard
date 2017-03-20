@@ -55,5 +55,19 @@ namespace MessageBoard.Forms
             this.Close();
         }
         #endregion
+
+        #region EscKey
+        protected override bool ProcessDialogKey(Keys keyData)
+        {
+            if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
+            {
+                ForumForm form = new ForumForm();
+                form.Show();
+                this.Close();
+                return true;
+            }
+            return base.ProcessDialogKey(keyData);
+        }
+        #endregion
     }
 }

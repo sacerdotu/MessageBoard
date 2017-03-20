@@ -12,5 +12,6 @@ namespace MessageBoardController.Interfaces
     {
         GridControl GrdDisplayUsers { get; }
         GridView ViewDisplayUsers { get; }
+        void LoadUserDetailsForm();
     }
 }

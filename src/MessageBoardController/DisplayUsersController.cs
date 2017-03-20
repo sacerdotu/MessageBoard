@@ -17,6 +17,7 @@ namespace MessageBoardController
         private IDisplayUsersForm _form;
         private IMessageBoardService _service;
         List<UserDTO> _users = new List<UserDTO>();
+        private int _userID;
 
         #region Constructor
         public DisplayUsersController(IDisplayUsersForm form)
@@ -65,24 +66,39 @@ namespace MessageBoardController
         #endregion
 
         #region GetUserID
-        public int GetUserID(DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        public void GetUserID(DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             try
             {
-                int userID = -1;
+                _userID = -1;
+
                 for (int i = 0; i < _form.ViewDisplayUsers.RowCount; i++)
                 {
                     if (e.Clicks == 2)
                     {
-                        userID = ((UserDTO)_form.ViewDisplayUsers.GetFocusedRow()).UserID;
+                        _userID = ((UserDTO)_form.ViewDisplayUsers.GetFocusedRow()).UserID;
                     }
                 }
-                return userID;
+                CheckUserID();
             }
             catch (Exception ex)
             {
                 Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
                 throw ex;
+            }
+        }
+        #endregion
+
+        #region CheckUserID
+        public void CheckUserID()
+        {
+            if(_userID > 0)
+            {
+                _form.LoadUserDetailsForm();
+            }
+            else
+            {
+                return;
             }
         }
         #endregion
