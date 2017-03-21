@@ -2,6 +2,7 @@
 using MessageBoard.UserControlls;
 using MessageBoardController;
 using MessageBoardController.Constants;
+using MessageBoardController.HelperClasses;
 using MessageBoardController.Interfaces;
 using MessageBoardDTO;
 using System;
@@ -26,7 +27,7 @@ namespace MessageBoard.Forms
             InitializeComponent();
         }
         public CommentsForm(PostDTO post)
-            :this()
+            : this()
         {
             _controller = new CommentsController(this, post);
             lblPost.Text = post.PostText;
@@ -37,9 +38,34 @@ namespace MessageBoard.Forms
         #endregion
 
         #region Properties
-        ucComment UcComment
+        public XtraScrollableControl ScrCommentControl
         {
-            get { return uccomment; }
+            get
+            {
+                return xtraScrollableControl;
+            }
+        }
+        public GroupControl GrpComment
+        {
+            get
+            {
+                return ucComments.GrpComment;
+            }
+        }
+
+        public LabelControl LblUsername
+        {
+            get { return ucComments.LblUsername; }
+        }
+
+        public PictureEdit ImgProfilePicture
+        {
+            get { return ucComments.ImgProfilePicture; }
+        }
+
+        public SimpleButton BtnQuote
+        {
+            get { return ucComments.BtnQuote; }
         }
         #endregion
 
@@ -49,6 +75,7 @@ namespace MessageBoard.Forms
             try
             {
                 _controller.LoadForm();
+                DisplayComments();
             }
             catch (Exception)
             {
@@ -63,6 +90,43 @@ namespace MessageBoard.Forms
             ForumForm form = new ForumForm();
             form.Show();
             this.Close();
+        }
+        #endregion
+
+        #region DisplayComments
+        public void DisplayComments()
+        {
+            try
+            {
+                List<CommentDTO> comments = new List<CommentDTO>();
+                comments = _controller.GetSortedComments;
+                ScrCommentControl.Controls.Clear();
+                int currentComment = 0;
+                //ucComment[] uc = new ucComment[comments.Count];
+                foreach (var comment in comments)
+                {
+                    ucComment uc = new ucComment();
+                    uc.GrpComment.Text = comment.CreationDate.ToString();
+                    uc.LblUsername.Text = comment.tblUser.Username;
+                    uc.RichCommentContent.Text = comment.CommentContent;
+                    uc.ImgProfilePicture.Image = ConvertImage.ByteArrayToImage(comment.tblUser.ProfileImage);
+                    ScrCommentControl.Controls.Add(uc);
+                    if (comment.MainComment == null)
+                    {
+                        uc.Location = new Point(0, 3 + uc.Height * currentComment);
+                    }
+                    else
+                    {
+                        uc.Location = new Point(20, 3 + uc.Height * currentComment);
+                    }
+                    currentComment++;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            
         }
         #endregion
     }

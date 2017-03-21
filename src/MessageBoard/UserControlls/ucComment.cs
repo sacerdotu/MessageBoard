@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DevExpress.Tutorials.Controls;
 
 namespace MessageBoard.UserControlls
 {
@@ -26,9 +27,9 @@ namespace MessageBoard.UserControlls
         {
             get { return lblUsername; }
         }
-        public LabelControl LblCommentContent
+        public RichTextBoxEx RichCommentContent
         {
-            get { return lblCommentContent; }
+            get { return richCommentContent; }
         }
         public PictureEdit ImgProfilePicture
         {

@@ -30,21 +30,21 @@
         {
             this.btnBack = new DevExpress.XtraEditors.SimpleButton();
             this.panelPost = new DevExpress.XtraEditors.PanelControl();
+            this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.lblPost = new DevExpress.XtraEditors.LabelControl();
             this.lblDate = new DevExpress.XtraEditors.LabelControl();
             this.lblAuthor = new DevExpress.XtraEditors.LabelControl();
-            this.lblPost = new DevExpress.XtraEditors.LabelControl();
             this.panelCommnets = new DevExpress.XtraEditors.PanelControl();
             this.xtraScrollableControl = new DevExpress.XtraEditors.XtraScrollableControl();
-            this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.ucComments = new MessageBoard.UserControlls.ucComment();
             this.pnlbuttons = new DevExpress.XtraEditors.PanelControl();
             this.btnReplyPost = new DevExpress.XtraEditors.SimpleButton();
-            this.uccomment = new MessageBoard.UserControlls.ucComment();
             ((System.ComponentModel.ISupportInitialize)(this.panelPost)).BeginInit();
             this.panelPost.SuspendLayout();
+            this.xtraScrollableControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelCommnets)).BeginInit();
             this.panelCommnets.SuspendLayout();
             this.xtraScrollableControl.SuspendLayout();
-            this.xtraScrollableControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlbuttons)).BeginInit();
             this.pnlbuttons.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +70,22 @@
             this.panelPost.Size = new System.Drawing.Size(571, 83);
             this.panelPost.TabIndex = 2;
             // 
+            // xtraScrollableControl1
+            // 
+            this.xtraScrollableControl1.Controls.Add(this.lblPost);
+            this.xtraScrollableControl1.Location = new System.Drawing.Point(145, 5);
+            this.xtraScrollableControl1.Name = "xtraScrollableControl1";
+            this.xtraScrollableControl1.Size = new System.Drawing.Size(422, 72);
+            this.xtraScrollableControl1.TabIndex = 3;
+            // 
+            // lblPost
+            // 
+            this.lblPost.Location = new System.Drawing.Point(3, 0);
+            this.lblPost.Name = "lblPost";
+            this.lblPost.Size = new System.Drawing.Size(21, 13);
+            this.lblPost.TabIndex = 0;
+            this.lblPost.Text = "Post";
+            // 
             // lblDate
             // 
             this.lblDate.Location = new System.Drawing.Point(5, 24);
@@ -86,14 +102,6 @@
             this.lblAuthor.TabIndex = 1;
             this.lblAuthor.Text = "Author";
             // 
-            // lblPost
-            // 
-            this.lblPost.Location = new System.Drawing.Point(3, 0);
-            this.lblPost.Name = "lblPost";
-            this.lblPost.Size = new System.Drawing.Size(21, 13);
-            this.lblPost.TabIndex = 0;
-            this.lblPost.Text = "Post";
-            // 
             // panelCommnets
             // 
             this.panelCommnets.Controls.Add(this.xtraScrollableControl);
@@ -105,20 +113,19 @@
             // 
             // xtraScrollableControl
             // 
-            this.xtraScrollableControl.Controls.Add(this.uccomment);
+            this.xtraScrollableControl.Controls.Add(this.ucComments);
             this.xtraScrollableControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl.Location = new System.Drawing.Point(2, 2);
             this.xtraScrollableControl.Name = "xtraScrollableControl";
             this.xtraScrollableControl.Size = new System.Drawing.Size(567, 375);
             this.xtraScrollableControl.TabIndex = 0;
             // 
-            // xtraScrollableControl1
+            // ucComments
             // 
-            this.xtraScrollableControl1.Controls.Add(this.lblPost);
-            this.xtraScrollableControl1.Location = new System.Drawing.Point(145, 5);
-            this.xtraScrollableControl1.Name = "xtraScrollableControl1";
-            this.xtraScrollableControl1.Size = new System.Drawing.Size(422, 72);
-            this.xtraScrollableControl1.TabIndex = 3;
+            this.ucComments.Location = new System.Drawing.Point(0, 3);
+            this.ucComments.Name = "ucComments";
+            this.ucComments.Size = new System.Drawing.Size(549, 397);
+            this.ucComments.TabIndex = 0;
             // 
             // pnlbuttons
             // 
@@ -139,13 +146,6 @@
             this.btnReplyPost.TabIndex = 2;
             this.btnReplyPost.Text = "Reply Post";
             // 
-            // uccomment
-            // 
-            this.uccomment.Location = new System.Drawing.Point(0, 3);
-            this.uccomment.Name = "uccomment";
-            this.uccomment.Size = new System.Drawing.Size(549, 397);
-            this.uccomment.TabIndex = 0;
-            // 
             // CommentsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -162,11 +162,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelPost)).EndInit();
             this.panelPost.ResumeLayout(false);
             this.panelPost.PerformLayout();
+            this.xtraScrollableControl1.ResumeLayout(false);
+            this.xtraScrollableControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelCommnets)).EndInit();
             this.panelCommnets.ResumeLayout(false);
             this.xtraScrollableControl.ResumeLayout(false);
-            this.xtraScrollableControl1.ResumeLayout(false);
-            this.xtraScrollableControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlbuttons)).EndInit();
             this.pnlbuttons.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -182,7 +182,7 @@
         private DevExpress.XtraEditors.LabelControl lblDate;
         private DevExpress.XtraEditors.LabelControl lblAuthor;
         private DevExpress.XtraEditors.LabelControl lblPost;
-        private UserControlls.ucComment uccomment;
+        private UserControlls.ucComment ucComments;
         private DevExpress.XtraEditors.XtraScrollableControl xtraScrollableControl1;
         private DevExpress.XtraEditors.PanelControl pnlbuttons;
         private DevExpress.XtraEditors.SimpleButton btnReplyPost;
