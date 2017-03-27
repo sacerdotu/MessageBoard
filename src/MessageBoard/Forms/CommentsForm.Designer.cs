@@ -52,7 +52,7 @@
             // btnBack
             // 
             this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBack.Location = new System.Drawing.Point(12, 15);
+            this.btnBack.Location = new System.Drawing.Point(12, 11);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(93, 25);
             this.btnBack.TabIndex = 1;
@@ -61,6 +61,8 @@
             // 
             // panelPost
             // 
+            this.panelPost.Appearance.BackColor = System.Drawing.Color.White;
+            this.panelPost.Appearance.Options.UseBackColor = true;
             this.panelPost.Controls.Add(this.xtraScrollableControl1);
             this.panelPost.Controls.Add(this.lblDate);
             this.panelPost.Controls.Add(this.lblAuthor);
@@ -72,6 +74,8 @@
             // 
             // xtraScrollableControl1
             // 
+            this.xtraScrollableControl1.Appearance.BackColor = System.Drawing.Color.White;
+            this.xtraScrollableControl1.Appearance.Options.UseBackColor = true;
             this.xtraScrollableControl1.Controls.Add(this.lblPost);
             this.xtraScrollableControl1.Location = new System.Drawing.Point(145, 5);
             this.xtraScrollableControl1.Name = "xtraScrollableControl1";
@@ -129,18 +133,20 @@
             // 
             // pnlbuttons
             // 
+            this.pnlbuttons.Appearance.BackColor = System.Drawing.Color.White;
+            this.pnlbuttons.Appearance.Options.UseBackColor = true;
             this.pnlbuttons.Controls.Add(this.btnReplyPost);
             this.pnlbuttons.Controls.Add(this.btnBack);
             this.pnlbuttons.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlbuttons.Location = new System.Drawing.Point(0, 462);
             this.pnlbuttons.Name = "pnlbuttons";
-            this.pnlbuttons.Size = new System.Drawing.Size(571, 50);
+            this.pnlbuttons.Size = new System.Drawing.Size(571, 46);
             this.pnlbuttons.TabIndex = 4;
             // 
             // btnReplyPost
             // 
             this.btnReplyPost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnReplyPost.Location = new System.Drawing.Point(473, 15);
+            this.btnReplyPost.Location = new System.Drawing.Point(473, 11);
             this.btnReplyPost.Name = "btnReplyPost";
             this.btnReplyPost.Size = new System.Drawing.Size(93, 25);
             this.btnReplyPost.TabIndex = 2;
@@ -150,10 +156,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(571, 508);
             this.Controls.Add(this.pnlbuttons);
             this.Controls.Add(this.panelCommnets);
             this.Controls.Add(this.panelPost);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "CommentsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

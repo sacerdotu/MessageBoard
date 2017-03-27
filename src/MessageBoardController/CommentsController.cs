@@ -20,7 +20,7 @@ namespace MessageBoardController
         #endregion
 
         #region Constructor
-        public CommentsController (ICommentsForm form, PostDTO post)
+        public CommentsController(ICommentsForm form, PostDTO post)
         {
             _form = form;
             _service = new MessageBoardServiceClient();
@@ -31,11 +31,19 @@ namespace MessageBoardController
         #region LoadForm
         public void LoadForm()
         {
+            SortComments();
+            DisplayComments();
+        }
+        #endregion
+
+        #region GetSortedComments
+        public void SortComments()
+        {
             try
             {
                 List<CommentDTO> comments = new List<CommentDTO>();
                 comments = _service.GetCommentsForPostID(_post.PostID);
-                
+
                 foreach (var comment in comments)
                 {
                     if (!_sortedComments.Exists(x => x == comment))
@@ -60,12 +68,31 @@ namespace MessageBoardController
         }
         #endregion
 
-        #region GetSortedComments
-        public List<CommentDTO> GetSortedComments
+        #region
+        public void DisplayComments()
         {
-          get { return _sortedComments; }
+            try
+            {
+                List<CommentDTO> comments = _sortedComments;
+                int currentComment = 0;
+                foreach (var comment in comments)
+                {
+                    if (comment.MainComment == null)
+                    {
+                        _form.DisplayComments(comment, 0, currentComment);
+                    }
+                    else
+                    {
+                        _form.DisplayComments(comment, 20, currentComment);
+                    }
+                    currentComment++;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         #endregion
-
     }
 }

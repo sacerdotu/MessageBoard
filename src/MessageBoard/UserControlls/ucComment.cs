@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.Tutorials.Controls;
+using MessageBoard.Forms;
 
 namespace MessageBoard.UserControlls
 {
@@ -18,7 +19,8 @@ namespace MessageBoard.UserControlls
         {
             InitializeComponent();
         }
-
+        public CommentsForm ParentForm { get; set; }
+        public int CommentID { get; set; }
         public GroupControl GrpComment
         {
             get { return grpComment; }
@@ -38,6 +40,11 @@ namespace MessageBoard.UserControlls
         public SimpleButton BtnQuote
         {
             get { return btnQuote; }
+        }
+
+        private void btnQuote_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
