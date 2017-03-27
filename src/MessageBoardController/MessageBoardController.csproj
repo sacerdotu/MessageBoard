@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCommentController.cs" />
     <Compile Include="AddPostController.cs" />
     <Compile Include="AppGlobalVariables\AppGlobalVariables.cs" />
     <Compile Include="ChangePasswordController.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="ForumController.cs" />
     <Compile Include="HelperClasses\ConvertImage.cs" />
     <Compile Include="HelperClasses\HashHelper.cs" />
+    <Compile Include="Interfaces\IAddCommentsForm.cs" />
     <Compile Include="Interfaces\IAddPostForm.cs" />
     <Compile Include="Interfaces\IChangePasswordForm.cs" />
     <Compile Include="Interfaces\IChangeProfilePictureForm.cs" />

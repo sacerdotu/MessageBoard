@@ -24,5 +24,7 @@ namespace MessageBoardController.AppGlobalVariables
             }
         }
         public int UserID { get; set; }
+        public int CommentID { get; set; }
+        public int PostID { get; set; }
     }
 }

@@ -10,16 +10,20 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.Tutorials.Controls;
 using MessageBoard.Forms;
+using MessageBoardController.AppGlobalVariables;
 
 namespace MessageBoard.UserControlls
 {
     public partial class ucComment : UserControl
     {
+        #region Constructor
         public ucComment()
         {
             InitializeComponent();
         }
-        public CommentsForm ParentForm { get; set; }
+        #endregion
+
+        #region Properties
         public int CommentID { get; set; }
         public GroupControl GrpComment
         {
@@ -41,10 +45,17 @@ namespace MessageBoard.UserControlls
         {
             get { return btnQuote; }
         }
+#endregion
 
+        #region btnQuoteClick
         private void btnQuote_Click(object sender, EventArgs e)
         {
-            
+            CommentsForm form = new CommentsForm();
+            GroupControl parentForm = (GroupControl)BtnQuote.Parent;
+            ucComment ucparentForm = (ucComment)parentForm.Parent;
+            AppGlobalVariables.Instance.CommentID = ucparentForm.CommentID;
+            form.AddNewComment();
         }
+        #endregion
     }
 }

@@ -11,6 +11,6 @@ namespace MessageBoardController.Interfaces
 {
     public interface ICommentsForm
     {
-        void DisplayComments(CommentDTO comments, int x, int y);
+        void DisplayComments(CommentDTO comments, int x, int y, bool visibility);
     }
 }

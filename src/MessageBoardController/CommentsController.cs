@@ -68,7 +68,7 @@ namespace MessageBoardController
         }
         #endregion
 
-        #region
+        #region DisplayComments
         public void DisplayComments()
         {
             try
@@ -79,11 +79,11 @@ namespace MessageBoardController
                 {
                     if (comment.MainComment == null)
                     {
-                        _form.DisplayComments(comment, 0, currentComment);
+                        _form.DisplayComments(comment, 0, currentComment, true);
                     }
                     else
                     {
-                        _form.DisplayComments(comment, 20, currentComment);
+                        _form.DisplayComments(comment, 20, currentComment, false);
                     }
                     currentComment++;
                 }

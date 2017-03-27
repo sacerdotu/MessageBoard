@@ -25,7 +25,6 @@ namespace MessageBoard.Forms
         public CommentsForm()
         {
             InitializeComponent();
-            this.ucComments.ParentForm = this;
         }
         public CommentsForm(PostDTO post)
             : this()
@@ -96,7 +95,7 @@ namespace MessageBoard.Forms
         #endregion
 
         #region DisplayComments
-        public void DisplayComments(CommentDTO comment, int x, int y)
+        public void DisplayComments(CommentDTO comment, int x, int y, bool visibility)
         {
             try
             {                                    
@@ -110,19 +109,21 @@ namespace MessageBoard.Forms
                 uc.Location = new Point(x, 3 + uc.Height * y);
                 uc.Size = new Size(544 - x, 184);
                 uc.GrpComment.Size = new Size(544 - x, 184);
+                uc.BtnQuote.Visible = visibility;
             }
             catch (Exception ex)
             {
                 throw ex;
-            }
-            
+            }    
         }
         #endregion
 
-        #region GetCommentID
-        public void GetCommentID()
+        #region AddNewComment
+        public void AddNewComment()
         {
-            //int commentID = uc.CommentID;
+            AddCommentsForm form = new AddCommentsForm();
+            form.Show();
+            this.Close();
         }
         #endregion
     }

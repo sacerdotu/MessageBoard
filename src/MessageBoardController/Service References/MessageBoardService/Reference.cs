@@ -86,6 +86,12 @@ namespace MessageBoardController.MessageBoardService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/GetCommentsForPostID", ReplyAction="http://tempuri.org/IMessageBoardService/GetCommentsForPostIDResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardDTO.CommentDTO>> GetCommentsForPostIDAsync(int postID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/AddComment", ReplyAction="http://tempuri.org/IMessageBoardService/AddCommentResponse")]
+        bool AddComment(MessageBoardDTO.CommentDTO addNewComment);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/AddComment", ReplyAction="http://tempuri.org/IMessageBoardService/AddCommentResponse")]
+        System.Threading.Tasks.Task<bool> AddCommentAsync(MessageBoardDTO.CommentDTO addNewComment);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -209,6 +215,14 @@ namespace MessageBoardController.MessageBoardService {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardDTO.CommentDTO>> GetCommentsForPostIDAsync(int postID) {
             return base.Channel.GetCommentsForPostIDAsync(postID);
+        }
+        
+        public bool AddComment(MessageBoardDTO.CommentDTO addNewComment) {
+            return base.Channel.AddComment(addNewComment);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddCommentAsync(MessageBoardDTO.CommentDTO addNewComment) {
+            return base.Channel.AddCommentAsync(addNewComment);
         }
     }
 }

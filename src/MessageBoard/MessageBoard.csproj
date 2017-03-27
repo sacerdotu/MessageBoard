@@ -95,6 +95,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AddCommentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddCommentsForm.Designer.cs">
+      <DependentUpon>AddCommentsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddPostForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +175,9 @@
     <Compile Include="Forms\UserDetailsForm.Designer.cs">
       <DependentUpon>UserDetailsForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\AddCommentsForm.resx">
+      <DependentUpon>AddCommentsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddPostForm.resx">
       <DependentUpon>AddPostForm.cs</DependentUpon>
     </EmbeddedResource>

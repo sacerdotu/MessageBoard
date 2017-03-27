@@ -71,6 +71,7 @@ namespace MessageBoardController
                     if (e.Clicks == 2)
                     {
                         _post = (PostDTO)_form.ViewDisplayPosts.GetFocusedRow();
+                        AppGlobalVariables.AppGlobalVariables.Instance.PostID = _post.PostID;
                     }
                 }
                 if (_post.PostID > 0)
