@@ -71,7 +71,7 @@ namespace MessageBoardController
             catch (Exception ex)
             {
                 Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
-                throw;
+                throw new MessageBoardException("",ex);
             }
         }
         #endregion

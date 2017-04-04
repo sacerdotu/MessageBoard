@@ -11,6 +11,7 @@ namespace MessageBoardController.Interfaces
 {
     public interface ICommentsForm
     {
+        PictureEdit ImgPost { get; }
         void DisplayComments(CommentDTO comments, int x, int y, bool visibility);
     }
 }

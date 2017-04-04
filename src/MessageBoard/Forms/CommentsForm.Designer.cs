@@ -30,17 +30,20 @@
         {
             this.btnBack = new DevExpress.XtraEditors.SimpleButton();
             this.panelPost = new DevExpress.XtraEditors.PanelControl();
+            this.imgPost = new DevExpress.XtraEditors.PictureEdit();
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.richPostContent = new DevExpress.Tutorials.Controls.RichTextBoxEx();
             this.lblPost = new DevExpress.XtraEditors.LabelControl();
             this.lblDate = new DevExpress.XtraEditors.LabelControl();
             this.lblAuthor = new DevExpress.XtraEditors.LabelControl();
             this.panelCommnets = new DevExpress.XtraEditors.PanelControl();
             this.xtraScrollableControl = new DevExpress.XtraEditors.XtraScrollableControl();
-            this.ucComments = new MessageBoard.UserControlls.ucComment();
             this.pnlbuttons = new DevExpress.XtraEditors.PanelControl();
             this.btnReplyPost = new DevExpress.XtraEditors.SimpleButton();
+            this.ucComments = new MessageBoard.UserControlls.ucComment();
             ((System.ComponentModel.ISupportInitialize)(this.panelPost)).BeginInit();
             this.panelPost.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPost.Properties)).BeginInit();
             this.xtraScrollableControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelCommnets)).BeginInit();
             this.panelCommnets.SuspendLayout();
@@ -61,32 +64,60 @@
             // 
             // panelPost
             // 
-            this.panelPost.Appearance.BackColor = System.Drawing.Color.White;
+            this.panelPost.Appearance.BackColor = System.Drawing.Color.Teal;
             this.panelPost.Appearance.Options.UseBackColor = true;
+            this.panelPost.Controls.Add(this.imgPost);
             this.panelPost.Controls.Add(this.xtraScrollableControl1);
             this.panelPost.Controls.Add(this.lblDate);
             this.panelPost.Controls.Add(this.lblAuthor);
             this.panelPost.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelPost.Location = new System.Drawing.Point(0, 0);
+            this.panelPost.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+            this.panelPost.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelPost.Name = "panelPost";
-            this.panelPost.Size = new System.Drawing.Size(571, 83);
+            this.panelPost.Size = new System.Drawing.Size(571, 141);
             this.panelPost.TabIndex = 2;
+            // 
+            // imgPost
+            // 
+            this.imgPost.Cursor = System.Windows.Forms.Cursors.Default;
+            this.imgPost.Location = new System.Drawing.Point(5, 39);
+            this.imgPost.Name = "imgPost";
+            this.imgPost.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.imgPost.Properties.ZoomAccelerationFactor = 1D;
+            this.imgPost.Size = new System.Drawing.Size(100, 96);
+            this.imgPost.TabIndex = 4;
             // 
             // xtraScrollableControl1
             // 
-            this.xtraScrollableControl1.Appearance.BackColor = System.Drawing.Color.White;
+            this.xtraScrollableControl1.Appearance.BackColor = System.Drawing.Color.Teal;
             this.xtraScrollableControl1.Appearance.Options.UseBackColor = true;
+            this.xtraScrollableControl1.Controls.Add(this.richPostContent);
             this.xtraScrollableControl1.Controls.Add(this.lblPost);
             this.xtraScrollableControl1.Location = new System.Drawing.Point(145, 5);
             this.xtraScrollableControl1.Name = "xtraScrollableControl1";
-            this.xtraScrollableControl1.Size = new System.Drawing.Size(422, 72);
+            this.xtraScrollableControl1.Size = new System.Drawing.Size(422, 130);
             this.xtraScrollableControl1.TabIndex = 3;
+            // 
+            // richPostContent
+            // 
+            this.richPostContent.Location = new System.Drawing.Point(0, 34);
+            this.richPostContent.Name = "richPostContent";
+            this.richPostContent.Size = new System.Drawing.Size(400, 96);
+            this.richPostContent.TabIndex = 1;
+            this.richPostContent.Text = "";
             // 
             // lblPost
             // 
-            this.lblPost.Location = new System.Drawing.Point(3, 0);
+            this.lblPost.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.lblPost.Appearance.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPost.Appearance.ForeColor = System.Drawing.Color.White;
+            this.lblPost.Appearance.Options.UseBackColor = true;
+            this.lblPost.Appearance.Options.UseFont = true;
+            this.lblPost.Appearance.Options.UseForeColor = true;
+            this.lblPost.Location = new System.Drawing.Point(0, 7);
             this.lblPost.Name = "lblPost";
-            this.lblPost.Size = new System.Drawing.Size(21, 13);
+            this.lblPost.Size = new System.Drawing.Size(40, 23);
             this.lblPost.TabIndex = 0;
             this.lblPost.Text = "Post";
             // 
@@ -110,26 +141,21 @@
             // 
             this.panelCommnets.Controls.Add(this.xtraScrollableControl);
             this.panelCommnets.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelCommnets.Location = new System.Drawing.Point(0, 83);
+            this.panelCommnets.Location = new System.Drawing.Point(0, 141);
             this.panelCommnets.Name = "panelCommnets";
             this.panelCommnets.Size = new System.Drawing.Size(571, 379);
             this.panelCommnets.TabIndex = 3;
             // 
             // xtraScrollableControl
             // 
+            this.xtraScrollableControl.Appearance.BackColor = System.Drawing.Color.Teal;
+            this.xtraScrollableControl.Appearance.Options.UseBackColor = true;
             this.xtraScrollableControl.Controls.Add(this.ucComments);
             this.xtraScrollableControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl.Location = new System.Drawing.Point(2, 2);
             this.xtraScrollableControl.Name = "xtraScrollableControl";
             this.xtraScrollableControl.Size = new System.Drawing.Size(567, 375);
             this.xtraScrollableControl.TabIndex = 0;
-            // 
-            // ucComments
-            // 
-            this.ucComments.Location = new System.Drawing.Point(0, 3);
-            this.ucComments.Name = "ucComments";
-            this.ucComments.Size = new System.Drawing.Size(549, 397);
-            this.ucComments.TabIndex = 0;
             // 
             // pnlbuttons
             // 
@@ -138,7 +164,7 @@
             this.pnlbuttons.Controls.Add(this.btnReplyPost);
             this.pnlbuttons.Controls.Add(this.btnBack);
             this.pnlbuttons.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlbuttons.Location = new System.Drawing.Point(0, 462);
+            this.pnlbuttons.Location = new System.Drawing.Point(0, 520);
             this.pnlbuttons.Name = "pnlbuttons";
             this.pnlbuttons.Size = new System.Drawing.Size(571, 46);
             this.pnlbuttons.TabIndex = 4;
@@ -151,6 +177,15 @@
             this.btnReplyPost.Size = new System.Drawing.Size(93, 25);
             this.btnReplyPost.TabIndex = 2;
             this.btnReplyPost.Text = "Reply Post";
+            // 
+            // ucComments
+            // 
+            this.ucComments.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ucComments.CommentID = 0;
+            this.ucComments.Location = new System.Drawing.Point(0, 3);
+            this.ucComments.Name = "ucComments";
+            this.ucComments.Size = new System.Drawing.Size(549, 195);
+            this.ucComments.TabIndex = 0;
             // 
             // CommentsForm
             // 
@@ -170,6 +205,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelPost)).EndInit();
             this.panelPost.ResumeLayout(false);
             this.panelPost.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPost.Properties)).EndInit();
             this.xtraScrollableControl1.ResumeLayout(false);
             this.xtraScrollableControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelCommnets)).EndInit();
@@ -194,5 +230,7 @@
         private DevExpress.XtraEditors.XtraScrollableControl xtraScrollableControl1;
         private DevExpress.XtraEditors.PanelControl pnlbuttons;
         private DevExpress.XtraEditors.SimpleButton btnReplyPost;
+        private DevExpress.XtraEditors.PictureEdit imgPost;
+        private DevExpress.Tutorials.Controls.RichTextBoxEx richPostContent;
     }
 }

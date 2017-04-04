@@ -25,6 +25,14 @@ namespace MessageBoard.Forms
         {
             get { return rtbPost; }
         }
+
+        public PictureEdit ImgPost
+        {
+            get { return imgPost; }
+        }
+        #endregion
+
+        #region Constructor
         public AddPostForm()
         {
             InitializeComponent();
@@ -67,6 +75,29 @@ namespace MessageBoard.Forms
                 return true;
             }
             return base.ProcessDialogKey(keyData);
+        }
+        #endregion
+
+        #region btnBrowse
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            openFile.Filter = "jpeg|*.jpg|bmp|*.bmp|all files|*.*";
+            openFile.Title = "Select picture";
+            if (openFile.ShowDialog() == DialogResult.OK)
+            {
+                string picture = openFile.FileName.ToString();
+                var initialImage = Image.FromFile(openFile.FileName);
+
+                var newWidth = ImgPost.Width;
+                var newHeight = ImgPost.Height;
+
+                var newImage = new Bitmap(newWidth, newHeight);
+
+                using (var graphics = Graphics.FromImage(newImage))
+                    graphics.DrawImage(initialImage, 0, 0, newWidth, newHeight);
+                ImgPost.Image = newImage;
+            }
         }
         #endregion
     }

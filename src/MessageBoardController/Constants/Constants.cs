@@ -8,8 +8,6 @@ namespace MessageBoardController.Constants
 {
     public sealed class Constants
     {
-        public const string ExceptionService = "Please check connection with service";
-        public const string ExceptionNullObjReference = "Please fill all fields";
         public const string RegistrationFailed = "Registration failed";
         public const string CouldNotSaveChanges = "Could not save changes!";
         public const string CouldNotLogIn = "Could not Log In!";
@@ -20,5 +18,11 @@ namespace MessageBoardController.Constants
         public const string AccountCreated = "Account created!";
         public const string Success = "Success!";
         public const string AddPostFailed = "Could not add a new post";
+
+        //Error messages
+        public const string ERR_TIMEOUT_EX = "The process has expired.";
+        public const string ExceptionService = "Please check connection with service";
+        public const string ExceptionNullObjReference = "Please fill all fields";
+
     }
 }

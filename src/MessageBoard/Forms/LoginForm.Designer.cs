@@ -102,7 +102,6 @@
             this.txtPassword.Properties.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(271, 52);
             this.txtPassword.TabIndex = 2;
-            this.txtPassword.EditValueChanged += new System.EventHandler(this.txtPassword_EditValueChanged);
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // lblUsername

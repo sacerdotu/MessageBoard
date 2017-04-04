@@ -31,6 +31,11 @@
             this.btnAddPost = new DevExpress.XtraEditors.SimpleButton();
             this.lblAddPost = new DevExpress.XtraEditors.LabelControl();
             this.rtbPost = new DevExpress.Tutorials.Controls.RichTextBoxEx();
+            this.lblText = new DevExpress.XtraEditors.LabelControl();
+            this.lblImage = new DevExpress.XtraEditors.LabelControl();
+            this.imgPost = new DevExpress.XtraEditors.PictureEdit();
+            this.btnBrowse = new DevExpress.XtraEditors.SimpleButton();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPost.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAddPost
@@ -42,7 +47,7 @@
             this.btnAddPost.Appearance.Options.UseFont = true;
             this.btnAddPost.Appearance.Options.UseForeColor = true;
             this.btnAddPost.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.btnAddPost.Location = new System.Drawing.Point(116, 240);
+            this.btnAddPost.Location = new System.Drawing.Point(112, 418);
             this.btnAddPost.Name = "btnAddPost";
             this.btnAddPost.Size = new System.Drawing.Size(187, 40);
             this.btnAddPost.TabIndex = 2;
@@ -63,18 +68,74 @@
             // 
             // rtbPost
             // 
-            this.rtbPost.Location = new System.Drawing.Point(82, 63);
+            this.rtbPost.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbPost.ForeColor = System.Drawing.Color.DarkGray;
+            this.rtbPost.Location = new System.Drawing.Point(12, 105);
             this.rtbPost.Name = "rtbPost";
-            this.rtbPost.Size = new System.Drawing.Size(251, 151);
+            this.rtbPost.Size = new System.Drawing.Size(387, 99);
             this.rtbPost.TabIndex = 15;
             this.rtbPost.Text = "";
+            // 
+            // lblText
+            // 
+            this.lblText.Appearance.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblText.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.lblText.Appearance.Options.UseFont = true;
+            this.lblText.Appearance.Options.UseForeColor = true;
+            this.lblText.Location = new System.Drawing.Point(180, 74);
+            this.lblText.Name = "lblText";
+            this.lblText.Size = new System.Drawing.Size(46, 25);
+            this.lblText.TabIndex = 16;
+            this.lblText.Text = "Text";
+            // 
+            // lblImage
+            // 
+            this.lblImage.Appearance.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImage.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.lblImage.Appearance.Options.UseFont = true;
+            this.lblImage.Appearance.Options.UseForeColor = true;
+            this.lblImage.Location = new System.Drawing.Point(170, 212);
+            this.lblImage.Name = "lblImage";
+            this.lblImage.Size = new System.Drawing.Size(67, 25);
+            this.lblImage.TabIndex = 17;
+            this.lblImage.Text = "Image";
+            // 
+            // imgPost
+            // 
+            this.imgPost.Cursor = System.Windows.Forms.Cursors.Default;
+            this.imgPost.Location = new System.Drawing.Point(129, 248);
+            this.imgPost.Name = "imgPost";
+            this.imgPost.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.imgPost.Properties.ZoomAccelerationFactor = 1D;
+            this.imgPost.Size = new System.Drawing.Size(139, 118);
+            this.imgPost.TabIndex = 18;
+            // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(152)))), ((int)(((byte)(220)))));
+            this.btnBrowse.Appearance.Font = new System.Drawing.Font("Verdana", 16F);
+            this.btnBrowse.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnBrowse.Appearance.Options.UseBackColor = true;
+            this.btnBrowse.Appearance.Options.UseFont = true;
+            this.btnBrowse.Appearance.Options.UseForeColor = true;
+            this.btnBrowse.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.btnBrowse.Location = new System.Drawing.Point(112, 372);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(187, 40);
+            this.btnBrowse.TabIndex = 19;
+            this.btnBrowse.Text = "Browse";
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // AddPostForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(411, 292);
+            this.ClientSize = new System.Drawing.Size(411, 470);
+            this.Controls.Add(this.btnBrowse);
+            this.Controls.Add(this.imgPost);
+            this.Controls.Add(this.lblImage);
+            this.Controls.Add(this.lblText);
             this.Controls.Add(this.rtbPost);
             this.Controls.Add(this.lblAddPost);
             this.Controls.Add(this.btnAddPost);
@@ -82,6 +143,7 @@
             this.Name = "AddPostForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddPostForm";
+            ((System.ComponentModel.ISupportInitialize)(this.imgPost.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,5 +153,9 @@
         private DevExpress.XtraEditors.SimpleButton btnAddPost;
         private DevExpress.XtraEditors.LabelControl lblAddPost;
         private DevExpress.Tutorials.Controls.RichTextBoxEx rtbPost;
+        private DevExpress.XtraEditors.LabelControl lblText;
+        private DevExpress.XtraEditors.LabelControl lblImage;
+        private DevExpress.XtraEditors.PictureEdit imgPost;
+        private DevExpress.XtraEditors.SimpleButton btnBrowse;
     }
 }

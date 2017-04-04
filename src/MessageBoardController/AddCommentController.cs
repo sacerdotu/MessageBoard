@@ -14,6 +14,7 @@ namespace MessageBoardController
     {
         private IMessageBoardService _service;
         private IAddCommentsForm _form;
+
         #region Constructor
         public AddCommentController(IAddCommentsForm form)
         {

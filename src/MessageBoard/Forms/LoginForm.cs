@@ -94,9 +94,10 @@ namespace MessageBoard
                 AppGlobalVariables.Instance.UserID = _controller.ValidateLogin(Convert.ToString(TxtUsername.EditValue), Convert.ToString(TxtPassword.EditValue));
                 _controller.CheckUserID();
             }
-            catch (EndpointNotFoundException)
+            catch (MessageBoardException ex)
             {
-                XtraMessageBox.Show(Constants.ExceptionService);           
+                //   XtraMessageBox.Show(Constants.ExceptionService);           
+                ex.WriteErrorMessage();
             }
             catch (Exception)
             {
@@ -136,15 +137,12 @@ namespace MessageBoard
         }
         #endregion
 
+        #region LoadForm
         private void LoginForm_Load(object sender, EventArgs e)
         {
             TxtUsername.Focus();      
         }
-
-        private void txtPassword_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
+        #endregion
 
         #region EscKey
         protected override bool ProcessDialogKey(Keys keyData)

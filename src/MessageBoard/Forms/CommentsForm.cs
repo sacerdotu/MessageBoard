@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Tutorials.Controls;
+using DevExpress.XtraEditors;
 using MessageBoard.UserControlls;
 using MessageBoardController;
 using MessageBoardController.Constants;
@@ -30,9 +31,10 @@ namespace MessageBoard.Forms
             : this()
         {
             _controller = new CommentsController(this, post);
-            lblPost.Text = post.PostText;
+            RichPostContent.Text = post.PostText;
             lblAuthor.Text = post.tblUser.Username;
             lblDate.Text = post.CreationDate.ToString();
+            ImgPost.Image = post.PostImage != null? ConvertImage.ByteArrayToImage(post.PostImage) : null;
         }
 
         #endregion
@@ -67,6 +69,16 @@ namespace MessageBoard.Forms
         public SimpleButton BtnQuote
         {
             get { return ucComments.BtnQuote; }
+        }
+
+        public PictureEdit ImgPost
+        {
+            get { return imgPost; }
+        }
+
+        public RichTextBoxEx RichPostContent
+        {
+            get { return richPostContent; }
         }
         #endregion
 
@@ -124,6 +136,19 @@ namespace MessageBoard.Forms
             AddCommentsForm form = new AddCommentsForm();
             form.Show();
             this.Close();
+        }
+        #endregion
+
+        #region btnEsc
+        protected override bool ProcessDialogKey(Keys keyData)
+        {
+            if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
+            {
+                ForumForm form = new ForumForm();
+                form.Show();
+                this.Close();
+            }
+            return base.ProcessDialogKey(keyData);
         }
         #endregion
     }

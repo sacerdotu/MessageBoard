@@ -1,4 +1,5 @@
 ﻿using MessageBoardCommon;
+using MessageBoardController.HelperClasses;
 using MessageBoardController.Interfaces;
 using MessageBoardController.MessageBoardService;
 using MessageBoardDTO;
@@ -31,8 +32,8 @@ namespace MessageBoardController
                 PostDTO addPost = new PostDTO();
                 addPost.UserID = userID;
                 addPost.PostText = _form.RtbPost.Text;
-               
-                if(_service.AddNewPost(addPost) == true)
+                addPost.PostImage = ConvertImage.ImageToByteArray(_form.ImgPost.Image);
+                if (_service.AddNewPost(addPost) == true)
                 {
                     _form.PostWasAdded();
                 }

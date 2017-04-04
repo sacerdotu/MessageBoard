@@ -16,6 +16,7 @@ namespace MessageBoardController
         private IMessageBoardService _service;
         UserDTO _profilePicture;
         private int _userID;
+
         #region Constructor
         public ChangeProfilePictureController(IChangeProfilePictureForm form, int userID)
         {

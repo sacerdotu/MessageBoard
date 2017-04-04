@@ -64,9 +64,11 @@
             // 
             // rtbComment
             // 
-            this.rtbComment.Location = new System.Drawing.Point(80, 63);
+            this.rtbComment.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbComment.ForeColor = System.Drawing.Color.DarkGray;
+            this.rtbComment.Location = new System.Drawing.Point(12, 63);
             this.rtbComment.Name = "rtbComment";
-            this.rtbComment.Size = new System.Drawing.Size(251, 151);
+            this.rtbComment.Size = new System.Drawing.Size(387, 151);
             this.rtbComment.TabIndex = 16;
             this.rtbComment.Text = "";
             // 
@@ -81,6 +83,7 @@
             this.Controls.Add(this.btnAddNewComment);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddCommentsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddCommentsForm";
             this.ResumeLayout(false);
             this.PerformLayout();
