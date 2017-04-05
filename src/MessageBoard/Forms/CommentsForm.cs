@@ -3,6 +3,7 @@ using DevExpress.XtraEditors;
 using MessageBoard.UserControlls;
 using MessageBoardCommon;
 using MessageBoardController;
+using MessageBoardController.AppGlobalVariables;
 using MessageBoardController.Constants;
 using MessageBoardController.HelperClasses;
 using MessageBoardController.Interfaces;
@@ -22,20 +23,17 @@ namespace MessageBoard.Forms
     public partial class CommentsForm : Form, ICommentsForm
     {
         private CommentsController _controller;
+        private PostDTO _post;
 
         #region Constructors
         public CommentsForm()
         {
             InitializeComponent();
-        }
-        public CommentsForm(PostDTO post)
-            : this()
-        {
-            _controller = new CommentsController(this, post);
-            RichPostContent.Text = post.PostText;
-            lblAuthor.Text = post.tblUser.Username;
-            lblDate.Text = post.CreationDate.ToString();
-            ImgPost.Image = post.PostImage != null? ConvertImage.ByteArrayToImage(post.PostImage) : null;
+            _controller = new CommentsController(this, AppGlobalVariables.Instance.Post);
+            RichPostContent.Text = AppGlobalVariables.Instance.Post.PostText;
+            lblAuthor.Text = AppGlobalVariables.Instance.Post.tblUser.Username;
+            lblDate.Text = AppGlobalVariables.Instance.Post.CreationDate.ToString();
+            ImgPost.Image = AppGlobalVariables.Instance.Post.PostImage != null ? ConvertImage.ByteArrayToImage(AppGlobalVariables.Instance.Post.PostImage) : null;
         }
 
         #endregion

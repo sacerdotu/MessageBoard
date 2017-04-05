@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MessageBoardDTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,5 +27,7 @@ namespace MessageBoardController.AppGlobalVariables
         public int UserID { get; set; }
         public int CommentID { get; set; }
         public int PostID { get; set; }
+
+        public PostDTO Post { get; set; }
     }
 }

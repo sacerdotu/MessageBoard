@@ -55,7 +55,16 @@
             // btnBack
             // 
             this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBack.Location = new System.Drawing.Point(12, 11);
+            this.btnBack.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(152)))), ((int)(((byte)(220)))));
+            this.btnBack.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(152)))), ((int)(((byte)(220)))));
+            this.btnBack.Appearance.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Appearance.Options.UseBackColor = true;
+            this.btnBack.Appearance.Options.UseBorderColor = true;
+            this.btnBack.Appearance.Options.UseFont = true;
+            this.btnBack.Appearance.Options.UseForeColor = true;
+            this.btnBack.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.btnBack.Location = new System.Drawing.Point(6, 11);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(93, 25);
             this.btnBack.TabIndex = 1;
@@ -101,6 +110,7 @@
             // 
             // richPostContent
             // 
+            this.richPostContent.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richPostContent.Location = new System.Drawing.Point(0, 34);
             this.richPostContent.Name = "richPostContent";
             this.richPostContent.Size = new System.Drawing.Size(400, 96);
@@ -115,7 +125,7 @@
             this.lblPost.Appearance.Options.UseBackColor = true;
             this.lblPost.Appearance.Options.UseFont = true;
             this.lblPost.Appearance.Options.UseForeColor = true;
-            this.lblPost.Location = new System.Drawing.Point(0, 7);
+            this.lblPost.Location = new System.Drawing.Point(0, 0);
             this.lblPost.Name = "lblPost";
             this.lblPost.Size = new System.Drawing.Size(40, 23);
             this.lblPost.TabIndex = 0;
@@ -123,17 +133,25 @@
             // 
             // lblDate
             // 
+            this.lblDate.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.lblDate.Appearance.ForeColor = System.Drawing.Color.White;
+            this.lblDate.Appearance.Options.UseFont = true;
+            this.lblDate.Appearance.Options.UseForeColor = true;
             this.lblDate.Location = new System.Drawing.Point(5, 24);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(23, 13);
+            this.lblDate.Size = new System.Drawing.Size(27, 13);
             this.lblDate.TabIndex = 2;
             this.lblDate.Text = "Date";
             // 
             // lblAuthor
             // 
+            this.lblAuthor.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.lblAuthor.Appearance.ForeColor = System.Drawing.Color.White;
+            this.lblAuthor.Appearance.Options.UseFont = true;
+            this.lblAuthor.Appearance.Options.UseForeColor = true;
             this.lblAuthor.Location = new System.Drawing.Point(5, 5);
             this.lblAuthor.Name = "lblAuthor";
-            this.lblAuthor.Size = new System.Drawing.Size(33, 13);
+            this.lblAuthor.Size = new System.Drawing.Size(38, 13);
             this.lblAuthor.TabIndex = 1;
             this.lblAuthor.Text = "Author";
             // 
@@ -143,7 +161,7 @@
             this.panelCommnets.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCommnets.Location = new System.Drawing.Point(0, 141);
             this.panelCommnets.Name = "panelCommnets";
-            this.panelCommnets.Size = new System.Drawing.Size(571, 379);
+            this.panelCommnets.Size = new System.Drawing.Size(571, 326);
             this.panelCommnets.TabIndex = 3;
             // 
             // xtraScrollableControl
@@ -154,17 +172,20 @@
             this.xtraScrollableControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl.Location = new System.Drawing.Point(2, 2);
             this.xtraScrollableControl.Name = "xtraScrollableControl";
-            this.xtraScrollableControl.Size = new System.Drawing.Size(567, 375);
+            this.xtraScrollableControl.Size = new System.Drawing.Size(567, 322);
             this.xtraScrollableControl.TabIndex = 0;
             // 
             // pnlbuttons
             // 
-            this.pnlbuttons.Appearance.BackColor = System.Drawing.Color.White;
+            this.pnlbuttons.Appearance.BackColor = System.Drawing.Color.Teal;
             this.pnlbuttons.Appearance.Options.UseBackColor = true;
+            this.pnlbuttons.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.pnlbuttons.Controls.Add(this.btnReplyPost);
             this.pnlbuttons.Controls.Add(this.btnBack);
             this.pnlbuttons.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlbuttons.Location = new System.Drawing.Point(0, 520);
+            this.pnlbuttons.Location = new System.Drawing.Point(0, 467);
+            this.pnlbuttons.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+            this.pnlbuttons.LookAndFeel.UseDefaultLookAndFeel = false;
             this.pnlbuttons.Name = "pnlbuttons";
             this.pnlbuttons.Size = new System.Drawing.Size(571, 46);
             this.pnlbuttons.TabIndex = 4;
@@ -172,7 +193,16 @@
             // btnReplyPost
             // 
             this.btnReplyPost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnReplyPost.Location = new System.Drawing.Point(473, 11);
+            this.btnReplyPost.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(152)))), ((int)(((byte)(220)))));
+            this.btnReplyPost.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(152)))), ((int)(((byte)(220)))));
+            this.btnReplyPost.Appearance.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReplyPost.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnReplyPost.Appearance.Options.UseBackColor = true;
+            this.btnReplyPost.Appearance.Options.UseBorderColor = true;
+            this.btnReplyPost.Appearance.Options.UseFont = true;
+            this.btnReplyPost.Appearance.Options.UseForeColor = true;
+            this.btnReplyPost.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.btnReplyPost.Location = new System.Drawing.Point(472, 11);
             this.btnReplyPost.Name = "btnReplyPost";
             this.btnReplyPost.Size = new System.Drawing.Size(93, 25);
             this.btnReplyPost.TabIndex = 2;
@@ -182,9 +212,9 @@
             // 
             this.ucComments.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ucComments.CommentID = 0;
-            this.ucComments.Location = new System.Drawing.Point(0, 3);
+            this.ucComments.Location = new System.Drawing.Point(-2, 26);
             this.ucComments.Name = "ucComments";
-            this.ucComments.Size = new System.Drawing.Size(549, 195);
+            this.ucComments.Size = new System.Drawing.Size(569, 195);
             this.ucComments.TabIndex = 0;
             // 
             // CommentsForm

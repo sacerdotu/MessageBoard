@@ -158,10 +158,11 @@ namespace MessageBoard.Forms
         }
         #endregion
 
-        #region LoadCommnetsForm
+        #region LoadCommnentsForm
         public void LoadCommentsForm(PostDTO post)
         {
-            CommentsForm postComments = new CommentsForm(post);
+            AppGlobalVariables.Instance.Post = post;
+            CommentsForm postComments = new CommentsForm();
             postComments.Show();
             this.Close();
         }

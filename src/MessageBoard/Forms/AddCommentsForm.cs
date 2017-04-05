@@ -2,6 +2,7 @@
 using MessageBoardCommon;
 using MessageBoardController;
 using MessageBoardController.Interfaces;
+using MessageBoardDTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace MessageBoard.Forms
     public partial class AddCommentsForm : Form , IAddCommentsForm
     {
         AddCommentController _controller;
+        private PostDTO _post;
 
         #region Properties
         public RichTextBoxEx RtbComment

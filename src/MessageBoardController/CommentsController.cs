@@ -63,7 +63,7 @@ namespace MessageBoardController
             catch (Exception ex)
             {
                 Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
-                throw new MessageBoardException("", ex);
+                throw ex;
             }
         }
         #endregion
@@ -90,8 +90,7 @@ namespace MessageBoardController
             }
             catch (Exception ex)
             {
-                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
-                throw new MessageBoardException("", ex);
+                throw ex;
             }
         }
         #endregion
