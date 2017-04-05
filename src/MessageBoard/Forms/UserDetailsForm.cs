@@ -123,10 +123,10 @@ namespace MessageBoard
                 TxtUsername.Visible = false;
                 BtnBrowse.Visible = false;
             }
-            catch (Exception)
+            catch (MessageBoardException ex)
             {
-                XtraMessageBox.Show(Constants.ExceptionService);
-            }    
+                ex.WriteErrorMessage();
+            }
         }
         #endregion
 

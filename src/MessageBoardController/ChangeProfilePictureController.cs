@@ -1,4 +1,5 @@
-﻿using MessageBoardController.HelperClasses;
+﻿using MessageBoardCommon;
+using MessageBoardController.HelperClasses;
 using MessageBoardController.Interfaces;
 using MessageBoardController.MessageBoardService;
 using MessageBoardDTO;
@@ -12,10 +13,12 @@ namespace MessageBoardController
 {
     public class ChangeProfilePictureController
     {
+        #region Members
         private IChangeProfilePictureForm _form;
         private IMessageBoardService _service;
         UserDTO _profilePicture;
         private int _userID;
+        #endregion
 
         #region Constructor
         public ChangeProfilePictureController(IChangeProfilePictureForm form, int userID)
@@ -30,20 +33,35 @@ namespace MessageBoardController
         #region ChangeProfilePicture
         public void ChangeProfilePicture()
         {
-            
-            _profilePicture.ProfileImage = ConvertImage.ImageToByteArray(_form.ImgProfilePicture.Image);
-            _profilePicture.UserID = _userID;
+            try
+            {
+                _profilePicture.ProfileImage = ConvertImage.ImageToByteArray(_form.ImgProfilePicture.Image);
+                _profilePicture.UserID = _userID;
 
-            _service.ChangeProfilePicture(_profilePicture);
+                _service.ChangeProfilePicture(_profilePicture);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
+                throw new MessageBoardException("", ex);
+            }
         }
         #endregion
 
         #region GetProfilePicture
         public void GetProfilePicture()
         {
-            _profilePicture = _service.GetProfilePicture(_userID);
+            try
+            {
+                _profilePicture = _service.GetProfilePicture(_userID);
 
-            _form.ImgProfilePicture.Image = ConvertImage.ByteArrayToImage(_profilePicture.ProfileImage);
+                _form.ImgProfilePicture.Image = ConvertImage.ByteArrayToImage(_profilePicture.ProfileImage);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
+                throw new MessageBoardException("", ex);
+            }
         }
         #endregion
     }

@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using MessageBoardCommon;
 using MessageBoardController;
 using MessageBoardController.AppGlobalVariables;
 using MessageBoardController.Interfaces;
@@ -39,22 +40,29 @@ namespace MessageBoard.Forms
         #region btnBrowse
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFile = new OpenFileDialog();
-            openFile.Filter = "jpeg|*.jpg|bmp|*.bmp|all files|*.*";
-            openFile.Title = "Select picture";
-            if (openFile.ShowDialog() == DialogResult.OK)
+            try
             {
-                string picture = openFile.FileName.ToString();
-                var initialImage = Image.FromFile(openFile.FileName);
+                OpenFileDialog openFile = new OpenFileDialog();
+                openFile.Filter = "jpeg|*.jpg|bmp|*.bmp|all files|*.*";
+                openFile.Title = "Select picture";
+                if (openFile.ShowDialog() == DialogResult.OK)
+                {
+                    string picture = openFile.FileName.ToString();
+                    var initialImage = Image.FromFile(openFile.FileName);
 
-                var newWidth = ImgProfilePicture.Width;
-                var newHeight = ImgProfilePicture.Height;
+                    var newWidth = ImgProfilePicture.Width;
+                    var newHeight = ImgProfilePicture.Height;
 
-                var newImage = new Bitmap(newWidth, newHeight);
+                    var newImage = new Bitmap(newWidth, newHeight);
 
-                using (var graphics = Graphics.FromImage(newImage))
-                    graphics.DrawImage(initialImage, 0, 0, newWidth, newHeight);
-                ImgProfilePicture.Image = newImage;
+                    using (var graphics = Graphics.FromImage(newImage))
+                        graphics.DrawImage(initialImage, 0, 0, newWidth, newHeight);
+                    ImgProfilePicture.Image = newImage;
+                }
+            }
+            catch (MessageBoardException ex)
+            {
+                ex.WriteErrorMessage();
             }
         }
         #endregion
@@ -62,28 +70,49 @@ namespace MessageBoard.Forms
         #region btnSave
         private void btnSave_Click(object sender, EventArgs e)
         {
-            _controller.ChangeProfilePicture();
+            try
+            {
+                _controller.ChangeProfilePicture();
+            }
+            catch (MessageBoardException ex)
+            {
+                ex.WriteErrorMessage();
+            }
         }
         #endregion
 
         #region LoadForm
         private void ChangeProfilePictureForm_Load(object sender, EventArgs e)
         {
-            _controller.GetProfilePicture();
+            try
+            {
+                _controller.GetProfilePicture();
+            }
+            catch (MessageBoardException ex)
+            {
+                ex.WriteErrorMessage();
+            }
         }
         #endregion
 
         #region PressEscKey
         protected override bool ProcessDialogKey(Keys keyData)
         {
-            if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
-            {
-                ForumForm form = new ForumForm();
-                form.Show();
-                this.Close();
-                return true;
+            try {
+                if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
+                {
+                    ForumForm form = new ForumForm();
+                    form.Show();
+                    this.Close();
+                    return true;
+                }
+                return base.ProcessDialogKey(keyData);
             }
-            return base.ProcessDialogKey(keyData);
+            catch (MessageBoardException ex)
+            {
+                ex.WriteErrorMessage();
+                return false;
+            }
         }
         #endregion
     }

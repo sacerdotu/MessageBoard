@@ -85,8 +85,15 @@ namespace MessageBoard.Forms
         #region LoadForm
         private void ForumForm_Load(object sender, EventArgs e)
         {
-            _controller.LoadForm();
-            _controller.IsAdministrator(AppGlobalVariables.Instance.UserID);
+            try
+            {
+                _controller.LoadForm();
+                _controller.IsAdministrator(AppGlobalVariables.Instance.UserID);
+            }
+            catch (MessageBoardException ex)
+            {
+                ex.WriteErrorMessage();
+            }
         }
         #endregion
 
@@ -163,12 +170,19 @@ namespace MessageBoard.Forms
         #region EscKey
         protected override bool ProcessDialogKey(Keys keyData)
         {
-            if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
-            {
-                this.Close();
-                return true;
+            try {
+                if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
+                {
+                    this.Close();
+                    return true;
+                }
+                return base.ProcessDialogKey(keyData);
             }
-            return base.ProcessDialogKey(keyData);
+            catch (MessageBoardException ex)
+            {
+                ex.WriteErrorMessage();
+                return false;
+            }
         }
         #endregion
     }

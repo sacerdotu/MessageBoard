@@ -1,6 +1,7 @@
 ﻿using DevExpress.Tutorials.Controls;
 using DevExpress.XtraEditors;
 using MessageBoard.UserControlls;
+using MessageBoardCommon;
 using MessageBoardController;
 using MessageBoardController.Constants;
 using MessageBoardController.HelperClasses;
@@ -90,9 +91,9 @@ namespace MessageBoard.Forms
                 ScrCommentControl.Controls.Clear();
                 _controller.LoadForm();
             }
-            catch (Exception)
+            catch (MessageBoardException ex)
             {
-                XtraMessageBox.Show(Constants.ExceptionService);
+                ex.WriteErrorMessage();
             }
         }
         #endregion
@@ -123,10 +124,10 @@ namespace MessageBoard.Forms
                 uc.GrpComment.Size = new Size(544 - x, 184);
                 uc.BtnQuote.Visible = visibility;
             }
-            catch (Exception ex)
+            catch (MessageBoardException ex)
             {
-                throw ex;
-            }    
+                ex.WriteErrorMessage();
+            }
         }
         #endregion
 
@@ -142,13 +143,20 @@ namespace MessageBoard.Forms
         #region btnEsc
         protected override bool ProcessDialogKey(Keys keyData)
         {
-            if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
-            {
-                ForumForm form = new ForumForm();
-                form.Show();
-                this.Close();
+            try {
+                if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
+                {
+                    ForumForm form = new ForumForm();
+                    form.Show();
+                    this.Close();
+                }
+                return base.ProcessDialogKey(keyData);
             }
-            return base.ProcessDialogKey(keyData);
+            catch (MessageBoardException ex)
+            {
+                ex.WriteErrorMessage();
+                return false;
+            }
         }
         #endregion
     }

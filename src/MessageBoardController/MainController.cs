@@ -11,8 +11,10 @@ namespace MessageBoardController
 {
     public class MainController
     {
+        #region Members
         private IMessageBoardService _service;
         private IMainForm _form;
+        #endregion
 
         #region Constructor
         public MainController(IMainForm form)
@@ -40,8 +42,8 @@ namespace MessageBoardController
             catch (Exception ex)
             {
                 Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
-                throw ex;
-            }    
+                throw new MessageBoardException("", ex);
+            }
         }
         #endregion
     }

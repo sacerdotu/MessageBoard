@@ -86,7 +86,7 @@
     <Compile Include="Interfaces\IUserDetailsForm.cs" />
     <Compile Include="LoginController.cs" />
     <Compile Include="MainController.cs" />
-    <Compile Include="MessageBoardException.cs" />
+    <Compile Include="HelperClasses\MessageBoardException.cs" />
     <Compile Include="RegisterController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\MessageBoardService\Reference.cs">

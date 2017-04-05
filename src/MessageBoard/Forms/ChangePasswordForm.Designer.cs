@@ -136,7 +136,6 @@
             this.Name = "ChangePasswordForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChangePasswordForm";
-            this.Load += new System.EventHandler(this.ChangePasswordForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConfirmPassword.Properties)).EndInit();
             this.ResumeLayout(false);

@@ -100,17 +100,24 @@ namespace MessageBoard.Forms
                     XtraMessageBox.Show("Could not save changes!");
                 }
             }
-            catch(Exception)
+            catch (MessageBoardException ex)
             {
-                XtraMessageBox.Show(Constants.CouldNotSaveChanges);
-            }   
+                ex.WriteErrorMessage();
+            }
         }
         #endregion
 
         #region RowUpdate
         private void viewDisplayUsers_RowUpdated(object sender, RowObjectEventArgs e)
         {
-            _controller.ModifiedUsers(e);
+            try
+            {
+                _controller.ModifiedUsers(e);
+            }
+            catch (MessageBoardException ex)
+            {
+                ex.WriteErrorMessage();
+            }
         }
         #endregion
     }

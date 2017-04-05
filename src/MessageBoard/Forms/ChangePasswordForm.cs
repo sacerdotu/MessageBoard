@@ -56,11 +56,11 @@ namespace MessageBoard.Forms
         {
             try
             {
-                    _controller.GeneratePassword(AppGlobalVariables.Instance.UserID, Convert.ToString(TxtPassword.EditValue), Convert.ToString(TxtConfirmPassword.EditValue));
+                _controller.GeneratePassword(AppGlobalVariables.Instance.UserID, Convert.ToString(TxtPassword.EditValue), Convert.ToString(TxtConfirmPassword.EditValue));
             }
-            catch (Exception)
+            catch (MessageBoardException ex)
             {
-                XtraMessageBox.Show(Constants.ExceptionService);
+                ex.WriteErrorMessage();
             }
         }
         #endregion
@@ -81,22 +81,24 @@ namespace MessageBoard.Forms
         }
         #endregion
 
-        private void ChangePasswordForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         #region EscKey
         protected override bool ProcessDialogKey(Keys keyData)
         {
-            if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
+            try
             {
-                ForumForm form = new ForumForm();
-                form.Show();
-                this.Close();
-                return true;
+                if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
+                {
+                    ForumForm form = new ForumForm();
+                    form.Show();
+                    this.Close();
+                }
+                return base.ProcessDialogKey(keyData);
             }
-            return base.ProcessDialogKey(keyData);
+            catch (MessageBoardException ex)
+            {
+                ex.WriteErrorMessage();
+                return false;
+            }
         }
         #endregion
     }

@@ -106,9 +106,9 @@ namespace MessageBoard.Forms
             {
                 _controller.RegisterUser(Convert.ToString(TxtPassword.EditValue), Convert.ToString(TxtConfirmPassword.EditValue));
             }
-            catch (Exception)
+            catch (MessageBoardException ex)
             {
-                XtraMessageBox.Show(Constants.RegistrationFailed);
+                ex.WriteErrorMessage();
             }
         }
         #endregion

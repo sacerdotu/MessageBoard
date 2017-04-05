@@ -95,8 +95,7 @@ namespace MessageBoard
                 _controller.CheckUserID();
             }
             catch (MessageBoardException ex)
-            {
-                //   XtraMessageBox.Show(Constants.ExceptionService);           
+            {       
                 ex.WriteErrorMessage();
             }
             catch (Exception)

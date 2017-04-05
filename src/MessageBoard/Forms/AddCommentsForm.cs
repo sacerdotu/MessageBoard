@@ -1,4 +1,5 @@
 ﻿using DevExpress.Tutorials.Controls;
+using MessageBoardCommon;
 using MessageBoardController;
 using MessageBoardController.Interfaces;
 using System;
@@ -35,7 +36,14 @@ namespace MessageBoard.Forms
         #region btnAddComment
         private void btnAddNewComment_Click(object sender, EventArgs e)
         {
-            _controller.AddComment(RtbComment.Text);
+            try
+            {
+                _controller.AddComment(RtbComment.Text);
+            }
+            catch (MessageBoardException ex)
+            {
+                ex.WriteErrorMessage();
+            }
         }
         #endregion
 

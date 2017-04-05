@@ -14,10 +14,12 @@ namespace MessageBoardController
 {
     public class DisplayUsersController
     {
+        #region Members
         private IDisplayUsersForm _form;
         private IMessageBoardService _service;
         List<UserDTO> _users = new List<UserDTO>();
         private int _userID;
+        #endregion
 
         #region Constructor
         public DisplayUsersController(IDisplayUsersForm form)
@@ -60,7 +62,7 @@ namespace MessageBoardController
             catch (Exception ex)
             {
                 Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
-                return false;
+                throw new MessageBoardException("", ex);
             }
         }
         #endregion
@@ -84,7 +86,7 @@ namespace MessageBoardController
             catch (Exception ex)
             {
                 Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
-                throw ex;
+                throw new MessageBoardException("", ex);
             }
         }
         #endregion
@@ -119,11 +121,11 @@ namespace MessageBoardController
                     item.IsActive = user.IsActive;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
-                throw ex;
-            }     
+                throw new MessageBoardException("", ex);
+            }
         }
         #endregion
     }

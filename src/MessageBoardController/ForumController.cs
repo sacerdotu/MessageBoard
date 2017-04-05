@@ -11,10 +11,11 @@ namespace MessageBoardController
 {
     public class ForumController
     {
+        #region Members
         private IMessageBoardService _service;
         private IForumForm _form;
         PostDTO _post = new PostDTO();
-        //List<PostDTO> postsList = new List<PostDTO>();
+        #endregion
 
         #region Constructor
         public ForumController(IForumForm form)
@@ -36,7 +37,7 @@ namespace MessageBoardController
             catch (Exception ex)
             {
                 Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
-                throw ex;
+                throw new MessageBoardException("", ex);
             }
         }
         #endregion
@@ -55,7 +56,7 @@ namespace MessageBoardController
             catch (Exception ex)
             {
                 Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
-                throw ex;
+                throw new MessageBoardException("", ex);
             }
         }
         #endregion
@@ -64,8 +65,7 @@ namespace MessageBoardController
         public void GetPost(DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             try
-            {
-                
+            {   
                 for (int i = 0; i < _form.ViewDisplayPosts.RowCount; i++)
                 {
                     if (e.Clicks == 2)
@@ -87,7 +87,7 @@ namespace MessageBoardController
             catch (Exception ex)
             {
                 Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
-                throw ex;
+                throw new MessageBoardException("", ex);
             }
         }
         #endregion
