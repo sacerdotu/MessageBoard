@@ -132,7 +132,7 @@ namespace MessageBoard.Forms
         #region AddNewComment
         public void AddNewComment()
         {
-            AddCommentsForm form = new AddCommentsForm();
+            AddCommentsForm form = new AddCommentsForm(false);
             form.Show();
             this.Close();
         }
@@ -157,5 +157,12 @@ namespace MessageBoard.Forms
             }
         }
         #endregion
+
+        private void btnReplyPost_Click(object sender, EventArgs e)
+        {
+            AddCommentsForm form = new AddCommentsForm(true);
+            form.Show();
+            this.Close();
+        }
     }
 }

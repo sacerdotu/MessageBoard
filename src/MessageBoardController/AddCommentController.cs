@@ -19,20 +19,13 @@ namespace MessageBoardController
         #region Constructor
         public AddCommentController(IAddCommentsForm form)
         {
-            try
-            {
-                _service = new MessageBoardServiceClient();
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            _service = new MessageBoardServiceClient();
+            _form = form;
         }
         #endregion
 
         #region AddComment
-        public void AddComment(string comment)
+        public void AddComment(string comment, bool mainComment)
         {
             try
             {
@@ -42,8 +35,19 @@ namespace MessageBoardController
                 addComment.IsBlocked = false;
                 addComment.PostID = AppGlobalVariables.AppGlobalVariables.Instance.PostID;
                 addComment.UserID = AppGlobalVariables.AppGlobalVariables.Instance.UserID;
-                addComment.MainComment = AppGlobalVariables.AppGlobalVariables.Instance.CommentID;
+                if (!mainComment)
+                {
+                    addComment.MainComment = AppGlobalVariables.AppGlobalVariables.Instance.CommentID;
+                }
+                else
+                {
+                    addComment.MainComment = null;
+                }
                 bool result = _service.AddComment(addComment);
+                if (result)
+                {
+                    _form.Success();
+                }
             }
             catch (Exception ex)
             {

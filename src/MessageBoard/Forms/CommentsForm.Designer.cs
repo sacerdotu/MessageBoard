@@ -38,9 +38,9 @@
             this.lblAuthor = new DevExpress.XtraEditors.LabelControl();
             this.panelCommnets = new DevExpress.XtraEditors.PanelControl();
             this.xtraScrollableControl = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.ucComments = new MessageBoard.UserControlls.ucComment();
             this.pnlbuttons = new DevExpress.XtraEditors.PanelControl();
             this.btnReplyPost = new DevExpress.XtraEditors.SimpleButton();
-            this.ucComments = new MessageBoard.UserControlls.ucComment();
             ((System.ComponentModel.ISupportInitialize)(this.panelPost)).BeginInit();
             this.panelPost.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgPost.Properties)).BeginInit();
@@ -175,6 +175,15 @@
             this.xtraScrollableControl.Size = new System.Drawing.Size(567, 322);
             this.xtraScrollableControl.TabIndex = 0;
             // 
+            // ucComments
+            // 
+            this.ucComments.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ucComments.CommentID = 0;
+            this.ucComments.Location = new System.Drawing.Point(-2, 26);
+            this.ucComments.Name = "ucComments";
+            this.ucComments.Size = new System.Drawing.Size(569, 195);
+            this.ucComments.TabIndex = 0;
+            // 
             // pnlbuttons
             // 
             this.pnlbuttons.Appearance.BackColor = System.Drawing.Color.Teal;
@@ -207,15 +216,7 @@
             this.btnReplyPost.Size = new System.Drawing.Size(93, 25);
             this.btnReplyPost.TabIndex = 2;
             this.btnReplyPost.Text = "Reply Post";
-            // 
-            // ucComments
-            // 
-            this.ucComments.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ucComments.CommentID = 0;
-            this.ucComments.Location = new System.Drawing.Point(-2, 26);
-            this.ucComments.Name = "ucComments";
-            this.ucComments.Size = new System.Drawing.Size(569, 195);
-            this.ucComments.TabIndex = 0;
+            this.btnReplyPost.Click += new System.EventHandler(this.btnReplyPost_Click);
             // 
             // CommentsForm
             // 

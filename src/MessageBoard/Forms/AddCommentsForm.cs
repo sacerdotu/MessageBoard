@@ -1,4 +1,5 @@
 ﻿using DevExpress.Tutorials.Controls;
+using DevExpress.XtraEditors;
 using MessageBoardCommon;
 using MessageBoardController;
 using MessageBoardController.Interfaces;
@@ -19,6 +20,7 @@ namespace MessageBoard.Forms
     {
         AddCommentController _controller;
         private PostDTO _post;
+        bool _mainComment = false;
 
         #region Properties
         public RichTextBoxEx RtbComment
@@ -28,8 +30,9 @@ namespace MessageBoard.Forms
         #endregion
 
         #region Constructor
-        public AddCommentsForm()
+        public AddCommentsForm(bool mainComment)
         {
+            _mainComment = mainComment;
             InitializeComponent();
             _controller = new AddCommentController(this);
         }
@@ -40,7 +43,7 @@ namespace MessageBoard.Forms
         {
             try
             {
-                _controller.AddComment(RtbComment.Text);
+                _controller.AddComment(RtbComment.Text, _mainComment);
             }
             catch (MessageBoardException ex)
             {
@@ -59,6 +62,16 @@ namespace MessageBoard.Forms
                 this.Close();
             }
             return base.ProcessDialogKey(keyData);
+        }
+        #endregion
+
+        #region Success
+        public void Success()
+        {
+            XtraMessageBox.Show("Comment was added!");
+            CommentsForm form = new CommentsForm();
+            form.Show();
+            this.Close(); 
         }
         #endregion
 
