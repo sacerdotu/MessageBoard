@@ -16,10 +16,10 @@ namespace MessageBoardController.MessageBoardService {
     public interface IMessageBoardService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/InsertNewUser", ReplyAction="http://tempuri.org/IMessageBoardService/InsertNewUserResponse")]
-        MessageBoardDTO.UserDTO InsertNewUser(MessageBoardDTO.UserDTO user);
+        bool InsertNewUser(MessageBoardDTO.UserDTO user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/InsertNewUser", ReplyAction="http://tempuri.org/IMessageBoardService/InsertNewUserResponse")]
-        System.Threading.Tasks.Task<MessageBoardDTO.UserDTO> InsertNewUserAsync(MessageBoardDTO.UserDTO user);
+        System.Threading.Tasks.Task<bool> InsertNewUserAsync(MessageBoardDTO.UserDTO user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/CheckUserAndPassword", ReplyAction="http://tempuri.org/IMessageBoardService/CheckUserAndPasswordResponse")]
         MessageBoardDTO.UserDTO CheckUserAndPassword(string username);
@@ -121,11 +121,11 @@ namespace MessageBoardController.MessageBoardService {
                 base(binding, remoteAddress) {
         }
         
-        public MessageBoardDTO.UserDTO InsertNewUser(MessageBoardDTO.UserDTO user) {
+        public bool InsertNewUser(MessageBoardDTO.UserDTO user) {
             return base.Channel.InsertNewUser(user);
         }
         
-        public System.Threading.Tasks.Task<MessageBoardDTO.UserDTO> InsertNewUserAsync(MessageBoardDTO.UserDTO user) {
+        public System.Threading.Tasks.Task<bool> InsertNewUserAsync(MessageBoardDTO.UserDTO user) {
             return base.Channel.InsertNewUserAsync(user);
         }
         

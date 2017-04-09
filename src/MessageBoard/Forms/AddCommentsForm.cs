@@ -19,7 +19,6 @@ namespace MessageBoard.Forms
     public partial class AddCommentsForm : Form , IAddCommentsForm
     {
         AddCommentController _controller;
-        private PostDTO _post;
         bool _mainComment = false;
 
         #region Properties

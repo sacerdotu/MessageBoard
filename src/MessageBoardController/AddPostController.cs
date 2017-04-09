@@ -33,6 +33,8 @@ namespace MessageBoardController
                 addPost.UserID = userID;
                 addPost.PostText = _form.RtbPost.Text;
                 addPost.PostImage = ConvertImage.ImageToByteArray(_form.ImgPost.Image);
+                addPost.IsPublished = true;
+                addPost.CreationDate = DateTime.Now;
                 if (_service.AddNewPost(addPost) == true)
                 {
                     _form.PostWasAdded();

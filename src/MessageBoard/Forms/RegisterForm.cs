@@ -1,7 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using MessageBoardCommon;
 using MessageBoardController;
-using MessageBoardController.Constants;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

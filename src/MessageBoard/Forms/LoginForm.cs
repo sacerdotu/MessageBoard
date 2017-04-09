@@ -1,23 +1,11 @@
 ﻿using DevExpress.XtraEditors;
-using MessageBoard;
 using MessageBoardController;
 using MessageBoard.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MessageBoardController.Interfaces;
-using System.ServiceModel;
-using MessageBoardController.HelperClasses;
-using MessageBoardController.Constants;
 using MessageBoardCommon;
 using MessageBoardController.AppGlobalVariables;
-using DevExpress.Utils;
 
 namespace MessageBoard
 {

@@ -34,7 +34,7 @@ namespace MessageBoardController
         {
             try
             {
-                int newUserID = 0;
+                bool success = false;
                 if (!String.IsNullOrEmpty(password) && (password == confirmPassword))
                 {
                     UserDTO user = new UserDTO();
@@ -47,11 +47,13 @@ namespace MessageBoardController
                     user.ProfileImage = ConvertImage.ImageToByteArray(_form.ImgProfilePicture.Image);
                     user.PasswordSalt = HashHelper.GetSalt();
                     user.PasswordHash = HashHelper.GetHash(_form.TxtPassword.EditValue.ToString(), user.PasswordSalt);
-                    UserDTO error = new UserDTO();
-                    error = _service.InsertNewUser(user);
-                    newUserID = error.UserID;
+                    user.IsActive = true;
+                    user.IsAdministrator = false;
+                    user.AccountCreationDate = DateTime.Now;
+
+                    success = _service.InsertNewUser(user);
                 }
-                if (newUserID > 0)
+                if (success)
                 {
                     _form.AccountCreated();
                 }

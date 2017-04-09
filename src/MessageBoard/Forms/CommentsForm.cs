@@ -4,7 +4,6 @@ using MessageBoard.UserControlls;
 using MessageBoardCommon;
 using MessageBoardController;
 using MessageBoardController.AppGlobalVariables;
-using MessageBoardController.Constants;
 using MessageBoardController.HelperClasses;
 using MessageBoardController.Interfaces;
 using MessageBoardDTO;
@@ -23,7 +22,6 @@ namespace MessageBoard.Forms
     public partial class CommentsForm : Form, ICommentsForm
     {
         private CommentsController _controller;
-        private PostDTO _post;
 
         #region Constructors
         public CommentsForm()

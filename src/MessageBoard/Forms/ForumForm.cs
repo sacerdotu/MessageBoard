@@ -10,7 +10,6 @@ using DevExpress.XtraGrid.Views.Grid;
 using MessageBoardCommon;
 using MessageBoardController;
 using MessageBoardController.AppGlobalVariables;
-using MessageBoardController.Constants;
 using MessageBoardController.Interfaces;
 using MessageBoardDTO;
 using System;

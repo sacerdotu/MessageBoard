@@ -14,7 +14,6 @@ using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using MessageBoardCommon;
 using DevExpress.XtraGrid.Views.Base;
-using MessageBoardController.Constants;
 using MessageBoardController.AppGlobalVariables;
 
 namespace MessageBoard.Forms
