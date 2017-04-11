@@ -37,7 +37,7 @@ namespace MessageBoard.Forms
         #endregion
 
         #region Properties
-        
+
         public XtraScrollableControl ScrCommentControl
         {
             get
@@ -77,6 +77,10 @@ namespace MessageBoard.Forms
         {
             get { return richPostContent; }
         }
+
+        public int UcWidth
+        { get; set; }
+
         #endregion
 
         #region LoadForm
@@ -107,7 +111,7 @@ namespace MessageBoard.Forms
         public void DisplayComments(CommentDTO comment, int x, int y, bool visibility)
         {
             try
-            {                                    
+            {
                 ucComment uc = new ucComment();
                 uc.GrpComment.Text = comment.CreationDate.ToString();
                 uc.LblUsername.Text = comment.tblUser.Username;
@@ -116,8 +120,8 @@ namespace MessageBoard.Forms
                 uc.CommentID = comment.CommentID;
                 ScrCommentControl.Controls.Add(uc);
                 uc.Location = new Point(x, 3 + uc.Height * y);
-                uc.Size = new Size(544 - x, 184);
-                uc.GrpComment.Size = new Size(544 - x, 184);
+                uc.Size = new Size(UcWidth - x, 190);
+                uc.GrpComment.Size = new Size(UcWidth - 3 - x, 190);
                 uc.BtnQuote.Visible = visibility;
             }
             catch (MessageBoardException ex)
@@ -139,7 +143,8 @@ namespace MessageBoard.Forms
         #region btnEsc
         protected override bool ProcessDialogKey(Keys keyData)
         {
-            try {
+            try
+            {
                 if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
                 {
                     ForumForm form = new ForumForm();

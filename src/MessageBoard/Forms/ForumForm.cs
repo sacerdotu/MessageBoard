@@ -170,7 +170,8 @@ namespace MessageBoard.Forms
         #region EscKey
         protected override bool ProcessDialogKey(Keys keyData)
         {
-            try {
+            try
+            {
                 if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
                 {
                     this.Close();

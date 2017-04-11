@@ -75,6 +75,13 @@ namespace MessageBoardController
             {
                 List<CommentDTO> comments = _sortedComments;
                 int currentComment = 0;
+                if(comments.Count == 1)
+                {
+                    _form.UcWidth = 640;
+                    _form.DisplayComments(comments[0], 0, 0, true);
+                    return;
+                }
+                _form.UcWidth = 623;
                 foreach (var comment in comments)
                 {
                     if (comment.MainComment == null)

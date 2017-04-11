@@ -49,13 +49,13 @@
             this.grpComment.Controls.Add(this.pnlInfoComment);
             this.grpComment.Controls.Add(this.richCommentContent);
             this.grpComment.Controls.Add(this.btnQuote);
-            this.grpComment.Location = new System.Drawing.Point(0, 3);
+            this.grpComment.Location = new System.Drawing.Point(0, 0);
             this.grpComment.LookAndFeel.SkinMaskColor = System.Drawing.Color.Transparent;
             this.grpComment.LookAndFeel.SkinMaskColor2 = System.Drawing.Color.White;
             this.grpComment.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.grpComment.LookAndFeel.UseDefaultLookAndFeel = false;
             this.grpComment.Name = "grpComment";
-            this.grpComment.Size = new System.Drawing.Size(541, 184);
+            this.grpComment.Size = new System.Drawing.Size(603, 187);
             this.grpComment.TabIndex = 0;
             this.grpComment.Text = "Date";
             // 
@@ -69,7 +69,7 @@
             this.pnlInfoComment.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.pnlInfoComment.LookAndFeel.UseDefaultLookAndFeel = false;
             this.pnlInfoComment.Name = "pnlInfoComment";
-            this.pnlInfoComment.Size = new System.Drawing.Size(166, 122);
+            this.pnlInfoComment.Size = new System.Drawing.Size(166, 99);
             this.pnlInfoComment.TabIndex = 0;
             // 
             // imgProfilePicture
@@ -79,11 +79,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.imgProfilePicture.Cursor = System.Windows.Forms.Cursors.Default;
             this.imgProfilePicture.Enabled = false;
-            this.imgProfilePicture.Location = new System.Drawing.Point(0, 22);
+            this.imgProfilePicture.Location = new System.Drawing.Point(6, 22);
             this.imgProfilePicture.Name = "imgProfilePicture";
             this.imgProfilePicture.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.imgProfilePicture.Properties.ZoomAccelerationFactor = 1D;
-            this.imgProfilePicture.Size = new System.Drawing.Size(100, 95);
+            this.imgProfilePicture.Size = new System.Drawing.Size(74, 70);
             this.imgProfilePicture.TabIndex = 1;
             // 
             // lblUsername
@@ -96,10 +96,12 @@
             // 
             // richCommentContent
             // 
+            this.richCommentContent.Enabled = false;
             this.richCommentContent.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richCommentContent.Location = new System.Drawing.Point(172, 24);
             this.richCommentContent.Name = "richCommentContent";
-            this.richCommentContent.Size = new System.Drawing.Size(339, 122);
+            this.richCommentContent.ReadOnly = true;
+            this.richCommentContent.Size = new System.Drawing.Size(418, 99);
             this.richCommentContent.TabIndex = 3;
             this.richCommentContent.Text = "";
             // 
@@ -115,7 +117,7 @@
             this.btnQuote.Appearance.Options.UseFont = true;
             this.btnQuote.Appearance.Options.UseForeColor = true;
             this.btnQuote.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.btnQuote.Location = new System.Drawing.Point(436, 152);
+            this.btnQuote.Location = new System.Drawing.Point(515, 158);
             this.btnQuote.Name = "btnQuote";
             this.btnQuote.Size = new System.Drawing.Size(75, 23);
             this.btnQuote.TabIndex = 2;
@@ -129,7 +131,7 @@
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.Controls.Add(this.grpComment);
             this.Name = "ucComment";
-            this.Size = new System.Drawing.Size(543, 184);
+            this.Size = new System.Drawing.Size(606, 189);
             ((System.ComponentModel.ISupportInitialize)(this.grpComment)).EndInit();
             this.grpComment.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnlInfoComment)).EndInit();
