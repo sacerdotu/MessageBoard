@@ -48,6 +48,7 @@
       <HintPath>..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MessageBoardCommon1, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -67,6 +68,7 @@
     <Compile Include="AddCommentController.cs" />
     <Compile Include="AddPostController.cs" />
     <Compile Include="AppGlobalVariables\AppGlobalVariables.cs" />
+    <Compile Include="BaseFormController.cs" />
     <Compile Include="ChangePasswordController.cs" />
     <Compile Include="ChangeProfilePictureController.cs" />
     <Compile Include="CommentsController.cs" />
@@ -77,6 +79,7 @@
     <Compile Include="HelperClasses\HashHelper.cs" />
     <Compile Include="Interfaces\IAddCommentsForm.cs" />
     <Compile Include="Interfaces\IAddPostForm.cs" />
+    <Compile Include="Interfaces\IBaseForm.cs" />
     <Compile Include="Interfaces\IChangePasswordForm.cs" />
     <Compile Include="Interfaces\IChangeProfilePictureForm.cs" />
     <Compile Include="Interfaces\ICommentsForm.cs" />
@@ -102,6 +105,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\MessageBoardCommon.TranslationDTO.datasource" />
     <None Include="Properties\DataSources\MessageBoardDTO.CommentDTO.datasource" />
     <None Include="Properties\DataSources\MessageBoardDTO.PostDTO.datasource" />
     <None Include="Properties\DataSources\MessageBoardDTO.UserDTO.datasource" />
@@ -138,6 +142,9 @@
     <None Include="Service References\MessageBoardService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\MessageBoardService\MessageBoardService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\MessageBoardService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

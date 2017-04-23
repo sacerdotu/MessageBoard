@@ -9,7 +9,7 @@ using MessageBoardController.AppGlobalVariables;
 
 namespace MessageBoard
 {
-    public partial class LoginForm : Form, ILoginForm
+    public partial class LoginForm : BaseForm, ILoginForm
     {
         LoginController _controller;
 
@@ -33,7 +33,9 @@ namespace MessageBoard
 
         #region Constructor
         public LoginForm()
+            : base()
         {
+            AppGlobalVariables.Instance.GetTranslations = true;
             InitializeComponent();
             _controller = new LoginController(this);
         }
@@ -127,7 +129,8 @@ namespace MessageBoard
         #region LoadForm
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            TxtUsername.Focus();      
+            TxtUsername.Focus();
+            BaseForm_Load(this);
         }
         #endregion
 

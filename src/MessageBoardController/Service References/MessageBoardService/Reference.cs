@@ -92,6 +92,12 @@ namespace MessageBoardController.MessageBoardService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/AddComment", ReplyAction="http://tempuri.org/IMessageBoardService/AddCommentResponse")]
         System.Threading.Tasks.Task<bool> AddCommentAsync(MessageBoardDTO.CommentDTO addNewComment);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/GetTranslations", ReplyAction="http://tempuri.org/IMessageBoardService/GetTranslationsResponse")]
+        System.Collections.Generic.List<MessageBoardCommon.TranslationDTO> GetTranslations();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/GetTranslations", ReplyAction="http://tempuri.org/IMessageBoardService/GetTranslationsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardCommon.TranslationDTO>> GetTranslationsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -223,6 +229,14 @@ namespace MessageBoardController.MessageBoardService {
         
         public System.Threading.Tasks.Task<bool> AddCommentAsync(MessageBoardDTO.CommentDTO addNewComment) {
             return base.Channel.AddCommentAsync(addNewComment);
+        }
+        
+        public System.Collections.Generic.List<MessageBoardCommon.TranslationDTO> GetTranslations() {
+            return base.Channel.GetTranslations();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardCommon.TranslationDTO>> GetTranslationsAsync() {
+            return base.Channel.GetTranslationsAsync();
         }
     }
 }
