@@ -32,8 +32,12 @@ namespace MessageBoard.Forms
         public AddCommentsForm(bool mainComment)
         {
             _mainComment = mainComment;
-            InitializeComponent();
             _controller = new AddCommentController(this);
+        }
+
+        public AddCommentsForm()
+        {
+            InitializeComponent();
         }
         #endregion
 

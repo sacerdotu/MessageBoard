@@ -36,6 +36,7 @@ namespace MessageBoard
             : base()
         {
             AppGlobalVariables.Instance.GetTranslations = true;
+            AppGlobalVariables.Instance.GetForms();
             InitializeComponent();
             _controller = new LoginController(this);
         }
@@ -130,7 +131,8 @@ namespace MessageBoard
         private void LoginForm_Load(object sender, EventArgs e)
         {
             TxtUsername.Focus();
-            BaseForm_Load(this);
+            //BaseForm_Load(this);
+            AddAllControls();
         }
         #endregion
 
