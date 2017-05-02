@@ -15,6 +15,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using MessageBoardCommon;
 using DevExpress.XtraGrid.Views.Base;
 using MessageBoardController.AppGlobalVariables;
+using static DevExpress.Office.PInvoke.Win32;
 
 namespace MessageBoard.Forms
 {
@@ -52,6 +53,7 @@ namespace MessageBoard.Forms
         private void UsersForm_Load(object sender, EventArgs e)
         {
             _controller.LoadForm();
+            lblViewUsers.Location = new POINT(this.Width / 2 - lblViewUsers.Width / 2, lblViewUsers.Location.Y);
         }
         #endregion
 

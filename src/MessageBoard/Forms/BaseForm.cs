@@ -31,8 +31,6 @@ namespace MessageBoard.Forms
         public void BaseForm_Load(Form form)
         {
             _form = form;
-            _controller.FormLoad();
-            Translate();
         }
 
         public void Translate()
@@ -82,11 +80,10 @@ namespace MessageBoard.Forms
                 foreach (var formName in AppGlobalVariables.Instance.Forms)
                 {
                     var formType = Assembly.GetExecutingAssembly().GetTypes()
-        .Where(a => a.BaseType == typeof(Form) && a.Name == formName)
+        .Where(a => (a.BaseType == typeof(Form) || a.BaseType == typeof(BaseForm)) && a.Name == formName)
         .FirstOrDefault();
-                    //Form form = (Form)Activator.CreateInstance(formType);
-                    Form form = (Form)formType.InvokeMember(formName, 
-                          BindingFlags.Public | BindingFlags.Instance | 
+                    Form form = (Form)formType.InvokeMember(formName,
+                          BindingFlags.Public | BindingFlags.Instance |
                           BindingFlags.CreateInstance, null, null, new Form[] { });
                     List<Control> controls = new List<Control>();
                     controls = GetAllControls(form.Controls, controls);
@@ -105,6 +102,11 @@ namespace MessageBoard.Forms
             {
                 throw ex;
             }
+        }
+
+        public void GetControls()
+        {
+            _controller.GetControls();
         }
     }
 }

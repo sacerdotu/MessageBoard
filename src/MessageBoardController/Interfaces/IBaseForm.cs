@@ -8,5 +8,6 @@ namespace MessageBoardController.Interfaces
 {
     public interface IBaseForm
     {
+        Dictionary<String, String> AddAllControls();
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MessageBoardController.AppGlobalVariables;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,10 @@ namespace MessageBoard
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            AppGlobalVariables.Instance.GetTranslations = true;
+            AppGlobalVariables.Instance.GetForms();
+            AppGlobalVariables.Instance.IsForTranslation = true;
+            Application.Run(new LoginForm());          
         }
     }
 }

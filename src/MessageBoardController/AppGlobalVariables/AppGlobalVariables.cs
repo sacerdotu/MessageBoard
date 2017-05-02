@@ -57,6 +57,9 @@ namespace MessageBoardController.AppGlobalVariables
             }
         }
 
+        public bool IsForTranslation { get; set; }
+        public bool FirstEntry { get; set; }
+
         public void GetForms()
         {
             Forms.Add(Constants.AddCommentsForm);
@@ -66,7 +69,6 @@ namespace MessageBoardController.AppGlobalVariables
             Forms.Add(Constants.DisplayUsersForm);
             Forms.Add(Constants.ForumForm);
             Forms.Add(Constants.LoginForm);
-            Forms.Add(Constants.MainForm);
             Forms.Add(Constants.RegisterForm);
             Forms.Add(Constants.UserDetailsForm);
         }

@@ -33,7 +33,7 @@
             this.btnChangePassword = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.lblConfirmPassword = new DevExpress.XtraEditors.LabelControl();
-            this.lblLogin = new DevExpress.XtraEditors.LabelControl();
+            this.lblChangePassword = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConfirmPassword.Properties)).BeginInit();
             this.SuspendLayout();
@@ -108,17 +108,17 @@
             this.lblConfirmPassword.TabIndex = 12;
             this.lblConfirmPassword.Text = "Confirm password:";
             // 
-            // lblLogin
+            // lblChangePassword
             // 
-            this.lblLogin.Appearance.Font = new System.Drawing.Font("Verdana", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogin.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.lblLogin.Appearance.Options.UseFont = true;
-            this.lblLogin.Appearance.Options.UseForeColor = true;
-            this.lblLogin.Location = new System.Drawing.Point(22, 25);
-            this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(325, 45);
-            this.lblLogin.TabIndex = 13;
-            this.lblLogin.Text = "Change Password";
+            this.lblChangePassword.Appearance.Font = new System.Drawing.Font("Verdana", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChangePassword.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.lblChangePassword.Appearance.Options.UseFont = true;
+            this.lblChangePassword.Appearance.Options.UseForeColor = true;
+            this.lblChangePassword.Location = new System.Drawing.Point(22, 25);
+            this.lblChangePassword.Name = "lblChangePassword";
+            this.lblChangePassword.Size = new System.Drawing.Size(325, 45);
+            this.lblChangePassword.TabIndex = 13;
+            this.lblChangePassword.Text = "Change Password";
             // 
             // ChangePasswordForm
             // 
@@ -126,7 +126,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(366, 367);
-            this.Controls.Add(this.lblLogin);
+            this.Controls.Add(this.lblChangePassword);
             this.Controls.Add(this.lblConfirmPassword);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.btnChangePassword);
@@ -149,6 +149,6 @@
         private DevExpress.XtraEditors.SimpleButton btnChangePassword;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl lblConfirmPassword;
-        private DevExpress.XtraEditors.LabelControl lblLogin;
+        private DevExpress.XtraEditors.LabelControl lblChangePassword;
     }
 }

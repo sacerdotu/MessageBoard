@@ -90,5 +90,15 @@ namespace MessageBoardController
         }
         #endregion
 
+        #region LoadForm
+        public void GetTranslations()
+        {
+            if (AppGlobalVariables.AppGlobalVariables.Instance.GetTranslations)
+            {
+                AppGlobalVariables.AppGlobalVariables.Instance.Translations = _service.GetTranslations();
+            }
+        }
+        #endregion
+
     }
 }

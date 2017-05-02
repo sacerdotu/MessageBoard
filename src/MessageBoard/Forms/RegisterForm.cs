@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static DevExpress.Office.PInvoke.Win32;
 
 namespace MessageBoard.Forms
 {
@@ -138,6 +139,7 @@ namespace MessageBoard.Forms
             IsActive.Visible = false;
             AccountCreationDate.Visible = false;
             lblRegisterDate.Visible = false;
+            lblRegister.Location = new POINT(this.Width / 2 - lblRegister.Width / 2, lblRegister.Location.Y);
         }
         #endregion
 

@@ -6,6 +6,8 @@ using System.Windows.Forms;
 using MessageBoardController.Interfaces;
 using MessageBoardCommon;
 using MessageBoardController.AppGlobalVariables;
+using DevExpress.Utils;
+using static DevExpress.Office.PInvoke.Win32;
 
 namespace MessageBoard
 {
@@ -35,8 +37,6 @@ namespace MessageBoard
         public LoginForm()
             : base()
         {
-            AppGlobalVariables.Instance.GetTranslations = true;
-            AppGlobalVariables.Instance.GetForms();
             InitializeComponent();
             _controller = new LoginController(this);
         }
@@ -52,9 +52,9 @@ namespace MessageBoard
         #region Register
         private void hplRegister_Click(object sender, EventArgs e)
         {
-                RegisterForm register = new RegisterForm();
-                register.Show();
-                this.Hide();
+            RegisterForm register = new RegisterForm();
+            register.Show();
+            this.Hide();
         }
         #endregion
 
@@ -81,12 +81,13 @@ namespace MessageBoard
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
-            { 
+            {
+                AppGlobalVariables.Instance.IsForTranslation = false;
                 AppGlobalVariables.Instance.UserID = _controller.ValidateLogin(Convert.ToString(TxtUsername.EditValue), Convert.ToString(TxtPassword.EditValue));
                 _controller.CheckUserID();
             }
             catch (MessageBoardException ex)
-            {       
+            {
                 ex.WriteErrorMessage();
             }
             catch (Exception)
@@ -131,8 +132,10 @@ namespace MessageBoard
         private void LoginForm_Load(object sender, EventArgs e)
         {
             TxtUsername.Focus();
-            //BaseForm_Load(this);
-            AddAllControls();
+            GetControls();
+            _controller.GetTranslations();
+            BaseForm_Load(this);
+            lblLogin.Location = new POINT( this.Width / 2 - lblLogin.Width / 2, lblLogin.Location.Y);
         }
         #endregion
 

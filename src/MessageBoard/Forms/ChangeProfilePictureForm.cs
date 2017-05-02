@@ -12,10 +12,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static DevExpress.Office.PInvoke.Win32;
 
 namespace MessageBoard.Forms
 {
-    public partial class ChangeProfilePictureForm : Form , IChangeProfilePictureForm
+    public partial class ChangeProfilePictureForm : Form, IChangeProfilePictureForm
     {
         #region Members
         ChangeProfilePictureController _controller;
@@ -87,6 +88,8 @@ namespace MessageBoard.Forms
             try
             {
                 _controller.GetProfilePicture();
+                lblChangeProfilePicture.Location = new POINT(this.Width / 2 - lblChangeProfilePicture.Width / 2, lblChangeProfilePicture.Location.Y);
+
             }
             catch (MessageBoardException ex)
             {
@@ -98,7 +101,8 @@ namespace MessageBoard.Forms
         #region PressEscKey
         protected override bool ProcessDialogKey(Keys keyData)
         {
-            try {
+            try
+            {
                 if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
                 {
                     ForumForm form = new ForumForm();

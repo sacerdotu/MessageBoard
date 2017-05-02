@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static DevExpress.Office.PInvoke.Win32;
 
 namespace MessageBoard.Forms
 {
@@ -38,15 +39,7 @@ namespace MessageBoard.Forms
         {
             InitializeComponent();
             _controller = new ChangePasswordController(this);
-        }
-        #endregion
-
-        #region BackClick
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            MainForm form = new MainForm();
-            form.Show();
-            this.Close();
+            LoadForm();
         }
         #endregion
 
@@ -98,6 +91,13 @@ namespace MessageBoard.Forms
                 ex.WriteErrorMessage();
                 return false;
             }
+        }
+        #endregion
+
+        #region LoadForm
+        public void LoadForm()
+        {
+            lblChangePassword.Location = new POINT(this.Width / 2 - lblChangePassword.Width / 2, lblChangePassword.Location.Y);
         }
         #endregion
     }

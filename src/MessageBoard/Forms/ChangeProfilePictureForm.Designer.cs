@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnBrowse = new DevExpress.XtraEditors.SimpleButton();
-            this.lblRegister = new DevExpress.XtraEditors.LabelControl();
+            this.lblChangeProfilePicture = new DevExpress.XtraEditors.LabelControl();
             this.imgProfilePicture = new DevExpress.XtraEditors.PictureEdit();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.imgProfilePicture.Properties)).BeginInit();
@@ -52,17 +52,17 @@
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
-            // lblRegister
+            // lblChangeProfilePicture
             // 
-            this.lblRegister.Appearance.Font = new System.Drawing.Font("Verdana", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRegister.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.lblRegister.Appearance.Options.UseFont = true;
-            this.lblRegister.Appearance.Options.UseForeColor = true;
-            this.lblRegister.Location = new System.Drawing.Point(10, 12);
-            this.lblRegister.Name = "lblRegister";
-            this.lblRegister.Size = new System.Drawing.Size(409, 45);
-            this.lblRegister.TabIndex = 27;
-            this.lblRegister.Text = "Change profile picture";
+            this.lblChangeProfilePicture.Appearance.Font = new System.Drawing.Font("Verdana", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChangeProfilePicture.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.lblChangeProfilePicture.Appearance.Options.UseFont = true;
+            this.lblChangeProfilePicture.Appearance.Options.UseForeColor = true;
+            this.lblChangeProfilePicture.Location = new System.Drawing.Point(10, 12);
+            this.lblChangeProfilePicture.Name = "lblChangeProfilePicture";
+            this.lblChangeProfilePicture.Size = new System.Drawing.Size(409, 45);
+            this.lblChangeProfilePicture.TabIndex = 27;
+            this.lblChangeProfilePicture.Text = "Change profile picture";
             // 
             // imgProfilePicture
             // 
@@ -99,7 +99,7 @@
             this.ClientSize = new System.Drawing.Size(426, 323);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.imgProfilePicture);
-            this.Controls.Add(this.lblRegister);
+            this.Controls.Add(this.lblChangeProfilePicture);
             this.Controls.Add(this.btnBrowse);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ChangeProfilePictureForm";
@@ -115,7 +115,7 @@
         #endregion
 
         private DevExpress.XtraEditors.SimpleButton btnBrowse;
-        private DevExpress.XtraEditors.LabelControl lblRegister;
+        private DevExpress.XtraEditors.LabelControl lblChangeProfilePicture;
         private DevExpress.XtraEditors.PictureEdit imgProfilePicture;
         private DevExpress.XtraEditors.SimpleButton btnSave;
     }

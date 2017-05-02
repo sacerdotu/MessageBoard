@@ -27,11 +27,14 @@ namespace MessageBoard.Forms
         public CommentsForm()
         {
             InitializeComponent();
-            _controller = new CommentsController(this, AppGlobalVariables.Instance.Post);
-            RichPostContent.Text = AppGlobalVariables.Instance.Post.PostText;
-            lblAuthor.Text = AppGlobalVariables.Instance.Post.tblUser.Username;
-            lblDate.Text = AppGlobalVariables.Instance.Post.CreationDate.ToString();
-            ImgPost.Image = AppGlobalVariables.Instance.Post.PostImage != null ? ConvertImage.ByteArrayToImage(AppGlobalVariables.Instance.Post.PostImage) : null;
+            if (!AppGlobalVariables.Instance.IsForTranslation)
+            {
+                _controller = new CommentsController(this, AppGlobalVariables.Instance.Post);
+                RichPostContent.Text = AppGlobalVariables.Instance.Post.PostText;
+                lblAuthor.Text = AppGlobalVariables.Instance.Post.tblUser.Username;
+                lblDate.Text = AppGlobalVariables.Instance.Post.CreationDate.ToString();
+                ImgPost.Image = AppGlobalVariables.Instance.Post.PostImage != null ? ConvertImage.ByteArrayToImage(AppGlobalVariables.Instance.Post.PostImage) : null;
+            }
         }
 
         #endregion
