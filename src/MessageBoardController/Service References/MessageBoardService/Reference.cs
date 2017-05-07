@@ -98,6 +98,12 @@ namespace MessageBoardController.MessageBoardService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/GetTranslations", ReplyAction="http://tempuri.org/IMessageBoardService/GetTranslationsResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardCommon.TranslationDTO>> GetTranslationsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/InsertTranslations", ReplyAction="http://tempuri.org/IMessageBoardService/InsertTranslationsResponse")]
+        void InsertTranslations(System.Collections.Generic.Dictionary<string, string> translatedControls, string language);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/InsertTranslations", ReplyAction="http://tempuri.org/IMessageBoardService/InsertTranslationsResponse")]
+        System.Threading.Tasks.Task InsertTranslationsAsync(System.Collections.Generic.Dictionary<string, string> translatedControls, string language);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -237,6 +243,14 @@ namespace MessageBoardController.MessageBoardService {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardCommon.TranslationDTO>> GetTranslationsAsync() {
             return base.Channel.GetTranslationsAsync();
+        }
+        
+        public void InsertTranslations(System.Collections.Generic.Dictionary<string, string> translatedControls, string language) {
+            base.Channel.InsertTranslations(translatedControls, language);
+        }
+        
+        public System.Threading.Tasks.Task InsertTranslationsAsync(System.Collections.Generic.Dictionary<string, string> translatedControls, string language) {
+            return base.Channel.InsertTranslationsAsync(translatedControls, language);
         }
     }
 }

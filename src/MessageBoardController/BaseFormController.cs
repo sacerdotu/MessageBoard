@@ -13,6 +13,7 @@ namespace MessageBoardController
 {
     public class BaseFormController
     {
+        private IMessageBoardService _service;
         private IBaseForm _form;
         private static Dictionary<string, string> _languageModeMap;
         private Dictionary<string, string> _getControls = new Dictionary<string, string>();
@@ -20,7 +21,10 @@ namespace MessageBoardController
 
         public BaseFormController(IBaseForm form)
         {
+            _service = new MessageBoardServiceClient();
             _form = form;
+            AppGlobalVariables.AppGlobalVariables.Instance.CurrentLanguage = "English";
+            AppGlobalVariables.AppGlobalVariables.Instance.NextLanguage = "French";
         }
 
         #region Translate
@@ -209,7 +213,16 @@ namespace MessageBoardController
                 string translate = Translate(control.Value, "English", "French");
                 _translatedControls.Add(control.Key, translate);
             }
+            InsertTranslations();
         }
         #endregion
+
+        public void InsertTranslations()
+        {
+            if(_translatedControls != null && _translatedControls.Count > 0)
+            {
+                _service.InsertTranslations(_translatedControls, AppGlobalVariables.AppGlobalVariables.Instance.NextLanguage);
+            }
+        }
     }
 }

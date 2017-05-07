@@ -1,4 +1,7 @@
-﻿using MessageBoardCommon;
+﻿using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Grid;
+using MessageBoardCommon;
 using MessageBoardController;
 using MessageBoardController.AppGlobalVariables;
 using MessageBoardController.Interfaces;
@@ -31,6 +34,7 @@ namespace MessageBoard.Forms
         public void BaseForm_Load(Form form)
         {
             _form = form;
+            Translate();
         }
 
         public void Translate()
@@ -43,14 +47,22 @@ namespace MessageBoard.Forms
             {
                 if (control is DevExpress.XtraGrid.GridControl)
                 {
-
+                    GridControl gridControl = (GridControl)control;
+                    foreach (GridColumn column in ((GridView)gridControl.MainView).Columns)
+                    {
+                        TranslationDTO translation = translations.FirstOrDefault(x => x.ControlName == control.Name && x.FormName == _form.Name);
+                        if (translation != null)
+                        {
+                            column.Caption = translation.Description;
+                        }
+                    }
                 }
                 else
                 {
-                    TranslationDTO translation = translations.FirstOrDefault(x => x.RowKey == control.Name && x.FormName == _form.Name);
+                    TranslationDTO translation = translations.FirstOrDefault(x => x.ControlName == control.Name && x.FormName == _form.Name);
                     if (translation != null)
                     {
-                        control.Text = translation.ControlName;
+                        control.Text = translation.Description;
                     }
                 }
             }
@@ -60,7 +72,7 @@ namespace MessageBoard.Forms
         {
             foreach (Control control in controls)
             {
-                if (control.HasChildren)
+                if (control.HasChildren && !(control is DevExpress.XtraGrid.GridControl))
                 {
                     GetAllControls(control.Controls, controlList);
                 }
@@ -91,7 +103,15 @@ namespace MessageBoard.Forms
                     {
                         if (!String.IsNullOrEmpty(control.Text))
                         {
-                            AddControls.Add(formName + control.Name, control.Text);
+                            AddControls.Add(formName + "|" + control.Name, control.Text);
+                        }
+                        if(control is DevExpress.XtraGrid.GridControl)
+                        {
+                            GridControl gridControl = (GridControl)control;
+                            foreach (GridColumn column in ((GridView)gridControl.MainView).Columns)
+                            {
+                                AddControls.Add(formName + "|" + control.Name + column.Name, column.Caption);
+                            }
                         }
                     }
 

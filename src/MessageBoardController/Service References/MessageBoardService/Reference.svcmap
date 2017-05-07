@@ -27,6 +27,7 @@
     <MetadataFile FileName="MessageBoardService1.xsd" MetadataType="Schema" ID="20909709-caf0-4f46-9731-1f0a19080a77" SourceId="1" SourceUrl="http://localhost:51604/MessageBoardService.svc?xsd=xsd2" />
     <MetadataFile FileName="MessageBoardService.wsdl" MetadataType="Wsdl" ID="3023dff6-be2d-4ea5-b770-a3d2d774883d" SourceId="1" SourceUrl="http://localhost:51604/MessageBoardService.svc?wsdl" />
     <MetadataFile FileName="MessageBoardService.disco" MetadataType="Disco" ID="121b163b-4bb9-4ad8-a03e-5c5825906afe" SourceId="1" SourceUrl="http://localhost:51604/MessageBoardService.svc?disco" />
+    <MetadataFile FileName="MessageBoardService4.xsd" MetadataType="Schema" ID="fee21a51-af7c-451f-aa63-1f40cecaab23" SourceId="1" SourceUrl="http://localhost:51604/MessageBoardService.svc?xsd=xsd4" />
     <MetadataFile FileName="MessageBoardService2.xsd" MetadataType="Schema" ID="ac89f1c3-b485-4ba3-b1ab-931da3ca1acf" SourceId="1" SourceUrl="http://localhost:51604/MessageBoardService.svc?xsd=xsd0" />
     <MetadataFile FileName="MessageBoardService.xsd" MetadataType="Schema" ID="5b323c01-34c5-4feb-b2b4-24e9261d8d10" SourceId="1" SourceUrl="http://localhost:51604/MessageBoardService.svc?xsd=xsd1" />
     <MetadataFile FileName="MessageBoardService3.xsd" MetadataType="Schema" ID="bf5b746f-33e2-447e-9b08-60a9f22a7fca" SourceId="1" SourceUrl="http://localhost:51604/MessageBoardService.svc?xsd=xsd3" />

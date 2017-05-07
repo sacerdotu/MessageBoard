@@ -59,6 +59,8 @@ namespace MessageBoardController.AppGlobalVariables
 
         public bool IsForTranslation { get; set; }
         public bool FirstEntry { get; set; }
+        public String CurrentLanguage { get; set; }
+        public String NextLanguage { get; set; }
 
         public void GetForms()
         {
