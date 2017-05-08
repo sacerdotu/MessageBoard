@@ -183,7 +183,9 @@
   </xs:element>
   <xs:element name="GetTranslations">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="languageName" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetTranslationsResponse">
@@ -197,11 +199,24 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="translatedControls" nillable="true" type="q14:ArrayOfKeyValueOfstringstring" />
-        <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="languageName" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertTranslationsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserLanguage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userID" type="xs:int" />
+        <xs:element minOccurs="0" name="languageName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserLanguageResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

@@ -99,6 +99,12 @@
   <wsdl:message name="IMessageBoardService_InsertTranslations_OutputMessage">
     <wsdl:part name="parameters" element="tns:InsertTranslationsResponse" />
   </wsdl:message>
+  <wsdl:message name="IMessageBoardService_UpdateUserLanguage_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserLanguage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageBoardService_UpdateUserLanguage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserLanguageResponse" />
+  </wsdl:message>
   <wsdl:portType name="IMessageBoardService">
     <wsdl:operation name="InsertNewUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IMessageBoardService/InsertNewUser" message="tns:IMessageBoardService_InsertNewUser_InputMessage" />
@@ -159,6 +165,10 @@
     <wsdl:operation name="InsertTranslations">
       <wsdl:input wsaw:Action="http://tempuri.org/IMessageBoardService/InsertTranslations" message="tns:IMessageBoardService_InsertTranslations_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMessageBoardService/InsertTranslationsResponse" message="tns:IMessageBoardService_InsertTranslations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserLanguage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageBoardService/UpdateUserLanguage" message="tns:IMessageBoardService_UpdateUserLanguage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageBoardService/UpdateUserLanguageResponse" message="tns:IMessageBoardService_UpdateUserLanguage_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IMessageBoardService" type="tns:IMessageBoardService">
@@ -291,6 +301,15 @@
     </wsdl:operation>
     <wsdl:operation name="InsertTranslations">
       <soap:operation soapAction="http://tempuri.org/IMessageBoardService/InsertTranslations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserLanguage">
+      <soap:operation soapAction="http://tempuri.org/IMessageBoardService/UpdateUserLanguage" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

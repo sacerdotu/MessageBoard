@@ -4,18 +4,11 @@ using MessageBoardCommon;
 using MessageBoardController;
 using MessageBoardController.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MessageBoard
 {
-    public partial class UserDetailsForm : Form, IUserDetailsForm
+    public partial class UserDetailsForm : BaseForm, IUserDetailsForm
     {
         UserDetailsController _controller;
 
@@ -137,5 +130,10 @@ namespace MessageBoard
             this.Close();
         }
         #endregion
+
+        private void UserDetailsForm_Load(object sender, EventArgs e)
+        {
+            BaseForm_Load(this);
+        }
     }
 }

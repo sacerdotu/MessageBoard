@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraGrid.Views.Grid;
 using MessageBoardCommon;
+using MessageBoardController.HelperClasses;
 using MessageBoardController.Interfaces;
 using MessageBoardController.MessageBoardService;
 using MessageBoardDTO;
@@ -15,6 +16,8 @@ namespace MessageBoardController
         private IMessageBoardService _service;
         private IForumForm _form;
         PostDTO _post = new PostDTO();
+        private Dictionary<string, string> _getControls = new Dictionary<string, string>();
+        private Dictionary<string, string> _translatedControls = new Dictionary<string, string>();
         #endregion
 
         #region Constructor
@@ -91,5 +94,53 @@ namespace MessageBoardController
             }
         }
         #endregion
+
+        #region SyncTranslations
+        public void SyncTranslations(string language)
+        {
+            try
+            {
+                _getControls = _form.GetAllControls();
+                TranslateControls(language);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        #endregion
+
+        #region TranslateControls()
+        public void TranslateControls(string language)
+        {
+            foreach (KeyValuePair<string, string> control in _getControls)
+            {
+                string translate = TranslateHelper.Translate(control.Value, "English", language);
+                _translatedControls.Add(control.Key, translate);
+            }
+            InsertTranslations();
+            _translatedControls.Clear();
+        }
+        #endregion
+
+        public void InsertTranslations()
+        {
+            if (_translatedControls != null && _translatedControls.Count > 0)
+            {
+                _service.InsertTranslations(_translatedControls, AppGlobalVariables.AppGlobalVariables.Instance.CurrentLanguage);
+            }
+        }
+
+        public void UpdateUserLanguage()
+        {
+            try
+            {
+                _service.UpdateUserLanguage(AppGlobalVariables.AppGlobalVariables.Instance.UserID, AppGlobalVariables.AppGlobalVariables.Instance.CurrentLanguage);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

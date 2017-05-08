@@ -3,21 +3,13 @@ using DevExpress.XtraEditors;
 using MessageBoardCommon;
 using MessageBoardController;
 using MessageBoardController.Interfaces;
-using MessageBoardDTO;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static DevExpress.Office.PInvoke.Win32;
 
 namespace MessageBoard.Forms
 {
-    public partial class AddCommentsForm : Form, IAddCommentsForm
+    public partial class AddCommentsForm : BaseForm, IAddCommentsForm
     {
         AddCommentController _controller;
         bool _mainComment = false;
@@ -83,6 +75,7 @@ namespace MessageBoard.Forms
         #region LoadForm
         public void LoadForm()
         {
+            BaseForm_Load(this);
             lblAddComment.Location = new POINT(this.Width / 2 - lblAddComment.Width / 2, lblAddComment.Location.Y);
         }
         #endregion

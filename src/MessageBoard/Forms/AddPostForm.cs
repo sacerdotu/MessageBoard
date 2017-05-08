@@ -4,19 +4,13 @@ using MessageBoardController;
 using MessageBoardController.AppGlobalVariables;
 using MessageBoardController.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static DevExpress.Office.PInvoke.Win32;
 
 namespace MessageBoard.Forms
 {
-    public partial class AddPostForm : Form, IAddPostForm
+    public partial class AddPostForm : BaseForm, IAddPostForm
     {
         AddPostController _controller;
 
@@ -37,7 +31,6 @@ namespace MessageBoard.Forms
         {
             InitializeComponent();
             _controller = new AddPostController(this);
-            LoadForm();
         }
         #endregion
 
@@ -109,8 +102,9 @@ namespace MessageBoard.Forms
         #endregion
 
         #region LoadForm
-        public void LoadForm()
+        private void AddPostForm_Load(object sender, EventArgs e)
         {
+            BaseForm_Load(this);
             lblAddPost.Location = new POINT(this.Width / 2 - lblAddPost.Width / 2, lblAddPost.Location.Y);
         }
         #endregion

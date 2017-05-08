@@ -58,7 +58,7 @@ namespace MessageBoard
         }
         #endregion
 
-        #region LoadMainForm
+        #region LoadForumForm
         public void LoadForumForm()
         {
             ForumForm form = new ForumForm();
@@ -84,6 +84,7 @@ namespace MessageBoard
             {
                 AppGlobalVariables.Instance.IsForTranslation = false;
                 AppGlobalVariables.Instance.UserID = _controller.ValidateLogin(Convert.ToString(TxtUsername.EditValue), Convert.ToString(TxtPassword.EditValue));
+                _controller.TranslateForCurrentLanguage();
                 _controller.CheckUserID();
             }
             catch (MessageBoardException ex)
@@ -132,8 +133,10 @@ namespace MessageBoard
         private void LoginForm_Load(object sender, EventArgs e)
         {
             TxtUsername.Focus();
-            GetControls();
-            _controller.GetTranslations();
+            //GetControls();
+            AppGlobalVariables.Instance.CurrentLanguage = "English";
+            //_controller.GetTranslations();
+            GetTranslations();
             BaseForm_Load(this);
             lblLogin.Location = new POINT( this.Width / 2 - lblLogin.Width / 2, lblLogin.Location.Y);
         }

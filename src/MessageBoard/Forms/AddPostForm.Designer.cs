@@ -62,9 +62,9 @@
             this.lblAddPost.Appearance.Options.UseForeColor = true;
             this.lblAddPost.Location = new System.Drawing.Point(82, 12);
             this.lblAddPost.Name = "lblAddPost";
-            this.lblAddPost.Size = new System.Drawing.Size(251, 45);
+            this.lblAddPost.Size = new System.Drawing.Size(163, 45);
             this.lblAddPost.TabIndex = 14;
-            this.lblAddPost.Text = "Add new post";
+            this.lblAddPost.Text = "Add post";
             // 
             // rtbPost
             // 
@@ -143,6 +143,7 @@
             this.Name = "AddPostForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddPostForm";
+            this.Load += new System.EventHandler(this.AddPostForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgPost.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

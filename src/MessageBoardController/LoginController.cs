@@ -54,7 +54,7 @@ namespace MessageBoardController
                         string generatedPassword = HashHelper.GetHash(password, user.PasswordSalt);
                         if (generatedPassword != null && generatedPassword == user.PasswordHash)
                         {
-                            _userID = user.UserID;
+                            _userID = user.UserID;                            
                         }
                         else
                         {
@@ -71,7 +71,7 @@ namespace MessageBoardController
             catch (Exception ex)
             {
                 Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
-                throw new MessageBoardException("",ex);
+                throw new MessageBoardException("", ex);
             }
         }
         #endregion
@@ -79,26 +79,48 @@ namespace MessageBoardController
         #region CheckUserID
         public void CheckUserID()
         {
-            if(_userID > 0)
+            if (_userID > 0)
             {
                 _form.LoadForumForm();
             }
-            else if(_userID == -1)
+            else if (_userID == -1)
             {
                 _form.InsertPasswordAgain();
             }
         }
         #endregion
 
-        #region LoadForm
-        public void GetTranslations()
-        {
-            if (AppGlobalVariables.AppGlobalVariables.Instance.GetTranslations)
-            {
-                AppGlobalVariables.AppGlobalVariables.Instance.Translations = _service.GetTranslations();
-            }
-        }
-        #endregion
+        //#region GetTranslations
+        //public void GetTranslations()
+        //{
+        //    if (AppGlobalVariables.AppGlobalVariables.Instance.GetTranslations)
+        //    {
+        //        AppGlobalVariables.AppGlobalVariables.Instance.Translations = _service.GetTranslations(AppGlobalVariables.AppGlobalVariables.Instance.CurrentLanguage);
+        //    }
+        //}
+        //#endregion
 
+        #region TranslateForCurrentLanguage
+        public void TranslateForCurrentLanguage()
+        {
+            try
+            {
+                UserDTO user = new UserDTO();
+                List<TranslationDTO> translations = new List<TranslationDTO>();
+                user = _service.GetUserDetails(AppGlobalVariables.AppGlobalVariables.Instance.UserID);
+                if (user.LanguageName != "English")
+                {
+                    translations = _service.GetTranslations(user.LanguageName);
+                    AppGlobalVariables.AppGlobalVariables.Instance.Translations = translations;
+                }
+                AppGlobalVariables.AppGlobalVariables.Instance.CurrentLanguage = user.LanguageName;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            #endregion
+
+        }
     }
 }

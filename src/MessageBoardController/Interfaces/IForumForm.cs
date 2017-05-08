@@ -15,5 +15,6 @@ namespace MessageBoardController.Interfaces
         GridControl GrdDisplayPosts { get; }
         GridView ViewDisplayPosts { get; }
         void LoadCommentsForm(PostDTO post);
+        Dictionary<string, string> GetAllControls();
     }
 }

@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraGrid;
+﻿using DevExpress.XtraBars;
+using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 using MessageBoardCommon;
@@ -9,11 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MessageBoard.Forms
@@ -31,43 +29,73 @@ namespace MessageBoard.Forms
         }
         #endregion
 
+        #region LoadForm
         public void BaseForm_Load(Form form)
         {
             _form = form;
             Translate();
         }
+        #endregion
 
+        #region Translate
         public void Translate()
         {
+            GetTranslations();
             List<TranslationDTO> translations = AppGlobalVariables.Instance.Translations;
 
             List<Control> formControls = new List<Control>();
             formControls = GetAllControls(_form.Controls, formControls);
             foreach (var control in formControls)
             {
-                if (control is DevExpress.XtraGrid.GridControl)
+                if (control is GridControl)
                 {
                     GridControl gridControl = (GridControl)control;
                     foreach (GridColumn column in ((GridView)gridControl.MainView).Columns)
                     {
-                        TranslationDTO translation = translations.FirstOrDefault(x => x.ControlName == control.Name && x.FormName == _form.Name);
+                        string ctrlName = _form.Name + control.Name + column.Name;
+                        TranslationDTO translation = translations.FirstOrDefault(x => x.TranslationKey == ctrlName);
                         if (translation != null)
                         {
-                            column.Caption = translation.Description;
+                            column.Caption = translation.Translation.Trim();
                         }
                     }
                 }
                 else
                 {
-                    TranslationDTO translation = translations.FirstOrDefault(x => x.ControlName == control.Name && x.FormName == _form.Name);
+                    string ctrlName = _form.Name + control.Name;
+                    TranslationDTO translation = translations.FirstOrDefault(x => x.TranslationKey == ctrlName);
                     if (translation != null)
                     {
-                        control.Text = translation.Description;
+                        control.Text = translation.Translation.Trim();
                     }
                 }
             }
         }
+        #endregion
+        #region TranslateMenu
+        public void TranslateMenu(BarItems barItem)
+        {
+            try
+            {
+                List<TranslationDTO> translations = AppGlobalVariables.Instance.Translations;
+                foreach (BarItem item in barItem)
+                {
+                    string ctrlName = _form.Name + item.Name;
+                    TranslationDTO translation = translations.FirstOrDefault(x => x.TranslationKey == ctrlName);
+                    if (translation != null)
+                    {
+                        item.Caption = translation.Translation.Trim();
+                    }
+                }
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+
+        }
+        #endregion
         private List<Control> GetAllControls(Control.ControlCollection controls, List<Control> controlList)
         {
             foreach (Control control in controls)
@@ -103,19 +131,30 @@ namespace MessageBoard.Forms
                     {
                         if (!String.IsNullOrEmpty(control.Text))
                         {
-                            AddControls.Add(formName + "|" + control.Name, control.Text);
+                            AddControls.Add(formName + control.Name, control.Text);
                         }
-                        if(control is DevExpress.XtraGrid.GridControl)
+                        if(control is GridControl)
                         {
                             GridControl gridControl = (GridControl)control;
                             foreach (GridColumn column in ((GridView)gridControl.MainView).Columns)
                             {
-                                AddControls.Add(formName + "|" + control.Name + column.Name, column.Caption);
+                                AddControls.Add(formName + control.Name + column.Name, column.Caption);
                             }
                         }
                     }
-
                 }
+
+                // add menu controls
+                AddControls.Add("ForumFormbarMenu", "Menu");
+                AddControls.Add("ForumFormbarChangePassword", "Change Password");
+                AddControls.Add("ForumFormbarChangeProfilePicture", "Change Profile Picture");
+                AddControls.Add("ForumFormbarUserInformation", "User Information");
+                AddControls.Add("ForumFormbarLanguage", "Language");
+                AddControls.Add("ForumFormbarEnglish", "English");
+                AddControls.Add("ForumFormbarFrench", "French");
+                AddControls.Add("ForumFormbarSyncLanguage", "Sync Language");
+
+
                 return AddControls;
             }
             catch (Exception ex)
@@ -124,9 +163,12 @@ namespace MessageBoard.Forms
             }
         }
 
-        public void GetControls()
+        public void GetTranslations()
         {
-            _controller.GetControls();
+            if (AppGlobalVariables.Instance.GetTranslations)
+            {
+                _controller.GetTranslations();
+            }
         }
     }
 }

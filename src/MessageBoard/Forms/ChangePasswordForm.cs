@@ -4,19 +4,12 @@ using MessageBoardController;
 using MessageBoardController.AppGlobalVariables;
 using MessageBoardController.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static DevExpress.Office.PInvoke.Win32;
 
 namespace MessageBoard.Forms
 {
-    public partial class ChangePasswordForm : Form, IChangePasswordForm
+    public partial class ChangePasswordForm : BaseForm, IChangePasswordForm
     {
         ChangePasswordController _controller;
 
@@ -97,6 +90,7 @@ namespace MessageBoard.Forms
         #region LoadForm
         public void LoadForm()
         {
+            BaseForm_Load(this);
             lblChangePassword.Location = new POINT(this.Width / 2 - lblChangePassword.Width / 2, lblChangePassword.Location.Y);
         }
         #endregion

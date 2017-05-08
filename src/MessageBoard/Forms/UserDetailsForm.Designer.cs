@@ -53,7 +53,7 @@
             this.ucUserInformations1.BackColor = System.Drawing.Color.White;
             this.ucUserInformations1.Location = new System.Drawing.Point(-1, 0);
             this.ucUserInformations1.Name = "ucUserInformations1";
-            this.ucUserInformations1.Size = new System.Drawing.Size(522, 619);
+            this.ucUserInformations1.Size = new System.Drawing.Size(520, 619);
             this.ucUserInformations1.TabIndex = 0;
             this.ucUserInformations1.Load += new System.EventHandler(this.ucUserInformations1_Load);
             // 
@@ -68,6 +68,7 @@
             this.Name = "UserDetailsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserDetailsForm";
+            this.Load += new System.EventHandler(this.UserDetailsForm_Load);
             this.ResumeLayout(false);
 
         }

@@ -94,16 +94,22 @@ namespace MessageBoardController.MessageBoardService {
         System.Threading.Tasks.Task<bool> AddCommentAsync(MessageBoardDTO.CommentDTO addNewComment);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/GetTranslations", ReplyAction="http://tempuri.org/IMessageBoardService/GetTranslationsResponse")]
-        System.Collections.Generic.List<MessageBoardCommon.TranslationDTO> GetTranslations();
+        System.Collections.Generic.List<MessageBoardCommon.TranslationDTO> GetTranslations(string languageName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/GetTranslations", ReplyAction="http://tempuri.org/IMessageBoardService/GetTranslationsResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardCommon.TranslationDTO>> GetTranslationsAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardCommon.TranslationDTO>> GetTranslationsAsync(string languageName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/InsertTranslations", ReplyAction="http://tempuri.org/IMessageBoardService/InsertTranslationsResponse")]
-        void InsertTranslations(System.Collections.Generic.Dictionary<string, string> translatedControls, string language);
+        void InsertTranslations(System.Collections.Generic.Dictionary<string, string> translatedControls, string languageName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/InsertTranslations", ReplyAction="http://tempuri.org/IMessageBoardService/InsertTranslationsResponse")]
-        System.Threading.Tasks.Task InsertTranslationsAsync(System.Collections.Generic.Dictionary<string, string> translatedControls, string language);
+        System.Threading.Tasks.Task InsertTranslationsAsync(System.Collections.Generic.Dictionary<string, string> translatedControls, string languageName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/UpdateUserLanguage", ReplyAction="http://tempuri.org/IMessageBoardService/UpdateUserLanguageResponse")]
+        void UpdateUserLanguage(int userID, string languageName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/UpdateUserLanguage", ReplyAction="http://tempuri.org/IMessageBoardService/UpdateUserLanguageResponse")]
+        System.Threading.Tasks.Task UpdateUserLanguageAsync(int userID, string languageName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -237,20 +243,28 @@ namespace MessageBoardController.MessageBoardService {
             return base.Channel.AddCommentAsync(addNewComment);
         }
         
-        public System.Collections.Generic.List<MessageBoardCommon.TranslationDTO> GetTranslations() {
-            return base.Channel.GetTranslations();
+        public System.Collections.Generic.List<MessageBoardCommon.TranslationDTO> GetTranslations(string languageName) {
+            return base.Channel.GetTranslations(languageName);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardCommon.TranslationDTO>> GetTranslationsAsync() {
-            return base.Channel.GetTranslationsAsync();
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardCommon.TranslationDTO>> GetTranslationsAsync(string languageName) {
+            return base.Channel.GetTranslationsAsync(languageName);
         }
         
-        public void InsertTranslations(System.Collections.Generic.Dictionary<string, string> translatedControls, string language) {
-            base.Channel.InsertTranslations(translatedControls, language);
+        public void InsertTranslations(System.Collections.Generic.Dictionary<string, string> translatedControls, string languageName) {
+            base.Channel.InsertTranslations(translatedControls, languageName);
         }
         
-        public System.Threading.Tasks.Task InsertTranslationsAsync(System.Collections.Generic.Dictionary<string, string> translatedControls, string language) {
-            return base.Channel.InsertTranslationsAsync(translatedControls, language);
+        public System.Threading.Tasks.Task InsertTranslationsAsync(System.Collections.Generic.Dictionary<string, string> translatedControls, string languageName) {
+            return base.Channel.InsertTranslationsAsync(translatedControls, languageName);
+        }
+        
+        public void UpdateUserLanguage(int userID, string languageName) {
+            base.Channel.UpdateUserLanguage(userID, languageName);
+        }
+        
+        public System.Threading.Tasks.Task UpdateUserLanguageAsync(int userID, string languageName) {
+            return base.Channel.UpdateUserLanguageAsync(userID, languageName);
         }
     }
 }

@@ -34,6 +34,7 @@
             this.grdDisplayPosts = new DevExpress.XtraGrid.GridControl();
             this.viewDisplayPosts = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colPostText = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repPostText = new DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit();
             this.colIsPublished = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCreationDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -45,18 +46,24 @@
             this.barMenu = new DevExpress.XtraBars.BarSubItem();
             this.barChangePassword = new DevExpress.XtraBars.BarButtonItem();
             this.barChangeProfilePicture = new DevExpress.XtraBars.BarButtonItem();
-            this.barUserInformations = new DevExpress.XtraBars.BarButtonItem();
+            this.barUserInformation = new DevExpress.XtraBars.BarButtonItem();
+            this.barLanguage = new DevExpress.XtraBars.BarSubItem();
+            this.barEnglish = new DevExpress.XtraBars.BarCheckItem();
+            this.barFrench = new DevExpress.XtraBars.BarCheckItem();
+            this.barSyncLanguage = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.repPostText = new DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.barToolbarsListItem1 = new DevExpress.XtraBars.BarToolbarsListItem();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.grdDisplayPosts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewDisplayPosts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repPostText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repCommentDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repCommentDate.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repPostText)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBack
@@ -136,6 +143,7 @@
             // 
             this.colPostText.AppearanceCell.Options.UseTextOptions = true;
             this.colPostText.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.colPostText.Caption = "Post Text";
             this.colPostText.ColumnEdit = this.repPostText;
             this.colPostText.DisplayFormat.FormatString = "d";
             this.colPostText.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
@@ -146,8 +154,14 @@
             this.colPostText.Visible = true;
             this.colPostText.VisibleIndex = 0;
             // 
+            // repPostText
+            // 
+            this.repPostText.Name = "repPostText";
+            this.repPostText.ShowCaretInReadOnly = false;
+            // 
             // colIsPublished
             // 
+            this.colIsPublished.Caption = "Is Published";
             this.colIsPublished.FieldName = "IsPublished";
             this.colIsPublished.Name = "colIsPublished";
             this.colIsPublished.OptionsColumn.AllowEdit = false;
@@ -220,10 +234,17 @@
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.barMenu,
             this.barChangePassword,
-            this.barUserInformations,
-            this.barChangeProfilePicture});
+            this.barUserInformation,
+            this.barChangeProfilePicture,
+            this.barButtonItem1,
+            this.barToolbarsListItem1,
+            this.barLanguage,
+            this.barButtonItem2,
+            this.barEnglish,
+            this.barFrench,
+            this.barSyncLanguage});
             this.barManager1.MainMenu = this.barMainMenu;
-            this.barManager1.MaxItemId = 4;
+            this.barManager1.MaxItemId = 15;
             // 
             // barMainMenu
             // 
@@ -247,7 +268,9 @@
             this.barMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barChangePassword),
             new DevExpress.XtraBars.LinkPersistInfo(this.barChangeProfilePicture),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barUserInformations)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barUserInformation),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barLanguage),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSyncLanguage)});
             this.barMenu.Name = "barMenu";
             // 
             // barChangePassword
@@ -264,12 +287,42 @@
             this.barChangeProfilePicture.Name = "barChangeProfilePicture";
             this.barChangeProfilePicture.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barChangeProfilePicture_ItemClick);
             // 
-            // barUserInformations
+            // barUserInformation
             // 
-            this.barUserInformations.Caption = "User Informations";
-            this.barUserInformations.Id = 2;
-            this.barUserInformations.Name = "barUserInformations";
-            this.barUserInformations.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barUserInformations_ItemClick);
+            this.barUserInformation.Caption = "User Information";
+            this.barUserInformation.Id = 2;
+            this.barUserInformation.Name = "barUserInformation";
+            this.barUserInformation.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barUserInformations_ItemClick);
+            // 
+            // barLanguage
+            // 
+            this.barLanguage.Caption = "Language";
+            this.barLanguage.Id = 10;
+            this.barLanguage.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barEnglish),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barFrench)});
+            this.barLanguage.Name = "barLanguage";
+            // 
+            // barEnglish
+            // 
+            this.barEnglish.Caption = "English";
+            this.barEnglish.Id = 12;
+            this.barEnglish.Name = "barEnglish";
+            this.barEnglish.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barEnglish_ItemClick);
+            // 
+            // barFrench
+            // 
+            this.barFrench.Caption = "French";
+            this.barFrench.Id = 13;
+            this.barFrench.Name = "barFrench";
+            this.barFrench.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barFrench_ItemClick);
+            // 
+            // barSyncLanguage
+            // 
+            this.barSyncLanguage.Caption = "Sync Language";
+            this.barSyncLanguage.Id = 14;
+            this.barSyncLanguage.Name = "barSyncLanguage";
+            this.barSyncLanguage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barSyncLanguage_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -303,10 +356,23 @@
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 443);
             // 
-            // repPostText
+            // barButtonItem1
             // 
-            this.repPostText.Name = "repPostText";
-            this.repPostText.ShowCaretInReadOnly = false;
+            this.barButtonItem1.Caption = "barButtonItem1";
+            this.barButtonItem1.Id = 8;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
+            // barToolbarsListItem1
+            // 
+            this.barToolbarsListItem1.Caption = "Language";
+            this.barToolbarsListItem1.Id = 9;
+            this.barToolbarsListItem1.Name = "barToolbarsListItem1";
+            // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Caption = "barButtonItem2";
+            this.barButtonItem2.Id = 11;
+            this.barButtonItem2.Name = "barButtonItem2";
             // 
             // ForumForm
             // 
@@ -328,12 +394,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ForumForm";
             this.Load += new System.EventHandler(this.ForumForm_Load);
+            this.Shown += new System.EventHandler(this.ForumForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.grdDisplayPosts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewDisplayPosts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repPostText)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repCommentDate.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repCommentDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repPostText)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -356,12 +423,19 @@
         private DevExpress.XtraBars.Bar barMainMenu;
         private DevExpress.XtraBars.BarSubItem barMenu;
         private DevExpress.XtraBars.BarButtonItem barChangePassword;
-        private DevExpress.XtraBars.BarButtonItem barUserInformations;
+        private DevExpress.XtraBars.BarButtonItem barUserInformation;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarButtonItem barChangeProfilePicture;
         private DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit repPostText;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarSubItem barLanguage;
+        private DevExpress.XtraBars.BarCheckItem barEnglish;
+        private DevExpress.XtraBars.BarCheckItem barFrench;
+        private DevExpress.XtraBars.BarToolbarsListItem barToolbarsListItem1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarButtonItem barSyncLanguage;
     }
 }

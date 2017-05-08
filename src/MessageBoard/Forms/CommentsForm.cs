@@ -8,18 +8,12 @@ using MessageBoardController.HelperClasses;
 using MessageBoardController.Interfaces;
 using MessageBoardDTO;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MessageBoard.Forms
 {
-    public partial class CommentsForm : Form, ICommentsForm
+    public partial class CommentsForm : BaseForm, ICommentsForm
     {
         private CommentsController _controller;
 
@@ -30,10 +24,6 @@ namespace MessageBoard.Forms
             if (!AppGlobalVariables.Instance.IsForTranslation)
             {
                 _controller = new CommentsController(this, AppGlobalVariables.Instance.Post);
-                RichPostContent.Text = AppGlobalVariables.Instance.Post.PostText;
-                lblAuthor.Text = AppGlobalVariables.Instance.Post.tblUser.Username;
-                lblDate.Text = AppGlobalVariables.Instance.Post.CreationDate.ToString();
-                ImgPost.Image = AppGlobalVariables.Instance.Post.PostImage != null ? ConvertImage.ByteArrayToImage(AppGlobalVariables.Instance.Post.PostImage) : null;
             }
         }
 
@@ -92,7 +82,12 @@ namespace MessageBoard.Forms
             try
             {
                 ScrCommentControl.Controls.Clear();
+                RichPostContent.Text = AppGlobalVariables.Instance.Post.PostText;
+                lblAuthor.Text = AppGlobalVariables.Instance.Post.tblUser.Username;
+                lblDate.Text = AppGlobalVariables.Instance.Post.CreationDate.ToString();
+                ImgPost.Image = AppGlobalVariables.Instance.Post.PostImage != null ? ConvertImage.ByteArrayToImage(AppGlobalVariables.Instance.Post.PostImage) : null;
                 _controller.LoadForm();
+                BaseForm_Load(this);
             }
             catch (MessageBoardException ex)
             {

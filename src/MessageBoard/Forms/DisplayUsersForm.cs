@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using MessageBoardController;
 using MessageBoardController.Interfaces;
@@ -19,7 +11,7 @@ using static DevExpress.Office.PInvoke.Win32;
 
 namespace MessageBoard.Forms
 {
-    public partial class DisplayUsersForm : Form, IDisplayUsersForm
+    public partial class DisplayUsersForm : BaseForm, IDisplayUsersForm
     {
         DisplayUsersController _controller;
 
@@ -49,10 +41,11 @@ namespace MessageBoard.Forms
         }
         #endregion
 
-        #region FormLoad
+        #region LoadForm
         private void UsersForm_Load(object sender, EventArgs e)
         {
             _controller.LoadForm();
+            BaseForm_Load(this);
             lblViewUsers.Location = new POINT(this.Width / 2 - lblViewUsers.Width / 2, lblViewUsers.Location.Y);
         }
         #endregion

@@ -2,19 +2,12 @@
 using MessageBoardCommon;
 using MessageBoardController;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static DevExpress.Office.PInvoke.Win32;
 
 namespace MessageBoard.Forms
 {
-    public partial class RegisterForm : Form, IRegisterForm
+    public partial class RegisterForm : BaseForm, IRegisterForm
     {
         RegisterController _controller;
         
@@ -139,6 +132,7 @@ namespace MessageBoard.Forms
             IsActive.Visible = false;
             AccountCreationDate.Visible = false;
             lblRegisterDate.Visible = false;
+            BaseForm_Load(this);
             lblRegister.Location = new POINT(this.Width / 2 - lblRegister.Width / 2, lblRegister.Location.Y);
         }
         #endregion

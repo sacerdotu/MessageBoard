@@ -1,10 +1,5 @@
-﻿using DevExpress.Data.Filtering;
-using DevExpress.XtraBars;
-using DevExpress.XtraBars.Navigation;
+﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.ButtonPanel;
-using DevExpress.XtraEditors.Controls;
-using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using MessageBoardCommon;
@@ -13,19 +8,12 @@ using MessageBoardController.AppGlobalVariables;
 using MessageBoardController.Interfaces;
 using MessageBoardDTO;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MessageBoard.Forms
 {
-    public partial class ForumForm : Form, IForumForm
+    public partial class ForumForm : BaseForm, IForumForm
     {
         ForumController _controller;
  
@@ -50,7 +38,7 @@ namespace MessageBoard.Forms
         {
             get
             {
-                return barUserInformations;
+                return barUserInformation;
             }
         } 
         #endregion
@@ -88,6 +76,16 @@ namespace MessageBoard.Forms
             {
                 _controller.LoadForm();
                 _controller.IsAdministrator(AppGlobalVariables.Instance.UserID);
+                if(AppGlobalVariables.Instance.CurrentLanguage == "English")
+                {
+                    barEnglish.Checked = true;
+                }
+                else
+                {
+                    barFrench.Checked = true;
+                    AppGlobalVariables.Instance.GetTranslations = true;
+                }
+                BaseForm_Load(this);
             }
             catch (MessageBoardException ex)
             {
@@ -186,5 +184,73 @@ namespace MessageBoard.Forms
             }
         }
         #endregion
+
+        #region barEnglishButton
+        private void barEnglish_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (barFrench.Checked)
+            {
+                barFrench.Checked = false;
+            }
+            if (barEnglish.Checked)
+            {
+                AppGlobalVariables.Instance.CurrentLanguage = "English";
+                AppGlobalVariables.Instance.GetTranslations = true;
+                Translate();
+                TranslateMenu(barManager1.Items);
+                _controller.UpdateUserLanguage();
+                return;
+            }
+            barEnglish.Checked = true;
+        }
+        #endregion
+
+        #region barFrenchButton
+        private void barFrench_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (barEnglish.Checked)
+            {
+                barEnglish.Checked = false;
+            }
+            if (barFrench.Checked)
+            {
+                AppGlobalVariables.Instance.CurrentLanguage = "French";
+                AppGlobalVariables.Instance.GetTranslations = true;
+                Translate();
+                TranslateMenu(barManager1.Items);
+                _controller.UpdateUserLanguage();
+                return;
+            }
+            barFrench.Checked = true;
+        }
+        #endregion
+
+        #region btnSyncLanguage
+        private void barSyncLanguage_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (barFrench.Checked)
+            {
+                _controller.SyncTranslations("French");
+            }
+            else
+            {
+                _controller.SyncTranslations("English");
+            }
+        }
+        #endregion
+
+        #region AddAllControls
+        public Dictionary<string,string> GetAllControls()
+        {
+            Dictionary<string, string> getControls = new Dictionary<string, string>();
+            getControls = AddAllControls();
+            return getControls;
+        }
+        #endregion
+
+        private void ForumForm_Shown(object sender, EventArgs e)
+        {
+            TranslateMenu(barManager1.Items);
+        }
     }
 }
