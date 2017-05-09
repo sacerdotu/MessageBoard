@@ -105,6 +105,12 @@
   <wsdl:message name="IMessageBoardService_UpdateUserLanguage_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateUserLanguageResponse" />
   </wsdl:message>
+  <wsdl:message name="IMessageBoardService_RefreshComments_InputMessage">
+    <wsdl:part name="parameters" element="tns:RefreshComments" />
+  </wsdl:message>
+  <wsdl:message name="IMessageBoardService_RefreshComments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RefreshCommentsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IMessageBoardService">
     <wsdl:operation name="InsertNewUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IMessageBoardService/InsertNewUser" message="tns:IMessageBoardService_InsertNewUser_InputMessage" />
@@ -169,6 +175,10 @@
     <wsdl:operation name="UpdateUserLanguage">
       <wsdl:input wsaw:Action="http://tempuri.org/IMessageBoardService/UpdateUserLanguage" message="tns:IMessageBoardService_UpdateUserLanguage_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMessageBoardService/UpdateUserLanguageResponse" message="tns:IMessageBoardService_UpdateUserLanguage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshComments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageBoardService/RefreshComments" message="tns:IMessageBoardService_RefreshComments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageBoardService/RefreshCommentsResponse" message="tns:IMessageBoardService_RefreshComments_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IMessageBoardService" type="tns:IMessageBoardService">
@@ -310,6 +320,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateUserLanguage">
       <soap:operation soapAction="http://tempuri.org/IMessageBoardService/UpdateUserLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshComments">
+      <soap:operation soapAction="http://tempuri.org/IMessageBoardService/RefreshComments" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

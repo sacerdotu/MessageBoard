@@ -110,6 +110,12 @@ namespace MessageBoardController.MessageBoardService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/UpdateUserLanguage", ReplyAction="http://tempuri.org/IMessageBoardService/UpdateUserLanguageResponse")]
         System.Threading.Tasks.Task UpdateUserLanguageAsync(int userID, string languageName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/RefreshComments", ReplyAction="http://tempuri.org/IMessageBoardService/RefreshCommentsResponse")]
+        void RefreshComments();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/RefreshComments", ReplyAction="http://tempuri.org/IMessageBoardService/RefreshCommentsResponse")]
+        System.Threading.Tasks.Task RefreshCommentsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -265,6 +271,14 @@ namespace MessageBoardController.MessageBoardService {
         
         public System.Threading.Tasks.Task UpdateUserLanguageAsync(int userID, string languageName) {
             return base.Channel.UpdateUserLanguageAsync(userID, languageName);
+        }
+        
+        public void RefreshComments() {
+            base.Channel.RefreshComments();
+        }
+        
+        public System.Threading.Tasks.Task RefreshCommentsAsync() {
+            return base.Channel.RefreshCommentsAsync();
         }
     }
 }
