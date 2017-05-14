@@ -7,6 +7,7 @@ using MessageBoardDTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 
 namespace MessageBoardController
 {
@@ -23,8 +24,9 @@ namespace MessageBoardController
         #region Constructor
         public ForumController(IForumForm form)
         {
+            InstanceContext context = new InstanceContext(new Proxy());
             _form = form;
-            _service = new MessageBoardServiceClient();
+            _service = new MessageBoardServiceClient(context);
         }
         #endregion
 

@@ -12,7 +12,7 @@ namespace MessageBoardController.MessageBoardService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MessageBoardService.IMessageBoardService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MessageBoardService.IMessageBoardService", CallbackContract=typeof(MessageBoardController.MessageBoardService.IMessageBoardServiceCallback))]
     public interface IMessageBoardService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/InsertNewUser", ReplyAction="http://tempuri.org/IMessageBoardService/InsertNewUserResponse")]
@@ -119,30 +119,38 @@ namespace MessageBoardController.MessageBoardService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IMessageBoardServiceCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMessageBoardService/ShowNotification")]
+        void ShowNotification(MessageBoardDTO.CommentDTO comment);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IMessageBoardServiceChannel : MessageBoardController.MessageBoardService.IMessageBoardService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class MessageBoardServiceClient : System.ServiceModel.ClientBase<MessageBoardController.MessageBoardService.IMessageBoardService>, MessageBoardController.MessageBoardService.IMessageBoardService {
+    public partial class MessageBoardServiceClient : System.ServiceModel.DuplexClientBase<MessageBoardController.MessageBoardService.IMessageBoardService>, MessageBoardController.MessageBoardService.IMessageBoardService {
         
-        public MessageBoardServiceClient() {
+        public MessageBoardServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
         }
         
-        public MessageBoardServiceClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
+        public MessageBoardServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
         }
         
-        public MessageBoardServiceClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public MessageBoardServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public MessageBoardServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public MessageBoardServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public MessageBoardServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
+        public MessageBoardServiceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
         }
         
         public bool InsertNewUser(MessageBoardDTO.UserDTO user) {

@@ -9,6 +9,7 @@ using MessageBoardDTO;
 using MessageBoardController.HelperClasses;
 using MessageBoardCommon;
 using MessageBoardController.MessageBoardService;
+using System.ServiceModel;
 
 namespace MessageBoardController
 {
@@ -22,7 +23,8 @@ namespace MessageBoardController
         public LoginController(ILoginForm form)
         {
             _form = form;
-            _service = new MessageBoardServiceClient();
+            InstanceContext context = new InstanceContext(new Proxy());
+            _service = new MessageBoardServiceClient(context);
         }
         #endregion
 
@@ -115,9 +117,9 @@ namespace MessageBoardController
                 }
                 AppGlobalVariables.AppGlobalVariables.Instance.CurrentLanguage = user.LanguageName;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
             #endregion
 

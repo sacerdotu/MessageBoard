@@ -16,6 +16,7 @@ namespace MessageBoard.Forms
     public partial class ForumForm : BaseForm, IForumForm
     {
         ForumController _controller;
+        Proxy _proxy;
  
         #region Properties
         public GridControl GrdDisplayPosts
@@ -159,6 +160,7 @@ namespace MessageBoard.Forms
         public void LoadCommentsForm(PostDTO post)
         {
             AppGlobalVariables.Instance.Post = post;
+            AppGlobalVariables.Instance.NrOfNewComments = 0;
             CommentsForm postComments = new CommentsForm();
             postComments.Show();
             this.Close();
@@ -251,6 +253,18 @@ namespace MessageBoard.Forms
         private void ForumForm_Shown(object sender, EventArgs e)
         {
             TranslateMenu(barManager1.Items);
+        }
+
+        public void ShowNotification()
+        {
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

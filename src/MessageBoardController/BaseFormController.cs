@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,7 +22,8 @@ namespace MessageBoardController
 
         public BaseFormController(IBaseForm form)
         {
-            _service = new MessageBoardServiceClient();
+            InstanceContext context = new InstanceContext(new Proxy());
+            _service = new MessageBoardServiceClient(context);
             _form = form;
         }
 

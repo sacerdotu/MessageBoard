@@ -16,6 +16,7 @@ namespace MessageBoard.Forms
     public partial class CommentsForm : BaseForm, ICommentsForm
     {
         private CommentsController _controller;
+        Proxy _proxy;
 
         #region Constructors
         public CommentsForm()
@@ -25,6 +26,7 @@ namespace MessageBoard.Forms
             {
                 _controller = new CommentsController(this, AppGlobalVariables.Instance.Post);
             }
+            _proxy = new Proxy(this);
         }
 
         #endregion
@@ -165,5 +167,26 @@ namespace MessageBoard.Forms
             form.Show();
             this.Close();
         }
+
+        #region ShowNotification
+        public void ShowNotification()
+        {
+            try
+            {
+                if(AppGlobalVariables.Instance.NrOfNewComments == 1)
+                {
+                    lblNewComments.Text = String.Format("There is 1 new comment");
+                }
+                if(AppGlobalVariables.Instance.NrOfNewComments > 1)
+                {
+                    lblNewComments.Text = String.Format("There are {0} new comments", AppGlobalVariables.Instance.NrOfNewComments);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        #endregion
     }
 }

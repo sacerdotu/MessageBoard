@@ -16,5 +16,6 @@ namespace MessageBoardController.Interfaces
         GridView ViewDisplayPosts { get; }
         void LoadCommentsForm(PostDTO post);
         Dictionary<string, string> GetAllControls();
+        void ShowNotification();
     }
 }

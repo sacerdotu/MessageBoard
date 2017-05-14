@@ -14,5 +14,6 @@ namespace MessageBoardController.Interfaces
         PictureEdit ImgPost { get; }
         void DisplayComments(CommentDTO comments, int x, int y, bool visibility);
         int UcWidth { get; set; }
+        void ShowNotification();
     }
 }

@@ -6,6 +6,7 @@ using MessageBoardDTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,8 +20,9 @@ namespace MessageBoardController
         #region Constructor
         public AddPostController(IAddPostForm form)
         {
+            InstanceContext context = new InstanceContext(new Proxy());
             _form = form;
-            _service = new MessageBoardServiceClient();
+            _service = new MessageBoardServiceClient(context);
         }
         #endregion
 

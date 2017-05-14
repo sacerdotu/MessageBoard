@@ -60,6 +60,7 @@ namespace MessageBoardController.AppGlobalVariables
         public bool IsForTranslation { get; set; }
         public bool FirstEntry { get; set; }
         public string CurrentLanguage { get; set; }
+        public int NrOfNewComments { get; set; }
 
         public void GetForms()
         {

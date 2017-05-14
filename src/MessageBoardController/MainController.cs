@@ -20,7 +20,7 @@ namespace MessageBoardController
         public MainController(IMainForm form)
         {
             _form = form;
-            _service = new MessageBoardServiceClient();
+            _service = new MessageBoardServiceClient(null);
         }
         #endregion
 

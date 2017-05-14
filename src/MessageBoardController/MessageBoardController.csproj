@@ -93,6 +93,7 @@
     <Compile Include="Interfaces\IUserDetailsForm.cs" />
     <Compile Include="LoginController.cs" />
     <Compile Include="MainController.cs" />
+    <Compile Include="Proxy.cs" />
     <Compile Include="RegisterController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\MessageBoardService\Reference.cs">
@@ -111,14 +112,20 @@
     <None Include="Properties\DataSources\MessageBoardDTO.CommentDTO.datasource" />
     <None Include="Properties\DataSources\MessageBoardDTO.PostDTO.datasource" />
     <None Include="Properties\DataSources\MessageBoardDTO.UserDTO.datasource" />
-    <None Include="Service References\MessageBoardService\MessageBoardService.wsdl" />
-    <None Include="Service References\MessageBoardService\MessageBoardService.xsd">
+    <None Include="Service References\MessageBoardService\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MessageBoardService\MessageBoardService1.xsd">
+    <None Include="Service References\MessageBoardService\MessageBoardCommon.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MessageBoardService\MessageBoardService2.xsd">
+    <None Include="Service References\MessageBoardService\MessageBoardDTO.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MessageBoardService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MessageBoardService\service1.wsdl" />
+    <None Include="Service References\MessageBoardService\service1.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -135,21 +142,12 @@
     <WCFMetadataStorage Include="Service References\MessageBoardService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\MessageBoardService\MessageBoardService.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\MessageBoardService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\MessageBoardService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\MessageBoardService\MessageBoardService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\MessageBoardService\MessageBoardService4.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\MessageBoardService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

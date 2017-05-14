@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using System.ServiceModel;
 using System.Text;
 using System.Windows.Forms;
 
@@ -21,8 +22,9 @@ namespace MessageBoardController
         #region Constructors
         public RegisterController(IRegisterForm form)
         {
+            InstanceContext context = new InstanceContext(new Proxy());
             _form = form;
-            _service = new MessageBoardServiceClient();
+            _service = new MessageBoardServiceClient(context);
         }
 
         public RegisterController()

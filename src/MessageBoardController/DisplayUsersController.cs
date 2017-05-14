@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,7 +26,8 @@ namespace MessageBoardController
         public DisplayUsersController(IDisplayUsersForm form)
         {
             _form = form;
-            _service = new MessageBoardServiceClient();
+            InstanceContext context = new InstanceContext(new Proxy());
+            _service = new MessageBoardServiceClient(context);
         }
         #endregion
 

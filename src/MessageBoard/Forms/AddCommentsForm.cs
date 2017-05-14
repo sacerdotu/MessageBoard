@@ -2,6 +2,7 @@
 using DevExpress.XtraEditors;
 using MessageBoardCommon;
 using MessageBoardController;
+using MessageBoardController.AppGlobalVariables;
 using MessageBoardController.Interfaces;
 using System;
 using System.Windows.Forms;
@@ -54,6 +55,7 @@ namespace MessageBoard.Forms
         {
             if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
             {
+                AppGlobalVariables.Instance.NrOfNewComments = 0;
                 CommentsForm form = new CommentsForm();
                 form.Show();
                 this.Close();
@@ -65,6 +67,7 @@ namespace MessageBoard.Forms
         #region Success
         public void Success()
         {
+            AppGlobalVariables.Instance.NrOfNewComments = 0;
             XtraMessageBox.Show("Comment was added!");
             CommentsForm form = new CommentsForm();
             form.Show();

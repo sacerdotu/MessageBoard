@@ -6,6 +6,7 @@ using MessageBoardDTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,7 +20,8 @@ namespace MessageBoardController
         #region Constructor
         public AddCommentController(IAddCommentsForm form)
         {
-            _service = new MessageBoardServiceClient();
+            InstanceContext context = new InstanceContext(new Proxy());
+            _service = new MessageBoardServiceClient(context);
             _form = form;
         }
         #endregion
