@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.XtraBars.Alerter;
+using DevExpress.XtraEditors;
 using MessageBoardDTO;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,6 @@ namespace MessageBoardController.Interfaces
         PictureEdit ImgPost { get; }
         void DisplayComments(CommentDTO comments, int x, int y, bool visibility);
         int UcWidth { get; set; }
-        void ShowNotification();
+        void ShowNotification(AlertInfo alertInfo);
     }
 }

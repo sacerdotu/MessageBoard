@@ -91,9 +91,9 @@ namespace MessageBoard
             {
                 ex.WriteErrorMessage();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                XtraMessageBox.Show(Constants.CouldNotLogIn);
+                XtraMessageBox.Show(ex.Message);
             }
         }
         #endregion
@@ -133,10 +133,7 @@ namespace MessageBoard
         private void LoginForm_Load(object sender, EventArgs e)
         {
             TxtUsername.Focus();
-            //GetControls();
             AppGlobalVariables.Instance.CurrentLanguage = "English";
-            //_controller.GetTranslations();
-            GetTranslations();
             BaseForm_Load(this);
             lblLogin.Location = new POINT( this.Width / 2 - lblLogin.Width / 2, lblLogin.Location.Y);
         }

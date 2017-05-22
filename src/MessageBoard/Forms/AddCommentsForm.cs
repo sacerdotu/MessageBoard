@@ -23,7 +23,7 @@ namespace MessageBoard.Forms
         #endregion
 
         #region Constructor
-        public AddCommentsForm(bool mainComment)
+        public AddCommentsForm(bool mainComment) :this()
         {
             _mainComment = mainComment;
             _controller = new AddCommentController(this);
@@ -46,6 +46,10 @@ namespace MessageBoard.Forms
             catch (MessageBoardException ex)
             {
                 ex.WriteErrorMessage();
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
             }
         }
         #endregion

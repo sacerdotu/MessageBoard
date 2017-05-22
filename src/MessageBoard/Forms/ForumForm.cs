@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars;
+using DevExpress.XtraBars.Alerter;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
@@ -92,6 +93,10 @@ namespace MessageBoard.Forms
             {
                 ex.WriteErrorMessage();
             }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
         }
         #endregion
 
@@ -148,6 +153,10 @@ namespace MessageBoard.Forms
             try
             {
                 _controller.GetPost(e);
+            }
+            catch (MessageBoardException ex)
+            {
+                ex.WriteErrorMessage();
             }
             catch (Exception ex)
             {
@@ -255,16 +264,32 @@ namespace MessageBoard.Forms
             TranslateMenu(barManager1.Items);
         }
 
-        public void ShowNotification()
+        #region ShowNotification
+        public void ShowNotification(AlertInfo alertInfo)
         {
             try
             {
-
+                AlertControl alertControl = new AlertControl();
+                alertControl.FormLocation = AlertFormLocation.BottomRight;
+                alertControl.FormShowingEffect = AlertFormShowingEffect.FadeIn;
+                if (this.InvokeRequired)
+                {
+                    this.BeginInvoke(new System.Action<AlertInfo>(ShowNotification), new object[] { alertInfo });
+                }
+                else
+                {
+                    alertControl.Show(this, alertInfo);
+                }
             }
-            catch (Exception)
+            catch (MessageBoardException ex)
             {
-                throw;
+                ex.WriteErrorMessage();
+            }
+            catch(Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
             }
         }
+        #endregion
     }
 }

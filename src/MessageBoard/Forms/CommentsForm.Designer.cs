@@ -32,6 +32,7 @@
             this.panelPost = new DevExpress.XtraEditors.PanelControl();
             this.imgPost = new DevExpress.XtraEditors.PictureEdit();
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.lblNewComments = new DevExpress.XtraEditors.LabelControl();
             this.richPostContent = new DevExpress.Tutorials.Controls.RichTextBoxEx();
             this.lblPost = new DevExpress.XtraEditors.LabelControl();
             this.lblDate = new DevExpress.XtraEditors.LabelControl();
@@ -41,7 +42,6 @@
             this.ucComments = new MessageBoard.UserControlls.ucComment();
             this.pnlbuttons = new DevExpress.XtraEditors.PanelControl();
             this.btnReplyPost = new DevExpress.XtraEditors.SimpleButton();
-            this.lblNewComments = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelPost)).BeginInit();
             this.panelPost.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgPost.Properties)).BeginInit();
@@ -109,6 +109,17 @@
             this.xtraScrollableControl1.Name = "xtraScrollableControl1";
             this.xtraScrollableControl1.Size = new System.Drawing.Size(491, 130);
             this.xtraScrollableControl1.TabIndex = 3;
+            // 
+            // lblNewComments
+            // 
+            this.lblNewComments.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewComments.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.lblNewComments.Appearance.Options.UseFont = true;
+            this.lblNewComments.Appearance.Options.UseForeColor = true;
+            this.lblNewComments.Location = new System.Drawing.Point(369, 1);
+            this.lblNewComments.Name = "lblNewComments";
+            this.lblNewComments.Size = new System.Drawing.Size(0, 16);
+            this.lblNewComments.TabIndex = 2;
             // 
             // richPostContent
             // 
@@ -217,17 +228,6 @@
             this.btnReplyPost.TabIndex = 2;
             this.btnReplyPost.Text = "Reply Post";
             this.btnReplyPost.Click += new System.EventHandler(this.btnReplyPost_Click);
-            // 
-            // lblNewComments
-            // 
-            this.lblNewComments.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewComments.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lblNewComments.Appearance.Options.UseFont = true;
-            this.lblNewComments.Appearance.Options.UseForeColor = true;
-            this.lblNewComments.Location = new System.Drawing.Point(369, 1);
-            this.lblNewComments.Name = "lblNewComments";
-            this.lblNewComments.Size = new System.Drawing.Size(0, 16);
-            this.lblNewComments.TabIndex = 2;
             // 
             // CommentsForm
             // 

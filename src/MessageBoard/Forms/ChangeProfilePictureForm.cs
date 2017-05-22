@@ -73,6 +73,10 @@ namespace MessageBoard.Forms
             {
                 ex.WriteErrorMessage();
             }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
         }
         #endregion
 

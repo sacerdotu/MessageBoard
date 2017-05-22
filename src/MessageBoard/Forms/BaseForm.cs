@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
@@ -40,38 +41,50 @@ namespace MessageBoard.Forms
         #region Translate
         public void Translate()
         {
-            GetTranslations();
-            List<TranslationDTO> translations = AppGlobalVariables.Instance.Translations;
-
-            List<Control> formControls = new List<Control>();
-            formControls = GetAllControls(_form.Controls, formControls);
-            foreach (var control in formControls)
+            try
             {
-                if (control is GridControl)
+                GetTranslations();
+                List<TranslationDTO> translations = AppGlobalVariables.Instance.Translations;
+
+                List<Control> formControls = new List<Control>();
+                formControls = GetAllControls(_form.Controls, formControls);
+                foreach (var control in formControls)
                 {
-                    GridControl gridControl = (GridControl)control;
-                    foreach (GridColumn column in ((GridView)gridControl.MainView).Columns)
+                    if (control is GridControl)
                     {
-                        string ctrlName = _form.Name + control.Name + column.Name;
+                        GridControl gridControl = (GridControl)control;
+                        foreach (GridColumn column in ((GridView)gridControl.MainView).Columns)
+                        {
+                            string ctrlName = _form.Name + control.Name + column.Name;
+                            TranslationDTO translation = translations.FirstOrDefault(x => x.TranslationKey == ctrlName);
+                            if (translation != null)
+                            {
+                                column.Caption = translation.Translation.Trim();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        string ctrlName = _form.Name + control.Name;
                         TranslationDTO translation = translations.FirstOrDefault(x => x.TranslationKey == ctrlName);
                         if (translation != null)
                         {
-                            column.Caption = translation.Translation.Trim();
+                            control.Text = translation.Translation.Trim();
                         }
                     }
                 }
-                else
-                {
-                    string ctrlName = _form.Name + control.Name;
-                    TranslationDTO translation = translations.FirstOrDefault(x => x.TranslationKey == ctrlName);
-                    if (translation != null)
-                    {
-                        control.Text = translation.Translation.Trim();
-                    }
-                }
+            }
+            catch (MessageBoardException ex)
+            {
+                ex.WriteErrorMessage();
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
             }
         }
         #endregion
+
         #region TranslateMenu
         public void TranslateMenu(BarItems barItem)
         {
@@ -88,14 +101,19 @@ namespace MessageBoard.Forms
                     }
                 }
             }
-            catch (Exception)
+            catch (MessageBoardException ex)
             {
-
-                throw;
+                ex.WriteErrorMessage();
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
             }
 
         }
         #endregion
+
+        #region GetAllControls
         private List<Control> GetAllControls(Control.ControlCollection controls, List<Control> controlList)
         {
             foreach (Control control in controls)
@@ -111,7 +129,9 @@ namespace MessageBoard.Forms
             }
             return controlList;
         }
+        #endregion
 
+        #region AddAllControls
         public Dictionary<String, String> AddAllControls()
         {
             try
@@ -133,7 +153,7 @@ namespace MessageBoard.Forms
                         {
                             AddControls.Add(formName + control.Name, control.Text);
                         }
-                        if(control is GridControl)
+                        if (control is GridControl)
                         {
                             GridControl gridControl = (GridControl)control;
                             foreach (GridColumn column in ((GridView)gridControl.MainView).Columns)
@@ -157,18 +177,40 @@ namespace MessageBoard.Forms
 
                 return AddControls;
             }
+            catch (MessageBoardException ex)
+            {
+                ex.WriteErrorMessage();
+                return null;
+            }
             catch (Exception ex)
             {
-                throw ex;
+                XtraMessageBox.Show(ex.Message);
+                return null;
             }
         }
+        #endregion
 
+        #region GetTranslations
         public void GetTranslations()
         {
-            if (AppGlobalVariables.Instance.GetTranslations)
+            try
             {
-                _controller.GetTranslations();
+                if (AppGlobalVariables.Instance.GetTranslations)
+                {
+                    _controller.GetTranslations();
+                }
+            }
+            catch (MessageBoardException ex)
+            {
+                ex.WriteErrorMessage();
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
             }
         }
+        #endregion
+
+
     }
 }

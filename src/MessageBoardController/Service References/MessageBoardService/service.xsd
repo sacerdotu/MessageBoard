@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import namespace="http://schemas.datacontract.org/2004/07/MessageBoardDTO" />
-  <xs:import namespace="http://schemas.datacontract.org/2004/07/MessageBoardCommon" />
-  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/MessageBoardDTO" />
+  <xs:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/MessageBoardCommon" />
+  <xs:import schemaLocation="" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:element name="InsertNewUser">
     <xs:complexType>
       <xs:sequence>
@@ -221,20 +221,39 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="RefreshComments">
+  <xs:element name="GetInsertedCommentsNotifications">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lastCommentID" type="xs:int" />
+        <xs:element minOccurs="0" name="postID" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="RefreshCommentsResponse">
+  <xs:element name="GetInsertedCommentsNotificationsResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/MessageBoardDTO" minOccurs="0" name="GetInsertedCommentsNotificationsResult" nillable="true" type="q15:ArrayOfCommentDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInsertedPostsNotifications">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lastPostID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInsertedPostsNotificationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/MessageBoardDTO" minOccurs="0" name="GetInsertedPostsNotificationsResult" nillable="true" type="q16:ArrayOfPostDTO" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ShowNotification">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/MessageBoardDTO" minOccurs="0" name="comment" nillable="true" type="q15:CommentDTO" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/MessageBoardDTO" minOccurs="0" name="comment" nillable="true" type="q17:CommentDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

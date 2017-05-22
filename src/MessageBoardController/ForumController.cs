@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraGrid.Views.Grid;
+﻿using DevExpress.XtraBars.Alerter;
+using DevExpress.XtraGrid.Views.Grid;
 using MessageBoardCommon;
 using MessageBoardController.HelperClasses;
 using MessageBoardController.Interfaces;
@@ -8,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
+using System.Threading;
 
 namespace MessageBoardController
 {
@@ -19,6 +21,7 @@ namespace MessageBoardController
         PostDTO _post = new PostDTO();
         private Dictionary<string, string> _getControls = new Dictionary<string, string>();
         private Dictionary<string, string> _translatedControls = new Dictionary<string, string>();
+        private int _lastPostID;
         #endregion
 
         #region Constructor
@@ -38,11 +41,14 @@ namespace MessageBoardController
                 List<PostDTO> list = new List<PostDTO>();
                 list = _service.FillPostsGrid();
                 _form.GrdDisplayPosts.DataSource = list;
+
+                _lastPostID = list.Max(x => x.PostID);
+                StartNotifications();
             }
             catch (Exception ex)
             {
-                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
-                throw new MessageBoardException("", ex);
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
+                throw new MessageBoardException(ex.Message, ex);
             }
         }
         #endregion
@@ -60,8 +66,8 @@ namespace MessageBoardController
             }
             catch (Exception ex)
             {
-                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
-                throw new MessageBoardException("", ex);
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
+                throw new MessageBoardException(ex.Message, ex);
             }
         }
         #endregion
@@ -91,8 +97,8 @@ namespace MessageBoardController
             }
             catch (Exception ex)
             {
-                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
-                throw new MessageBoardException("", ex);
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
+                throw new MessageBoardException(ex.Message, ex);
             }
         }
         #endregion
@@ -105,14 +111,15 @@ namespace MessageBoardController
                 _getControls = _form.GetAllControls();
                 TranslateControls(language);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
+                throw new MessageBoardException(ex.Message, ex);
             }
         }
         #endregion
 
-        #region TranslateControls()
+        #region TranslateControls
         public void TranslateControls(string language)
         {
             foreach (KeyValuePair<string, string> control in _getControls)
@@ -125,6 +132,7 @@ namespace MessageBoardController
         }
         #endregion
 
+        #region InsertTranslations
         public void InsertTranslations()
         {
             if (_translatedControls != null && _translatedControls.Count > 0)
@@ -132,7 +140,9 @@ namespace MessageBoardController
                 _service.InsertTranslations(_translatedControls, AppGlobalVariables.AppGlobalVariables.Instance.CurrentLanguage);
             }
         }
+        #endregion
 
+        #region UpdateUserLanguage
         public void UpdateUserLanguage()
         {
             try
@@ -144,5 +154,84 @@ namespace MessageBoardController
                 throw;
             }
         }
+        #endregion
+
+        #region Notifications
+        private System.Threading.Timer _notificationPopUpTimer;
+        private int _checkNotificationsInterval = 6000;
+        private List<Int64> _shownNotifications = new List<long>();
+        private List<PostDTO> _notifications;
+        private AlertControl _alertControl = new AlertControl();
+        private Int32 _notificationFormDelay = 3;
+
+
+        #region StartNotifications
+        public void StartNotifications()
+        {
+            if (_checkNotificationsInterval != 0)
+            {
+                //_checkNotificationsInterval *= 1000;
+                _notificationPopUpTimer = new System.Threading.Timer(NotificationPopUpTimer_Tick, null,
+                                                                     _checkNotificationsInterval,
+                                                                     _checkNotificationsInterval);
+            }
+        }
+        #endregion
+
+
+
+
+        #region LoadNotificationPopUpSettings
+        private void NotificationPopUpTimer_Tick(object state)
+        {
+            try
+            {
+                _notificationPopUpTimer.Change(Timeout.Infinite, Timeout.Infinite);
+                _notifications = _service.GetInsertedPostsNotifications(_lastPostID);
+
+                ShowNotifications();
+                _notificationPopUpTimer.Change(_checkNotificationsInterval, _checkNotificationsInterval);
+            }
+            catch (Exception ex)
+            {
+                //new CtException(AppContext.Instance.GetTranslation(Definitions.ERR_UNKNOWN_ERROR), ex).WriteToLog();
+            }
+        }
+        #endregion
+
+
+
+        #region ShowNotifications
+        private void ShowNotifications()
+        {
+            try
+            {
+                if (_notifications == null)
+                {
+                    return;
+                }
+                foreach (var notificationItem in _notifications)
+                {
+                    if (_shownNotifications.Contains(notificationItem.PostID))
+                        continue;
+                    _shownNotifications.Add(notificationItem.PostID);
+
+                    var alertInfo = new AlertInfo("New Post", String.Format("The user {0} has added a new post.", notificationItem.tblUser.Username));
+                    alertInfo.Tag = notificationItem;
+                    //if (AppContext.Instance.MainForm.InvokeRequired)
+                    //{
+                    //    AppContext.Instance.MainForm.Invoke(new System.Action<AlertInfo>(ShowNotification), new object[] { alertInfo });
+                    //}
+
+                    _form.ShowNotification(alertInfo);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+        #endregion
+        #endregion
     }
 }

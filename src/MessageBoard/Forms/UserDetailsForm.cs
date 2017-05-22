@@ -119,6 +119,10 @@ namespace MessageBoard
             {
                 ex.WriteErrorMessage();
             }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
         }
         #endregion
 
@@ -131,9 +135,11 @@ namespace MessageBoard
         }
         #endregion
 
+        #region LoadForm
         private void UserDetailsForm_Load(object sender, EventArgs e)
         {
             BaseForm_Load(this);
         }
+        #endregion
     }
 }

@@ -53,8 +53,8 @@ namespace MessageBoardController
             }
             catch (Exception ex)
             {
-                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
-                throw new MessageBoardException("", ex);
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
+                throw new MessageBoardException(ex.Message, ex);
             }
 
         }

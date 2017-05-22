@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraGrid;
+﻿using DevExpress.XtraBars.Alerter;
+using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using MessageBoardDTO;
 using System;
@@ -16,6 +17,6 @@ namespace MessageBoardController.Interfaces
         GridView ViewDisplayPosts { get; }
         void LoadCommentsForm(PostDTO post);
         Dictionary<string, string> GetAllControls();
-        void ShowNotification();
+        void ShowNotification(AlertInfo alertInfo);
     }
 }

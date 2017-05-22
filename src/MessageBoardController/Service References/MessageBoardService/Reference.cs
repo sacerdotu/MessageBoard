@@ -111,11 +111,17 @@ namespace MessageBoardController.MessageBoardService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/UpdateUserLanguage", ReplyAction="http://tempuri.org/IMessageBoardService/UpdateUserLanguageResponse")]
         System.Threading.Tasks.Task UpdateUserLanguageAsync(int userID, string languageName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/RefreshComments", ReplyAction="http://tempuri.org/IMessageBoardService/RefreshCommentsResponse")]
-        void RefreshComments();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/GetInsertedCommentsNotifications", ReplyAction="http://tempuri.org/IMessageBoardService/GetInsertedCommentsNotificationsResponse")]
+        System.Collections.Generic.List<MessageBoardDTO.CommentDTO> GetInsertedCommentsNotifications(int lastCommentID, int postID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/RefreshComments", ReplyAction="http://tempuri.org/IMessageBoardService/RefreshCommentsResponse")]
-        System.Threading.Tasks.Task RefreshCommentsAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/GetInsertedCommentsNotifications", ReplyAction="http://tempuri.org/IMessageBoardService/GetInsertedCommentsNotificationsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardDTO.CommentDTO>> GetInsertedCommentsNotificationsAsync(int lastCommentID, int postID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/GetInsertedPostsNotifications", ReplyAction="http://tempuri.org/IMessageBoardService/GetInsertedPostsNotificationsResponse")]
+        System.Collections.Generic.List<MessageBoardDTO.PostDTO> GetInsertedPostsNotifications(int lastPostID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/GetInsertedPostsNotifications", ReplyAction="http://tempuri.org/IMessageBoardService/GetInsertedPostsNotificationsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardDTO.PostDTO>> GetInsertedPostsNotificationsAsync(int lastPostID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -281,12 +287,20 @@ namespace MessageBoardController.MessageBoardService {
             return base.Channel.UpdateUserLanguageAsync(userID, languageName);
         }
         
-        public void RefreshComments() {
-            base.Channel.RefreshComments();
+        public System.Collections.Generic.List<MessageBoardDTO.CommentDTO> GetInsertedCommentsNotifications(int lastCommentID, int postID) {
+            return base.Channel.GetInsertedCommentsNotifications(lastCommentID, postID);
         }
         
-        public System.Threading.Tasks.Task RefreshCommentsAsync() {
-            return base.Channel.RefreshCommentsAsync();
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardDTO.CommentDTO>> GetInsertedCommentsNotificationsAsync(int lastCommentID, int postID) {
+            return base.Channel.GetInsertedCommentsNotificationsAsync(lastCommentID, postID);
+        }
+        
+        public System.Collections.Generic.List<MessageBoardDTO.PostDTO> GetInsertedPostsNotifications(int lastPostID) {
+            return base.Channel.GetInsertedPostsNotifications(lastPostID);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardDTO.PostDTO>> GetInsertedPostsNotificationsAsync(int lastPostID) {
+            return base.Channel.GetInsertedPostsNotificationsAsync(lastPostID);
         }
     }
 }

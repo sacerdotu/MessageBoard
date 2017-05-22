@@ -27,9 +27,9 @@ namespace MessageBoardController
         public void ShowNotification(CommentDTO comment)
         {
             AppGlobalVariables.AppGlobalVariables.Instance.NrOfNewComments++;
-            ThreadStart thStart = new ThreadStart(_form.ShowNotification);
-            Thread th = new Thread(thStart);
-            var blabla = comment;
+            ////ThreadStart thStart = new ThreadStart(_form.ShowNotification);
+            //Thread th = new Thread(thStart);
+            //var blabla = comment;
         }
         public void CreateProxy()
         {

@@ -1,4 +1,5 @@
 ﻿using DevExpress.Tutorials.Controls;
+using DevExpress.XtraBars.Alerter;
 using DevExpress.XtraEditors;
 using MessageBoard.UserControlls;
 using MessageBoardCommon;
@@ -128,6 +129,10 @@ namespace MessageBoard.Forms
             {
                 ex.WriteErrorMessage();
             }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
         }
         #endregion
 
@@ -158,33 +163,47 @@ namespace MessageBoard.Forms
                 ex.WriteErrorMessage();
                 return false;
             }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+                return false;
+            }
         }
         #endregion
 
+        #region btnReplyPost
         private void btnReplyPost_Click(object sender, EventArgs e)
         {
             AddCommentsForm form = new AddCommentsForm(true);
             form.Show();
             this.Close();
         }
+        #endregion
 
         #region ShowNotification
-        public void ShowNotification()
+        public void ShowNotification(AlertInfo alertInfo)
         {
             try
             {
-                if(AppGlobalVariables.Instance.NrOfNewComments == 1)
+                AlertControl alertControl = new AlertControl();
+                alertControl.FormLocation = AlertFormLocation.BottomRight;
+                alertControl.FormShowingEffect = AlertFormShowingEffect.FadeIn;
+                if (this.InvokeRequired)
                 {
-                    lblNewComments.Text = String.Format("There is 1 new comment");
+                    this.BeginInvoke(new System.Action<AlertInfo>(ShowNotification), new object[] { alertInfo });
                 }
-                if(AppGlobalVariables.Instance.NrOfNewComments > 1)
+                else
                 {
-                    lblNewComments.Text = String.Format("There are {0} new comments", AppGlobalVariables.Instance.NrOfNewComments);
+                    alertControl.Show(this, alertInfo);
                 }
             }
-            catch (Exception)
+            catch (MessageBoardException ex)
             {
-                throw;
+                ex.WriteErrorMessage();
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
             }
         }
         #endregion

@@ -72,8 +72,8 @@ namespace MessageBoardController
             }
             catch (Exception ex)
             {
-                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message);
-                throw new MessageBoardException("", ex);
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
+                throw new MessageBoardException(ex.Message, ex);
             }
         }
         #endregion
@@ -92,16 +92,6 @@ namespace MessageBoardController
         }
         #endregion
 
-        //#region GetTranslations
-        //public void GetTranslations()
-        //{
-        //    if (AppGlobalVariables.AppGlobalVariables.Instance.GetTranslations)
-        //    {
-        //        AppGlobalVariables.AppGlobalVariables.Instance.Translations = _service.GetTranslations(AppGlobalVariables.AppGlobalVariables.Instance.CurrentLanguage);
-        //    }
-        //}
-        //#endregion
-
         #region TranslateForCurrentLanguage
         public void TranslateForCurrentLanguage()
         {
@@ -119,7 +109,8 @@ namespace MessageBoardController
             }
             catch (Exception ex)
             {
-                throw ex;
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
+                throw new MessageBoardException(ex.Message, ex);
             }
             #endregion
 

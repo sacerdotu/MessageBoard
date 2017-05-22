@@ -57,9 +57,9 @@ namespace MessageBoard.Forms
             {
                 _controller.GetUserID(e);
             }
-            catch (Exception)
+            catch (MessageBoardException ex)
             {
-                XtraMessageBox.Show(Constants.ExceptionService);
+                ex.WriteErrorMessage();
             }
         }
         #endregion
@@ -98,6 +98,10 @@ namespace MessageBoard.Forms
             {
                 ex.WriteErrorMessage();
             }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
         }
         #endregion
 
@@ -111,6 +115,10 @@ namespace MessageBoard.Forms
             catch (MessageBoardException ex)
             {
                 ex.WriteErrorMessage();
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
             }
         }
         #endregion
