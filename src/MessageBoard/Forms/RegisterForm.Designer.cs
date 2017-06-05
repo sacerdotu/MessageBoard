@@ -1,4 +1,6 @@
-﻿namespace MessageBoard.Forms
+﻿using MessageBoard.Translate;
+
+namespace MessageBoard.Forms
 {
     partial class RegisterForm
     {
@@ -28,9 +30,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnRegister = new DevExpress.XtraEditors.SimpleButton();
-            this.btnBack = new DevExpress.XtraEditors.SimpleButton();
-            this.lblRegister = new DevExpress.XtraEditors.LabelControl();
+            this.btnRegister = new TranslateButton();
+            this.btnBack = new TranslateButton();
+            this.lblRegister = new TranslateLabel();
             this.ucUserInformations = new MessageBoard.ucUserInformations();
             this.SuspendLayout();
             // 
@@ -111,8 +113,8 @@
         #endregion
 
         private ucUserInformations ucUserInformations;
-        private DevExpress.XtraEditors.SimpleButton btnRegister;
-        private DevExpress.XtraEditors.SimpleButton btnBack;
-        private DevExpress.XtraEditors.LabelControl lblRegister;
+        private TranslateButton btnRegister;
+        private TranslateButton btnBack;
+        private TranslateLabel lblRegister;
     }
 }

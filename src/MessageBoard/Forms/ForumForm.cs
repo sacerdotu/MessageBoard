@@ -17,7 +17,6 @@ namespace MessageBoard.Forms
     public partial class ForumForm : BaseForm, IForumForm
     {
         ForumController _controller;
-        Proxy _proxy;
  
         #region Properties
         public GridControl GrdDisplayPosts
@@ -96,6 +95,7 @@ namespace MessageBoard.Forms
             catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message);
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
             }
         }
         #endregion
@@ -208,7 +208,7 @@ namespace MessageBoard.Forms
                 AppGlobalVariables.Instance.CurrentLanguage = "English";
                 AppGlobalVariables.Instance.GetTranslations = true;
                 Translate();
-                TranslateMenu(barManager1.Items);
+                TranslateMenu(barManager1);
                 _controller.UpdateUserLanguage();
                 return;
             }
@@ -228,7 +228,7 @@ namespace MessageBoard.Forms
                 AppGlobalVariables.Instance.CurrentLanguage = "French";
                 AppGlobalVariables.Instance.GetTranslations = true;
                 Translate();
-                TranslateMenu(barManager1.Items);
+                TranslateMenu(barManager1);
                 _controller.UpdateUserLanguage();
                 return;
             }
@@ -261,7 +261,7 @@ namespace MessageBoard.Forms
 
         private void ForumForm_Shown(object sender, EventArgs e)
         {
-            TranslateMenu(barManager1.Items);
+            TranslateMenu(barManager1);
         }
 
         #region ShowNotification
@@ -288,6 +288,7 @@ namespace MessageBoard.Forms
             catch(Exception ex)
             {
                 XtraMessageBox.Show(ex.Message);
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
             }
         }
         #endregion

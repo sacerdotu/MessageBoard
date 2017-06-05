@@ -1,4 +1,6 @@
-﻿namespace MessageBoard.Forms
+﻿using MessageBoard.Translate;
+
+namespace MessageBoard.Forms
 {
     partial class AddCommentsForm
     {
@@ -28,8 +30,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAddNewComment = new DevExpress.XtraEditors.SimpleButton();
-            this.lblAddComment = new DevExpress.XtraEditors.LabelControl();
+            this.btnAddNewComment = new TranslateButton();
+            this.lblAddComment = new TranslateLabel();
             this.rtbComment = new DevExpress.Tutorials.Controls.RichTextBoxEx();
             this.SuspendLayout();
             // 
@@ -92,8 +94,8 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.SimpleButton btnAddNewComment;
-        private DevExpress.XtraEditors.LabelControl lblAddComment;
+        private TranslateButton btnAddNewComment;
+        private TranslateLabel lblAddComment;
         private DevExpress.Tutorials.Controls.RichTextBoxEx rtbComment;
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace MessageBoard.Forms
+﻿using MessageBoard.Translate;
+
+namespace MessageBoard.Forms
 {
     partial class AddPostForm
     {
@@ -28,13 +30,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAddPost = new DevExpress.XtraEditors.SimpleButton();
-            this.lblAddPost = new DevExpress.XtraEditors.LabelControl();
+            this.btnAddPost = new TranslateButton();
+            this.lblAddPost = new TranslateLabel();
             this.rtbPost = new DevExpress.Tutorials.Controls.RichTextBoxEx();
-            this.lblText = new DevExpress.XtraEditors.LabelControl();
-            this.lblImage = new DevExpress.XtraEditors.LabelControl();
+            this.lblText = new TranslateLabel();
+            this.lblImage = new TranslateLabel();
             this.imgPost = new DevExpress.XtraEditors.PictureEdit();
-            this.btnBrowse = new DevExpress.XtraEditors.SimpleButton();
+            this.btnBrowse = new TranslateButton();
             ((System.ComponentModel.ISupportInitialize)(this.imgPost.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -151,12 +153,12 @@
         }
 
         #endregion
-        private DevExpress.XtraEditors.SimpleButton btnAddPost;
-        private DevExpress.XtraEditors.LabelControl lblAddPost;
+        private TranslateButton btnAddPost;
+        private TranslateLabel lblAddPost;
         private DevExpress.Tutorials.Controls.RichTextBoxEx rtbPost;
-        private DevExpress.XtraEditors.LabelControl lblText;
-        private DevExpress.XtraEditors.LabelControl lblImage;
+        private TranslateLabel lblText;
+        private TranslateLabel lblImage;
         private DevExpress.XtraEditors.PictureEdit imgPost;
-        private DevExpress.XtraEditors.SimpleButton btnBrowse;
+        private TranslateButton btnBrowse;
     }
 }

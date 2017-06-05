@@ -50,6 +50,7 @@ namespace MessageBoard.Forms
             catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message);
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
             }
         }
         #endregion

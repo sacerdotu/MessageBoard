@@ -15,7 +15,7 @@ namespace MessageBoardController
 {
     public class LoginController
     {
-        private int _userID;
+        private int _userID = -1;
         private ILoginForm _form;
         private IMessageBoardService _service;
 
@@ -50,18 +50,18 @@ namespace MessageBoardController
                 }
                 else
                 {
-                    var user = _service.CheckUserAndPassword(username);
-                    if (user != null)
+                    var user = _service.CheckUserAndPassword(username, password);
+                    if (user != null && user.UserID > 0)
                     {
-                        string generatedPassword = HashHelper.GetHash(password, user.PasswordSalt);
-                        if (generatedPassword != null && generatedPassword == user.PasswordHash)
-                        {
+                        //string generatedPassword = HashHelper.GetHash(password, user.PasswordSalt);
+                        //if (generatedPassword != null && generatedPassword == user.PasswordHash)
+                        //{
                             _userID = user.UserID;                            
-                        }
-                        else
-                        {
-                            _userID = -1;
-                        }
+                        //}
+                        //else
+                        //{
+                        //    _userID = -1;
+                        //}
                     }
                     else
                     {

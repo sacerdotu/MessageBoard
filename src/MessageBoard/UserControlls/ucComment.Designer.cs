@@ -1,4 +1,6 @@
-﻿namespace MessageBoard.UserControlls
+﻿using MessageBoard.Translate;
+
+namespace MessageBoard.UserControlls
 {
     partial class ucComment
     {
@@ -33,7 +35,7 @@
             this.imgProfilePicture = new DevExpress.XtraEditors.PictureEdit();
             this.lblUsername = new DevExpress.XtraEditors.LabelControl();
             this.richCommentContent = new DevExpress.Tutorials.Controls.RichTextBoxEx();
-            this.btnQuote = new DevExpress.XtraEditors.SimpleButton();
+            this.btnQuote = new TranslateButton();
             ((System.ComponentModel.ISupportInitialize)(this.grpComment)).BeginInit();
             this.grpComment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlInfoComment)).BeginInit();
@@ -147,7 +149,7 @@
         private DevExpress.XtraEditors.GroupControl grpComment;
         private DevExpress.XtraEditors.PanelControl pnlInfoComment;
         private DevExpress.XtraEditors.LabelControl lblUsername;
-        private DevExpress.XtraEditors.SimpleButton btnQuote;
+        private TranslateButton btnQuote;
         private DevExpress.XtraEditors.PictureEdit imgProfilePicture;
         private DevExpress.Tutorials.Controls.RichTextBoxEx richCommentContent;
     }

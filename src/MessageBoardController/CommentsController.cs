@@ -136,8 +136,8 @@ namespace MessageBoardController
             try
             {
                 _notificationPopUpTimer.Change(Timeout.Infinite, Timeout.Infinite);
-                _notifications = _service.GetInsertedCommentsNotifications(_lastCommentID, _post.PostID);
-
+                _notifications = _service.GetInsertedCommentsNotifications(_lastCommentID, _post.PostID, AppGlobalVariables.AppGlobalVariables.Instance.UserID);
+                _lastCommentID = _notifications.Max(x => x.CommentID);
                 ShowNotifications();
                 _notificationPopUpTimer.Change(_checkNotificationsInterval, _checkNotificationsInterval);
             }

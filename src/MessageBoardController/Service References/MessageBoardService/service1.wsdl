@@ -956,11 +956,11 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/MessageBoardDTO" />
-      <xsd:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/MessageBoardCommon" />
-      <xsd:import schemaLocation="" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/MessageBoardDTO" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/MessageBoardCommon" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IMessageBoardService_InsertNewUser_InputMessage">

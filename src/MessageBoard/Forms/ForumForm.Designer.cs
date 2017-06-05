@@ -1,4 +1,6 @@
-﻿namespace MessageBoard.Forms
+﻿using MessageBoard.Translate;
+
+namespace MessageBoard.Forms
 {
     partial class ForumForm
     {
@@ -29,19 +31,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btnBack = new DevExpress.XtraEditors.SimpleButton();
-            this.btnAddPost = new DevExpress.XtraEditors.SimpleButton();
-            this.grdDisplayPosts = new DevExpress.XtraGrid.GridControl();
-            this.viewDisplayPosts = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colPostText = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnBack = new TranslateButton();
+            this.btnAddPost = new TranslateButton();
+            this.grdDisplayPosts = new TranslateGridControl();
+            this.viewDisplayPosts = new TranslateGridView();
+            this.colPostText = new TranslateGridColumn();
             this.repPostText = new DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit();
-            this.colIsPublished = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCreationDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colUsername = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colLastCommentDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIsPublished = new TranslateGridColumn();
+            this.colCreationDate = new TranslateGridColumn();
+            this.colName = new TranslateGridColumn();
+            this.colUsername = new TranslateGridColumn();
+            this.colLastCommentDate = new TranslateGridColumn();
             this.repCommentDate = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager1 = new TranslateBarManager();
             this.barMainMenu = new DevExpress.XtraBars.Bar();
             this.barMenu = new DevExpress.XtraBars.BarSubItem();
             this.barChangePassword = new DevExpress.XtraBars.BarButtonItem();
@@ -124,7 +126,7 @@
             // 
             this.viewDisplayPosts.Appearance.FocusedCell.Options.UseTextOptions = true;
             this.viewDisplayPosts.Appearance.FocusedCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.viewDisplayPosts.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.viewDisplayPosts.Columns.AddRange(new TranslateGridColumn[] {
             this.colPostText,
             this.colIsPublished,
             this.colCreationDate,
@@ -408,18 +410,18 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.SimpleButton btnBack;
-        private DevExpress.XtraEditors.SimpleButton btnAddPost;
-        private DevExpress.XtraGrid.GridControl grdDisplayPosts;
-        private DevExpress.XtraGrid.Views.Grid.GridView viewDisplayPosts;
-        private DevExpress.XtraGrid.Columns.GridColumn colPostText;
-        private DevExpress.XtraGrid.Columns.GridColumn colIsPublished;
-        private DevExpress.XtraGrid.Columns.GridColumn colCreationDate;
-        private DevExpress.XtraGrid.Columns.GridColumn colName;
-        private DevExpress.XtraGrid.Columns.GridColumn colUsername;
+        private TranslateButton btnBack;
+        private TranslateButton btnAddPost;
+        private TranslateGridControl grdDisplayPosts;
+        private TranslateGridView viewDisplayPosts;
+        private TranslateGridColumn colPostText;
+        private TranslateGridColumn colIsPublished;
+        private TranslateGridColumn colCreationDate;
+        private TranslateGridColumn colName;
+        private TranslateGridColumn colUsername;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repCommentDate;
-        private DevExpress.XtraGrid.Columns.GridColumn colLastCommentDate;
-        private DevExpress.XtraBars.BarManager barManager1;
+        private TranslateGridColumn colLastCommentDate;
+        private TranslateBarManager barManager1;
         private DevExpress.XtraBars.Bar barMainMenu;
         private DevExpress.XtraBars.BarSubItem barMenu;
         private DevExpress.XtraBars.BarButtonItem barChangePassword;

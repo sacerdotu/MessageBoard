@@ -48,6 +48,7 @@ namespace MessageBoard.Forms
             catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message);
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
             }
         }
         #endregion
@@ -78,7 +79,8 @@ namespace MessageBoard.Forms
 
         #region btnBrowse
         private void btnBrowse_Click(object sender, EventArgs e)
-        {try
+        {
+            try
             {
                 OpenFileDialog openFile = new OpenFileDialog();
                 openFile.Filter = "jpeg|*.jpg|bmp|*.bmp|all files|*.*";
@@ -101,6 +103,7 @@ namespace MessageBoard.Forms
             catch (MessageBoardException ex)
             {
                 ex.WriteErrorMessage();
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
             }
         }
         #endregion

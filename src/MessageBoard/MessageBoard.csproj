@@ -203,6 +203,25 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Translate\ITranslatable.cs" />
+    <Compile Include="Translate\TranslateBarManager.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Translate\TranslateButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Translate\TranslateGridColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Translate\TranslateGridControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Translate\TranslateGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Translate\TranslateLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UserControlls\ucComment.cs">
       <SubType>UserControl</SubType>
     </Compile>

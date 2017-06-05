@@ -22,10 +22,10 @@ namespace MessageBoardController.MessageBoardService {
         System.Threading.Tasks.Task<bool> InsertNewUserAsync(MessageBoardDTO.UserDTO user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/CheckUserAndPassword", ReplyAction="http://tempuri.org/IMessageBoardService/CheckUserAndPasswordResponse")]
-        MessageBoardDTO.UserDTO CheckUserAndPassword(string username);
+        MessageBoardDTO.UserDTO CheckUserAndPassword(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/CheckUserAndPassword", ReplyAction="http://tempuri.org/IMessageBoardService/CheckUserAndPasswordResponse")]
-        System.Threading.Tasks.Task<MessageBoardDTO.UserDTO> CheckUserAndPasswordAsync(string username);
+        System.Threading.Tasks.Task<MessageBoardDTO.UserDTO> CheckUserAndPasswordAsync(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/FillUsersGrid", ReplyAction="http://tempuri.org/IMessageBoardService/FillUsersGridResponse")]
         System.Collections.Generic.List<MessageBoardDTO.UserDTO> FillUsersGrid();
@@ -112,10 +112,10 @@ namespace MessageBoardController.MessageBoardService {
         System.Threading.Tasks.Task UpdateUserLanguageAsync(int userID, string languageName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/GetInsertedCommentsNotifications", ReplyAction="http://tempuri.org/IMessageBoardService/GetInsertedCommentsNotificationsResponse")]
-        System.Collections.Generic.List<MessageBoardDTO.CommentDTO> GetInsertedCommentsNotifications(int lastCommentID, int postID);
+        System.Collections.Generic.List<MessageBoardDTO.CommentDTO> GetInsertedCommentsNotifications(int lastCommentID, int postID, int userID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/GetInsertedCommentsNotifications", ReplyAction="http://tempuri.org/IMessageBoardService/GetInsertedCommentsNotificationsResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardDTO.CommentDTO>> GetInsertedCommentsNotificationsAsync(int lastCommentID, int postID);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardDTO.CommentDTO>> GetInsertedCommentsNotificationsAsync(int lastCommentID, int postID, int userID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/GetInsertedPostsNotifications", ReplyAction="http://tempuri.org/IMessageBoardService/GetInsertedPostsNotificationsResponse")]
         System.Collections.Generic.List<MessageBoardDTO.PostDTO> GetInsertedPostsNotifications(int lastPostID);
@@ -167,12 +167,12 @@ namespace MessageBoardController.MessageBoardService {
             return base.Channel.InsertNewUserAsync(user);
         }
         
-        public MessageBoardDTO.UserDTO CheckUserAndPassword(string username) {
-            return base.Channel.CheckUserAndPassword(username);
+        public MessageBoardDTO.UserDTO CheckUserAndPassword(string username, string password) {
+            return base.Channel.CheckUserAndPassword(username, password);
         }
         
-        public System.Threading.Tasks.Task<MessageBoardDTO.UserDTO> CheckUserAndPasswordAsync(string username) {
-            return base.Channel.CheckUserAndPasswordAsync(username);
+        public System.Threading.Tasks.Task<MessageBoardDTO.UserDTO> CheckUserAndPasswordAsync(string username, string password) {
+            return base.Channel.CheckUserAndPasswordAsync(username, password);
         }
         
         public System.Collections.Generic.List<MessageBoardDTO.UserDTO> FillUsersGrid() {
@@ -287,12 +287,12 @@ namespace MessageBoardController.MessageBoardService {
             return base.Channel.UpdateUserLanguageAsync(userID, languageName);
         }
         
-        public System.Collections.Generic.List<MessageBoardDTO.CommentDTO> GetInsertedCommentsNotifications(int lastCommentID, int postID) {
-            return base.Channel.GetInsertedCommentsNotifications(lastCommentID, postID);
+        public System.Collections.Generic.List<MessageBoardDTO.CommentDTO> GetInsertedCommentsNotifications(int lastCommentID, int postID, int userID) {
+            return base.Channel.GetInsertedCommentsNotifications(lastCommentID, postID, userID);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardDTO.CommentDTO>> GetInsertedCommentsNotificationsAsync(int lastCommentID, int postID) {
-            return base.Channel.GetInsertedCommentsNotificationsAsync(lastCommentID, postID);
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardDTO.CommentDTO>> GetInsertedCommentsNotificationsAsync(int lastCommentID, int postID, int userID) {
+            return base.Channel.GetInsertedCommentsNotificationsAsync(lastCommentID, postID, userID);
         }
         
         public System.Collections.Generic.List<MessageBoardDTO.PostDTO> GetInsertedPostsNotifications(int lastPostID) {

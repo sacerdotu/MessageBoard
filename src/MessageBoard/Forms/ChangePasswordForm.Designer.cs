@@ -1,4 +1,6 @@
-﻿namespace MessageBoard.Forms
+﻿using MessageBoard.Translate;
+
+namespace MessageBoard.Forms
 {
     partial class ChangePasswordForm
     {
@@ -30,10 +32,10 @@
         {
             this.txtPassword = new DevExpress.XtraEditors.TextEdit();
             this.txtConfirmPassword = new DevExpress.XtraEditors.TextEdit();
-            this.btnChangePassword = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.lblConfirmPassword = new DevExpress.XtraEditors.LabelControl();
-            this.lblChangePassword = new DevExpress.XtraEditors.LabelControl();
+            this.btnChangePassword = new TranslateButton();
+            this.labelControl1 = new TranslateLabel();
+            this.lblConfirmPassword = new TranslateLabel();
+            this.lblChangePassword = new TranslateLabel();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConfirmPassword.Properties)).BeginInit();
             this.SuspendLayout();
@@ -146,9 +148,9 @@
         #endregion
         private DevExpress.XtraEditors.TextEdit txtPassword;
         private DevExpress.XtraEditors.TextEdit txtConfirmPassword;
-        private DevExpress.XtraEditors.SimpleButton btnChangePassword;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.LabelControl lblConfirmPassword;
-        private DevExpress.XtraEditors.LabelControl lblChangePassword;
+        private TranslateButton btnChangePassword;
+        private TranslateLabel labelControl1;
+        private TranslateLabel lblConfirmPassword;
+        private TranslateLabel lblChangePassword;
     }
 }

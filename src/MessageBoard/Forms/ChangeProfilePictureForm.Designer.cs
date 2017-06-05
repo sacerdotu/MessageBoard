@@ -1,4 +1,6 @@
-﻿namespace MessageBoard.Forms
+﻿using MessageBoard.Translate;
+
+namespace MessageBoard.Forms
 {
     partial class ChangeProfilePictureForm
     {
@@ -28,10 +30,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnBrowse = new DevExpress.XtraEditors.SimpleButton();
-            this.lblChangeProfilePicture = new DevExpress.XtraEditors.LabelControl();
+            this.btnBrowse = new TranslateButton();
+            this.lblChangeProfilePicture = new TranslateLabel();
             this.imgProfilePicture = new DevExpress.XtraEditors.PictureEdit();
-            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSave = new TranslateButton();
             ((System.ComponentModel.ISupportInitialize)(this.imgProfilePicture.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,9 +116,9 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.SimpleButton btnBrowse;
-        private DevExpress.XtraEditors.LabelControl lblChangeProfilePicture;
+        private TranslateButton btnBrowse;
+        private TranslateLabel lblChangeProfilePicture;
         private DevExpress.XtraEditors.PictureEdit imgProfilePicture;
-        private DevExpress.XtraEditors.SimpleButton btnSave;
+        private TranslateButton btnSave;
     }
 }

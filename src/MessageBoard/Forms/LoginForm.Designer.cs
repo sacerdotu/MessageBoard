@@ -1,4 +1,6 @@
-﻿namespace MessageBoard
+﻿using MessageBoard.Translate;
+
+namespace MessageBoard
 {
     partial class LoginForm
     {
@@ -28,13 +30,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
+            this.btnLogin = new TranslateButton();
             this.hplRegister = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.txtUsername = new DevExpress.XtraEditors.TextEdit();
             this.txtPassword = new DevExpress.XtraEditors.TextEdit();
-            this.lblUsername = new DevExpress.XtraEditors.LabelControl();
-            this.lblPassword = new DevExpress.XtraEditors.LabelControl();
-            this.lblLogin = new DevExpress.XtraEditors.LabelControl();
+            this.lblUsername = new TranslateLabel();
+            this.lblPassword = new TranslateLabel();
+            this.lblLogin = new TranslateLabel();
             ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
             this.SuspendLayout();
@@ -168,13 +170,13 @@
         }
 
         #endregion
-        private DevExpress.XtraEditors.SimpleButton btnLogin;
+        private TranslateButton btnLogin;
         private DevExpress.XtraEditors.HyperlinkLabelControl hplRegister;
         private DevExpress.XtraEditors.TextEdit txtUsername;
         private DevExpress.XtraEditors.TextEdit txtPassword;
-        private DevExpress.XtraEditors.LabelControl lblUsername;
-        private DevExpress.XtraEditors.LabelControl lblPassword;
-        private DevExpress.XtraEditors.LabelControl lblLogin;
+        private TranslateLabel lblUsername;
+        private TranslateLabel lblPassword;
+        private TranslateLabel lblLogin;
     }
 }
 

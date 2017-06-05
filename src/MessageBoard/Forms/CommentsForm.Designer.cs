@@ -1,4 +1,6 @@
-﻿namespace MessageBoard.Forms
+﻿using MessageBoard.Translate;
+
+namespace MessageBoard.Forms
 {
     partial class CommentsForm
     {
@@ -28,20 +30,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnBack = new DevExpress.XtraEditors.SimpleButton();
+            this.btnBack = new TranslateButton();
             this.panelPost = new DevExpress.XtraEditors.PanelControl();
             this.imgPost = new DevExpress.XtraEditors.PictureEdit();
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
-            this.lblNewComments = new DevExpress.XtraEditors.LabelControl();
+            this.lblNewComments = new TranslateLabel();
             this.richPostContent = new DevExpress.Tutorials.Controls.RichTextBoxEx();
-            this.lblPost = new DevExpress.XtraEditors.LabelControl();
+            this.lblPost = new TranslateLabel();
             this.lblDate = new DevExpress.XtraEditors.LabelControl();
             this.lblAuthor = new DevExpress.XtraEditors.LabelControl();
             this.panelCommnets = new DevExpress.XtraEditors.PanelControl();
             this.xtraScrollableControl = new DevExpress.XtraEditors.XtraScrollableControl();
             this.ucComments = new MessageBoard.UserControlls.ucComment();
             this.pnlbuttons = new DevExpress.XtraEditors.PanelControl();
-            this.btnReplyPost = new DevExpress.XtraEditors.SimpleButton();
+            this.btnReplyPost = new TranslateButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelPost)).BeginInit();
             this.panelPost.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgPost.Properties)).BeginInit();
@@ -261,19 +263,19 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.SimpleButton btnBack;
+        private TranslateButton btnBack;
         private DevExpress.XtraEditors.PanelControl panelPost;
         private DevExpress.XtraEditors.PanelControl panelCommnets;
         private DevExpress.XtraEditors.XtraScrollableControl xtraScrollableControl;
         private DevExpress.XtraEditors.LabelControl lblDate;
         private DevExpress.XtraEditors.LabelControl lblAuthor;
-        private DevExpress.XtraEditors.LabelControl lblPost;
+        private TranslateLabel lblPost;
         private UserControlls.ucComment ucComments;
         private DevExpress.XtraEditors.XtraScrollableControl xtraScrollableControl1;
         private DevExpress.XtraEditors.PanelControl pnlbuttons;
-        private DevExpress.XtraEditors.SimpleButton btnReplyPost;
+        private TranslateButton btnReplyPost;
         private DevExpress.XtraEditors.PictureEdit imgPost;
         private DevExpress.Tutorials.Controls.RichTextBoxEx richPostContent;
-        private DevExpress.XtraEditors.LabelControl lblNewComments;
+        private TranslateLabel lblNewComments;
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace MessageBoard
+﻿using MessageBoard.Translate;
+
+namespace MessageBoard
 {
     partial class ucUserInformations
     {
@@ -32,24 +34,24 @@
             this.txtLastName = new DevExpress.XtraEditors.TextEdit();
             this.txtCountry = new DevExpress.XtraEditors.TextEdit();
             this.txtCity = new DevExpress.XtraEditors.TextEdit();
-            this.lblFirstName = new DevExpress.XtraEditors.LabelControl();
-            this.lblLastName = new DevExpress.XtraEditors.LabelControl();
-            this.lblCountry = new DevExpress.XtraEditors.LabelControl();
-            this.lblCity = new DevExpress.XtraEditors.LabelControl();
-            this.lblFunction = new DevExpress.XtraEditors.LabelControl();
+            this.lblFirstName = new TranslateLabel();
+            this.lblLastName = new TranslateLabel();
+            this.lblCountry = new TranslateLabel();
+            this.lblCity = new TranslateLabel();
+            this.lblFunction = new TranslateLabel();
             this.cmbFunction = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.lblProfilePicture = new DevExpress.XtraEditors.LabelControl();
-            this.lblUsername = new DevExpress.XtraEditors.LabelControl();
-            this.lblPassword = new DevExpress.XtraEditors.LabelControl();
-            this.lblConfirmPassword = new DevExpress.XtraEditors.LabelControl();
+            this.lblProfilePicture = new TranslateLabel();
+            this.lblUsername = new TranslateLabel();
+            this.lblPassword = new TranslateLabel();
+            this.lblConfirmPassword = new TranslateLabel();
             this.txtUsername = new DevExpress.XtraEditors.TextEdit();
             this.txtPassword = new DevExpress.XtraEditors.TextEdit();
             this.txtConfirmPassword = new DevExpress.XtraEditors.TextEdit();
             this.chkAdministrator = new DevExpress.XtraEditors.CheckEdit();
             this.chkActive = new DevExpress.XtraEditors.CheckEdit();
             this.dateRegisterDate = new DevExpress.XtraEditors.DateEdit();
-            this.lblRegisterDate = new DevExpress.XtraEditors.LabelControl();
-            this.btnBrowse = new DevExpress.XtraEditors.SimpleButton();
+            this.lblRegisterDate = new TranslateLabel();
+            this.btnBrowse = new TranslateButton();
             this.imgProfilePicture = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFirstName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLastName.Properties)).BeginInit();
@@ -433,24 +435,24 @@
         private DevExpress.XtraEditors.TextEdit txtLastName;
         private DevExpress.XtraEditors.TextEdit txtCountry;
         private DevExpress.XtraEditors.TextEdit txtCity;
-        private DevExpress.XtraEditors.LabelControl lblFirstName;
-        private DevExpress.XtraEditors.LabelControl lblLastName;
-        private DevExpress.XtraEditors.LabelControl lblCountry;
-        private DevExpress.XtraEditors.LabelControl lblCity;
-        private DevExpress.XtraEditors.LabelControl lblFunction;
+        private TranslateLabel lblFirstName;
+        private TranslateLabel lblLastName;
+        private TranslateLabel lblCountry;
+        private TranslateLabel lblCity;
+        private TranslateLabel lblFunction;
         private DevExpress.XtraEditors.ComboBoxEdit cmbFunction;
-        private DevExpress.XtraEditors.LabelControl lblProfilePicture;
-        private DevExpress.XtraEditors.LabelControl lblUsername;
-        private DevExpress.XtraEditors.LabelControl lblPassword;
-        private DevExpress.XtraEditors.LabelControl lblConfirmPassword;
+        private TranslateLabel lblProfilePicture;
+        private TranslateLabel lblUsername;
+        private TranslateLabel lblPassword;
+        private TranslateLabel lblConfirmPassword;
         private DevExpress.XtraEditors.TextEdit txtUsername;
         private DevExpress.XtraEditors.TextEdit txtPassword;
         private DevExpress.XtraEditors.TextEdit txtConfirmPassword;
         private DevExpress.XtraEditors.CheckEdit chkAdministrator;
         private DevExpress.XtraEditors.CheckEdit chkActive;
         private DevExpress.XtraEditors.DateEdit dateRegisterDate;
-        private DevExpress.XtraEditors.LabelControl lblRegisterDate;
-        private DevExpress.XtraEditors.SimpleButton btnBrowse;
+        private TranslateLabel lblRegisterDate;
+        private TranslateButton btnBrowse;
         private DevExpress.XtraEditors.PictureEdit imgProfilePicture;
     }
 }

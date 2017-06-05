@@ -21,8 +21,6 @@ namespace MessageBoard
             AppGlobalVariables.Instance.GetTranslations = true;
             AppGlobalVariables.Instance.GetForms();
             AppGlobalVariables.Instance.IsForTranslation = true;
-            //Proxy callback = new Proxy();
-            //callback.CreateProxy();
             Application.Run(new LoginForm());          
         }
     }

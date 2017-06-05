@@ -96,6 +96,11 @@ namespace MessageBoard.Forms
             {
                 ex.WriteErrorMessage();
             }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
+            }
         }
         #endregion
 
@@ -117,8 +122,15 @@ namespace MessageBoard.Forms
                 uc.GrpComment.Text = comment.CreationDate.ToString();
                 uc.LblUsername.Text = comment.tblUser.Username;
                 uc.RichCommentContent.Text = comment.CommentContent;
-                uc.ImgProfilePicture.Image = ConvertImage.ByteArrayToImage(comment.tblUser.ProfileImage);
-                uc.CommentID = comment.CommentID;
+                if (comment.tblUser.ProfileImage != null)
+                {
+                    uc.ImgProfilePicture.Image = ConvertImage.ByteArrayToImage(comment.tblUser.ProfileImage);
+                }
+                else
+                {
+                    uc.ImgProfilePicture.Image = null;
+                }
+                    uc.CommentID = comment.CommentID;
                 ScrCommentControl.Controls.Add(uc);
                 uc.Location = new Point(x, 3 + uc.Height * y);
                 uc.Size = new Size(UcWidth - x, 190);
@@ -132,6 +144,7 @@ namespace MessageBoard.Forms
             catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message);
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
             }
         }
         #endregion
@@ -204,6 +217,7 @@ namespace MessageBoard.Forms
             catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message);
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
             }
         }
         #endregion

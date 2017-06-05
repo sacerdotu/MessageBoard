@@ -3,6 +3,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
+using MessageBoard.Translate;
 using MessageBoardCommon;
 using MessageBoardController;
 using MessageBoardController.AppGlobalVariables;
@@ -21,7 +22,7 @@ namespace MessageBoard.Forms
     {
         private Form _form;
         private BaseFormController _controller;
-
+        
         #region Constructor
         public BaseForm()
         {
@@ -50,28 +51,13 @@ namespace MessageBoard.Forms
                 formControls = GetAllControls(_form.Controls, formControls);
                 foreach (var control in formControls)
                 {
-                    if (control is GridControl)
+                    if(control is ITranslatable)
                     {
-                        GridControl gridControl = (GridControl)control;
-                        foreach (GridColumn column in ((GridView)gridControl.MainView).Columns)
-                        {
-                            string ctrlName = _form.Name + control.Name + column.Name;
-                            TranslationDTO translation = translations.FirstOrDefault(x => x.TranslationKey == ctrlName);
-                            if (translation != null)
-                            {
-                                column.Caption = translation.Translation.Trim();
-                            }
-                        }
+                        ((ITranslatable)control).Translate(this);
                     }
-                    else
-                    {
-                        string ctrlName = _form.Name + control.Name;
-                        TranslationDTO translation = translations.FirstOrDefault(x => x.TranslationKey == ctrlName);
-                        if (translation != null)
-                        {
-                            control.Text = translation.Translation.Trim();
-                        }
-                    }
+                    //MethodInfo method = control.GetType().GetMethod("Translate", BindingFlags.Public | BindingFlags.Instance);
+                    //if(method != null)
+                    //method.Invoke(control, new object[] { this });
                 }
             }
             catch (MessageBoardException ex)
@@ -81,24 +67,19 @@ namespace MessageBoard.Forms
             catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message);
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
             }
         }
         #endregion
 
         #region TranslateMenu
-        public void TranslateMenu(BarItems barItem)
+        public void TranslateMenu(BarManager barManager)
         {
             try
             {
-                List<TranslationDTO> translations = AppGlobalVariables.Instance.Translations;
-                foreach (BarItem item in barItem)
+                if (barManager is ITranslatable)
                 {
-                    string ctrlName = _form.Name + item.Name;
-                    TranslationDTO translation = translations.FirstOrDefault(x => x.TranslationKey == ctrlName);
-                    if (translation != null)
-                    {
-                        item.Caption = translation.Translation.Trim();
-                    }
+                    ((ITranslatable)barManager).Translate(this);
                 }
             }
             catch (MessageBoardException ex)
@@ -108,6 +89,7 @@ namespace MessageBoard.Forms
             catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message);
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
             }
 
         }
@@ -118,7 +100,7 @@ namespace MessageBoard.Forms
         {
             foreach (Control control in controls)
             {
-                if (control.HasChildren && !(control is DevExpress.XtraGrid.GridControl))
+                if (control.HasChildren && !(control is GridControl))
                 {
                     GetAllControls(control.Controls, controlList);
                 }
@@ -185,6 +167,7 @@ namespace MessageBoard.Forms
             catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message);
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
                 return null;
             }
         }
@@ -207,10 +190,9 @@ namespace MessageBoard.Forms
             catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message);
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
             }
         }
         #endregion
-
-
     }
 }

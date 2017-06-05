@@ -1,4 +1,6 @@
-﻿namespace MessageBoard
+﻿using MessageBoard.Translate;
+
+namespace MessageBoard
 {
     partial class UserDetailsForm
     {
@@ -28,7 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnBack = new DevExpress.XtraEditors.SimpleButton();
+            this.btnBack = new TranslateButton();
             this.ucUserInformations1 = new MessageBoard.ucUserInformations();
             this.SuspendLayout();
             // 
@@ -76,6 +78,6 @@
         #endregion
 
         private ucUserInformations ucUserInformations1;
-        private DevExpress.XtraEditors.SimpleButton btnBack;
+        private TranslateButton btnBack;
     }
 }

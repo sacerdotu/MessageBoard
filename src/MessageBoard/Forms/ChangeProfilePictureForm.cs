@@ -58,6 +58,13 @@ namespace MessageBoard.Forms
             catch (MessageBoardException ex)
             {
                 ex.WriteErrorMessage();
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
+
             }
         }
         #endregion
@@ -76,6 +83,7 @@ namespace MessageBoard.Forms
             catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message);
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
             }
         }
         #endregion
@@ -87,12 +95,18 @@ namespace MessageBoard.Forms
             {
                 _controller.GetProfilePicture();
                 BaseForm_Load(this);
-                lblChangeProfilePicture.Location = new POINT(this.Width / 2 - lblChangeProfilePicture.Width / 2, lblChangeProfilePicture.Location.Y); 
+                lblChangeProfilePicture.Location = new POINT(this.Width / 2 - lblChangeProfilePicture.Width / 2, lblChangeProfilePicture.Location.Y);
 
             }
             catch (MessageBoardException ex)
             {
                 ex.WriteErrorMessage();
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
             }
         }
         #endregion
@@ -114,6 +128,13 @@ namespace MessageBoard.Forms
             catch (MessageBoardException ex)
             {
                 ex.WriteErrorMessage();
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
                 return false;
             }
         }

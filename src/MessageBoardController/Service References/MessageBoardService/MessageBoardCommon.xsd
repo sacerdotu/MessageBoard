@@ -11,6 +11,7 @@
       <xs:element minOccurs="0" name="DateAdded" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="DateModified" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="LanguageID" type="xs:int" />
+      <xs:element minOccurs="0" name="LanguageName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Translation" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TranslationID" type="xs:int" />
       <xs:element minOccurs="0" name="TranslationKey" nillable="true" type="xs:string" />

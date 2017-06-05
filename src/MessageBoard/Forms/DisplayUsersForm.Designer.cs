@@ -1,4 +1,6 @@
-﻿namespace MessageBoard.Forms
+﻿using MessageBoard.Translate;
+
+namespace MessageBoard.Forms
 {
     partial class DisplayUsersForm
     {
@@ -29,23 +31,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DisplayUsersForm));
-            this.grdDisplayUsers = new DevExpress.XtraGrid.GridControl();
-            this.viewDisplayUsers = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colUserID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colLastName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colUsername = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCountry = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCity = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colFunction = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colIsAdministrator = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grdDisplayUsers = new TranslateGridControl();
+            this.viewDisplayUsers = new TranslateGridView();
+            this.colUserID = new TranslateGridColumn();
+            this.colFirstName = new TranslateGridColumn();
+            this.colLastName = new TranslateGridColumn();
+            this.colUsername = new TranslateGridColumn();
+            this.colCountry = new TranslateGridColumn();
+            this.colCity = new TranslateGridColumn();
+            this.colFunction = new TranslateGridColumn();
+            this.colIsAdministrator = new TranslateGridColumn();
             this.repIsAdministrator = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.colIsActive = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIsActive = new TranslateGridColumn();
             this.repIsActive = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.colAccountCreationDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnBack = new DevExpress.XtraEditors.SimpleButton();
-            this.btnSaveChanges = new DevExpress.XtraEditors.SimpleButton();
-            this.lblViewUsers = new DevExpress.XtraEditors.LabelControl();
+            this.colAccountCreationDate = new TranslateGridColumn();
+            this.btnBack = new TranslateButton();
+            this.btnSaveChanges = new TranslateButton();
+            this.lblViewUsers = new TranslateLabel();
             ((System.ComponentModel.ISupportInitialize)(this.grdDisplayUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewDisplayUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repIsAdministrator)).BeginInit();
@@ -71,7 +73,7 @@
             // 
             // viewDisplayUsers
             // 
-            this.viewDisplayUsers.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.viewDisplayUsers.Columns.AddRange(new TranslateGridColumn[] {
             this.colUserID,
             this.colFirstName,
             this.colLastName,
@@ -285,23 +287,23 @@
 
         #endregion
 
-        private DevExpress.XtraGrid.GridControl grdDisplayUsers;
-        private DevExpress.XtraGrid.Views.Grid.GridView viewDisplayUsers;
-        private DevExpress.XtraGrid.Columns.GridColumn colUserID;
-        private DevExpress.XtraGrid.Columns.GridColumn colFirstName;
-        private DevExpress.XtraGrid.Columns.GridColumn colLastName;
-        private DevExpress.XtraGrid.Columns.GridColumn colUsername;
-        private DevExpress.XtraGrid.Columns.GridColumn colCountry;
-        private DevExpress.XtraGrid.Columns.GridColumn colCity;
-        private DevExpress.XtraGrid.Columns.GridColumn colFunction;
-        private DevExpress.XtraGrid.Columns.GridColumn colIsAdministrator;
+        private TranslateGridControl grdDisplayUsers;
+        private TranslateGridView viewDisplayUsers;
+        private TranslateGridColumn colUserID;
+        private TranslateGridColumn colFirstName;
+        private TranslateGridColumn colLastName;
+        private TranslateGridColumn colUsername;
+        private TranslateGridColumn colCountry;
+        private TranslateGridColumn colCity;
+        private TranslateGridColumn colFunction;
+        private TranslateGridColumn colIsAdministrator;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repIsAdministrator;
-        private DevExpress.XtraGrid.Columns.GridColumn colIsActive;
+        private TranslateGridColumn colIsActive;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repIsActive;
-        private DevExpress.XtraGrid.Columns.GridColumn colAccountCreationDate;
-        private DevExpress.XtraEditors.SimpleButton btnBack;
-        private DevExpress.XtraEditors.SimpleButton btnSaveChanges;
-        private DevExpress.XtraEditors.LabelControl lblViewUsers;
+        private TranslateGridColumn colAccountCreationDate;
+        private TranslateButton btnBack;
+        private TranslateButton btnSaveChanges;
+        private TranslateLabel lblViewUsers;
         // private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

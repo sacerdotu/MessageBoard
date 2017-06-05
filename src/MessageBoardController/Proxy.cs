@@ -35,7 +35,6 @@ namespace MessageBoardController
         {
             InstanceContext context = new InstanceContext(this);
             _proxy = new MessageBoardServiceClient(context);
-            var response = _proxy.CheckUserAndPassword("Andrei");
         }
     }
 }
