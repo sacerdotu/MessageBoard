@@ -30,20 +30,19 @@ namespace MessageBoard.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.btnBack = new TranslateButton();
-            this.btnAddPost = new TranslateButton();
-            this.grdDisplayPosts = new TranslateGridControl();
-            this.viewDisplayPosts = new TranslateGridView();
-            this.colPostText = new TranslateGridColumn();
+            this.btnBack = new MessageBoard.Translate.TranslateButton();
+            this.btnAddPost = new MessageBoard.Translate.TranslateButton();
+            this.grdDisplayPosts = new MessageBoard.Translate.TranslateGridControl();
+            this.viewDisplayPosts = new MessageBoard.Translate.TranslateGridView();
+            this.colPostText = new MessageBoard.Translate.TranslateGridColumn();
             this.repPostText = new DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit();
-            this.colIsPublished = new TranslateGridColumn();
-            this.colCreationDate = new TranslateGridColumn();
-            this.colName = new TranslateGridColumn();
-            this.colUsername = new TranslateGridColumn();
-            this.colLastCommentDate = new TranslateGridColumn();
+            this.colIsPublished = new MessageBoard.Translate.TranslateGridColumn();
+            this.colCreationDate = new MessageBoard.Translate.TranslateGridColumn();
+            this.colName = new MessageBoard.Translate.TranslateGridColumn();
+            this.colUsername = new MessageBoard.Translate.TranslateGridColumn();
+            this.colLastCommentDate = new MessageBoard.Translate.TranslateGridColumn();
             this.repCommentDate = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
-            this.barManager1 = new TranslateBarManager();
+            this.barManager1 = new MessageBoard.Translate.TranslateBarManager();
             this.barMainMenu = new DevExpress.XtraBars.Bar();
             this.barMenu = new DevExpress.XtraBars.BarSubItem();
             this.barChangePassword = new DevExpress.XtraBars.BarButtonItem();
@@ -60,6 +59,7 @@ namespace MessageBoard.Forms
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barToolbarsListItem1 = new DevExpress.XtraBars.BarToolbarsListItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barReports = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.grdDisplayPosts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewDisplayPosts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repPostText)).BeginInit();
@@ -126,7 +126,7 @@ namespace MessageBoard.Forms
             // 
             this.viewDisplayPosts.Appearance.FocusedCell.Options.UseTextOptions = true;
             this.viewDisplayPosts.Appearance.FocusedCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.viewDisplayPosts.Columns.AddRange(new TranslateGridColumn[] {
+            this.viewDisplayPosts.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colPostText,
             this.colIsPublished,
             this.colCreationDate,
@@ -153,6 +153,7 @@ namespace MessageBoard.Forms
             this.colPostText.Name = "colPostText";
             this.colPostText.OptionsColumn.AllowEdit = false;
             this.colPostText.OptionsColumn.ReadOnly = true;
+            this.colPostText.TranslateName = null;
             this.colPostText.Visible = true;
             this.colPostText.VisibleIndex = 0;
             // 
@@ -168,6 +169,7 @@ namespace MessageBoard.Forms
             this.colIsPublished.Name = "colIsPublished";
             this.colIsPublished.OptionsColumn.AllowEdit = false;
             this.colIsPublished.OptionsColumn.ReadOnly = true;
+            this.colIsPublished.TranslateName = null;
             this.colIsPublished.Visible = true;
             this.colIsPublished.VisibleIndex = 1;
             // 
@@ -178,6 +180,7 @@ namespace MessageBoard.Forms
             this.colCreationDate.Name = "colCreationDate";
             this.colCreationDate.OptionsColumn.AllowEdit = false;
             this.colCreationDate.OptionsColumn.ReadOnly = true;
+            this.colCreationDate.TranslateName = null;
             this.colCreationDate.Visible = true;
             this.colCreationDate.VisibleIndex = 2;
             // 
@@ -188,6 +191,7 @@ namespace MessageBoard.Forms
             this.colName.Name = "colName";
             this.colName.OptionsColumn.AllowEdit = false;
             this.colName.OptionsColumn.ReadOnly = true;
+            this.colName.TranslateName = null;
             this.colName.Visible = true;
             this.colName.VisibleIndex = 3;
             // 
@@ -198,6 +202,7 @@ namespace MessageBoard.Forms
             this.colUsername.Name = "colUsername";
             this.colUsername.OptionsColumn.AllowEdit = false;
             this.colUsername.OptionsColumn.ReadOnly = true;
+            this.colUsername.TranslateName = null;
             this.colUsername.Visible = true;
             this.colUsername.VisibleIndex = 4;
             // 
@@ -212,6 +217,7 @@ namespace MessageBoard.Forms
             this.colLastCommentDate.Name = "colLastCommentDate";
             this.colLastCommentDate.OptionsColumn.AllowEdit = false;
             this.colLastCommentDate.OptionsColumn.ReadOnly = true;
+            this.colLastCommentDate.TranslateName = null;
             this.colLastCommentDate.Visible = true;
             this.colLastCommentDate.VisibleIndex = 5;
             // 
@@ -244,9 +250,10 @@ namespace MessageBoard.Forms
             this.barButtonItem2,
             this.barEnglish,
             this.barFrench,
-            this.barSyncLanguage});
+            this.barSyncLanguage,
+            this.barReports});
             this.barManager1.MainMenu = this.barMainMenu;
-            this.barManager1.MaxItemId = 15;
+            this.barManager1.MaxItemId = 16;
             // 
             // barMainMenu
             // 
@@ -272,7 +279,8 @@ namespace MessageBoard.Forms
             new DevExpress.XtraBars.LinkPersistInfo(this.barChangeProfilePicture),
             new DevExpress.XtraBars.LinkPersistInfo(this.barUserInformation),
             new DevExpress.XtraBars.LinkPersistInfo(this.barLanguage),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSyncLanguage)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSyncLanguage),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barReports)});
             this.barMenu.Name = "barMenu";
             // 
             // barChangePassword
@@ -376,6 +384,13 @@ namespace MessageBoard.Forms
             this.barButtonItem2.Id = 11;
             this.barButtonItem2.Name = "barButtonItem2";
             // 
+            // barReports
+            // 
+            this.barReports.Caption = "Reports";
+            this.barReports.Id = 15;
+            this.barReports.Name = "barReports";
+            this.barReports.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barReports_ItemClick);
+            // 
             // ForumForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -439,5 +454,6 @@ namespace MessageBoard.Forms
         private DevExpress.XtraBars.BarToolbarsListItem barToolbarsListItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem barSyncLanguage;
+        private DevExpress.XtraBars.BarButtonItem barReports;
     }
 }

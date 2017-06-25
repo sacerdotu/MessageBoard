@@ -292,5 +292,14 @@ namespace MessageBoard.Forms
             }
         }
         #endregion
+
+        #region barReports
+        private void barReports_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ReportsForm form = new ReportsForm();
+            form.Show();
+            this.Close();
+        }
+        #endregion
     }
 }

@@ -30,13 +30,13 @@ namespace MessageBoard.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAddPost = new TranslateButton();
-            this.lblAddPost = new TranslateLabel();
+            this.btnAddPost = new MessageBoard.Translate.TranslateButton();
+            this.lblAddPost = new MessageBoard.Translate.TranslateLabel();
             this.rtbPost = new DevExpress.Tutorials.Controls.RichTextBoxEx();
-            this.lblText = new TranslateLabel();
-            this.lblImage = new TranslateLabel();
+            this.lblText = new MessageBoard.Translate.TranslateLabel();
+            this.lblImage = new MessageBoard.Translate.TranslateLabel();
             this.imgPost = new DevExpress.XtraEditors.PictureEdit();
-            this.btnBrowse = new TranslateButton();
+            this.btnBrowse = new MessageBoard.Translate.TranslateButton();
             ((System.ComponentModel.ISupportInitialize)(this.imgPost.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +62,7 @@ namespace MessageBoard.Forms
             this.lblAddPost.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.lblAddPost.Appearance.Options.UseFont = true;
             this.lblAddPost.Appearance.Options.UseForeColor = true;
-            this.lblAddPost.Location = new System.Drawing.Point(82, 12);
+            this.lblAddPost.Location = new System.Drawing.Point(117, 12);
             this.lblAddPost.Name = "lblAddPost";
             this.lblAddPost.Size = new System.Drawing.Size(163, 45);
             this.lblAddPost.TabIndex = 14;

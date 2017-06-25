@@ -51,7 +51,6 @@
       <HintPath>..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MessageBoardCommon1, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -100,11 +99,13 @@
     <Compile Include="Interfaces\ILoginForm.cs" />
     <Compile Include="Interfaces\IMainForm.cs" />
     <Compile Include="Interfaces\IRegisterForm.cs" />
+    <Compile Include="Interfaces\IReportsForm.cs" />
     <Compile Include="Interfaces\IUserDetailsForm.cs" />
     <Compile Include="LoginController.cs" />
     <Compile Include="Proxy.cs" />
     <Compile Include="RegisterController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportsController.cs" />
     <Compile Include="Service References\MessageBoardService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

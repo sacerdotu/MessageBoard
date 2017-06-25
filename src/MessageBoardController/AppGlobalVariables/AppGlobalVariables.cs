@@ -73,6 +73,7 @@ namespace MessageBoardController.AppGlobalVariables
             Forms.Add(Constants.ForumForm);
             Forms.Add(Constants.LoginForm);
             Forms.Add(Constants.RegisterForm);
+            Forms.Add(Constants.ReportsForm);
             Forms.Add(Constants.UserDetailsForm);
         }
     }

@@ -52,16 +52,8 @@ namespace MessageBoardController
                 {
                     var user = _service.CheckUserAndPassword(username, password);
                     if (user != null && user.UserID > 0)
-                    {
-                        //string generatedPassword = HashHelper.GetHash(password, user.PasswordSalt);
-                        //if (generatedPassword != null && generatedPassword == user.PasswordHash)
-                        //{
+                    {                      
                             _userID = user.UserID;                            
-                        //}
-                        //else
-                        //{
-                        //    _userID = -1;
-                        //}
                     }
                     else
                     {

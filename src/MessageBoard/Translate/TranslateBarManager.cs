@@ -9,7 +9,7 @@ namespace MessageBoard.Translate
     {
         public void Translate(BaseForm form)
         {
-            foreach (BarItem item in this.Items)
+            foreach (BarItem item in Items)
             {
                 string ctrlName = form.Name + item.Name;
                 var translation = AppGlobalVariables.Instance.Translations.FirstOrDefault(x => x.TranslationKey == ctrlName);

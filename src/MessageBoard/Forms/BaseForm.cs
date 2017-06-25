@@ -155,6 +155,7 @@ namespace MessageBoard.Forms
                 AddControls.Add("ForumFormbarEnglish", "English");
                 AddControls.Add("ForumFormbarFrench", "French");
                 AddControls.Add("ForumFormbarSyncLanguage", "Sync Language");
+                AddControls.Add("ForumFormbarReports", "Reports");
 
 
                 return AddControls;
