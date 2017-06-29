@@ -118,6 +118,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\MessageBoardCommon.ReportResponseDTO.datasource" />
     <None Include="Properties\DataSources\MessageBoardCommon.TranslationDTO.datasource" />
     <None Include="Properties\DataSources\MessageBoardDTO.CommentDTO.datasource" />
     <None Include="Properties\DataSources\MessageBoardDTO.PostDTO.datasource" />

@@ -30,8 +30,15 @@ namespace MessageBoard.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.grdReport = new DevExpress.XtraGrid.GridControl();
+            this.viewReport = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colUserID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFullName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUsername = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCountry = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCity = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNrOfPosts = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNrOfComments = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dateStartDate = new DevExpress.XtraEditors.DateEdit();
             this.dateEndDate = new DevExpress.XtraEditors.DateEdit();
             this.lblSortBy = new DevExpress.XtraEditors.LabelControl();
@@ -41,8 +48,8 @@ namespace MessageBoard.Forms
             this.chkComments = new DevExpress.XtraEditors.CheckEdit();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
             this.btnBack = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateStartDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateStartDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEndDate.Properties.CalendarTimeProperties)).BeginInit();
@@ -51,20 +58,86 @@ namespace MessageBoard.Forms
             ((System.ComponentModel.ISupportInitialize)(this.chkComments.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // gridControl1
+            // grdReport
             // 
-            this.gridControl1.Location = new System.Drawing.Point(202, 12);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(587, 303);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.grdReport.Location = new System.Drawing.Point(202, 12);
+            this.grdReport.MainView = this.viewReport;
+            this.grdReport.Name = "grdReport";
+            this.grdReport.Size = new System.Drawing.Size(587, 303);
+            this.grdReport.TabIndex = 0;
+            this.grdReport.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.viewReport});
             // 
-            // gridView1
+            // viewReport
             // 
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
+            this.viewReport.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colUserID,
+            this.colFullName,
+            this.colUsername,
+            this.colCountry,
+            this.colCity,
+            this.colNrOfPosts,
+            this.colNrOfComments});
+            this.viewReport.GridControl = this.grdReport;
+            this.viewReport.Name = "viewReport";
+            this.viewReport.OptionsView.ShowAutoFilterRow = true;
+            this.viewReport.OptionsView.ShowGroupPanel = false;
+            // 
+            // colUserID
+            // 
+            this.colUserID.Caption = "UserID";
+            this.colUserID.FieldName = "UserID";
+            this.colUserID.Name = "colUserID";
+            this.colUserID.Visible = true;
+            this.colUserID.VisibleIndex = 0;
+            // 
+            // colFullName
+            // 
+            this.colFullName.Caption = "Name";
+            this.colFullName.FieldName = "FullName";
+            this.colFullName.Name = "colFullName";
+            this.colFullName.Visible = true;
+            this.colFullName.VisibleIndex = 1;
+            // 
+            // colUsername
+            // 
+            this.colUsername.Caption = "Username";
+            this.colUsername.FieldName = "Username";
+            this.colUsername.Name = "colUsername";
+            this.colUsername.Visible = true;
+            this.colUsername.VisibleIndex = 2;
+            // 
+            // colCountry
+            // 
+            this.colCountry.Caption = "Country";
+            this.colCountry.FieldName = "Country";
+            this.colCountry.Name = "colCountry";
+            this.colCountry.Visible = true;
+            this.colCountry.VisibleIndex = 3;
+            // 
+            // colCity
+            // 
+            this.colCity.Caption = "City";
+            this.colCity.FieldName = "City";
+            this.colCity.Name = "colCity";
+            this.colCity.Visible = true;
+            this.colCity.VisibleIndex = 4;
+            // 
+            // colNrOfPosts
+            // 
+            this.colNrOfPosts.Caption = "Posts";
+            this.colNrOfPosts.FieldName = "NrOfPosts";
+            this.colNrOfPosts.Name = "colNrOfPosts";
+            this.colNrOfPosts.Visible = true;
+            this.colNrOfPosts.VisibleIndex = 5;
+            // 
+            // colNrOfComments
+            // 
+            this.colNrOfComments.Caption = "Comments";
+            this.colNrOfComments.FieldName = "NrOfComments";
+            this.colNrOfComments.Name = "colNrOfComments";
+            this.colNrOfComments.Visible = true;
+            this.colNrOfComments.VisibleIndex = 6;
             // 
             // dateStartDate
             // 
@@ -180,13 +253,13 @@ namespace MessageBoard.Forms
             this.Controls.Add(this.lblSortBy);
             this.Controls.Add(this.dateEndDate);
             this.Controls.Add(this.dateStartDate);
-            this.Controls.Add(this.gridControl1);
+            this.Controls.Add(this.grdReport);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ReportsForm";
             this.Text = "ReportsForm";
             this.Load += new System.EventHandler(this.ReportsForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateStartDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateStartDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEndDate.Properties.CalendarTimeProperties)).EndInit();
@@ -212,8 +285,8 @@ namespace MessageBoard.Forms
         //private DevExpress.XtraEditors.SimpleButton btnSearch;
         //private DevExpress.XtraEditors.SimpleButton btnBack;
 
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.GridControl grdReport;
+        private DevExpress.XtraGrid.Views.Grid.GridView viewReport;
         //private TranslateLabel lblSortBy;
         //private TranslateCheckEdit chkPosts;
         //private TranslateCheckEdit chkComments;
@@ -226,6 +299,13 @@ namespace MessageBoard.Forms
         private DevExpress.XtraEditors.CheckEdit chkComments;
         private DevExpress.XtraEditors.SimpleButton btnSearch;
         private DevExpress.XtraEditors.SimpleButton btnBack;
+        private DevExpress.XtraGrid.Columns.GridColumn colUserID;
+        private DevExpress.XtraGrid.Columns.GridColumn colFullName;
+        private DevExpress.XtraGrid.Columns.GridColumn colUsername;
+        private DevExpress.XtraGrid.Columns.GridColumn colCountry;
+        private DevExpress.XtraGrid.Columns.GridColumn colCity;
+        private DevExpress.XtraGrid.Columns.GridColumn colNrOfPosts;
+        private DevExpress.XtraGrid.Columns.GridColumn colNrOfComments;
         //private TranslateLabel lblStartDate;
         //private TranslateLabel lblEndDate;
         //private TranslateButton btnSearch;

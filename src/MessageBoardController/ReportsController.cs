@@ -27,10 +27,19 @@ namespace MessageBoardController
         #endregion
 
         #region
-        public void GetReport(ReportRequestDTO request)
+        public List<ReportResponseDTO> GetReport(ReportRequestDTO request)
         {
-            ReportResponseDTO response = new ReportResponseDTO();
-            //response = _service.GetReport(request);
+            try
+            {
+                List<ReportResponseDTO> response = new List<ReportResponseDTO>();
+                response = _service.GetReport(request);
+                return response;
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + ": " + ex.Message + "\n" + "Stacktrace: " + ex.StackTrace);
+                throw ex;
+            }
         }
         #endregion
     }

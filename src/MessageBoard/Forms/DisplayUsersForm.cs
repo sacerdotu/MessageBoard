@@ -8,6 +8,7 @@ using MessageBoardCommon;
 using DevExpress.XtraGrid.Views.Base;
 using MessageBoardController.AppGlobalVariables;
 using static DevExpress.Office.PInvoke.Win32;
+using System.Windows.Forms;
 
 namespace MessageBoard.Forms
 {

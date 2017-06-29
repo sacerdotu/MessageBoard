@@ -122,6 +122,12 @@ namespace MessageBoardController.MessageBoardService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/GetInsertedPostsNotifications", ReplyAction="http://tempuri.org/IMessageBoardService/GetInsertedPostsNotificationsResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardDTO.PostDTO>> GetInsertedPostsNotificationsAsync(int lastPostID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/GetReport", ReplyAction="http://tempuri.org/IMessageBoardService/GetReportResponse")]
+        System.Collections.Generic.List<MessageBoardCommon.ReportResponseDTO> GetReport(MessageBoardCommon.ReportRequestDTO request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageBoardService/GetReport", ReplyAction="http://tempuri.org/IMessageBoardService/GetReportResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardCommon.ReportResponseDTO>> GetReportAsync(MessageBoardCommon.ReportRequestDTO request);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -301,6 +307,14 @@ namespace MessageBoardController.MessageBoardService {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardDTO.PostDTO>> GetInsertedPostsNotificationsAsync(int lastPostID) {
             return base.Channel.GetInsertedPostsNotificationsAsync(lastPostID);
+        }
+        
+        public System.Collections.Generic.List<MessageBoardCommon.ReportResponseDTO> GetReport(MessageBoardCommon.ReportRequestDTO request) {
+            return base.Channel.GetReport(request);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MessageBoardCommon.ReportResponseDTO>> GetReportAsync(MessageBoardCommon.ReportRequestDTO request) {
+            return base.Channel.GetReportAsync(request);
         }
     }
 }

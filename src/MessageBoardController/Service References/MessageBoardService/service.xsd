@@ -252,10 +252,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/MessageBoardCommon" minOccurs="0" name="request" nillable="true" type="q17:ReportRequestDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/MessageBoardCommon" minOccurs="0" name="GetReportResult" nillable="true" type="q18:ArrayOfReportResponseDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ShowNotification">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/MessageBoardDTO" minOccurs="0" name="comment" nillable="true" type="q17:CommentDTO" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/MessageBoardDTO" minOccurs="0" name="comment" nillable="true" type="q19:CommentDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -18,4 +18,33 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="TranslationDTO" nillable="true" type="tns:TranslationDTO" />
+  <xs:complexType name="ReportRequestDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RequestForComment" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RequestForPost" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReportRequestDTO" nillable="true" type="tns:ReportRequestDTO" />
+  <xs:complexType name="ArrayOfReportResponseDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReportResponseDTO" nillable="true" type="tns:ReportResponseDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReportResponseDTO" nillable="true" type="tns:ArrayOfReportResponseDTO" />
+  <xs:complexType name="ReportResponseDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CommentCreationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NrOfComments" type="xs:int" />
+      <xs:element minOccurs="0" name="NrOfPosts" type="xs:int" />
+      <xs:element minOccurs="0" name="PostCreationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReportResponseDTO" nillable="true" type="tns:ReportResponseDTO" />
 </xs:schema>
